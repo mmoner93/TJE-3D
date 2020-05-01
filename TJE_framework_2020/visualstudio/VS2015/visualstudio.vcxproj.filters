@@ -63,6 +63,12 @@
     <ClCompile Include="..\..\src\camera.cpp">
       <Filter>mygame</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Stage.cpp">
+      <Filter>Stages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\StagePlay.cpp">
+      <Filter>Stages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -123,6 +129,12 @@
     <ClInclude Include="..\..\src\camera.h">
       <Filter>mygame</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\Stage.h">
+      <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\StagePlay.h">
+      <Filter>Stages</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extra">
@@ -139,6 +151,9 @@
     </Filter>
     <Filter Include="mygame">
       <UniqueIdentifier>{0662d954-0f8a-4a6f-8205-2141a3607c2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stages">
+      <UniqueIdentifier>{a507922d-9e23-45b7-9c50-445dc59d9c3f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

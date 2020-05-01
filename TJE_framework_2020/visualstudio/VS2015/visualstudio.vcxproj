@@ -146,6 +146,8 @@
     <ClCompile Include="..\..\src\mesh.cpp" />
     <ClCompile Include="..\..\src\rendertotexture.cpp" />
     <ClCompile Include="..\..\src\shader.cpp" />
+    <ClCompile Include="..\..\src\Stage.cpp" />
+    <ClCompile Include="..\..\src\StagePlay.cpp" />
     <ClCompile Include="..\..\src\texture.cpp" />
     <ClCompile Include="..\..\src\utils.cpp" />
   </ItemGroup>
@@ -168,6 +170,8 @@
     <ClInclude Include="..\..\src\mesh.h" />
     <ClInclude Include="..\..\src\rendertotexture.h" />
     <ClInclude Include="..\..\src\shader.h" />
+    <ClInclude Include="..\..\src\Stage.h" />
+    <ClInclude Include="..\..\src\StagePlay.h" />
     <ClInclude Include="..\..\src\texture.h" />
     <ClInclude Include="..\..\src\utils.h" />
   </ItemGroup>
