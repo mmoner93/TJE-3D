@@ -1,10 +1,10 @@
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\vc142.pdb
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\vc142.idb
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\texture.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\shader.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\rendertotexture.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\mesh.obj
+c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\material.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\main.obj
+c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\light.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\input.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\framework.obj
@@ -21,11 +21,11 @@ c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\v
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\camera.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\animation.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\utils.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\tritri.obj
+c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\texture.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageplay.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stage.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\game_debug.exe
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\game_debug.pdb
+c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\shader.obj
+c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\tritri.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\..\..\game_debug.exe
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.command.1.tlog
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.read.1.tlog

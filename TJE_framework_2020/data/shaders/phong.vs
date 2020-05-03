@@ -33,7 +33,7 @@ varying float v_matShininess;
 varying mat4 v_model;
 void main()
 {
-	vec3 wPos = (model * vec4( a_vertex, 0.0)).xyz;
+	vec3 wPos = (model * vec4( a_vertex, 1.0)).xyz;
 	vec3 wNormal = (model * vec4( a_normal, 0.0) ).xyz;
 	//get the texture coordinates (per vertex) and pass them to the pixel shader
 	v_coord = a_uv;

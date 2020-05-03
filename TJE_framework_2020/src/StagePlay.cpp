@@ -9,6 +9,8 @@ Shader* shaderFlat = NULL;
 float angle = 0;
 Matrix44 plane_model;
 Matrix44 torpedo_model;
+Matrix44 arbol2_model;
+
 bool attached_torpedo = true;
 Camera* camera;
 Game* gameI = NULL;
@@ -31,12 +33,15 @@ void StagePlay::init() {
 
 	// example of shader loading using the shaders manager
 	shaderBasic = Shader::Get("data/shaders/basic.vs", "data/shaders/texture.fs");
-	shaderFlat = Shader::Get("data/shaders/phong.vs", "data/shaders/phong.ps");
+	shaderFlat = Shader::Get("data/shaders/phong.vs", "data/shaders/phong.fs");
 	//phongShader = Shader::Get("phong.vs", "phong.ps");
-	
+	plane_model.setTranslation(0, 0, 0);
 	torpedo_model.setTranslation(0, -5, 0); 
+	
+	arbol2_model.translate(10, 0, 0);
+	//arbol2_model.translate(60, 60, 60);
 	light = new Light();
-	light->position.set(0, 50, 0);
+	light->position.set(0, 500, 0);
 	material = new Material();
 	//plane_model.scale(50.0f, 50.0f, 50.0f);
 	controlInit = true;
@@ -57,7 +62,7 @@ void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 
 	//upload uniforms
 	shaderFlat->setMatrix44("model", m); //upload info to the shader
-	shaderFlat->setMatrix44("viewprojection", viewprojection); //upload info to the shader
+	shaderFlat->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
 
 	shaderFlat->setTexture("color_texture", texture); //set texture in slot 0
 	//shaderFlat->setTexture("nomal_texture", textureNorrmal, 1); //set texture in slot 1
@@ -68,7 +73,7 @@ void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	light->uploadToShader(shaderFlat);
 	material->uploadToShader(shaderFlat);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES,0);
+	mesh->render(GL_TRIANGLES,1);
 	
 	//disable shader
 	shaderFlat->disable();
@@ -131,20 +136,20 @@ void StagePlay::render()
 	//isla
 	Texture* texture = Texture::Get("data/island/island_color_luz.tga");
 	Mesh* mesh = Mesh::Get("data/island/island.ASE");
-	renderMesh(m, mesh, texture);
+	renderMeshPhong(m, mesh, texture);
 
 	//avion
 	texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
 	mesh = Mesh::Get("data/spitfire/spitfire.ASE");
-	texture = Texture::Get("data/otros/bomber_axis.tga");
+	texture = Texture::Get("data/otros/bomber_axis.tga",false,true);
 	//mesh = Mesh::Get("data/Pirate Kit/Models/OBJ format/boat_large.obj");
 	mesh = Mesh::Get("data/otros/bomber_axis.ASE");
 
 	
-	renderMesh(plane_model, mesh, texture);
+	renderMeshPhong(plane_model, mesh, texture);
 
 	//torpedo
-	texture = Texture::Get("data/trees/leaves_olive.tga");
+	texture = Texture::Get("data/trees/leaves_olive.tga",false,false);
 	
 	mesh = Mesh::Get("data/trees/leaves.obj");
 	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
@@ -152,6 +157,18 @@ void StagePlay::render()
 	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
 
 	renderMeshPhong( torpedo_model , mesh, texture);
+
+
+	texture = Texture::Get("data/trees/leaves_olive.tga",false,true);
+
+	mesh = Mesh::Get("data/trees/leaves.obj");
+	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
+	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
+	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
+
+	
+	renderMeshPhong(arbol2_model, mesh, texture);
+	
 
 	//Draw the floor grid
 	drawGrid();
@@ -214,5 +231,6 @@ void StagePlay::update(double seconds_elapsed)
 
 	if (!attached_torpedo) {
 		torpedo_model.translateGlobal(0, seconds_elapsed * -10, 0);
+		arbol2_model.translateGlobal(0, seconds_elapsed * -10, 0);
 	}
 }
