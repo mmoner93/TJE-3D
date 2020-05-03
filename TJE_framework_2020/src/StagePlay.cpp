@@ -144,9 +144,9 @@ void StagePlay::render()
 	renderMesh(plane_model, mesh, texture);
 
 	//torpedo
-	texture = Texture::Get("data/trees/trunk.tga");
+	texture = Texture::Get("data/trees/leaves_olive.tga");
 	
-	mesh = Mesh::Get("data/trees/trunk.obj");
+	mesh = Mesh::Get("data/trees/leaves.obj");
 	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
 	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
 	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
