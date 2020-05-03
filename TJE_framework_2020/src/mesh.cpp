@@ -1042,7 +1042,7 @@ bool Mesh::loadOBJ(const char* filename)
 			aabb_min.setMin( v );
 			aabb_max.setMax( v );
 		}
-		else if (tokens[0] == "vt" && tokens.size() == 4)
+		else if (tokens[0] == "vt" && tokens.size() >= 3)
 		{
 			Vector2 v((float)atof(tokens[1].c_str()), (float)atof(tokens[2].c_str()) );
 			indexed_uvs.push_back(v);

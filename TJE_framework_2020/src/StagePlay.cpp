@@ -1,8 +1,10 @@
 #include "StagePlay.h"
-
+#include "material.h"
+#include "light.h"
 //some globals
 Shader* shaderBasic = NULL;
 Shader* shaderFlat = NULL;
+
 //Animation* anim = NULL;
 float angle = 0;
 Matrix44 plane_model;
@@ -10,7 +12,10 @@ Matrix44 torpedo_model;
 bool attached_torpedo = true;
 Camera* camera;
 Game* gameI = NULL;
-
+Material* material = NULL;
+Matrix44 viewprojection;
+Light* light = NULL;
+Vector3 ambientLight(0.2, 0.2, 0.2);
 void StagePlay::init() {
 
 	gameI = Game::instance;
@@ -26,9 +31,13 @@ void StagePlay::init() {
 
 	// example of shader loading using the shaders manager
 	shaderBasic = Shader::Get("data/shaders/basic.vs", "data/shaders/texture.fs");
-	shaderFlat = Shader::Get("data/shaders/basic.vs", "data/shaders/flat.fs");
-	torpedo_model.setTranslation(0, -5, 0); 
+	shaderFlat = Shader::Get("data/shaders/phong.vs", "data/shaders/phong.ps");
+	//phongShader = Shader::Get("phong.vs", "phong.ps");
 	
+	torpedo_model.setTranslation(0, -5, 0); 
+	light = new Light();
+	light->position.set(0, 50, 0);
+	material = new Material();
 	//plane_model.scale(50.0f, 50.0f, 50.0f);
 	controlInit = true;
 	
@@ -36,9 +45,9 @@ void StagePlay::init() {
 
 
 
-void renderMeshFlat(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
+void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 {
-	if (!shaderBasic)
+	if (!shaderFlat)
 		return;
 
 	Camera* camera = Camera::current;
@@ -47,12 +56,19 @@ void renderMeshFlat(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	shaderFlat->enable();
 
 	//upload uniforms
-	shaderFlat->setUniform("u_color", Vector4(1, 1, 1, 1));
-	shaderFlat->setUniform("u_viewprojection", camera->viewprojection_matrix);
-	shaderFlat->setUniform("u_texture", texture);
-	shaderFlat->setUniform("u_model", m);
+	shaderFlat->setMatrix44("model", m); //upload info to the shader
+	shaderFlat->setMatrix44("viewprojection", viewprojection); //upload info to the shader
+
+	shaderFlat->setTexture("color_texture", texture); //set texture in slot 0
+	//shaderFlat->setTexture("nomal_texture", textureNorrmal, 1); //set texture in slot 1
+
+
+	shaderFlat->setUniform3("positionCamera", camera->eye);
+	shaderFlat->setUniform3("lightAmbient", ambientLight);
+	light->uploadToShader(shaderFlat);
+	material->uploadToShader(shaderFlat);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES, 1);
+	mesh->render(GL_TRIANGLES,0);
 	
 	//disable shader
 	shaderFlat->disable();
@@ -111,7 +127,7 @@ void StagePlay::render()
 
 	//create model matrix for cube
 	Matrix44 m;
-
+	viewprojection = camera->viewprojection_matrix;
 	//isla
 	Texture* texture = Texture::Get("data/island/island_color_luz.tga");
 	Mesh* mesh = Mesh::Get("data/island/island.ASE");
@@ -128,12 +144,14 @@ void StagePlay::render()
 	renderMesh(plane_model, mesh, texture);
 
 	//torpedo
-	texture = Texture::Get("data/torpedo.tga");
+	texture = Texture::Get("data/trees/trunk.tga");
 	
-	mesh = Mesh::Get("data/export (3).obj");
+	mesh = Mesh::Get("data/trees/trunk.obj");
 	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
 	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
-	//renderMeshFlat(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
+	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
+
+	renderMeshPhong( torpedo_model , mesh, texture);
 
 	//Draw the floor grid
 	drawGrid();
