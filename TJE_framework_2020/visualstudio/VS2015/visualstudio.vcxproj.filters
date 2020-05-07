@@ -71,6 +71,7 @@
     </ClCompile>
     <ClCompile Include="..\..\src\light.cpp" />
     <ClCompile Include="..\..\src\material.cpp" />
+    <ClCompile Include="..\..\src\GameMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -139,6 +140,7 @@
     </ClInclude>
     <ClInclude Include="..\..\src\light.h" />
     <ClInclude Include="..\..\src\material.h" />
+    <ClInclude Include="..\..\src\GameMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extra">

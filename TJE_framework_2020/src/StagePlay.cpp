@@ -1,6 +1,8 @@
 #include "StagePlay.h"
 #include "material.h"
 #include "light.h"
+#include "GameMap.h"
+
 //some globals
 Shader* shaderBasic = NULL;
 Shader* shaderFlat = NULL;
@@ -17,7 +19,10 @@ Game* gameI = NULL;
 Material* material = NULL;
 Matrix44 viewprojection;
 Light* light = NULL;
-Vector3 ambientLight(0.2, 0.2, 0.2);
+Vector3 ambientLight(0.0, 0.0, 0.0);
+Matrix44 mLigth;
+GameMap* map=NULL ;
+
 void StagePlay::init() {
 
 	gameI = Game::instance;
@@ -41,11 +46,20 @@ void StagePlay::init() {
 	arbol2_model.translate(10, 0, 0);
 	//arbol2_model.translate(60, 60, 60);
 	light = new Light();
-	light->position.set(0, 500, 0);
+	light->position.set(100, 2, 60);
+	light->specular_color.set(1.0f, 1.0f, 1.0f);
+	light->diffuse_color.set(1.0f, 1.0f, 1.0f);
 	material = new Material();
 	//plane_model.scale(50.0f, 50.0f, 50.0f);
+
+	map = new GameMap(128,128);
+	map->loadMapWithMap("data/myMaps/mymap.map");
 	controlInit = true;
-	
+	//mLigth.setIdentity();
+	mLigth.scale(0.01, 0.01, 0.01);
+	mLigth.translateGlobal(100, 2, 60);
+	//plane_model.scale(20, 20, 20);
+
 }
 
 
@@ -73,7 +87,7 @@ void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	light->uploadToShader(shaderFlat);
 	material->uploadToShader(shaderFlat);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES,1);
+	mesh->render(GL_TRIANGLES,0);
 	
 	//disable shader
 	shaderFlat->disable();
@@ -95,11 +109,68 @@ void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	shaderBasic->setUniform("u_texture", texture);
 	shaderBasic->setUniform("u_model", m);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES, 1);
+	mesh->render(GL_TRIANGLES, 0);
 
 	//disable shader
 	shaderBasic->disable();
 }
+
+
+void paintMap() {
+
+	Texture *texture = Texture::Get("data/white.tga", false, false);
+
+	 Mesh * mesh = Mesh::Get("data/sphere.ASE");
+	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
+	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
+	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
+
+	 if (!shaderFlat)
+		 return;
+
+	 Camera* camera = Camera::current;
+
+	 //enable shader
+	 shaderFlat->enable();
+
+
+
+	 texture = Texture::Get("data/trees/leaves_olive.tga", false, false);
+
+	 mesh = Mesh::Get("data/trees/leaves.obj");
+
+	 for (int x = 0; x < map->width; ++x)
+		 for (int y = 0; y < map->height; ++y)
+		 {
+			 //get cell info
+			 sCell& cell = map->getCell(x, y);
+			 if (cell.type == 0) //skip empty
+				 continue;
+			 Matrix44 m;
+
+			 m.translate(x*10, 0, y * 10);
+
+			 shaderFlat->setMatrix44("model", m); //upload info to the shader
+			 shaderFlat->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
+
+			 shaderFlat->setTexture("color_texture", texture); //set texture in slot 0
+			 //shaderFlat->setTexture("nomal_texture", textureNorrmal, 1); //set texture in slot 1
+
+
+			 shaderFlat->setUniform3("positionCamera", camera->eye);
+			 shaderFlat->setUniform3("lightAmbient", ambientLight);
+			 light->uploadToShader(shaderFlat);
+			 material->uploadToShader(shaderFlat);
+			 mesh->render(GL_TRIANGLES, 0);
+			 
+		 }
+
+	
+
+	 //disable shader
+	 shaderFlat->disable();
+}
+
 
 
 void StagePlay::render()
@@ -136,7 +207,7 @@ void StagePlay::render()
 	//isla
 	Texture* texture = Texture::Get("data/island/island_color_luz.tga");
 	Mesh* mesh = Mesh::Get("data/island/island.ASE");
-	renderMeshPhong(m, mesh, texture);
+	renderMesh(m, mesh, texture);
 
 	//avion
 	texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
@@ -166,10 +237,21 @@ void StagePlay::render()
 	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
 	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
 
-	
 	renderMeshPhong(arbol2_model, mesh, texture);
 	
 
+
+
+	texture = Texture::Get("data/white.tga", false, false);
+
+	mesh = Mesh::Get("data/sphere.ASE");
+
+	
+	renderMeshPhong(mLigth, mesh, texture);
+
+
+
+	paintMap();
 	//Draw the floor grid
 	drawGrid();
 
