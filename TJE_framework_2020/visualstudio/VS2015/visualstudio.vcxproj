@@ -128,6 +128,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\animation.cpp" />
     <ClCompile Include="..\..\src\camera.cpp" />
+    <ClCompile Include="..\..\src\EntityConTexture.cpp" />
+    <ClCompile Include="..\..\src\Entityl.cpp" />
+    <ClCompile Include="..\..\src\EntitySinTextura.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\box.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\box_bld.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\coldet.cpp" />
@@ -157,6 +160,10 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\animation.h" />
     <ClInclude Include="..\..\src\camera.h" />
+    <ClInclude Include="..\..\src\Entity.h" />
+    <ClInclude Include="..\..\src\EntityConTexture.h" />
+    <ClInclude Include="..\..\src\EntitySinTextura.h" />
+    <ClInclude Include="..\..\src\enumStructs.h" />
     <ClInclude Include="..\..\src\extra\coldet\box.h" />
     <ClInclude Include="..\..\src\extra\coldet\coldet.h" />
     <ClInclude Include="..\..\src\extra\coldet\coldetimpl.h" />

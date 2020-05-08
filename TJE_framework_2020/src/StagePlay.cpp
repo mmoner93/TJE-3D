@@ -2,11 +2,15 @@
 #include "material.h"
 #include "light.h"
 #include "GameMap.h"
+#include "Entity.h"
+#include "EntityConTexture.h"
+#include "EntitySinTextura.h"
+using namespace std;
 
 //some globals
 Shader* shaderBasic = NULL;
 Shader* shaderFlat = NULL;
-
+Shader* shaderPhong = NULL;
 //Animation* anim = NULL;
 float angle = 0;
 Matrix44 plane_model;
@@ -19,9 +23,53 @@ Game* gameI = NULL;
 Material* material = NULL;
 Matrix44 viewprojection;
 Light* light = NULL;
-Vector3 ambientLight(0.0, 0.0, 0.0);
+
 Matrix44 mLigth;
-GameMap* map=NULL ;
+GameMap* mapGame = NULL;
+vector<Entity*> mapaObjects;
+Vector3 ambientLight(0.0, 0.0, 0.0);
+
+void rellenarEntitys() {
+
+	Entity* temp;
+	Texture* textureTemp;
+	Mesh* MeshTemp;
+	Shader* shaderTemp;
+	for (int i = 0; i < NUM_ENTITIES; i++) {
+		switch (i) {
+		case 0:
+			textureTemp = Texture::Get("data/trees/leaves_olive.tga", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/trees/leaves.obj");
+			temp = new EntityCT(textureTemp, shaderTemp, MeshTemp, 1.0 , material);
+			break;
+		case 1:
+			textureTemp = Texture::Get("data/trees/leaves_poplar.tga", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/trees/leaves.obj");
+			temp = new EntityCT(textureTemp, shaderTemp, MeshTemp, 3.0, material);
+			break;
+		case 2:
+			textureTemp = Texture::Get("data/trees/leaves_poplar_autumn.tga", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/trees/leaves.obj");
+			temp = new EntityCT(textureTemp, shaderTemp, MeshTemp, 7.0, material);
+			break;
+		case 3:
+			textureTemp = Texture::Get("data/white.tga", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/export (1).obj");
+			temp = new EntityCT(textureTemp, shaderTemp, MeshTemp, 5.0, material);
+			break;
+
+		}
+		
+		mapaObjects.push_back(temp);
+	
+	}
+}
+
+
 
 void StagePlay::init() {
 
@@ -38,7 +86,8 @@ void StagePlay::init() {
 
 	// example of shader loading using the shaders manager
 	shaderBasic = Shader::Get("data/shaders/basic.vs", "data/shaders/texture.fs");
-	shaderFlat = Shader::Get("data/shaders/phong.vs", "data/shaders/phong.fs");
+	shaderPhong = Shader::Get("data/shaders/phong.vs", "data/shaders/phong.fs");
+	shaderFlat= Shader::Get("data/shaders/basic.vs", "data/shaders/flat.fs");
 	//phongShader = Shader::Get("phong.vs", "phong.ps");
 	plane_model.setTranslation(0, 0, 0);
 	torpedo_model.setTranslation(0, -5, 0); 
@@ -52,14 +101,14 @@ void StagePlay::init() {
 	material = new Material();
 	//plane_model.scale(50.0f, 50.0f, 50.0f);
 
-	map = new GameMap(128,128);
-	map->loadMapWithMap("data/myMaps/mymap.map");
+	mapGame = new GameMap(128,128);
+	mapGame->loadMapWithMap("data/myMaps/mymap.map");
 	controlInit = true;
 	//mLigth.setIdentity();
 	mLigth.scale(0.01, 0.01, 0.01);
 	mLigth.translateGlobal(100, 2, 60);
 	//plane_model.scale(20, 20, 20);
-
+	rellenarEntitys();
 }
 
 
@@ -72,25 +121,25 @@ void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	Camera* camera = Camera::current;
 
 	//enable shader
-	shaderFlat->enable();
+	shaderPhong->enable();
 
 	//upload uniforms
-	shaderFlat->setMatrix44("model", m); //upload info to the shader
-	shaderFlat->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
+	shaderPhong->setMatrix44("model", m); //upload info to the shader
+	shaderPhong->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
 
-	shaderFlat->setTexture("color_texture", texture); //set texture in slot 0
+	shaderPhong->setTexture("color_texture", texture); //set texture in slot 0
 	//shaderFlat->setTexture("nomal_texture", textureNorrmal, 1); //set texture in slot 1
 
 
-	shaderFlat->setUniform3("positionCamera", camera->eye);
-	shaderFlat->setUniform3("lightAmbient", ambientLight);
+	shaderPhong->setUniform3("positionCamera", camera->eye);
+	shaderPhong->setUniform3("lightAmbient", ambientLight);
 	light->uploadToShader(shaderFlat);
 	material->uploadToShader(shaderFlat);
 	//shader->setUniform("u_time", time);
 	mesh->render(GL_TRIANGLES,0);
 	
 	//disable shader
-	shaderFlat->disable();
+	shaderPhong->disable();
 }
 
 void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
@@ -130,38 +179,27 @@ void paintMap() {
 
 	 Camera* camera = Camera::current;
 
-	 //enable shader
-	 shaderFlat->enable();
+	 
 
 
-
-	 texture = Texture::Get("data/trees/leaves_olive.tga", false, false);
-
-	 mesh = Mesh::Get("data/trees/leaves.obj");
-
-	 for (int x = 0; x < map->width; ++x)
-		 for (int y = 0; y < map->height; ++y)
+	 for (int x = 0; x < mapGame->width; ++x)
+		 for (int y = 0; y < mapGame->height; ++y)
 		 {
 			 //get cell info
-			 sCell& cell = map->getCell(x, y);
+			 sCell& cell = mapGame->getCell(x, y);
 			 if (cell.type == 0) //skip empty
 				 continue;
-			 Matrix44 m;
+			 
+			 if (cell.type > 0 && cell.type <= 3) {
+				 EntityCT* temp = (EntityCT*)mapaObjects[cell.type - 1];
+				 temp->renderConPhong(x,y,light);
+			 }
 
-			 m.translate(x*10, 0, y * 10);
+			 if (cell.type == 4) {
+				 EntityCT* temp = (EntityCT*)mapaObjects[cell.type - 1];
+				 temp->renderConPhong(x, y, light);
+			 }
 
-			 shaderFlat->setMatrix44("model", m); //upload info to the shader
-			 shaderFlat->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
-
-			 shaderFlat->setTexture("color_texture", texture); //set texture in slot 0
-			 //shaderFlat->setTexture("nomal_texture", textureNorrmal, 1); //set texture in slot 1
-
-
-			 shaderFlat->setUniform3("positionCamera", camera->eye);
-			 shaderFlat->setUniform3("lightAmbient", ambientLight);
-			 light->uploadToShader(shaderFlat);
-			 material->uploadToShader(shaderFlat);
-			 mesh->render(GL_TRIANGLES, 0);
 			 
 		 }
 
@@ -219,29 +257,7 @@ void StagePlay::render()
 	
 	renderMeshPhong(plane_model, mesh, texture);
 
-	//torpedo
-	texture = Texture::Get("data/trees/leaves_olive.tga",false,false);
 	
-	mesh = Mesh::Get("data/trees/leaves.obj");
-	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
-	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
-	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
-
-	renderMeshPhong( torpedo_model , mesh, texture);
-
-
-	texture = Texture::Get("data/trees/leaves_olive.tga",false,true);
-
-	mesh = Mesh::Get("data/trees/leaves.obj");
-	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
-	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
-	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
-
-	renderMeshPhong(arbol2_model, mesh, texture);
-	
-
-
-
 	texture = Texture::Get("data/white.tga", false, false);
 
 	mesh = Mesh::Get("data/sphere.ASE");
@@ -249,6 +265,13 @@ void StagePlay::render()
 	
 	renderMeshPhong(mLigth, mesh, texture);
 
+
+	texture = Texture::Get("data/white.tga", false, false);
+
+	mesh = Mesh::Get("data/export (1).obj");
+
+
+	renderMesh(m, mesh, texture);
 
 
 	paintMap();
