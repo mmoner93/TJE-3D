@@ -7,9 +7,12 @@ void Scene::addObject(EntityGameObject* temp) {
 
 
 void Scene::pintarScene() {
-
+	glDisable(GL_DEPTH_TEST);
+	 cielo->renderTilling();
+	glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 	suelo->renderTilling();
-
 
 	for (int i = 0; i < mapaObjects.size(); i++) {
 

@@ -1,17 +1,46 @@
 ﻿  StagePlay.cpp
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(105,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(105,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(185,31): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(345,124): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(346,127): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(347,127): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(348,127): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(349,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(350,85): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(371,47): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(375,52): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(376,51): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(191,31): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(354,124): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(355,127): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(356,127): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(357,127): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(358,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(359,85): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(380,47): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(384,52): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(385,51): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 animation.obj : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/INCREMENTAL:NO'
 LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+utils.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'utils.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+texture.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'texture.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+Stage.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'Stage.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+shader.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'shader.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+rendertotexture.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'rendertotexture.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+mesh.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'mesh.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+material.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'material.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+main.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'main.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+light.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'light.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+input.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'input.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+GameMap.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'GameMap.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+game.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'game.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+framework.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'framework.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+fbo.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'fbo.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+textparser.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'textparser.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+picopng.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'picopng.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+tritri.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'tritri.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+sysdep.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'sysdep.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+mytritri.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'mytritri.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+math3d.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'math3d.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+coldet_bld.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'coldet_bld.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+coldet.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'coldet.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+box_bld.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'box_bld.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+box.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'box.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+Entity.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'Entity.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+EntityMesh.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'EntityMesh.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+EntityLight.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'EntityLight.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+camera.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'camera.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+animation.obj : warning LNK4099: no se encontró PDB 'vc142.pdb' con 'animation.obj' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc142.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
   visualstudio.vcxproj -> C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\visualstudio\VS2015\..\..\game_debug.exe

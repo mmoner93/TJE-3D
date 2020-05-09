@@ -10,11 +10,13 @@ public:
 
 	EntityLight* lightScene;
 	EntityGameObject* suelo;
+	EntityGameObject* cielo;
 	std::vector<EntityGameObject*> mapaObjects;
 
-	Scene(EntityLight* l, EntityGameObject* s) {
+	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci) {
 		lightScene = l;
 		suelo = s;
+		cielo = ci;
 	}
 
 	void addObject(EntityGameObject* temp);

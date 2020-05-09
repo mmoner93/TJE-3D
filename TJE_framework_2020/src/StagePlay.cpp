@@ -146,7 +146,13 @@ void inicializarScena() {
 	EntityGameObject* entityGame= new EntityGameObject(xs, shaderBasic, mesh, material,1.0f,100.0f);
 	
 
-	gameScene = new Scene(ltemp,entityGame);
+	mesh = Mesh::Get("data/space_cubemap.ASE"); 
+
+	xs = Texture::Get("data/hell_cubemap.tga");
+	EntityGameObject* entityGame2 = new EntityGameObject(xs, shaderBasic, mesh, material, 1.0f, 1.0f);
+
+
+	gameScene = new Scene(ltemp,entityGame, entityGame2);
 
 }
 
@@ -196,11 +202,13 @@ void StagePlay::init() {
 
 void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 {
-	if (!shaderFlat)
+	if (!shaderPhong)
 		return;
 
 	Camera* camera = Camera::current;
-
+	glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 	//enable shader
 	shaderPhong->enable();
 
@@ -282,7 +290,7 @@ void StagePlay::render()
 	//isla
 	Texture* texture = Texture::Get("data/island/island_color_luz.tga");
 	Mesh* mesh = Mesh::Get("data/island/island.ASE");
-	renderMesh(m, mesh, texture);
+	
 
 	//avion
 	texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
@@ -309,6 +317,7 @@ void StagePlay::render()
 
 
 	renderMesh(m, mesh, texture);
+
 
 
 	gameScene->pintarScene();
@@ -375,4 +384,9 @@ void StagePlay::update(double seconds_elapsed)
 		torpedo_model.translateGlobal(0, seconds_elapsed * -10, 0);
 		arbol2_model.translateGlobal(0, seconds_elapsed * -10, 0);
 	}
+
+	
+
+	gameScene->cielo->model->setTranslation(camera->center.x, camera->center.y, camera->center.z);
+
 }

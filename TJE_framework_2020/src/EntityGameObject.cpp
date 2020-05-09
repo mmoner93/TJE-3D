@@ -38,9 +38,7 @@ void EntityGameObject::renderTilling() {
 	Camera* camera = Camera::current;
 	Vector3 ambientLight(0.3, 0.3, 0.3);
 	Matrix44 m = *model;
-	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
+	
 	//enable shader
 	shader->enable();
 	
