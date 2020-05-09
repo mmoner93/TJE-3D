@@ -72,9 +72,11 @@
     <ClCompile Include="..\..\src\light.cpp" />
     <ClCompile Include="..\..\src\material.cpp" />
     <ClCompile Include="..\..\src\GameMap.cpp" />
-    <ClCompile Include="..\..\src\Entityl.cpp" />
-    <ClCompile Include="..\..\src\EntityConTexture.cpp" />
-    <ClCompile Include="..\..\src\EntitySinTextura.cpp" />
+    <ClCompile Include="..\..\src\Scene.cpp" />
+    <ClCompile Include="..\..\src\EntityMesh.cpp" />
+    <ClCompile Include="..\..\src\Entity.cpp" />
+    <ClCompile Include="..\..\src\EntityLight.cpp" />
+    <ClCompile Include="..\..\src\EntityGameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -146,8 +148,10 @@
     <ClInclude Include="..\..\src\GameMap.h" />
     <ClInclude Include="..\..\src\enumStructs.h" />
     <ClInclude Include="..\..\src\Entity.h" />
-    <ClInclude Include="..\..\src\EntityConTexture.h" />
-    <ClInclude Include="..\..\src\EntitySinTextura.h" />
+    <ClInclude Include="..\..\src\Scene.h" />
+    <ClInclude Include="..\..\src\EntityMesh.h" />
+    <ClInclude Include="..\..\src\EntityLight.h" />
+    <ClInclude Include="..\..\src\EntityGameObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extra">

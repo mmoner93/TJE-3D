@@ -1,12 +1,12 @@
-#include "EntityConTexture.h"
+#include "EntityMesh.h"
 
 
-void EntityCT::render() {
+void EntityMesh::render() {
 
 }
 
 
-void EntityCT::renderConPhong(float x, float y , Light* light ) {
+void EntityMesh::renderConPhong(float x, float y , Light* light ) {
 
 	Camera* camera = Camera::current;
 	Vector3 ambientLight(0.3, 0.3, 0.3);
@@ -37,7 +37,7 @@ void EntityCT::renderConPhong(float x, float y , Light* light ) {
 
 
 
-void EntityCT::update(float seconds_elapsed) {
+void EntityMesh::update(float seconds_elapsed) {
 
 
 

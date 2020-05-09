@@ -1,31 +1,32 @@
-#ifndef ENTITYSINTEXTURE_H
-#define ENTITYSINTEXTURE_H
+#ifndef ENTITYMESH_H
+#define ENTITYMESH_H
 
 #include "Entity.h" 
 
 #include "mesh.h"
 #include "shader.h"
+#include "texture.h"
 #include "material.h"
 #include "camera.h"
-class EntityST :public Entity
+#include "light.h"
+class EntityMesh :public Entity
 {
 public:
+	Texture* textura=NULL;
 	Shader* shader = NULL;
 	Mesh* mesh = NULL;
 	Material* material = NULL;
-	float scale=1.0f;
-	//Matrix44 modelo;
-
-	EntityST( Shader* s, Mesh* m,float sc, Material* mat) {
-
+	
+	EntityMesh(Texture* t, Shader* s, Mesh* m, Material* mat) {
+		textura = t;
 		shader = s;
 		mesh = m;
-		scale = sc;
 		material = mat;
 	}
 
+
 	 void render();
-	 void renderFlat(float x, float y);
+	 void renderConPhong(float x, float y, Light* light);
 	 void update(float seconds_elapsed);
 
 

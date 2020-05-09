@@ -128,9 +128,10 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\animation.cpp" />
     <ClCompile Include="..\..\src\camera.cpp" />
-    <ClCompile Include="..\..\src\EntityConTexture.cpp" />
-    <ClCompile Include="..\..\src\Entityl.cpp" />
-    <ClCompile Include="..\..\src\EntitySinTextura.cpp" />
+    <ClCompile Include="..\..\src\EntityGameObject.cpp" />
+    <ClCompile Include="..\..\src\EntityLight.cpp" />
+    <ClCompile Include="..\..\src\EntityMesh.cpp" />
+    <ClCompile Include="..\..\src\Entity.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\box.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\box_bld.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\coldet.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="..\..\src\material.cpp" />
     <ClCompile Include="..\..\src\mesh.cpp" />
     <ClCompile Include="..\..\src\rendertotexture.cpp" />
+    <ClCompile Include="..\..\src\Scene.cpp" />
     <ClCompile Include="..\..\src\shader.cpp" />
     <ClCompile Include="..\..\src\Stage.cpp" />
     <ClCompile Include="..\..\src\StagePlay.cpp" />
@@ -161,8 +163,9 @@
     <ClInclude Include="..\..\src\animation.h" />
     <ClInclude Include="..\..\src\camera.h" />
     <ClInclude Include="..\..\src\Entity.h" />
-    <ClInclude Include="..\..\src\EntityConTexture.h" />
-    <ClInclude Include="..\..\src\EntitySinTextura.h" />
+    <ClInclude Include="..\..\src\EntityGameObject.h" />
+    <ClInclude Include="..\..\src\EntityLight.h" />
+    <ClInclude Include="..\..\src\EntityMesh.h" />
     <ClInclude Include="..\..\src\enumStructs.h" />
     <ClInclude Include="..\..\src\extra\coldet\box.h" />
     <ClInclude Include="..\..\src\extra\coldet\coldet.h" />
@@ -182,6 +185,7 @@
     <ClInclude Include="..\..\src\material.h" />
     <ClInclude Include="..\..\src\mesh.h" />
     <ClInclude Include="..\..\src\rendertotexture.h" />
+    <ClInclude Include="..\..\src\Scene.h" />
     <ClInclude Include="..\..\src\shader.h" />
     <ClInclude Include="..\..\src\Stage.h" />
     <ClInclude Include="..\..\src\StagePlay.h" />

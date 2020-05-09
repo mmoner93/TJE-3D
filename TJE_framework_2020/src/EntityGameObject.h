@@ -1,5 +1,5 @@
-#ifndef ENTITYCONTEXTURE_H
-#define ENTITYCONTEXTURE_H
+#ifndef ENTITYGAMEOBJECT_H
+#define ENTITYGAMEOBJECT_H
 
 #include "Entity.h" 
 
@@ -9,24 +9,26 @@
 #include "material.h"
 #include "camera.h"
 #include "light.h"
-class EntityCT :public Entity
+class EntityGameObject :public Entity
 {
 public:
 	Texture* textura=NULL;
 	Shader* shader = NULL;
 	Mesh* mesh = NULL;
 	Material* material = NULL;
-	float scale=1.0f;
-
-	EntityCT(Texture* t, Shader* s, Mesh* m,float sc, Material* mat) {
+	Matrix44* model = NULL;
+	float scale;
+	EntityGameObject(Texture* t, Shader* s, Mesh* m, Material* mat,float sc=1.0) {
 		textura = t;
 		shader = s;
 		mesh = m;
-		scale = sc;
 		material = mat;
+		model = new Matrix44();
+		scale = sc;
 	}
 
-	  void render();
+
+	 virtual void render();
 	 void renderConPhong(float x, float y, Light* light);
 	 void update(float seconds_elapsed);
 

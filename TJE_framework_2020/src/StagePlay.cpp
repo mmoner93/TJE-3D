@@ -3,8 +3,9 @@
 #include "light.h"
 #include "GameMap.h"
 #include "Entity.h"
-#include "EntityConTexture.h"
-#include "EntitySinTextura.h"
+#include "EntityGameObject.h"
+#include "EntityMesh.h"
+#include "Scene.h"
 using namespace std;
 
 //some globals
@@ -28,6 +29,7 @@ Matrix44 mLigth;
 GameMap* mapGame = NULL;
 vector<Entity*> mapaObjects;
 Vector3 ambientLight(0.0, 0.0, 0.0);
+Scene* gameScene=NULL;
 
 void rellenarEntitys() {
 
@@ -41,25 +43,25 @@ void rellenarEntitys() {
 			textureTemp = Texture::Get("data/trees/leaves_olive.tga", false, false);
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
-			temp = new EntityCT(textureTemp, shaderTemp, MeshTemp, 1.0 , material);
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material);
 			break;
 		case 1:
 			textureTemp = Texture::Get("data/trees/leaves_poplar.tga", false, false);
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
-			temp = new EntityCT(textureTemp, shaderTemp, MeshTemp, 3.0, material);
+			temp =  new EntityMesh(textureTemp, shaderTemp, MeshTemp, material);
 			break;
 		case 2:
 			textureTemp = Texture::Get("data/trees/leaves_poplar_autumn.tga", false, false);
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
-			temp = new EntityCT(textureTemp, shaderTemp, MeshTemp, 7.0, material);
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material);
 			break;
 		case 3:
 			textureTemp = Texture::Get("data/white.tga", false, false);
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/export (1).obj");
-			temp = new EntityCT(textureTemp, shaderTemp, MeshTemp, 5.0, material);
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material);
 			break;
 
 		}
@@ -74,7 +76,7 @@ void rellenarEntitys() {
 void StagePlay::init() {
 
 	gameI = Game::instance;
-
+	
 	//OpenGL flags
 	glEnable(GL_CULL_FACE); //render both sides of every triangle
 	glEnable(GL_DEPTH_TEST); //check the occlusions using the Z buffer
@@ -109,6 +111,9 @@ void StagePlay::init() {
 	mLigth.translateGlobal(100, 2, 60);
 	//plane_model.scale(20, 20, 20);
 	rellenarEntitys();
+
+
+
 }
 
 
@@ -190,15 +195,15 @@ void paintMap() {
 			 if (cell.type == 0) //skip empty
 				 continue;
 			 
-			 if (cell.type > 0 && cell.type <= 3) {
-				 EntityCT* temp = (EntityCT*)mapaObjects[cell.type - 1];
-				 temp->renderConPhong(x,y,light);
+			 if (cell.type > 0 && cell.type <= 4) {
+				 EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type - 1];
+				 EntityGameObject* temp = new EntityGameObject(temp->textura, temp->shader, temp->mesh, material, 3.0f );
+				 //temp->renderConPhong(x,y,light);
+				 gameScene->addObject(temp);
+
+
 			 }
 
-			 if (cell.type == 4) {
-				 EntityCT* temp = (EntityCT*)mapaObjects[cell.type - 1];
-				 temp->renderConPhong(x, y, light);
-			 }
 
 			 
 		 }
