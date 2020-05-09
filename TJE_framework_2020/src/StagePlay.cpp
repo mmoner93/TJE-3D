@@ -142,8 +142,8 @@ void inicializarScena() {
 	mesh = new Mesh();
 
 	mesh->createPlane(1000);
-	texture = Texture::Get("data/suelo.tga", true, true);
-	EntityGameObject* entityGame= new EntityGameObject(texture, shaderBasic, mesh, material,1.0f,1.0f);
+	Texture* xs = Texture::Get("data/suelo.tga");
+	EntityGameObject* entityGame= new EntityGameObject(xs, shaderBasic, mesh, material,1.0f,10.0f);
 	
 
 	gameScene = new Scene(ltemp,entityGame);
