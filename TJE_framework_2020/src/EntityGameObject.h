@@ -18,13 +18,15 @@ public:
 	Material* material = NULL;
 	Matrix44* model = NULL;
 	float scale;
-	EntityGameObject(Texture* t, Shader* s, Mesh* m, Material* mat,float sc=1.0) {
+	float tilling;
+	EntityGameObject(Texture* t, Shader* s, Mesh* m, Material* mat,float sc=1.0,float til=1.0) {
 		textura = t;
 		shader = s;
 		mesh = m;
 		material = mat;
 		model = new Matrix44();
 		scale = sc;
+		tilling = til;
 	}
 
 

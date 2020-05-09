@@ -10,13 +10,11 @@ void EntityGameObject::renderConPhong(float x, float y , Light* light ) {
 
 	Camera* camera = Camera::current;
 	Vector3 ambientLight(0.3, 0.3, 0.3);
-	Matrix44 m;
+	Matrix44 m = *model;
 
 	//enable shader
 	shader->enable();
-
-
-	m.translate(x * 10, 0, y * 10);
+	
 	m.scale(scale, scale, scale);
 	shader->setMatrix44("model", m); //upload info to the shader
 	shader->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader

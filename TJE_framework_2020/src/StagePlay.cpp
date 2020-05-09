@@ -73,6 +73,51 @@ void rellenarEntitys() {
 }
 
 
+void LoadMap() {
+
+	Texture* texture = Texture::Get("data/white.tga", false, false);
+
+	Mesh* mesh = Mesh::Get("data/sphere.ASE");
+	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
+	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
+	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
+
+	if (!shaderFlat)
+		return;
+
+	Camera* camera = Camera::current;
+
+
+
+
+	for (int x = 0; x < mapGame->width; ++x)
+		for (int y = 0; y < mapGame->height; ++y)
+		{
+			//get cell info
+			sCell& cell = mapGame->getCell(x, y);
+			if (cell.type == 0) //skip empty
+				continue;
+
+			if (cell.type > 0 && cell.type <= 4) {
+				EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type - 1];
+				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material, 3.0f);
+				//temp->renderConPhong(x,y,light);
+				temp->model->translate(x, 0.0f, y);
+				gameScene->addObject(temp);
+
+
+			}
+
+
+
+		}
+
+
+
+	//disable shader
+	shaderFlat->disable();
+}
+
 
 
 void inicializarScena() {
@@ -194,50 +239,6 @@ void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	shaderBasic->disable();
 }
 
-
-void LoadMap() {
-
-	Texture *texture = Texture::Get("data/white.tga", false, false);
-
-	 Mesh * mesh = Mesh::Get("data/sphere.ASE");
-	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
-	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
-	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
-
-	 if (!shaderFlat)
-		 return;
-
-	 Camera* camera = Camera::current;
-
-	 
-
-
-	 for (int x = 0; x < mapGame->width; ++x)
-		 for (int y = 0; y < mapGame->height; ++y)
-		 {
-			 //get cell info
-			 sCell& cell = mapGame->getCell(x, y);
-			 if (cell.type == 0) //skip empty
-				 continue;
-			 
-			 if (cell.type > 0 && cell.type <= 4) {
-				 EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type - 1];
-				 EntityGameObject* temp = new EntityGameObject(temp->textura, temp->shader, temp->mesh, material, 3.0f );
-				 //temp->renderConPhong(x,y,light);
-				 gameScene->addObject(temp);
-
-
-			 }
-
-
-			 
-		 }
-
-	
-
-	 //disable shader
-	 shaderFlat->disable();
-}
 
 
 
