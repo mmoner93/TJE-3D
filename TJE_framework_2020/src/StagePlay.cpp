@@ -6,6 +6,7 @@
 #include "EntityGameObject.h"
 #include "EntityMesh.h"
 #include "Scene.h"
+#include "EntityLight.h"
 using namespace std;
 
 //some globals
@@ -73,6 +74,32 @@ void rellenarEntitys() {
 
 
 
+
+void inicializarScena() {
+
+	light = new Light();
+	light->position.set(100, 2, 60);
+	light->specular_color.set(1.0f, 1.0f, 1.0f);
+	light->diffuse_color.set(1.0f, 1.0f, 1.0f);
+
+
+	
+	Texture* texture = Texture::Get("data/white.tga", false, false);
+
+	Mesh* mesh = Mesh::Get("data/sphere.ASE");
+
+	EntityMesh* meshTemp = new EntityMesh(texture, shaderPhong, mesh, material);
+
+
+	EntityLight* ltemp = new EntityLight(meshTemp,light);
+
+
+
+	gameScene = new Scene(ltemp);
+
+}
+
+
 void StagePlay::init() {
 
 	gameI = Game::instance;
@@ -96,10 +123,7 @@ void StagePlay::init() {
 	
 	arbol2_model.translate(10, 0, 0);
 	//arbol2_model.translate(60, 60, 60);
-	light = new Light();
-	light->position.set(100, 2, 60);
-	light->specular_color.set(1.0f, 1.0f, 1.0f);
-	light->diffuse_color.set(1.0f, 1.0f, 1.0f);
+	
 	material = new Material();
 	//plane_model.scale(50.0f, 50.0f, 50.0f);
 
@@ -111,8 +135,9 @@ void StagePlay::init() {
 	mLigth.translateGlobal(100, 2, 60);
 	//plane_model.scale(20, 20, 20);
 	rellenarEntitys();
-
-
+	inicializarScena();
+	LoadMap();
+	
 
 }
 
@@ -170,7 +195,7 @@ void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 }
 
 
-void paintMap() {
+void LoadMap() {
 
 	Texture *texture = Texture::Get("data/white.tga", false, false);
 
@@ -279,7 +304,7 @@ void StagePlay::render()
 	renderMesh(m, mesh, texture);
 
 
-	paintMap();
+	gameScene->pintarScene();
 	//Draw the floor grid
 	drawGrid();
 

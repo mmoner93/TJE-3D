@@ -15,9 +15,6 @@ void EntityMesh::renderConPhong(float x, float y , Light* light ) {
 	//enable shader
 	shader->enable();
 
-
-	m.translate(x * 10, 0, y * 10);
-	m.scale(scale, scale, scale);
 	shader->setMatrix44("model", m); //upload info to the shader
 	shader->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
 

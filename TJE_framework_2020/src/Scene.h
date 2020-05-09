@@ -8,13 +8,13 @@ class Scene
 public:
 
 	EntityLight* lightScene;
-	std::vector<Entity*> mapaObjects;
+	std::vector<EntityGameObject*> mapaObjects;
 
-	Scene() {
-
+	Scene(EntityLight* l) {
+		lightScene = l;
 	}
 
-	void addObject(Entity* temp) {
+	void addObject(EntityGameObject* temp) {
 		mapaObjects.push_back(temp);
 	}
 
@@ -24,8 +24,8 @@ public:
 	
 		for (int i = 0; i < mapaObjects.size(); i++) {
 		
+			mapaObjects[i]->renderConPhong(0, 0, lightScene->light);
 
-		
 		}
 
 

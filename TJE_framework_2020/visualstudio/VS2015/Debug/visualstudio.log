@@ -30,9 +30,6 @@ C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGame
   EntityLight.cpp
   EntityMesh.cpp
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityMesh.cpp(12,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityMesh.cpp(20,10): error C2065: 'scale': identificador no declarado
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityMesh.cpp(20,17): error C2065: 'scale': identificador no declarado
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityMesh.cpp(20,24): error C2065: 'scale': identificador no declarado
   Entity.cpp
   box.cpp
   box_bld.cpp
@@ -183,3 +180,8 @@ C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\utils.cpp(
               _Ty=float
           ]
   Generando código...
+  tritri.c
+animation.obj : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/INCREMENTAL:NO'
+LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  visualstudio.vcxproj -> C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\visualstudio\VS2015\..\..\game_debug.exe
