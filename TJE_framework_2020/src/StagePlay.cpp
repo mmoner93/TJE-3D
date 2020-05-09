@@ -133,14 +133,20 @@ void inicializarScena() {
 
 	Mesh* mesh = Mesh::Get("data/sphere.ASE");
 
-	EntityMesh* meshTemp = new EntityMesh(texture, shaderPhong, mesh, material);
+	EntityMesh* EntityMeshTemp = new EntityMesh(texture, shaderPhong, mesh, material);
 
 
-	EntityLight* ltemp = new EntityLight(meshTemp,light);
+	EntityLight* ltemp = new EntityLight(EntityMeshTemp,light);
 
 
+	mesh = new Mesh();
 
-	gameScene = new Scene(ltemp);
+	mesh->createPlane(1000);
+	texture = Texture::Get("data/suelo.tga", true, true);
+	EntityGameObject* entityGame= new EntityGameObject(texture, shaderBasic, mesh, material,1.0f,1.0f);
+	
+
+	gameScene = new Scene(ltemp,entityGame);
 
 }
 

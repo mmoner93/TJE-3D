@@ -15,6 +15,7 @@ varying mat4 v_model;
 //the texture passed from the application
 uniform sampler2D color_texture;
 uniform sampler2D nomal_texture;
+uniform float u_tilling;
 
 void main()
 {

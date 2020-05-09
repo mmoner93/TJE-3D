@@ -32,6 +32,7 @@ public:
 
 	 virtual void render();
 	 void renderConPhong(float x, float y, Light* light);
+	 void renderTilling();
 	 void update(float seconds_elapsed);
 
 
