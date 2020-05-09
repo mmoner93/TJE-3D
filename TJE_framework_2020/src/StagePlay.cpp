@@ -142,8 +142,8 @@ void inicializarScena() {
 	mesh = new Mesh();
 
 	mesh->createPlane(1000);
-	Texture* xs = Texture::Get("data/suelo.tga");
-	EntityGameObject* entityGame= new EntityGameObject(xs, shaderBasic, mesh, material,1.0f,10.0f);
+	Texture* xs = Texture::Get("data/suelo2.tga");
+	EntityGameObject* entityGame= new EntityGameObject(xs, shaderBasic, mesh, material,1.0f,100.0f);
 	
 
 	gameScene = new Scene(ltemp,entityGame);
@@ -214,8 +214,8 @@ void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 
 	shaderPhong->setUniform3("positionCamera", camera->eye);
 	shaderPhong->setUniform3("lightAmbient", ambientLight);
-	light->uploadToShader(shaderFlat);
-	material->uploadToShader(shaderFlat);
+	light->uploadToShader(shaderPhong);
+	material->uploadToShader(shaderPhong);
 	//shader->setUniform("u_time", time);
 	mesh->render(GL_TRIANGLES,0);
 	
