@@ -25,7 +25,7 @@ Game* gameI = NULL;
 Material* material = NULL;
 Matrix44 viewprojection;
 Light* light = NULL;
-
+Matrix44 modelA;
 Matrix44 mLigth;
 GameMap* mapGame = NULL;
 vector<Entity*> mapaObjects;
@@ -195,7 +195,7 @@ void StagePlay::init() {
 	inicializarScena();
 	LoadMap();
 	
-
+	modelA.scale(1.0f, 1.0f, 1.0f);
 }
 
 
@@ -246,8 +246,9 @@ void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	shaderBasic->setUniform("u_viewprojection", camera->viewprojection_matrix);
 	shaderBasic->setUniform("u_texture", texture);
 	shaderBasic->setUniform("u_model", m);
+	shaderBasic->setFloat("u_tilling", 1.0);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES, 0);
+	mesh->render(GL_TRIANGLES, 1);
 
 	//disable shader
 	shaderBasic->disable();
@@ -311,15 +312,16 @@ void StagePlay::render()
 	renderMeshPhong(mLigth, mesh, texture);
 
 
-	texture = Texture::Get("data/white.tga", false, false);
+	texture = Texture::Get("data/robot/RB_Bumblebee_TEXTSET_Color_NormX.tga", false, false);
 
-	mesh = Mesh::Get("data/export (1).obj");
+	mesh = Mesh::Get("data/robot/bumblebee-transformer-animation.obj");
 
-
-	renderMesh(m, mesh, texture);
-
+	
 
 
+	renderMesh(modelA ,mesh, texture);
+
+	
 	
 	//Draw the floor grid
 	drawGrid();
