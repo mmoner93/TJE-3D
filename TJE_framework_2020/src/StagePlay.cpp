@@ -248,7 +248,7 @@ void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	shaderBasic->setUniform("u_model", m);
 	shaderBasic->setFloat("u_tilling", 1.0);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES, 1);
+	mesh->render(GL_TRIANGLES, 6,3);
 
 	//disable shader
 	shaderBasic->disable();
@@ -312,14 +312,14 @@ void StagePlay::render()
 	renderMeshPhong(mLigth, mesh, texture);
 
 
-	texture = Texture::Get("data/robot/RB_Bumblebee_TEXTSET_Color_NormX.tga", false, false);
+	texture = Texture::Get("data/white.tga");
 
-	mesh = Mesh::Get("data/robot/bumblebee-transformer-animation.obj");
+	mesh = Mesh::Get("data/helicopteros/cityS.obj");
 
 	
 
 
-	renderMesh(modelA ,mesh, texture);
+	renderMeshPhong(m ,mesh, texture);
 
 	
 	

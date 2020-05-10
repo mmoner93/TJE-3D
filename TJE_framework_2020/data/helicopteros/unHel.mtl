@@ -1,0 +1,24 @@
+# Blender MTL File: 'habitacio.blend'
+# Material Count: 2
+
+newmtl Material__25.002
+Ns 96.078443
+Ka 1.000000 1.000000 1.000000
+Kd 0.584314 0.584314 0.584314
+Ks 0.010000 0.010000 0.010000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd fuselage.jpg
+
+newmtl Material__25.003
+Ns 96.078443
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.090000 0.090000 0.090000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd fuselage.jpg
