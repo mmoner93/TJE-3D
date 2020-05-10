@@ -219,7 +219,7 @@ void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	shaderPhong->setTexture("color_texture", texture); //set texture in slot 0
 	//shaderFlat->setTexture("nomal_texture", textureNorrmal, 1); //set texture in slot 1
 
-
+	shaderPhong->setFloat("u_tilling", 1.0);
 	shaderPhong->setUniform3("positionCamera", camera->eye);
 	shaderPhong->setUniform3("lightAmbient", ambientLight);
 	light->uploadToShader(shaderPhong);
@@ -278,7 +278,7 @@ void StagePlay::render()
 
 	//set the camera as default
 	camera->enable();
-
+	gameScene->pintarScene();
 	//set flags
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
@@ -320,7 +320,7 @@ void StagePlay::render()
 
 
 
-	gameScene->pintarScene();
+	
 	//Draw the floor grid
 	drawGrid();
 
