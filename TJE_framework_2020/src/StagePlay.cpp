@@ -44,25 +44,109 @@ void rellenarEntitys() {
 			textureTemp = Texture::Get("data/trees/leaves_olive.tga", false, false);
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material);
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material,"phong");
 			break;
 		case 1:
 			textureTemp = Texture::Get("data/trees/leaves_poplar.tga", false, false);
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
-			temp =  new EntityMesh(textureTemp, shaderTemp, MeshTemp, material);
+			temp =  new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
 			break;
 		case 2:
 			textureTemp = Texture::Get("data/trees/leaves_poplar_autumn.tga", false, false);
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material);
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
 			break;
 		case 3:
 			textureTemp = Texture::Get("data/white.tga", false, false);
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/export (1).obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material);
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 4:
+			textureTemp = Texture::Get("data/escena/estacion1.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/estacion1.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 5:
+			textureTemp = Texture::Get("data/escena/corner.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/corner.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material,"basic");
+			break;
+		case 6:
+			textureTemp = Texture::Get("data/escena/corner.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/corner.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 7:
+			textureTemp = Texture::Get("data/escena/corner.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/corner.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 8:
+			textureTemp = Texture::Get("data/escena/corner.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/corner.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 9:
+			textureTemp = Texture::Get("data/escena/wall.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/wall.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 10:
+			textureTemp = Texture::Get("data/escena/wall.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/wall.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 11:
+			textureTemp = Texture::Get("data/escena/wall.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/wall.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 12:
+			textureTemp = Texture::Get("data/escena/wall.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/wall.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 13:
+			textureTemp = Texture::Get("data/escena/mineral.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/mineral.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 14:
+			textureTemp = Texture::Get("data/escena/portal.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/portal.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 15:
+			textureTemp = Texture::Get("data/escena/defend zone.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/defend zone.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 16:
+			textureTemp = Texture::Get("data/escena/angar nave 1.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/angar nave 1.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 17:
+			textureTemp = Texture::Get("data/escena/angar nave 2.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/angar nave 2.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
 			break;
 
 		}
@@ -98,11 +182,37 @@ void LoadMap() {
 			if (cell.type == 0) //skip empty
 				continue;
 
-			if (cell.type > 0 && cell.type <= 4) {
+			if (cell.type > 0 && cell.type <= NUM_ENTITIES) {
 				EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type - 1];
-				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material, 3.0f);
+				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 3.0f);
 				//temp->renderConPhong(x,y,light);
-				temp->model->translate(x, 0.0f, y);
+				temp->model->translate(x*10, 0.0f, y*10);
+				if (cell.type == 6) {
+					temp->model->rotate(PI,Vector3(0,1,0));
+				}
+
+				if (cell.type == 7) {
+					temp->model->rotate(PI/2, Vector3(0, 1, 0));
+				}
+
+				if (cell.type == 8) {
+					temp->model->rotate(-PI / 2, Vector3(0, 1, 0));
+				}
+
+
+				if (cell.type == 10) {
+					temp->model->rotate(PI/2, Vector3(0, 1, 0));
+				}
+
+				if (cell.type == 11) {
+					temp->model->rotate(PI, Vector3(0, 1, 0));
+				}
+
+				if (cell.type == 13) {
+					temp->model->rotate(-PI/2, Vector3(0, 1, 0));
+				}
+
+
 				gameScene->addObject(temp);
 
 
@@ -133,7 +243,7 @@ void inicializarScena() {
 
 	Mesh* mesh = Mesh::Get("data/sphere.ASE");
 
-	EntityMesh* EntityMeshTemp = new EntityMesh(texture, shaderPhong, mesh, material);
+	EntityMesh* EntityMeshTemp = new EntityMesh(texture, shaderPhong, mesh, material,"phong");
 
 
 	EntityLight* ltemp = new EntityLight(EntityMeshTemp,light);
@@ -142,14 +252,14 @@ void inicializarScena() {
 	mesh = new Mesh();
 
 	mesh->createPlane(1000);
-	Texture* xs = Texture::Get("data/suelo2.tga");
-	EntityGameObject* entityGame= new EntityGameObject(xs, shaderBasic, mesh, material,1.0f,100.0f);
+	Texture* xs = Texture::Get("data/escena/suelo3.tga");
+	EntityGameObject* entityGame= new EntityGameObject(xs, shaderBasic, mesh, material,"basic",1.0f,1000.0f);
 	
 
 	mesh = Mesh::Get("data/space_cubemap.ASE"); 
 
 	xs = Texture::Get("data/hell_cubemap.tga");
-	EntityGameObject* entityGame2 = new EntityGameObject(xs, shaderBasic, mesh, material, 1.0f, 1.0f);
+	EntityGameObject* entityGame2 = new EntityGameObject(xs, shaderBasic, mesh, material, "basic", 1.0f, 1.0f);
 
 
 	gameScene = new Scene(ltemp,entityGame, entityGame2);
@@ -184,8 +294,8 @@ void StagePlay::init() {
 	material = new Material();
 	//plane_model.scale(50.0f, 50.0f, 50.0f);
 
-	mapGame = new GameMap(128,128);
-	mapGame->loadMapWithMap("data/myMaps/mymap.map");
+	mapGame = new GameMap(256,256);
+	mapGame->loadMapWithMap("data/myMaps/mymap2.map");
 	controlInit = true;
 	//mLigth.setIdentity();
 	mLigth.scale(0.01, 0.01, 0.01);
@@ -248,7 +358,7 @@ void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	shaderBasic->setUniform("u_model", m);
 	shaderBasic->setFloat("u_tilling", 1.0);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES, 6,3);
+	mesh->render(GL_TRIANGLES, 0);
 
 	//disable shader
 	shaderBasic->disable();
@@ -312,9 +422,9 @@ void StagePlay::render()
 	renderMeshPhong(mLigth, mesh, texture);
 
 
-	texture = Texture::Get("data/white.tga");
+	texture = Texture::Get("data/image (2).png");
 
-	mesh = Mesh::Get("data/helicopteros/cityS.obj");
+	mesh = Mesh::Get("data/export (3) (1).obj");
 
 	
 

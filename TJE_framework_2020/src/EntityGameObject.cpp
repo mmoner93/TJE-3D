@@ -42,7 +42,7 @@ void EntityGameObject::renderTilling() {
 	//enable shader
 	shader->enable();
 	
-
+	m.scale(scale, scale, scale);
 	//upload uniforms
 	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
 	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);

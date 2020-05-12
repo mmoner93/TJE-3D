@@ -16,7 +16,13 @@ void Scene::pintarScene() {
 
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
-		mapaObjects[i]->renderConPhong(0, 0, lightScene->light);
+		if (mapaObjects[i]->nameShader == "basic") {
+			mapaObjects[i]->renderTilling();
+		}
+		else if (mapaObjects[i]->nameShader == "phong") {
+			mapaObjects[i]->renderConPhong(0, 0, lightScene->light);
+		}
+		
 
 	}
 

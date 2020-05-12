@@ -16,12 +16,14 @@ public:
 	Shader* shader = NULL;
 	Mesh* mesh = NULL;
 	Material* material = NULL;
+	std::string nameShader;
 	
-	EntityMesh(Texture* t, Shader* s, Mesh* m, Material* mat) {
+	EntityMesh(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS) {
 		textura = t;
 		shader = s;
 		mesh = m;
 		material = mat;
+		nameShader=nS;
 	}
 
 

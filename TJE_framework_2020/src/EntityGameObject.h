@@ -17,9 +17,10 @@ public:
 	Mesh* mesh = NULL;
 	Material* material = NULL;
 	Matrix44* model = NULL;
+	std::string nameShader;
 	float scale;
 	float tilling;
-	EntityGameObject(Texture* t, Shader* s, Mesh* m, Material* mat,float sc=1.0,float til=1.0) {
+	EntityGameObject(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS,float sc=1.0,float til=1.0) {
 		textura = t;
 		shader = s;
 		mesh = m;
@@ -27,6 +28,7 @@ public:
 		model = new Matrix44();
 		scale = sc;
 		tilling = til;
+		nameShader = nS;
 	}
 
 

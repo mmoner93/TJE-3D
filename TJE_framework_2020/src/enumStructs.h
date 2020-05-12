@@ -1,7 +1,7 @@
 #ifndef ENUMSTRUCTS_H
 #define ENUMSTRUCTS_H
 
-#define NUM_ENTITIES 4
+#define NUM_ENTITIES 18
 
 enum eCellType : uint8 {
 	EMPTY,TREE_ONE,TREE_TWO,TREE_TRHE,HOUSE_1
