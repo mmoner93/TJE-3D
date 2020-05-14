@@ -130,111 +130,111 @@ void rellenarEntitys() {
 			break;
 		case 13:
 			textureTemp = Texture::Get("data/escena/mineral.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/mineral.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 14:
 			textureTemp = Texture::Get("data/escena/portal.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/portal.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 15:
 			textureTemp = Texture::Get("data/escena/defend zone.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/defend zone.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 16:
 			textureTemp = Texture::Get("data/escena/angar nave 1.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/angar nave 1.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 17:
 			textureTemp = Texture::Get("data/escena/angar nave 2.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/angar nave 2.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 18:
 			textureTemp = Texture::Get("data/escena/angar.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/angar.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 19:
 			textureTemp = Texture::Get("data/escena/angar2.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/angar2.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 20:
 			textureTemp = Texture::Get("data/escena/angar3.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/angar3.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 21:
 			textureTemp = Texture::Get("data/escena/comunications.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/comunications.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 22:
 			textureTemp = Texture::Get("data/escena/curve train ok.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/curve train ok.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 23:
 			textureTemp = Texture::Get("data/escena/forest.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/forest.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 24:
 			textureTemp = Texture::Get("data/escena/forest2.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/forest2.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 25:
 			textureTemp = Texture::Get("data/escena/mining.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/mining.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 26:
 			textureTemp = Texture::Get("data/escena/mining2.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/mining2.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 27:
 			textureTemp = Texture::Get("data/escena/mining3.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/mining3.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 28:
 			textureTemp = Texture::Get("data/escena/mining4.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/mining4.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 29:
 			textureTemp = Texture::Get("data/escena/recta tren.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/recta tren.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 30:
 			textureTemp = Texture::Get("data/escena/refin tubes.png");
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderBasic;
 			MeshTemp = Mesh::Get("data/escena/refin tubes.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 
 		}
@@ -591,7 +591,7 @@ void StagePlay::update(double seconds_elapsed)
 		player.pitch -= Input::mouse_delta.y * 0.1;
 
 		//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
-		Vector3 character_center = target_pos + Vector3(0, 1,0);
+		Vector3 character_center = target_pos + Vector3(0, 0.5,1);
 		bool has_collision = false;
 		
 		for (int i = 0; i < gameScene->mapaObjects.size(); i++)
@@ -606,12 +606,11 @@ void StagePlay::update(double seconds_elapsed)
 			Vector3 collnorm;
 
 			//comprobamos si colisiona el objeto con la esfera (radio 3)
-			/*if (mesh->testSphereCollision(*(en->model), character_center,1, coll, collnorm) == false) {
+			if (mesh->testSphereCollision(*(en->model), character_center,1, coll, collnorm) == false) {
 				continue; //si no colisiona, pasamos al siguiente objeto
-			}*/
-			
-			if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
-				continue;
+			}
+			/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
+				continue;*/
 			has_collision = true;
 			Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 			target_pos = player.position - push_away;
@@ -630,6 +629,8 @@ void StagePlay::update(double seconds_elapsed)
 
 		}
 
+
+		//TRS
 
 		//if (!has_collision) 
 		player.position = target_pos;

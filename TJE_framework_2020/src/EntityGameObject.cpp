@@ -27,7 +27,7 @@ void EntityGameObject::renderConPhong(float x, float y , Light* light ) {
 	shader->setUniform3("lightAmbient", ambientLight);
 	light->uploadToShader(shader);
 	material->uploadToShader(shader);
-	mesh->render(GL_TRIANGLES, 0);
+	mesh->render(GL_TRIANGLES, -1);
 
 	shader->disable();
 
@@ -51,7 +51,7 @@ void EntityGameObject::renderTilling() {
 
 	shader->setFloat("u_tilling", tilling);
 	
-	mesh->render(GL_TRIANGLES, 0);
+	mesh->render(GL_TRIANGLES, -1);
 
 	shader->disable();
 
