@@ -32,6 +32,16 @@ vector<Entity*> mapaObjects;
 Vector3 ambientLight(0.0, 0.0, 0.0);
 Scene* gameScene=NULL;
 
+struct sPlayer {
+	Vector3 position;
+	float yaw;
+	float pitch;
+	Matrix44 model;
+	sPlayer() { yaw=pitch = 0.0; }
+};
+
+sPlayer player;
+
 void rellenarEntitys() {
 
 	Entity* temp;
@@ -61,7 +71,7 @@ void rellenarEntitys() {
 		case 3:
 			textureTemp = Texture::Get("data/white.tga", false, false);
 			shaderTemp = shaderPhong;
-			MeshTemp = Mesh::Get("data/export (1).obj");
+			MeshTemp = Mesh::Get("data/escena/export_12.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
 			break;
 		case 4:
@@ -146,6 +156,84 @@ void rellenarEntitys() {
 			textureTemp = Texture::Get("data/escena/angar nave 2.png");
 			shaderTemp = shaderPhong;
 			MeshTemp = Mesh::Get("data/escena/angar nave 2.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 18:
+			textureTemp = Texture::Get("data/escena/angar.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/angar.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 19:
+			textureTemp = Texture::Get("data/escena/angar2.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/angar2.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 20:
+			textureTemp = Texture::Get("data/escena/angar3.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/angar3.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 21:
+			textureTemp = Texture::Get("data/escena/comunications.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/comunications.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 22:
+			textureTemp = Texture::Get("data/escena/curve train ok.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/curve train ok.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 23:
+			textureTemp = Texture::Get("data/escena/forest.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/forest.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 24:
+			textureTemp = Texture::Get("data/escena/forest2.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/forest2.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 25:
+			textureTemp = Texture::Get("data/escena/mining.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/mining.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 26:
+			textureTemp = Texture::Get("data/escena/mining2.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/mining2.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 27:
+			textureTemp = Texture::Get("data/escena/mining3.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/mining3.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 28:
+			textureTemp = Texture::Get("data/escena/mining4.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/mining4.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 29:
+			textureTemp = Texture::Get("data/escena/recta tren.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/recta tren.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+		case 30:
+			textureTemp = Texture::Get("data/escena/refin tubes.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/refin tubes.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
 			break;
 
@@ -306,6 +394,12 @@ void StagePlay::init() {
 	LoadMap();
 	
 	modelA.scale(1.0f, 1.0f, 1.0f);
+
+
+	player.position=Vector3(10,0,10);
+	//player.model.scale(0.01f, 0.01f, 0.01f);
+	
+
 }
 
 
@@ -374,15 +468,30 @@ void StagePlay::render()
 		init();
 	}
 
-
-	Vector3 eye = plane_model * Vector3(0, 10, 30);
+	//avion
+	/*Vector3 eye = plane_model * Vector3(0, 10, 30);
 	Vector3 center = plane_model * Vector3();
-	Vector3 up = plane_model.rotateVector(Vector3(0, 1, 0));
+	Vector3 up = plane_model.rotateVector(Vector3(0, 1, 0));*/
+
+	//player
+
+	
+    Vector3 eye = player.model * Vector3(0, 0.6, -0.2);
+	Vector3 front(0, 0, -1);
+	Matrix44 PITCH;
+	PITCH.setRotation(player.pitch * DEG2RAD, Vector3(1, 0, 0));
+	front = PITCH.rotateVector(front);
+	Matrix44 YAW;
+	YAW.setRotation(player.yaw * DEG2RAD, Vector3(0, 1, 0));
+	front = YAW.rotateVector(front);
+	Vector3 center = eye + front;
+	Vector3 up = Vector3(0, 1, 0);
+
 	if (!gameI->free_cam)
 		camera->lookAt(eye, center, up); //position the camera and point to 0,0,0
 
 	//set the clear color (the background color)
-	glClearColor(0.0, 0.0, 0.0, 1.0);
+	//glClearColor(0.0, 0.0, 0.0, 1.0);
 
 	// Clear the window and the depth buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -404,14 +513,14 @@ void StagePlay::render()
 	
 
 	//avion
-	texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
-	mesh = Mesh::Get("data/spitfire/spitfire.ASE");
-	texture = Texture::Get("data/otros/bomber_axis.tga",false,true);
+	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
+	//mesh = Mesh::Get("data/spitfire/spitfire.ASE");
+	texture = Texture::Get("data/personajes/playerRojoMascara.png",false,true);
 	//mesh = Mesh::Get("data/Pirate Kit/Models/OBJ format/boat_large.obj");
-	mesh = Mesh::Get("data/otros/bomber_axis.ASE");
+	mesh = Mesh::Get("data/personajes/playerRojoMascara.OBJ");
 
 	
-	renderMeshPhong(plane_model, mesh, texture);
+	renderMeshPhong(player.model, mesh, texture);
 
 	
 	texture = Texture::Get("data/white.tga", false, false);
@@ -422,9 +531,9 @@ void StagePlay::render()
 	renderMeshPhong(mLigth, mesh, texture);
 
 
-	texture = Texture::Get("data/image (2).png");
+	texture = Texture::Get("data/personajes/ROBOT1.png");
 
-	mesh = Mesh::Get("data/export (3) (1).obj");
+	mesh = Mesh::Get("data/personajes/ROBOT1.obj");
 
 	
 
@@ -463,12 +572,84 @@ void StagePlay::update(double seconds_elapsed)
 
 	if (gameI->free_cam == false)
 	{
+		Matrix44 R;
+
+		R.setRotation(player.yaw * DEG2RAD, Vector3(0, 1, 0));
+		Vector3 front = R.rotateVector(Vector3(0, 0, -1));
+		Vector3 right = R.rotateVector(Vector3(1, 0, 0));
+		Vector3 target_pos = player.position;
+
+		if(Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 10; //move faster with left shift
+		if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) target_pos = player.position + front * 10*speed * seconds_elapsed;
+		if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) target_pos = player.position - front * 10 * speed * seconds_elapsed;
+		if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT))  target_pos = player.position - right * 10 * speed * seconds_elapsed;
+		if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) target_pos = player.position + right * 10 * speed * seconds_elapsed;
+		//if (Input::isKeyPressed(SDL_SCANCODE_Q)) plane_model.rotate(40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
+		//if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
+
+		player.yaw -= Input::mouse_delta.x * 0.1;
+		player.pitch -= Input::mouse_delta.y * 0.1;
+
+		//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
+		Vector3 character_center = target_pos + Vector3(0, 1,0);
+		bool has_collision = false;
+		
+		for (int i = 0; i < gameScene->mapaObjects.size(); i++)
+		{
+
+			EntityGameObject* en = gameScene->mapaObjects[i];
+
+			Mesh* mesh = en->mesh;
+
+			//para cada objecto de la escena...
+			Vector3 coll;
+			Vector3 collnorm;
+
+			//comprobamos si colisiona el objeto con la esfera (radio 3)
+			/*if (mesh->testSphereCollision(*(en->model), character_center,1, coll, collnorm) == false) {
+				continue; //si no colisiona, pasamos al siguiente objeto
+			}*/
+			
+			if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
+				continue;
+			has_collision = true;
+			Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
+			target_pos = player.position - push_away;
+			target_pos.y = 0;	
+			break;
+
+			//si la esfera está colisionando muevela a su posicion anterior alejandola del objeto
+			//Vector3 push_away = normalize(coll - character_center) * dt;
+			//position = previous_pos - push_away; //move to previous pos but a little bit further
+
+			//cuidado con la Y, si nuestro juego es 2D la ponemos a 0
+			//position.y = 0;
+
+			//reflejamos el vector velocidad para que de la sensacion de que rebota en la pared
+			//velocity = reflect(velocity, collnorm) * 0.95;
+
+		}
+
+
+		//if (!has_collision) 
+		player.position = target_pos;
+
+		//player.model.setIdentity();
+	
+		player.model.setTranslation(player.position.x, player.position.y, player.position.z);
+		
+		player.model.rotate(player.yaw * DEG2RAD, Vector3(0, 1, 0));
+	
+
+		/*Avion
 		if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
 		if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
 		if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(0, 1, 0));
 		if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(0, 1, 0));
 		if (Input::isKeyPressed(SDL_SCANCODE_Q)) plane_model.rotate(40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
 		if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
+		*/
+
 	}
 	else
 	{
@@ -497,8 +678,16 @@ void StagePlay::update(double seconds_elapsed)
 		arbol2_model.translateGlobal(0, seconds_elapsed * -10, 0);
 	}
 
-	
+
 
 	gameScene->cielo->model->setTranslation(camera->center.x, camera->center.y, camera->center.z);
+
+	if (gameI->free_cam == false) {
+		Input::centerMouse();
+		SDL_ShowCursor(false);
+	}
+	else {
+		SDL_ShowCursor(true);
+	}
 
 }
