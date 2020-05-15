@@ -29,6 +29,7 @@ Matrix44 modelA;
 Matrix44 mLigth;
 GameMap* mapGame = NULL;
 vector<Entity*> mapaObjects;
+map<string,Entity*> enemysMap;
 Vector3 ambientLight(0.0, 0.0, 0.0);
 Scene* gameScene=NULL;
 
@@ -44,6 +45,87 @@ struct sPlayer {
 };
 
 sPlayer player;
+
+void rellenarEnemys() {
+	Entity* temp;
+	Texture* textureTemp;
+	Mesh* MeshTemp;
+	Shader* shaderTemp;
+
+	for (int i = 0; i < NUM_ENEMYS; i++) {
+		switch (i) {
+		case 0:
+			textureTemp = Texture::Get("data/personajes/Arachnoid.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/Arachnoid.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			
+			enemysMap["Arachnoid"] = temp;
+			break;
+		case 1:
+			textureTemp = Texture::Get("data/personajes/ReconBot.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/ReconBot.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			enemysMap["ReconBot"] = temp;
+			break;
+		case 2:
+			textureTemp = Texture::Get("data/personajes/Companion-bot.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/Companion-bot.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			enemysMap["Companion"] = temp;
+			break;
+		case 3:
+			textureTemp = Texture::Get("data/personajes/MobileStorageBot.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/MobileStorageBot.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			enemysMap["MobileStorageBot"] = temp;
+			break;
+		case 4:
+			textureTemp = Texture::Get("data/personajes/MechaTrooper.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/MechaTrooper.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			enemysMap["MechaTrooper"] = temp;
+			break;
+		case 5:
+			textureTemp = Texture::Get("data/personajes/FieldFighter.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/FieldFighter.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			enemysMap["FieldFighter"] = temp;
+			break;
+		case 6:
+			textureTemp = Texture::Get("data/personajes/QuadrupedTank.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/QuadrupedTank.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			enemysMap["QuadrupedTank"] = temp;
+			break;
+		case 7:
+			textureTemp = Texture::Get("data/personajes/MechaGolem.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/MechaGolem.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			enemysMap["MechaGolem"] = temp;
+			break;
+		case 8:
+			textureTemp = Texture::Get("data/personajes/Mecha01.png", false, false);
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/personajes/Mecha01.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			enemysMap["Mecha01"] = temp;
+			break;
+		}
+
+
+
+	}
+
+}
+
 
 void rellenarEntitys() {
 
@@ -228,15 +310,58 @@ void rellenarEntitys() {
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 		case 29:
-			textureTemp = Texture::Get("data/escena/recta tren.png");
+			textureTemp = Texture::Get("data/escena/refin tubes.png");
+			shaderTemp = shaderPhong;
+			MeshTemp = Mesh::Get("data/escena/refin tubes.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			break;
+			
+		case 30:	
+			textureTemp = Texture::Get("data/escena/almacen.png");
 			shaderTemp = shaderBasic;
-			MeshTemp = Mesh::Get("data/escena/recta tren.obj");
+			MeshTemp = Mesh::Get("data/escena/almacen.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
-		case 30:
-			textureTemp = Texture::Get("data/escena/refin tubes.png");
+		case 31:
+			textureTemp = Texture::Get("data/escena/barriles.png");
 			shaderTemp = shaderBasic;
-			MeshTemp = Mesh::Get("data/escena/refin tubes.obj");
+			MeshTemp = Mesh::Get("data/escena/barriles.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 32:
+			textureTemp = Texture::Get("data/escena/fabrica.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/fabrica.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 33:
+			textureTemp = Texture::Get("data/escena/nave.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/nave.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 34:
+			textureTemp = Texture::Get("data/escena/transformadores.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/transformadores.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 35:
+			textureTemp = Texture::Get("data/escena/habitacion control.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/habitacion control.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 36:
+			textureTemp = Texture::Get("data/escena/habitacion control 2.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/habitacion control 2.obj");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
+			break;
+		case 37:
+			textureTemp = Texture::Get("data/escena/habitacion control 3.png");
+			shaderTemp = shaderBasic;
+			MeshTemp = Mesh::Get("data/escena/habitacion control 3.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "basic");
 			break;
 
@@ -278,6 +403,8 @@ void LoadMap() {
 				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 3.0f);
 				//temp->renderConPhong(x,y,light);
 				temp->model->translate(x*3, 0.0f, y*3);
+
+				//podria hacer una función para indicar estas cosas.
 				if (cell.type == 6) {
 					temp->model->rotate(PI,Vector3(0,1,0));
 				}
@@ -321,6 +448,8 @@ void LoadMap() {
 
 
 
+
+
 void inicializarScena() {
 
 	light = new Light();
@@ -343,8 +472,9 @@ void inicializarScena() {
 	mesh = new Mesh();
 
 	mesh->createPlane(1000);
-	Texture* xs = Texture::Get("data/escena/suelo3.tga");
-	EntityGameObject* entityGame= new EntityGameObject(xs, shaderBasic, mesh, material,"basic",1.0f,1000.0f);
+	Texture* xs = Texture::Get("data/escena/bg.png");
+	//en el de cuadros 5000
+	EntityGameObject* entityGame= new EntityGameObject(xs, shaderBasic, mesh, material,"basic",1.0f,1.0f);
 	
 
 	mesh = Mesh::Get("data/space_cubemap.ASE"); 
@@ -386,13 +516,14 @@ void StagePlay::init() {
 	//plane_model.scale(50.0f, 50.0f, 50.0f);
 
 	mapGame = new GameMap(256,256);
-	mapGame->loadMapWithMap("data/myMaps/mymap2.map");
+	mapGame->loadMapWithMap("data/myMaps/mymap3.map");
 	controlInit = true;
 	//mLigth.setIdentity();
 	mLigth.scale(0.01, 0.01, 0.01);
 	mLigth.translateGlobal(100, 2, 60);
 	//plane_model.scale(20, 20, 20);
 	rellenarEntitys();
+	rellenarEnemys();
 	inicializarScena();
 	LoadMap();
 	
@@ -482,6 +613,119 @@ void renderPoints(Matrix44 m, Mesh* mesh, Texture* texture=NULL, int submesh = 0
 
 	//disable shader
 	shaderFlat->disable();
+}
+
+
+void loadEnemys() {
+
+	for (int i = 0; i < NUM_ENEMYS; i++) {
+		EntityMesh* en;
+
+		switch (i) {
+		case 0:
+			en = (EntityMesh*)enemysMap["Arachnoid"];
+
+			break;
+		case 1:
+
+			en = (EntityMesh*)enemysMap["ReconBot"];
+			break;
+		case 2:
+
+			en = (EntityMesh*)enemysMap["Companion"];
+			break;
+		case 3:
+
+			en = (EntityMesh*)enemysMap["MobileStorageBot"];
+			break;
+		case 4:
+
+			en = (EntityMesh*)enemysMap["MechaTrooper"];
+			break;
+		case 5:
+
+			en = (EntityMesh*)enemysMap["FieldFighter"];
+			break;
+		case 6:
+
+			en = (EntityMesh*)enemysMap["QuadrupedTank"];
+			break;
+		case 7:
+
+			en = (EntityMesh*)enemysMap["MechaGolem"];
+			break;
+		case 8:
+
+			en = (EntityMesh*)enemysMap["Mecha01"];
+			break;
+		}
+
+
+		EntityGameObject* temp  = new EntityGameObject(en->textura, en->shader, en->mesh, en->material, "phong");
+		
+		temp->model->translate(0, 0, i * 10.0f);
+		
+		renderMeshPhong(*temp->model, temp->mesh, temp->textura);
+
+	}
+
+
+}
+
+
+void paintEnemys() {
+
+
+	for (int i = 0; i < NUM_ENEMYS; i++) {
+		EntityGameObject* en;
+
+		switch (i) {
+		case 0:
+			en = (EntityGameObject*)enemysMap["Arachnoid"];
+			
+			break;
+		case 1:
+
+			en = (EntityGameObject*)enemysMap["ReconBot"];
+			break;
+		case 2:
+
+			en = (EntityGameObject*)enemysMap["Companion"];
+			break;
+		case 3:
+
+			en = (EntityGameObject*)enemysMap["MobileStorageBot"];
+			break;
+		case 4:
+
+			en = (EntityGameObject*)enemysMap["MechaTrooper"];
+			break;
+		case 5:
+
+			en = (EntityGameObject*)enemysMap["FieldFighter"];
+			break;
+		case 6:
+
+			en = (EntityGameObject*)enemysMap["QuadrupedTank"];
+			break;
+		case 7:
+
+			en = (EntityGameObject*)enemysMap["MechaGolem"];
+			break;
+		case 8:
+
+			en = (EntityGameObject*)enemysMap["Mecha01"];
+			break;
+		}
+
+
+
+		renderMeshPhong(*en->model, en->mesh, en->textura);
+
+	}
+
+
+
 }
 
 
@@ -588,16 +832,18 @@ void StagePlay::render()
 	renderMeshPhong(mLigth, mesh, texture);
 
 
-	texture = Texture::Get("data/personajes/ROBOT1.png");
+	//texture = Texture::Get("data/personajes/ROBOT1.png");
 
-	mesh = Mesh::Get("data/personajes/ROBOT1.obj");
-
-	
-
-
-	renderMeshPhong(m ,mesh, texture);
+	//mesh = Mesh::Get("data/personajes/ROBOT1.obj");
 
 	
+
+
+	//renderMeshPhong(m ,mesh, texture);
+
+	//paintEnemys();
+	loadEnemys();
+
 	Mesh points_mesh;
 	points_mesh.vertices = points;
 	if (points.size()) {
@@ -655,7 +901,7 @@ void StagePlay::update(double seconds_elapsed)
 		player.pitch -= Input::mouse_delta.y * 0.1;
 
 		//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
-		Vector3 character_center = target_pos + Vector3(0, 0.5,0);
+		Vector3 character_center = target_pos + Vector3(0, 1.0,0);
 		bool has_collision = false;
 		
 		for (int i = 0; i < gameScene->mapaObjects.size(); i++)
@@ -670,7 +916,7 @@ void StagePlay::update(double seconds_elapsed)
 			Vector3 collnorm;
 
 			//comprobamos si colisiona el objeto con la esfera (radio 3)
-			if (mesh->testSphereCollision(*(en->model), character_center,0.3, coll, collnorm) == false) {
+			if (mesh->testSphereCollision(*(en->model), character_center,0.1, coll, collnorm) == false) {
 				continue; //si no colisiona, pasamos al siguiente objeto
 			}
 			/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
