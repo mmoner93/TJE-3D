@@ -15,7 +15,7 @@ void EntityGameObject::renderConPhong(float x, float y , Light* light ) {
 	//enable shader
 	shader->enable();
 	
-	m.scale(scale, scale, scale);
+	//m.scale(scale, scale, scale);
 	shader->setMatrix44("model", m); //upload info to the shader
 	shader->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
 
@@ -42,7 +42,7 @@ void EntityGameObject::renderTilling() {
 	//enable shader
 	shader->enable();
 	
-	m.scale(scale, scale, scale);
+	//m.scale(scale, scale, scale);
 	//upload uniforms
 	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
 	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);

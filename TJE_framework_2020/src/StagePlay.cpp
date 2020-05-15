@@ -275,9 +275,9 @@ void LoadMap() {
 
 			if (cell.type > 0 && cell.type <= NUM_ENTITIES) {
 				EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type - 1];
-				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 1.0f);
+				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 3.0f);
 				//temp->renderConPhong(x,y,light);
-				temp->model->translate(x, 0.0f, y);
+				temp->model->translate(x*3, 0.0f, y*3);
 				if (cell.type == 6) {
 					temp->model->rotate(PI,Vector3(0,1,0));
 				}

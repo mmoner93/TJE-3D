@@ -26,6 +26,7 @@ public:
 		mesh = m;
 		material = mat;
 		model = new Matrix44();
+		model->scale(sc, sc, sc);
 		scale = sc;
 		tilling = til;
 		nameShader = nS;
