@@ -1,0 +1,150 @@
+{
+ "name": "uzi",
+ "camera": [
+  [
+   -2.212350845336914,
+   1.5285331010818481,
+   1.330078363418579
+  ],
+  [
+   0,
+   0,
+   0
+  ]
+ ],
+ "scene": {
+  "ref": 0,
+  "layers": 3,
+  "flags": {
+   "visible": true,
+   "collides": true,
+   "no_transform": true
+  },
+  "children": [
+   {
+    "position": [
+     0,
+     0.4329944849014282,
+     0
+    ],
+    "scaling": [
+     8.29052448272705,
+     8.282859802246094,
+     9.321944236755371
+    ],
+    "id": "node8069.015000000945::0.5742997460403647",
+    "ref": 1,
+    "color": [
+     0.7901366949081421,
+     1,
+     0.04062499850988388,
+     1
+    ],
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 2,
+      "mesh": "uziGold.obj",
+      "submesh": 0,
+      "material": "Gold",
+      "color": [
+       0.2017504870891571,
+       0.21250000596046448,
+       0.1633593738079071,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 3,
+      "mesh": "uziGold.obj",
+      "submesh": 1,
+      "material": "Gray8",
+      "color": [
+       0.15894469618797302,
+       0.16875000298023224,
+       0.12392578274011612,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 4,
+      "mesh": "uziGold.obj",
+      "submesh": 2,
+      "material": "Gold",
+      "color": [
+       0.6270593404769897,
+       0.778124988079071,
+       0.08753906190395355,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 5,
+      "mesh": "uziGold.obj",
+      "submesh": 3,
+      "material": "Gray8",
+      "color": [
+       0.2017504870891571,
+       0.21250000596046448,
+       0.1633593738079071,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "editor": {
+  "targets": null
+ }
+}

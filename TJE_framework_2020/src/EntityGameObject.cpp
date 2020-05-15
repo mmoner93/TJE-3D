@@ -57,6 +57,31 @@ void EntityGameObject::renderTilling() {
 
 }
 
+void EntityGameObject::renderEspecial() {
+
+	Camera* camera = Camera::current;
+	Vector3 ambientLight(0.3, 0.3, 0.3);
+	Matrix44 m = *model;
+
+	//enable shader
+	shader->enable();
+
+	//m.scale(scale, scale, scale);
+	//upload uniforms
+	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);
+	shader->setUniform("u_texture", textura);
+	shader->setUniform("u_model", m);
+	shader->setUniform("u_light_direction", Vector3(0.3,0.6,0.2));
+	shader->setUniform("u_camera_position", camera->eye);
+	shader->setFloat("u_tilling", tilling);
+
+	mesh->render(GL_TRIANGLES, -1);
+
+	shader->disable();
+
+}
+
 
 
 void EntityGameObject::update(float seconds_elapsed) {

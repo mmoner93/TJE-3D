@@ -12,7 +12,7 @@ void Scene::pintarScene() {
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	suelo->renderTilling();
+	suelo->renderEspecial();
 
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
@@ -21,6 +21,9 @@ void Scene::pintarScene() {
 		}
 		else if (mapaObjects[i]->nameShader == "phong") {
 			mapaObjects[i]->renderConPhong(0, 0, lightScene->light);
+		}
+		else if (mapaObjects[i]->nameShader == "game") {
+			mapaObjects[i]->renderEspecial();
 		}
 		
 
