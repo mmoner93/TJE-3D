@@ -32,6 +32,9 @@ vector<Entity*> mapaObjects;
 Vector3 ambientLight(0.0, 0.0, 0.0);
 Scene* gameScene=NULL;
 
+std::vector<Vector3> points;
+
+
 struct sPlayer {
 	Vector3 position;
 	float yaw;
@@ -272,9 +275,9 @@ void LoadMap() {
 
 			if (cell.type > 0 && cell.type <= NUM_ENTITIES) {
 				EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type - 1];
-				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 3.0f);
+				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 1.0f);
 				//temp->renderConPhong(x,y,light);
-				temp->model->translate(x*10, 0.0f, y*10);
+				temp->model->translate(x, 0.0f, y);
 				if (cell.type == 6) {
 					temp->model->rotate(PI,Vector3(0,1,0));
 				}
@@ -429,7 +432,7 @@ void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	light->uploadToShader(shaderPhong);
 	material->uploadToShader(shaderPhong);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES,0);
+	mesh->render(GL_TRIANGLES, -1);
 	
 	//disable shader
 	shaderPhong->disable();
@@ -452,13 +455,67 @@ void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
 	shaderBasic->setUniform("u_model", m);
 	shaderBasic->setFloat("u_tilling", 1.0);
 	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES, 0);
+	mesh->render(GL_TRIANGLES, -1);
 
 	//disable shader
 	shaderBasic->disable();
 }
 
+void renderPoints(Matrix44 m, Mesh* mesh, Texture* texture=NULL, int submesh = 0)
+{
+	if (!shaderFlat)
+		return;
 
+	Camera* camera = Camera::current;
+
+	//enable shader
+	shaderFlat->enable();
+
+	//upload uniforms
+	shaderFlat->setUniform("u_color", Vector4(1, 1, 1, 1));
+	shaderFlat->setUniform("u_viewprojection", camera->viewprojection_matrix);
+	
+	shaderFlat->setUniform("u_model", m);
+	shaderFlat->setFloat("u_tilling", 1.0);
+	//shader->setUniform("u_time", time);
+	mesh->render(GL_POINTS, -1);
+
+	//disable shader
+	shaderFlat->disable();
+}
+
+
+void StagePlay :: addPoint() {
+
+	Vector3 pos = camera->center;
+	pos.y = 0;
+	Vector3 origin = camera->center;
+	Vector3 dir = camera->getRayDirection(Input::mouse_position.x,Input::mouse_position.y, gameI->window_width, gameI->window_height);
+
+	//para poner algo en el suelo
+	//pos = RayPlaneCollision(Vector3(),Vector3(0,1,0),origin,dir);
+
+
+	for (int i = 0; i<gameScene->mapaObjects.size(); i++) {
+		EntityGameObject* en = gameScene->mapaObjects[i];
+
+		Mesh* mesh = en->mesh;
+
+		if (mesh->testRayCollision(*en->model, origin, dir, pos, Vector3())) {
+			points.push_back(pos);
+			break;
+		}
+	
+	}
+
+	/*Mesh* mesh = Mesh::Get("data/personajes/ROBOT1.obj");
+
+	if(mesh->testRayCollision(Matrix44(), origin, dir, pos, Vector3()) ){
+		points.push_back(pos);
+	}*/
+
+
+}
 
 
 void StagePlay::render()
@@ -541,6 +598,12 @@ void StagePlay::render()
 	renderMeshPhong(m ,mesh, texture);
 
 	
+	Mesh points_mesh;
+	points_mesh.vertices = points;
+	if (points.size()) {
+		renderPoints(Matrix44(), &points_mesh, NULL, 0);
+	}
+	
 	
 	//Draw the floor grid
 	drawGrid();
@@ -560,6 +623,7 @@ void StagePlay::update(double seconds_elapsed)
 	float avionSpeed = 30;
 	//example
 	angle += (float)seconds_elapsed * 10.0f;
+
 
 
 
@@ -591,7 +655,7 @@ void StagePlay::update(double seconds_elapsed)
 		player.pitch -= Input::mouse_delta.y * 0.1;
 
 		//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
-		Vector3 character_center = target_pos + Vector3(0, 0.5,1);
+		Vector3 character_center = target_pos + Vector3(0, 0.5,0);
 		bool has_collision = false;
 		
 		for (int i = 0; i < gameScene->mapaObjects.size(); i++)
@@ -606,7 +670,7 @@ void StagePlay::update(double seconds_elapsed)
 			Vector3 collnorm;
 
 			//comprobamos si colisiona el objeto con la esfera (radio 3)
-			if (mesh->testSphereCollision(*(en->model), character_center,1, coll, collnorm) == false) {
+			if (mesh->testSphereCollision(*(en->model), character_center,0.3, coll, collnorm) == false) {
 				continue; //si no colisiona, pasamos al siguiente objeto
 			}
 			/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
@@ -661,6 +725,11 @@ void StagePlay::update(double seconds_elapsed)
 		if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT)) camera->move(Vector3(1.0f, 0.0f, 0.0f) * speed);
 		if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) camera->move(Vector3(-1.0f, 0.0f, 0.0f) * speed);
 	}
+
+	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
+		addPoint();
+	}
+
 
 	if (Input::isKeyPressed(SDL_SCANCODE_F) && attached_torpedo)
 	{

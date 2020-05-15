@@ -12,7 +12,7 @@ void Scene::pintarScene() {
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	suelo->renderTilling();
+	//suelo->renderTilling();
 
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
