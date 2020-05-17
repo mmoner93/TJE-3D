@@ -817,22 +817,7 @@ void StagePlay::render()
 	Vector3 center = plane_model * Vector3();
 	Vector3 up = plane_model.rotateVector(Vector3(0, 1, 0));*/
 
-	//player
-
 	
-	/*Vector3 eye = *player->model * Vector3(0, 0.6, -0.2);
-	Vector3 front(0, 0, -1);
-	Matrix44 PITCH;
-	PITCH.setRotation(player->pitch * DEG2RAD, Vector3(1, 0, 0));
-	front = PITCH.rotateVector(front);
-	Matrix44 YAW;
-	YAW.setRotation(player->yaw * DEG2RAD, Vector3(0, 1, 0));
-	front = YAW.rotateVector(front);
-	Vector3 center = eye + front;
-	Vector3 up = Vector3(0, 1, 0);*/
-
-	/*if (!gameI->free_cam)
-		camera->lookAt(eye, center, up); //position the camera and point to 0,0,0*/
 
 	//set the clear color (the background color)
 	//glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -856,31 +841,6 @@ void StagePlay::render()
 
 	player->renderPlayer();
 
-	
-
-	
-
-	
-	
-
-	//renderMeshPhong(*ter, mesh, texture,-1);
-
-	Texture* texture = Texture::Get("data/white.tga", false, false);
-
-	Mesh* mesh = Mesh::Get("data/sphere.ASE");
-
-	
-	//renderMeshPhong(mLigth, mesh, texture);
-
-
-	//texture = Texture::Get("data/personajes/ROBOT1.png");
-
-	//mesh = Mesh::Get("data/personajes/ROBOT1.obj");
-
-	
-
-
-	//renderMeshPhong(m ,mesh, texture);
 
 	//paintEnemys();
 	loadEnemys();
@@ -970,7 +930,7 @@ void StagePlay::update(double seconds_elapsed)
 	}
 
 
-
+	//para que el cielo siga a la camara
 	gameScene->cielo->model->setTranslation(camera->center.x, camera->center.y, camera->center.z);
 
 	if (gameI->free_cam == false) {

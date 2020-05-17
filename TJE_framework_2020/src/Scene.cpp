@@ -13,14 +13,14 @@ void Scene::pintarScene() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	suelo->renderEspecial();
-	lightScene->gameMesh->renderConPhong(0,0, lightScene->light);
+	lightScene->gameMesh->renderConPhong( lightScene->light);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
 		if (mapaObjects[i]->nameShader == "basic") {
 			mapaObjects[i]->renderTilling();
 		}
 		else if (mapaObjects[i]->nameShader == "phong") {
-			mapaObjects[i]->renderConPhong(0, 0, lightScene->light);
+			mapaObjects[i]->renderConPhong( lightScene->light);
 		}
 		else if (mapaObjects[i]->nameShader == "game") {
 			mapaObjects[i]->renderEspecial();

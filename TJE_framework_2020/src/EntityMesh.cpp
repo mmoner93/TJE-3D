@@ -6,7 +6,7 @@ void EntityMesh::render() {
 }
 
 
-void EntityMesh::renderConPhong(float x, float y , Light* light ) {
+void EntityMesh::renderConPhong(Light* light ) {
 
 	Camera* camera = Camera::current;
 	Vector3 ambientLight(0.3, 0.3, 0.3);
