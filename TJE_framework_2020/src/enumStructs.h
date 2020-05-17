@@ -1,7 +1,7 @@
 #ifndef ENUMSTRUCTS_H
 #define ENUMSTRUCTS_H
 
-#define NUM_ENTITIES 38
+#define NUM_ENTITIES 39
 #define NUM_ENEMYS 9
 
 enum eCellType : uint8 {

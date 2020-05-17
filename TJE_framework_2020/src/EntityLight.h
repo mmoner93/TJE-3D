@@ -2,17 +2,17 @@
 #define ENTITYLIGHT_H
 
 #include "light.h"
-#include "EntityMesh.h"
+#include "EntityGameObject.h"
 
 class EntityLight
 {
 public:
 
-	EntityMesh* gameMesh;
+	EntityGameObject* gameMesh;
 	Light* light;
 	
 
-	EntityLight(EntityMesh* gM,Light* l){
+	EntityLight(EntityGameObject* gM,Light* l){
 		gameMesh = gM;
 		light = l;
 	}
