@@ -473,7 +473,7 @@ void inicializarScena() {
 	mesh = new Mesh();
 
 	mesh->createPlane(1000);
-	Texture* xs = Texture::Get("data/escena/bgv9.png");
+	Texture* xs = Texture::Get("data/escena/bg_t_6.png");
 	//en el de cuadros 5000
 	EntityGameObject* entityGame= new EntityGameObject(xs, shaderGame, mesh, material,"game",1.0f,1000.0f);
 	
@@ -883,7 +883,7 @@ void StagePlay::render()
 	
 	
 	//Draw the floor grid
-	drawGrid();
+	//drawGrid();
 
 	//render the FPS, Draw Calls, etc
 	drawText(2, 2, getGPUStats(), Vector3(1, 1, 1), 2);
