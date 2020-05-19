@@ -24,13 +24,13 @@ float NdotL=clamp(dot(N,L),0.0,1.0);
 
 //el vector es el sol
 vec3 light=NdotL*vec3(1.0,1.0,1.0)*0.8;
-light+=vec3(0.6,0.6,0.6);
+light+=vec3(0.2,0.2,0.2);
 color.xyz*=light;
 
 float dist=length(v_world_position-u_camera_position);
 //normalmente la division es entre el camera.far
 dist=clamp(dist/128.0,0.0,1.0);
-vec3 fog_color= vec3(0.1,0.1,0.1);
+vec3 fog_color= vec3(0.60,0.75,0.78);
 color.xyz=mix(color.xyz,fog_color,dist);
 
 gl_FragColor =color;

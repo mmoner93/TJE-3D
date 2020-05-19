@@ -12,6 +12,7 @@ public:
 	EntityGameObject* suelo;
 	EntityGameObject* cielo;
 	std::vector<EntityGameObject*> mapaObjects;
+	std::vector<EntityGameObject*> Enemys; //esto seguramente cambiara a entityEnemy cuando tengan comportamiento y tal.
 
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci) {
 		lightScene = l;
@@ -21,7 +22,7 @@ public:
 
 	void addObject(EntityGameObject* temp);
 
-
+	void addEnemy(EntityGameObject* temp);
 	void pintarScene();
 
 

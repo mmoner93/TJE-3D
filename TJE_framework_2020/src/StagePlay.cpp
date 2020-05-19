@@ -60,66 +60,66 @@ void rellenarEnemys() {
 		switch (i) {
 		case 0:
 			textureTemp = Texture::Get("data/personajes/Arachnoid.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/Arachnoid.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			
 			enemysMap["Arachnoid"] = temp;
 			break;
 		case 1:
 			textureTemp = Texture::Get("data/personajes/ReconBot.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/ReconBot.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			enemysMap["ReconBot"] = temp;
 			break;
 		case 2:
 			textureTemp = Texture::Get("data/personajes/Companion-bot.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/Companion-bot.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			enemysMap["Companion"] = temp;
 			break;
 		case 3:
 			textureTemp = Texture::Get("data/personajes/MobileStorageBot.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/MobileStorageBot.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			enemysMap["MobileStorageBot"] = temp;
 			break;
 		case 4:
 			textureTemp = Texture::Get("data/personajes/MechaTrooper.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/MechaTrooper.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			enemysMap["MechaTrooper"] = temp;
 			break;
 		case 5:
 			textureTemp = Texture::Get("data/personajes/FieldFighter.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/FieldFighter.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			enemysMap["FieldFighter"] = temp;
 			break;
 		case 6:
 			textureTemp = Texture::Get("data/personajes/QuadrupedTank.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/QuadrupedTank.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			enemysMap["QuadrupedTank"] = temp;
 			break;
 		case 7:
 			textureTemp = Texture::Get("data/personajes/MechaGolem.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/MechaGolem.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			enemysMap["MechaGolem"] = temp;
 			break;
 		case 8:
 			textureTemp = Texture::Get("data/personajes/Mecha01.png", false, false);
-			shaderTemp = shaderPhong;
+			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/personajes/Mecha01.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "phong");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			enemysMap["Mecha01"] = temp;
 			break;
 		}
@@ -481,18 +481,80 @@ void inicializarScena() {
 	mesh = new Mesh();
 
 	mesh->createPlane(1000);
-	Texture* xs = Texture::Get("data/escena/bg_t_6.png");
+	//Texture* xs = Texture::Get("data/escena/bg_t_6.png");baixa_2.png
+
+	Texture* xs = Texture::Get("data/terra_lila2.png");
 	//en el de cuadros 5000
-	EntityGameObject* entityGame= new EntityGameObject(xs, shaderGame, mesh, material,"game",1.0f,1000.0f);
+	EntityGameObject* entitySuelo= new EntityGameObject(xs, shaderGame, mesh, material,"game",1.0f,1000.f);
 	
 
-	mesh = Mesh::Get("data/space_cubemap.ASE"); 
+	//mesh = Mesh::Get("data/space_cubemap.ASE"); cielo.ASE
 
-	xs = Texture::Get("data/hell_cubemap.tga");
-	EntityGameObject* entityGame2 = new EntityGameObject(xs, shaderBasic, mesh, material, "basic", 1.0f, 1.0f);
+	//xs = Texture::Get("data/hell_cubemap.tga");
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo.png");
+
+	EntityGameObject* entityCielo = new EntityGameObject(xs, shaderBasic, mesh, material, "basic", 1.0f,1.0f);
 
 
-	gameScene = new Scene(ltemp,entityGame, entityGame2);
+	gameScene = new Scene(ltemp, entitySuelo, entityCielo);
+
+}
+
+
+void loadEnemys() {
+
+	for (int i = 0; i < NUM_ENEMYS; i++) {
+		EntityMesh* en;
+
+		switch (i) {
+		case 0:
+			en = (EntityMesh*)enemysMap["Arachnoid"];
+
+			break;
+		case 1:
+
+			en = (EntityMesh*)enemysMap["ReconBot"];
+			break;
+		case 2:
+
+			en = (EntityMesh*)enemysMap["Companion"];
+			break;
+		case 3:
+
+			en = (EntityMesh*)enemysMap["MobileStorageBot"];
+			break;
+		case 4:
+
+			en = (EntityMesh*)enemysMap["MechaTrooper"];
+			break;
+		case 5:
+
+			en = (EntityMesh*)enemysMap["FieldFighter"];
+			break;
+		case 6:
+
+			en = (EntityMesh*)enemysMap["QuadrupedTank"];
+			break;
+		case 7:
+
+			en = (EntityMesh*)enemysMap["MechaGolem"];
+			break;
+		case 8:
+
+			en = (EntityMesh*)enemysMap["Mecha01"];
+			break;
+		}
+
+
+		EntityGameObject* temp = new EntityGameObject(en->textura, en->shader, en->mesh, en->material, "game");
+
+		temp->model->translate(0, 0, i * 10.0f);
+
+		//renderMeshPhong(*temp->model, temp->mesh, temp->textura);
+		gameScene->addObject(temp);
+	}
+
 
 }
 
@@ -551,14 +613,16 @@ void StagePlay::init() {
 	//plane_model.scale(50.0f, 50.0f, 50.0f);
 
 	mapGame = new GameMap(256,256);
-	mapGame->loadMapWithMap("data/myMaps/mymapfabricanaves.map");
+	mapGame->loadMapWithMap("data/myMaps/mycaca.map");
 	controlInit = true;
 	//mLigth.setIdentity();
 
 	//plane_model.scale(20, 20, 20);
 	rellenarEntitys();
 	rellenarEnemys();
+	
 	inicializarScena();
+	loadEnemys();
 	LoadMap();
 
 	Mesh* meshTemp = Mesh::Get("data/personajes/playerRojoMascara.OBJ");
@@ -579,61 +643,6 @@ void StagePlay::init() {
 
 }
 
-
-
-void renderMeshPhong(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = -1)
-{
-	if (!shaderPhong)
-		return;
-
-	Camera* camera = Camera::current;
-	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
-	//enable shader
-	shaderPhong->enable();
-
-	//upload uniforms
-	shaderPhong->setMatrix44("model", m); //upload info to the shader
-	shaderPhong->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
-
-	shaderPhong->setTexture("color_texture", texture); //set texture in slot 0
-	//shaderFlat->setTexture("nomal_texture", textureNorrmal, 1); //set texture in slot 1
-
-	shaderPhong->setFloat("u_tilling", 1.0);
-	shaderPhong->setUniform3("positionCamera", camera->eye);
-	shaderPhong->setUniform3("lightAmbient", ambientLight);
-	light->uploadToShader(shaderPhong);
-	material->uploadToShader(shaderPhong);
-	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES, submesh);
-	
-	//disable shader
-	shaderPhong->disable();
-}
-
-void renderMesh(Matrix44 m, Mesh* mesh, Texture* texture, int submesh = 0)
-{
-	if (!shaderBasic)
-		return;
-
-	Camera* camera = Camera::current;
-
-	//enable shader
-	shaderBasic->enable();
-
-	//upload uniforms
-	shaderBasic->setUniform("u_color", Vector4(1, 1, 1, 1));
-	shaderBasic->setUniform("u_viewprojection", camera->viewprojection_matrix);
-	shaderBasic->setUniform("u_texture", texture);
-	shaderBasic->setUniform("u_model", m);
-	shaderBasic->setFloat("u_tilling", 1.0);
-	//shader->setUniform("u_time", time);
-	mesh->render(GL_TRIANGLES, -1);
-
-	//disable shader
-	shaderBasic->disable();
-}
 
 void renderPoints(Matrix44 m, Mesh* mesh, Texture* texture=NULL, int submesh = 0)
 {
@@ -659,117 +668,6 @@ void renderPoints(Matrix44 m, Mesh* mesh, Texture* texture=NULL, int submesh = 0
 }
 
 
-void loadEnemys() {
-
-	for (int i = 0; i < NUM_ENEMYS; i++) {
-		EntityMesh* en;
-
-		switch (i) {
-		case 0:
-			en = (EntityMesh*)enemysMap["Arachnoid"];
-
-			break;
-		case 1:
-
-			en = (EntityMesh*)enemysMap["ReconBot"];
-			break;
-		case 2:
-
-			en = (EntityMesh*)enemysMap["Companion"];
-			break;
-		case 3:
-
-			en = (EntityMesh*)enemysMap["MobileStorageBot"];
-			break;
-		case 4:
-
-			en = (EntityMesh*)enemysMap["MechaTrooper"];
-			break;
-		case 5:
-
-			en = (EntityMesh*)enemysMap["FieldFighter"];
-			break;
-		case 6:
-
-			en = (EntityMesh*)enemysMap["QuadrupedTank"];
-			break;
-		case 7:
-
-			en = (EntityMesh*)enemysMap["MechaGolem"];
-			break;
-		case 8:
-
-			en = (EntityMesh*)enemysMap["Mecha01"];
-			break;
-		}
-
-
-		EntityGameObject* temp  = new EntityGameObject(en->textura, en->shader, en->mesh, en->material, "phong");
-		
-		temp->model->translate(0, 0, i * 10.0f);
-		
-		renderMeshPhong(*temp->model, temp->mesh, temp->textura);
-
-	}
-
-
-}
-
-
-void paintEnemys() {
-
-
-	for (int i = 0; i < NUM_ENEMYS; i++) {
-		EntityGameObject* en;
-
-		switch (i) {
-		case 0:
-			en = (EntityGameObject*)enemysMap["Arachnoid"];
-			
-			break;
-		case 1:
-
-			en = (EntityGameObject*)enemysMap["ReconBot"];
-			break;
-		case 2:
-
-			en = (EntityGameObject*)enemysMap["Companion"];
-			break;
-		case 3:
-
-			en = (EntityGameObject*)enemysMap["MobileStorageBot"];
-			break;
-		case 4:
-
-			en = (EntityGameObject*)enemysMap["MechaTrooper"];
-			break;
-		case 5:
-
-			en = (EntityGameObject*)enemysMap["FieldFighter"];
-			break;
-		case 6:
-
-			en = (EntityGameObject*)enemysMap["QuadrupedTank"];
-			break;
-		case 7:
-
-			en = (EntityGameObject*)enemysMap["MechaGolem"];
-			break;
-		case 8:
-
-			en = (EntityGameObject*)enemysMap["Mecha01"];
-			break;
-		}
-
-
-
-		renderMeshPhong(*en->model, en->mesh, en->textura);
-
-	}
-
-
-
-}
 
 
 void StagePlay :: addPoint() {
@@ -843,7 +741,7 @@ void StagePlay::render()
 
 
 	//paintEnemys();
-	loadEnemys();
+	//loadEnemys();
 
 	Mesh points_mesh;
 	points_mesh.vertices = points;
@@ -857,6 +755,8 @@ void StagePlay::render()
 
 	//render the FPS, Draw Calls, etc
 	drawText(2, 2, getGPUStats(), Vector3(1, 1, 1), 2);
+
+	//drawText(20, 20, "HEllo World", Vector3(1, 1, 1), 2);
 
 	//swap between front buffer and back buffer
 	SDL_GL_SwapWindow(gameI->window);

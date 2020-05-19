@@ -17,6 +17,7 @@ void EntityPlayer::renderPlayer() {
 	front = PITCH.rotateVector(front);
 	Matrix44 YAW;
 	YAW.setRotation(yaw * DEG2RAD, Vector3(0, 1, 0));
+	std::cout<< "El pitch es "<< pitch << std::endl;
 	front = YAW.rotateVector(front);
 	Vector3 center = eye + front;
 	Vector3 up = Vector3(0, 1, 0);
@@ -59,7 +60,14 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	//if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
 
 	yaw -= Input::mouse_delta.x * 0.1;
+
 	pitch -= Input::mouse_delta.y * 0.1;
+	if (pitch >= 90) {
+		pitch = 89.9;
+	}
+	if (pitch <= -90) {
+		pitch = -89.9;
+	}
 
 	target_pos = testCollision(target_pos, seconds_elapsed, objects);
 
@@ -81,7 +89,7 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 
 	//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
-	Vector3 character_center = target_pos + Vector3(0, 1.0, 0);
+	Vector3 character_center = target_pos + Vector3(0, 0.8, 0);
 	bool has_collision = false;
 
 	for (int i = 0; i < objects.size(); i++)

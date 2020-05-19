@@ -75,7 +75,6 @@ void EntityGameObject::renderEspecial() {
 	shader->setUniform("u_light_direction", Vector3(0.3,0.6,0.2));
 	shader->setUniform("u_camera_position", camera->eye);
 	shader->setFloat("u_tilling", tilling);
-
 	mesh->render(GL_TRIANGLES, -1);
 
 	shader->disable();
