@@ -77,7 +77,7 @@
     <ClCompile Include="..\..\src\Entity.cpp" />
     <ClCompile Include="..\..\src\EntityLight.cpp" />
     <ClCompile Include="..\..\src\EntityGameObject.cpp" />
-    <ClCompile Include="..\..\src\PlayerEntity.cpp" />
+    <ClCompile Include="..\..\src\EntityPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -153,7 +153,7 @@
     <ClInclude Include="..\..\src\EntityMesh.h" />
     <ClInclude Include="..\..\src\EntityLight.h" />
     <ClInclude Include="..\..\src\EntityGameObject.h" />
-    <ClInclude Include="..\..\src\PlayerEntity.h" />
+    <ClInclude Include="..\..\src\EntityPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extra">

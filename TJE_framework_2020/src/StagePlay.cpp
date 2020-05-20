@@ -7,7 +7,7 @@
 #include "EntityMesh.h"
 #include "Scene.h"
 #include "EntityLight.h"
-#include "PlayerEntity.h"
+#include "EntityPlayer.h"
 using namespace std;
 
 //some globals
@@ -16,39 +16,27 @@ Shader* shaderFlat = NULL;
 Shader* shaderPhong = NULL;
 Shader* shaderGame = NULL;
 //Animation* anim = NULL;
-float angle = 0;
-Matrix44 plane_model;
-Matrix44 torpedo_model;
-Matrix44 arbol2_model;
 
-bool attached_torpedo = true;
 Camera* camera;
 Game* gameI = NULL;
 Material* material = NULL;
-Matrix44 viewprojection;
-Light* light = NULL;
 GameMap* mapGame = NULL;
-vector<Entity*> mapaObjects;
-map<string,Entity*> enemysMap;
-Vector3 ambientLight(0.0, 0.0, 0.0);
+vector<Entity*> mapaObjects;//guardo la info de que dibujar segun type
+map<string,Entity*> enemysMap;//guardo la info de como dibujarlo
 Scene* gameScene=NULL;
 
 std::vector<Vector3> points;
 
 
+/*Pruebas
 
-/*struct sPlayer {
-	Vector3 position;
-	float yaw;
-	float pitch;
-	Matrix44 model;
-	sPlayer() { yaw=pitch = 0.0; }
-};
+Matrix44 plane_model;
+Matrix44 torpedo_model;
+Matrix44 arbol2_model;
 
-sPlayer player;*/
-
-
-EntityPlayer* player;
+bool attached_torpedo = true;
+float angle = 0;
+*/
 
 void rellenarEnemys() {
 	Entity* temp;
@@ -383,22 +371,6 @@ void rellenarEntitys() {
 
 
 void LoadMap() {
-
-	Texture* texture = Texture::Get("data/white.tga", false, false);
-
-	Mesh* mesh = Mesh::Get("data/sphere.ASE");
-	//texture = Texture::Get("data/spitfire/spitfire_color_spec.tga");
-	//mesh = Mesh::Get("data/weapons/Models/ammo_uzi.obj");
-	//renderMesh(attached_torpedo ? torpedo_model * plane_model : torpedo_model, mesh, texture);
-
-	if (!shaderFlat)
-		return;
-
-	Camera* camera = Camera::current;
-
-
-
-
 	for (int x = 0; x < mapGame->width; ++x)
 		for (int y = 0; y < mapGame->height; ++y)
 		{
@@ -410,10 +382,10 @@ void LoadMap() {
 			if (cell.type > 0 && cell.type <= NUM_ENTITIES) {
 				EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type - 1];
 				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 3.0f);
-				//temp->renderConPhong(x,y,light);
+
 				temp->model->translate(x*3, 0.0f, y*3);
 
-				//podria hacer una función para indicar estas cosas.
+				//podria hacer una función para indicar estas cosas. Roto las figuras para que cuadren en escenario (esquinas , paredes)
 				if (cell.type == 6) {
 					temp->model->rotate(PI,Vector3(0,1,0));
 				}
@@ -449,10 +421,6 @@ void LoadMap() {
 
 		}
 
-
-
-	//disable shader
-	shaderFlat->disable();
 }
 
 
@@ -461,32 +429,34 @@ void LoadMap() {
 
 void inicializarScena() {
 
-	light = new Light();
+	Light* light = new Light();
 	light->position.set(100, 50, 60);
 	light->specular_color.set(1.0f, 1.0f, 1.0f);
 	light->diffuse_color.set(1.0f, 1.0f, 1.0f);
 
 
-	
+	//light
 	Texture* texture = Texture::Get("data/white.tga", false, false);
 
 	Mesh* mesh = Mesh::Get("data/sphere.ASE");
 
-	EntityGameObject* EntityMeshTemp = new EntityGameObject(texture, shaderPhong, mesh, material,"phong",0.01);
+	EntityGameObject* EntityMeshTemp = new EntityGameObject(texture, shaderGame, mesh, material,"game",0.01);
 
 	EntityMeshTemp->model->translateGlobal(light->position.x, light->position.y, light->position.z);
 	EntityLight* ltemp = new EntityLight(EntityMeshTemp,light);
 
 
+	//suelo
 	mesh = new Mesh();
 
 	mesh->createPlane(1000);
-	//Texture* xs = Texture::Get("data/escena/bg_t_6.png");baixa_2.png
 
 	Texture* xs = Texture::Get("data/terra_lila2.png");
-	//en el de cuadros 5000
 	EntityGameObject* entitySuelo= new EntityGameObject(xs, shaderGame, mesh, material,"game",1.0f,1000.f);
 	
+
+
+	//cielo
 
 	//mesh = Mesh::Get("data/space_cubemap.ASE"); cielo.ASE
 
@@ -497,7 +467,22 @@ void inicializarScena() {
 	EntityGameObject* entityCielo = new EntityGameObject(xs, shaderBasic, mesh, material, "basic", 1.0f,1.0f);
 
 
-	gameScene = new Scene(ltemp, entitySuelo, entityCielo);
+	//player
+
+	Mesh* meshTemp = Mesh::Get("data/personajes/playerRojoMascara.OBJ");
+	Texture* texTemp = Texture::Get("data/personajes/playerRojoMascara.png", false, true);
+	EntityPlayer* player;
+	player = new EntityPlayer(texTemp, shaderGame, meshTemp, material, "game", Vector3(10, 0, 10));
+
+	texTemp = Texture::Get("data/arma/uzi.png", false, true);
+	meshTemp = Mesh::Get("data/arma/uzi.obj");
+
+	EntityGameObject* tempWeapon = new EntityGameObject(texTemp, shaderGame, meshTemp, material, "game");
+
+	player->atachWeapon(tempWeapon);
+
+
+	gameScene = new Scene(ltemp, entitySuelo, entityCielo,player);
 
 }
 
@@ -551,7 +536,6 @@ void loadEnemys() {
 
 		temp->model->translate(0, 0, i * 10.0f);
 
-		//renderMeshPhong(*temp->model, temp->mesh, temp->textura);
 		gameScene->addObject(temp);
 	}
 
@@ -583,12 +567,6 @@ void StagePlay::init() {
 	
 	
 	
-	//phongShader = Shader::Get("phong.vs", "phong.ps");
-	plane_model.setTranslation(0, 0, 0);
-	torpedo_model.setTranslation(0, -5, 0); 
-	
-	arbol2_model.translate(10, 0, 0);
-	//arbol2_model.translate(60, 60, 60);
 	
 	
 	/*plata
@@ -608,16 +586,12 @@ void StagePlay::init() {
 	
 
 
-
-
-	//plane_model.scale(50.0f, 50.0f, 50.0f);
-
 	mapGame = new GameMap(256,256);
 	mapGame->loadMapWithMap("data/myMaps/mycaca.map");
 	controlInit = true;
 	//mLigth.setIdentity();
 
-	//plane_model.scale(20, 20, 20);
+	
 	rellenarEntitys();
 	rellenarEnemys();
 	
@@ -625,25 +599,21 @@ void StagePlay::init() {
 	loadEnemys();
 	LoadMap();
 
-	Mesh* meshTemp = Mesh::Get("data/personajes/playerRojoMascara.OBJ");
-	Texture* texTemp = Texture::Get("data/personajes/playerRojoMascara.png", false, true);
-
-
-	player = new EntityPlayer(texTemp, shaderGame, meshTemp, material, "game", Vector3(10, 0, 10));
-
-	texTemp  = Texture::Get("data/arma/uzi.png", false, true);
-	meshTemp = Mesh::Get("data/arma/uzi.obj");
-
-	EntityGameObject* tempWeapon=new EntityGameObject(texTemp, shaderGame, meshTemp, material, "game");
-
-	player->atachWeapon(tempWeapon);
-
-	//player.model.scale(0.01f, 0.01f, 0.01f);
 	
-
+	//pruebas
+	
+	//plane_model.scale(50.0f, 50.0f, 50.0f);
+	//plane_model.scale(20, 20, 20);
+	//player.model.scale(0.01f, 0.01f, 0.01f);
+	//arbol2_model.translate(10, 0, 0);
+	//arbol2_model.translate(60, 60, 60);
+	//phongShader = Shader::Get("phong.vs", "phong.ps");
+	//plane_model.setTranslation(0, 0, 0);
+	//torpedo_model.setTranslation(0, -5, 0); 
 }
 
 
+//de momento lo dejo aqui. Se puede transladar cuando haga mecanica pensada de "pegamento" para reparar.
 void renderPoints(Matrix44 m, Mesh* mesh, Texture* texture=NULL, int submesh = 0)
 {
 	if (!shaderFlat)
@@ -669,7 +639,7 @@ void renderPoints(Matrix44 m, Mesh* mesh, Texture* texture=NULL, int submesh = 0
 
 
 
-
+//como antes
 void StagePlay :: addPoint() {
 
 	Vector3 pos = camera->center;
@@ -731,17 +701,6 @@ void StagePlay::render()
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 
-	//create model matrix for cube
-	Matrix44 m;
-	viewprojection = camera->viewprojection_matrix;
-
-	
-
-	player->renderPlayer();
-
-
-	//paintEnemys();
-	//loadEnemys();
 
 	Mesh points_mesh;
 	points_mesh.vertices = points;
@@ -768,11 +727,8 @@ void StagePlay::update(double seconds_elapsed)
 {
 	float speed = (float)seconds_elapsed * (float)10; //the speed is defined by the seconds_elapsed so it goes constant
 	float avionSpeed = 30;
-	//example
-	angle += (float)seconds_elapsed * 10.0f;
-
-
-
+	//avion
+	//angle += (float)seconds_elapsed * 10.0f;
 
 	//mouse input to rotate the cam
 	if ((Input::mouse_state & SDL_BUTTON_LEFT) || gameI->mouse_locked) //is left button pressed?
@@ -783,10 +739,9 @@ void StagePlay::update(double seconds_elapsed)
 
 	if (gameI->free_cam == false)
 	{
+		//actualizo para collisiones.
+		gameScene->myPlayer->update(seconds_elapsed, gameScene->mapaObjects);
 		
-	//falta meter el player
-		player->update(seconds_elapsed, gameScene->mapaObjects);
-
 		/*Avion
 		if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
 		if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
@@ -807,11 +762,13 @@ void StagePlay::update(double seconds_elapsed)
 		if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) camera->move(Vector3(-1.0f, 0.0f, 0.0f) * speed);
 	}
 
+	//para disparar los puntos de colision
 	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
 		addPoint();
 	}
 
 
+	/* avion
 	if (Input::isKeyPressed(SDL_SCANCODE_F) && attached_torpedo)
 	{
 		attached_torpedo = false;
@@ -819,16 +776,20 @@ void StagePlay::update(double seconds_elapsed)
 		//torpedo_model.
 	}
 
-	if (!gameI->free_cam)
-	{
-		plane_model.translate(0, 0, seconds_elapsed * -avionSpeed);
-	}
-
 	if (!attached_torpedo) {
 		torpedo_model.translateGlobal(0, seconds_elapsed * -10, 0);
 		arbol2_model.translateGlobal(0, seconds_elapsed * -10, 0);
 	}
 
+
+	
+	if (!gameI->free_cam)
+	{
+		plane_model.translate(0, 0, seconds_elapsed * -avionSpeed);
+	}
+
+	*/
+	
 
 	//para que el cielo siga a la camara
 	gameScene->cielo->model->setTranslation(camera->center.x, camera->center.y, camera->center.z);

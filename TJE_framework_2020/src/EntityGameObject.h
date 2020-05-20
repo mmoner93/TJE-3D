@@ -33,10 +33,10 @@ public:
 	}
 
 
-	 virtual void render();
+	 virtual void render(Light* light);
 	 void renderConPhong( Light* light);
 	 void renderTilling();
-	 void renderEspecial();
+	 void renderEspecial(Light* light);
 	 void update(float seconds_elapsed);
 
 

@@ -11,6 +11,7 @@ uniform float u_time;
 uniform float u_tilling;
 uniform vec3 u_light_direction;
 uniform vec3 u_camera_position;
+uniform vec3 u_ambient_light;
 void main()
 {
 vec2 uv = v_uv;
@@ -24,7 +25,7 @@ float NdotL=clamp(dot(N,L),0.0,1.0);
 
 //el vector es el sol
 vec3 light=NdotL*vec3(1.0,1.0,1.0)*0.8;
-light+=vec3(0.2,0.2,0.2);
+light+=u_ambient_light;
 color.xyz*=light;
 
 float dist=length(v_world_position-u_camera_position);

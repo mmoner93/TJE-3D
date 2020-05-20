@@ -12,20 +12,21 @@ void Scene::pintarScene() {
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	suelo->renderEspecial();
-	lightScene->gameMesh->renderConPhong( lightScene->light);
+	suelo->render(lightScene->light);
+	myPlayer->render(lightScene->light);
+	lightScene->gameMesh->render( lightScene->light);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
-		if (mapaObjects[i]->nameShader == "basic") {
+	/*	if (mapaObjects[i]->nameShader == "basic") {
 			mapaObjects[i]->renderTilling();
 		}
 		else if (mapaObjects[i]->nameShader == "phong") {
 			mapaObjects[i]->renderConPhong( lightScene->light);
 		}
 		else if (mapaObjects[i]->nameShader == "game") {
-			mapaObjects[i]->renderEspecial();
-		}
-		
+			mapaObjects[i]->renderEspecial(lightScene->light);
+		}*/
+		mapaObjects[i]->render(lightScene->light);
 
 	}
 

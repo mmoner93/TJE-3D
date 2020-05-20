@@ -27,8 +27,7 @@ public:
 	}
 
 
-	 void render();
-	 void renderConPhong(Light* light);
+	 void render(Light* light);
 	 void update(float seconds_elapsed);
 
 

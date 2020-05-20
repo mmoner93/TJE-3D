@@ -1,8 +1,28 @@
 #include "EntityGameObject.h"
 
 
-void EntityGameObject::render() {
+void EntityGameObject::render(Light* light) {
+	Camera* camera = Camera::current;
+	Vector3 ambientLight(0.3, 0.3, 0.3);
+	Matrix44 m = *model;
 
+	//enable shader
+	shader->enable();
+
+	//m.scale(scale, scale, scale);
+	//upload uniforms
+	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);
+	shader->setUniform("u_texture", textura);
+	shader->setUniform("u_model", m);
+	Vector3 light_direction = light->position - model->getTranslation();
+	shader->setUniform("u_light_direction", light_direction);
+	shader->setUniform("u_camera_position", camera->eye);
+	shader->setFloat("u_tilling", tilling);
+	shader->setUniform("u_ambient_light", Vector3(0.2, 0.2, 0.2));
+	mesh->render(GL_TRIANGLES, -1);
+
+	shader->disable();
 }
 
 
@@ -33,6 +53,7 @@ void EntityGameObject::renderConPhong( Light* light ) {
 
 }
 
+//de momento no he modificado shader para que sea simple
 void EntityGameObject::renderTilling() {
 
 	Camera* camera = Camera::current;
@@ -51,30 +72,6 @@ void EntityGameObject::renderTilling() {
 
 	shader->setFloat("u_tilling", tilling);
 	
-	mesh->render(GL_TRIANGLES, -1);
-
-	shader->disable();
-
-}
-
-void EntityGameObject::renderEspecial() {
-
-	Camera* camera = Camera::current;
-	Vector3 ambientLight(0.3, 0.3, 0.3);
-	Matrix44 m = *model;
-
-	//enable shader
-	shader->enable();
-
-	//m.scale(scale, scale, scale);
-	//upload uniforms
-	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
-	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);
-	shader->setUniform("u_texture", textura);
-	shader->setUniform("u_model", m);
-	shader->setUniform("u_light_direction", Vector3(0.3,0.6,0.2));
-	shader->setUniform("u_camera_position", camera->eye);
-	shader->setFloat("u_tilling", tilling);
 	mesh->render(GL_TRIANGLES, -1);
 
 	shader->disable();
