@@ -20,7 +20,7 @@ Shader* shaderGame = NULL;
 Camera* camera;
 Game* gameI = NULL;
 Material* material = NULL;
-GameMap* mapGame = NULL;
+
 vector<Entity*> mapaObjects;//guardo la info de que dibujar segun type
 map<string,Entity*> enemysMap;//guardo la info de como dibujarlo
 Scene* gameScene=NULL;
@@ -120,6 +120,8 @@ void rellenarEnemys() {
 
 
 void rellenarEntitys() {
+
+	//es posible que más adelante nos venga bien guardarle a cada objeto su type.
 
 	Entity* temp;
 	Texture* textureTemp;
@@ -375,58 +377,6 @@ void rellenarEntitys() {
 }
 
 
-void LoadMap() {
-	for (int x = 0; x < mapGame->width; ++x)
-		for (int y = 0; y < mapGame->height; ++y)
-		{
-			//get cell info
-			sCell& cell = mapGame->getCell(x, y);
-			if (cell.type == 0) //skip empty
-				continue;
-
-			if (cell.type > 0 && cell.type <= NUM_ENTITIES) {
-				EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type];
-				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 3.0f);
-
-				temp->model->translate(x*3, 0.0f, y*3);
-
-				//podria hacer una función para indicar estas cosas. Roto las figuras para que cuadren en escenario (esquinas , paredes)
-				if (cell.type == 6) {
-					temp->model->rotate(PI,Vector3(0,1,0));
-				}
-
-				if (cell.type == 7) {
-					temp->model->rotate(PI/2, Vector3(0, 1, 0));
-				}
-
-				if (cell.type == 8) {
-					temp->model->rotate(-PI / 2, Vector3(0, 1, 0));
-				}
-
-
-				if (cell.type == 10) {
-					temp->model->rotate(PI/2, Vector3(0, 1, 0));
-				}
-
-				if (cell.type == 11) {
-					temp->model->rotate(PI, Vector3(0, 1, 0));
-				}
-
-				if (cell.type == 13) {
-					temp->model->rotate(-PI/2, Vector3(0, 1, 0));
-				}
-
-
-				gameScene->addObject(temp);
-
-
-			}
-
-
-
-		}
-
-}
 
 
 
@@ -488,7 +438,7 @@ void inicializarScena() {
 
 
 	gameScene = new Scene(ltemp, entitySuelo, entityCielo,player);
-
+	gameScene->LoadMap(mapaObjects);
 }
 
 
@@ -591,8 +541,6 @@ void StagePlay::init() {
 	
 
 
-	mapGame = new GameMap(256,256);
-	mapGame->loadMapWithMap("data/myMaps/mycaca.map");
 	controlInit = true;
 	//mLigth.setIdentity();
 
@@ -602,7 +550,7 @@ void StagePlay::init() {
 	
 	inicializarScena();
 	loadEnemys();
-	LoadMap();
+	
 
 	
 	//pruebas

@@ -5,6 +5,8 @@
 #include "EntityLight.h"
 #include "EntityGameObject.h"
 #include "EntityPlayer.h"
+#include "GameMap.h"
+#include "enumStructs.h"
 class Scene
 {
 public:
@@ -14,19 +16,22 @@ public:
 	EntityGameObject* cielo;
 	std::vector<EntityGameObject*> mapaObjects;
 	std::vector<EntityGameObject*> Enemys; //esto seguramente cambiara a entityEnemy cuando tengan comportamiento y tal.
-
+	GameMap* mapGame = NULL;
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
 		lightScene = l;
 		suelo = s;
 		cielo = ci;
 		myPlayer = pl;
+
+		mapGame = new GameMap(256, 256);
+		mapGame->loadMapWithMap("data/myMaps/mycaca.map");
 	}
 
 	void addObject(EntityGameObject* temp);
 
 	void addEnemy(EntityGameObject* temp);
 	void pintarScene();
-
+	void LoadMap(std::vector<Entity*> EntityVector);
 
 };
 

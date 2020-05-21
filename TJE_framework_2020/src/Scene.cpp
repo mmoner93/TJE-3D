@@ -32,3 +32,58 @@ void Scene::pintarScene() {
 
 
 }
+
+
+
+void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
+	for (int x = 0; x < mapGame->width; ++x)
+		for (int y = 0; y < mapGame->height; ++y)
+		{
+			//get cell info
+			sCell& cell = mapGame->getCell(x, y);
+			if (cell.type == 0) //skip empty
+				continue;
+
+			if (cell.type > 0 && cell.type <= NUM_ENTITIES) {
+				EntityMesh* tempmesh = (EntityMesh*)EntityVector[cell.type];
+				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, tempmesh->material, tempmesh->nameShader, 3.0f);
+
+				temp->model->translate(x * 3, 0.0f, y * 3);
+
+				//podria hacer una función para indicar estas cosas. Roto las figuras para que cuadren en escenario (esquinas , paredes)
+				if (cell.type == CORNER_IZQUIERDA_SUP) {
+					temp->model->rotate(PI, Vector3(0, 1, 0));
+				}
+
+				if (cell.type == CORNER_IZQUIERDA_INF) {
+					temp->model->rotate(PI / 2, Vector3(0, 1, 0));
+				}
+
+				if (cell.type == CORNER_DERECHA_SUP) {
+					temp->model->rotate(-PI / 2, Vector3(0, 1, 0));
+				}
+
+
+				if (cell.type == WALL_SUP) {
+					temp->model->rotate(PI / 2, Vector3(0, 1, 0));
+				}
+
+				if (cell.type == WALL_DER) {
+					temp->model->rotate(PI, Vector3(0, 1, 0));
+				}
+
+				if (cell.type == WALL_INF) {
+					temp->model->rotate(-PI / 2, Vector3(0, 1, 0));
+				}
+
+
+				addObject(temp);
+
+
+			}
+
+
+
+		}
+
+}
