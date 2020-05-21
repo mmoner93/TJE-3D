@@ -1,7 +1,7 @@
 #ifndef ENTITYGAMEOBJECT_H
 #define ENTITYGAMEOBJECT_H
 
-#include "Entity.h" 
+#include "EntityMesh.h" 
 
 #include "mesh.h"
 #include "shader.h"
@@ -9,7 +9,7 @@
 #include "material.h"
 #include "camera.h"
 #include "light.h"
-class EntityGameObject :public Entity
+class EntityGameObject :public EntityMesh
 {
 public:
 	Texture* textura=NULL;
@@ -20,7 +20,7 @@ public:
 	std::string nameShader;
 	float scale;
 	float tilling;
-	EntityGameObject(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS,float sc=1.0,float til=1.0) {
+	EntityGameObject(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS,float sc=1.0,float til=1.0):EntityMesh(t,s,m,mat,nS) {
 		textura = t;
 		shader = s;
 		mesh = m;
@@ -33,10 +33,9 @@ public:
 	}
 
 
-	 virtual void render(Light* light);
+	 void render(Light* light);
 	 void renderConPhong( Light* light);
 	 void renderTilling();
-	 void renderEspecial(Light* light);
 	 void update(float seconds_elapsed);
 
 

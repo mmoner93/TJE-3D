@@ -14,7 +14,7 @@ void Scene::pintarScene() {
 	glEnable(GL_CULL_FACE);
 	suelo->render(lightScene->light);
 	myPlayer->render(lightScene->light);
-	lightScene->gameMesh->render( lightScene->light);
+	lightScene->render( lightScene->light);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
 	/*	if (mapaObjects[i]->nameShader == "basic") {
@@ -85,5 +85,62 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 
 		}
+
+}
+
+
+
+void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
+
+	for (int i = 0; i < NUM_ENEMYS; i++) {
+		EntityMesh* en;
+
+		switch (i) {
+		case 0:
+			en = (EntityMesh*)enemysMap["Arachnoid"];
+
+			break;
+		case 1:
+
+			en = (EntityMesh*)enemysMap["ReconBot"];
+			break;
+		case 2:
+
+			en = (EntityMesh*)enemysMap["Companion"];
+			break;
+		case 3:
+
+			en = (EntityMesh*)enemysMap["MobileStorageBot"];
+			break;
+		case 4:
+
+			en = (EntityMesh*)enemysMap["MechaTrooper"];
+			break;
+		case 5:
+
+			en = (EntityMesh*)enemysMap["FieldFighter"];
+			break;
+		case 6:
+
+			en = (EntityMesh*)enemysMap["QuadrupedTank"];
+			break;
+		case 7:
+
+			en = (EntityMesh*)enemysMap["MechaGolem"];
+			break;
+		case 8:
+
+			en = (EntityMesh*)enemysMap["Mecha01"];
+			break;
+		}
+
+
+		EntityGameObject* temp = new EntityGameObject(en->textura, en->shader, en->mesh, en->material, "game");
+
+		temp->model->translate(0, 0, i * 10.0f);
+
+		addObject(temp);
+	}
+
 
 }

@@ -395,11 +395,10 @@ void inicializarScena() {
 
 	Mesh* mesh = Mesh::Get("data/sphere.ASE");
 
-	EntityGameObject* EntityMeshTemp = new EntityGameObject(texture, shaderGame, mesh, material,"game",0.01);
+	//EntityGameObject* EntityMeshTemp = new EntityGameObject(texture, shaderGame, mesh, material,"game",0.01);
 
-	EntityMeshTemp->model->translateGlobal(light->position.x, light->position.y, light->position.z);
-	EntityLight* ltemp = new EntityLight(EntityMeshTemp,light);
-
+	
+	EntityLight* ltemp = new EntityLight(light, texture, shaderGame, mesh, material, "game", 0.01);
 
 	//suelo
 	mesh = new Mesh();
@@ -439,63 +438,10 @@ void inicializarScena() {
 
 	gameScene = new Scene(ltemp, entitySuelo, entityCielo,player);
 	gameScene->LoadMap(mapaObjects);
+	gameScene->loadEnemys(enemysMap);
 }
 
 
-void loadEnemys() {
-
-	for (int i = 0; i < NUM_ENEMYS; i++) {
-		EntityMesh* en;
-
-		switch (i) {
-		case 0:
-			en = (EntityMesh*)enemysMap["Arachnoid"];
-
-			break;
-		case 1:
-
-			en = (EntityMesh*)enemysMap["ReconBot"];
-			break;
-		case 2:
-
-			en = (EntityMesh*)enemysMap["Companion"];
-			break;
-		case 3:
-
-			en = (EntityMesh*)enemysMap["MobileStorageBot"];
-			break;
-		case 4:
-
-			en = (EntityMesh*)enemysMap["MechaTrooper"];
-			break;
-		case 5:
-
-			en = (EntityMesh*)enemysMap["FieldFighter"];
-			break;
-		case 6:
-
-			en = (EntityMesh*)enemysMap["QuadrupedTank"];
-			break;
-		case 7:
-
-			en = (EntityMesh*)enemysMap["MechaGolem"];
-			break;
-		case 8:
-
-			en = (EntityMesh*)enemysMap["Mecha01"];
-			break;
-		}
-
-
-		EntityGameObject* temp = new EntityGameObject(en->textura, en->shader, en->mesh, en->material, "game");
-
-		temp->model->translate(0, 0, i * 10.0f);
-
-		gameScene->addObject(temp);
-	}
-
-
-}
 
 
 void StagePlay::init() {
@@ -549,7 +495,7 @@ void StagePlay::init() {
 	rellenarEnemys();
 	
 	inicializarScena();
-	loadEnemys();
+	
 	
 
 	

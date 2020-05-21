@@ -4,20 +4,23 @@
 #include "light.h"
 #include "EntityGameObject.h"
 
-class EntityLight
+class EntityLight:public EntityGameObject
 {
 public:
 
-	EntityGameObject* gameMesh;
 	Light* light;
 	
 
-	EntityLight(EntityGameObject* gM,Light* l){
-		gameMesh = gM;
+	EntityLight(Light* l,Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, float sc = 1.0, float til = 1.0):EntityGameObject(t, s, m, mat, nS, sc, til){
 		light = l;
+		model->translateGlobal(light->position.x, light->position.y, light->position.z);
 	}
 
 
+	void moveLight(Vector3 position) {
+		light->position = position;
+		model->translateGlobal(position.x, position.y, position.z);
+	}
 
 
 };

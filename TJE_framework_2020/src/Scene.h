@@ -24,15 +24,16 @@ public:
 		myPlayer = pl;
 
 		mapGame = new GameMap(256, 256);
-		mapGame->loadMapWithMap("data/myMaps/mycaca.map");
+		mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
 	}
 
 	void addObject(EntityGameObject* temp);
-
 	void addEnemy(EntityGameObject* temp);
-	void pintarScene();
 	void LoadMap(std::vector<Entity*> EntityVector);
+	void loadEnemys(std::map<std::string, Entity*> enemysMap);
 
+	void pintarScene();
+	
 };
 
 
