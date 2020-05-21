@@ -17,6 +17,7 @@ public:
 
 	static std::map<std::string, Stage*> s_stages;
 	static Stage* current_state;
+	std::string actual_name;
 	bool iniciado;
 	bool controlInit;
 
@@ -25,6 +26,7 @@ public:
 	}
 
 	Stage(std::string name) {
+		actual_name = name;
 		iniciado = false;
 		controlInit = false;
 		s_stages[name] = this;
@@ -34,7 +36,7 @@ public:
 	}
 
 
-	Stage* getStage(const char* filename)
+	static Stage* getStage(const char* filename)
 	{
 		//search image in cache
 		auto it = s_stages.find(filename);

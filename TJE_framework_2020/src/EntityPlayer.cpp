@@ -21,7 +21,7 @@ void EntityPlayer::render(Light* light) {
 	if (!GameI->free_cam)
 		camera->lookAt(eye, center, up); //position the camera and point to 0,0,0
 
-
+	//std::cout << "El position es " << position.x  << "," << position.y << "," << position.z  << std::endl;
 	//al personaje
 	EntityGameObject::render(light);
 

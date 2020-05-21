@@ -12,21 +12,9 @@ using namespace std;
 
 
 //some globals
-Shader* shaderBasicSP;
-Shader* shaderFlatSP;
-Shader* shaderPhongSP;
-Shader* shaderGameSP;
+
+
 //Animation* anim = NULL;
-
-Camera* cameraSP;
-Game* gameISP;
-Material* materialSP;
-
-std::vector<Entity*> listEntitysSP; //guardo la info de que dibujar segun type
-map<string, Entity*> enemysMapSP; //guardo la info de como dibujarlo
-Scene* gameSceneSP;
-std::vector<Vector3> pointsSP;
-
 
 /*Pruebas
 
@@ -424,7 +412,7 @@ void StagePlay::inicializarScena() {
 	Mesh* meshTemp = Mesh::Get("data/personajes/playerRojoMascara.OBJ");
 	Texture* texTemp = Texture::Get("data/personajes/playerRojoMascara.png", false, true);
 	EntityPlayer* player;
-	player = new EntityPlayer(texTemp, shaderGameSP, meshTemp, materialSP, "game", Vector3(10, 0, 10));
+	player = new EntityPlayer(texTemp, shaderGameSP, meshTemp, materialSP, "game", Vector3(10.f, 0.f, 10.f));
 
 	texTemp = Texture::Get("data/arma/uzi.png", false, true);
 	meshTemp = Mesh::Get("data/arma/uzi.obj");
@@ -485,7 +473,7 @@ void StagePlay::init() {
 	
 
 
-	controlInit = true;
+	
 	//mLigth.setIdentity();
 
 	
@@ -507,6 +495,10 @@ void StagePlay::init() {
 	//phongShader = Shader::Get("phong.vs", "phong.ps");
 	//plane_model.setTranslation(0, 0, 0);
 	//torpedo_model.setTranslation(0, -5, 0); 
+
+
+	controlInit = true;
+
 }
 
 

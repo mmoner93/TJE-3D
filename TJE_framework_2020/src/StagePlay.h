@@ -6,9 +6,27 @@
 #include "camera.h"
 #include "game.h"
 #include "Entity.h"
+#include "material.h"
+#include "Scene.h"
+
 class StagePlay :public Stage
 {
 public:
+	Shader* shaderBasicSP;
+	Shader* shaderFlatSP;
+	Shader* shaderPhongSP;
+	Shader* shaderGameSP;
+
+	Camera* cameraSP;
+	Game* gameISP;
+	Material* materialSP;
+
+	//guardo la info de que dibujar segun type
+	//guardo la info de como dibujarlo
+	std::vector<Entity*> listEntitysSP;
+	std::map<std::string, Entity*> enemysMapSP;
+	Scene* gameSceneSP;
+	std::vector<Vector3> pointsSP;
 
 
 	StagePlay() :Stage("Play") {

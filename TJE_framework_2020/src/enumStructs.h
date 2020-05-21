@@ -32,7 +32,11 @@ struct sMapHeader {
 };
 
 
-
+struct sParticle {
+	float vel;
+	float vel_ang;
+	float angle;
+};
 
 
 #endif 

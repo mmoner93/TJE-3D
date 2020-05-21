@@ -8,6 +8,8 @@
 #include "animation.h"
 #include "Stage.h"
 #include "StagePlay.h"
+#include "StageEditor.h"
+#include "StageMenu.h"
 #include <cmath>
 
 //some globals
@@ -37,7 +39,12 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	elapsed_time = 0.0f;
 	mouse_locked = false;
 
+	new StageMenu();
 	new StagePlay();
+	new StageEditor();
+
+	//para evitar luego cargas y errores
+	((StagePlay*)Stage::getStage("Play"))->init();
 
 	/*
 	//OpenGL flags
@@ -82,7 +89,22 @@ void Game::onKeyDown( SDL_KeyboardEvent event )
 	switch(event.keysym.sym)
 	{
 		case SDLK_ESCAPE: must_exit = true; break; //ESC key, kill the app
-		case SDLK_TAB: free_cam = !free_cam; break;
+		case SDLK_TAB: free_cam = !free_cam; 
+			
+			if (free_cam && Stage::current_state->actual_name._Equal("Play")) {
+				
+
+				((StageEditor*)Stage::getStage("Editor"))->gameScene= ((StagePlay*)Stage::current_state)->gameSceneSP;
+
+				Stage::changeState("Editor");
+				Stage::current_state->init();
+				
+			}else if(!free_cam && Stage::current_state->actual_name._Equal("Editor")){
+				Stage::changeState("Play");
+			}
+
+			
+			break;
 		case SDLK_F1: Shader::ReloadAll(); break; 
 	}
 }

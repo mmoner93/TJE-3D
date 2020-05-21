@@ -99,6 +99,9 @@
     <ClCompile Include="..\..\src\Scene.cpp">
       <Filter>mygame</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\StageMenu.cpp">
+      <Filter>Stages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -195,6 +198,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Scene.h">
       <Filter>mygame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\StageMenu.h">
+      <Filter>Stages</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
