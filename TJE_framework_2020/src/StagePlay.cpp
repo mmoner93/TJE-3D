@@ -125,238 +125,243 @@ void rellenarEntitys() {
 	Texture* textureTemp;
 	Mesh* MeshTemp;
 	Shader* shaderTemp;
-	for (int i = 0; i < NUM_ENTITIES; i++) {
+	for (int i = 0; i <= NUM_ENTITIES; i++) {
 		switch (i) {
-		case 0:
+		case 0://no aplica
+			textureTemp = NULL;
+			shaderTemp = NULL;
+			MeshTemp = NULL;
+			temp = NULL;
+		case TREE_OLIVE:
 			textureTemp = Texture::Get("data/trees/leaves_olive.tga", false, false);
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material,"game");
 			break;
-		case 1:
+		case TREE_POPLAR:
 			textureTemp = Texture::Get("data/trees/leaves_poplar.tga", false, false);
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
 			temp =  new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 2:
+		case TREE_POPLAR_AUTUM:
 			textureTemp = Texture::Get("data/trees/leaves_poplar_autumn.tga", false, false);
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/trees/leaves.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 3:
+		case HOUSE_CUTRE:
 			textureTemp = Texture::Get("data/white.tga", false, false);
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/export_12.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 4:
+		case ESTACION_1:
 			textureTemp = Texture::Get("data/escena/estacion1.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/estacion1.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 5:
+		case CORNER_IZQUIERDA_SUP:
 			textureTemp = Texture::Get("data/escena/corner.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/corner.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material,"game");
 			break;
-		case 6:
+		case CORNER_IZQUIERDA_INF:
 			textureTemp = Texture::Get("data/escena/corner.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/corner.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 7:
+		case CORNER_DERECHA_SUP:
 			textureTemp = Texture::Get("data/escena/corner.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/corner.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 8:
+		case CORNER_DERECHA_INF:
 			textureTemp = Texture::Get("data/escena/corner.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/corner.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 9:
+		case WALL_SUP:
 			textureTemp = Texture::Get("data/escena/wall.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/wall.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 10:
+		case WALL_DER:
 			textureTemp = Texture::Get("data/escena/wall.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/wall.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 11:
+		case WALL_IZ:
 			textureTemp = Texture::Get("data/escena/wall.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/wall.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 12:
+		case WALL_INF:
 			textureTemp = Texture::Get("data/escena/wall.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/wall.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 13:
+		case MINA:
 			textureTemp = Texture::Get("data/escena/mineral.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/mineral.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 14:
+		case PORTAL:
 			textureTemp = Texture::Get("data/escena/portal.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/portal.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 15:
+		case TORRETAS_DEFENS:
 			textureTemp = Texture::Get("data/escena/defend zone.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/defend zone.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 16:
+		case HANGAR_1:
 			textureTemp = Texture::Get("data/escena/angar nave 1.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/angar nave 1.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 17:
+		case HANGAR_2:
 			textureTemp = Texture::Get("data/escena/angar nave 2.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/angar nave 2.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 18:
+		case HANGAR_3:
 			textureTemp = Texture::Get("data/escena/angar.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/angar.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 19:
+		case HANGAR_4:
 			textureTemp = Texture::Get("data/escena/angar2.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/angar2.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 20:
+		case HANGAR_5:
 			textureTemp = Texture::Get("data/escena/angar3.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/angar3.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 21:
+		case TOWER_COMMU:
 			textureTemp = Texture::Get("data/escena/comunications.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/comunications.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 22:
+		case CURVA_TRAIN:
 			textureTemp = Texture::Get("data/escena/curve train ok.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/curve train ok.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 23:
+		case FOREST_1:
 			textureTemp = Texture::Get("data/escena/forest.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/forest.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 24:
+		case FOREST_2:
 			textureTemp = Texture::Get("data/escena/forest2.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/forest2.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 25:
+		case MINA_1:
 			textureTemp = Texture::Get("data/escena/mining.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/mining.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 26:
+		case MINA_2:
 			textureTemp = Texture::Get("data/escena/mining2.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/mining2.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 27:
+		case MINA_3:
 			textureTemp = Texture::Get("data/escena/mining3.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/mining3.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 28:
+		case MINA_4:
 			textureTemp = Texture::Get("data/escena/mining4.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/mining4.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 29:
+		case REFIN_TUBES:
 			textureTemp = Texture::Get("data/escena/refin tubes.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/refin tubes.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
 			
-		case 30:	
+		case ALMACEN:
 			textureTemp = Texture::Get("data/escena/almacen.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/almacen.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 31:
+		case BARRILES:
 			textureTemp = Texture::Get("data/escena/barriles.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/barriles.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 32:
+		case FABRICA:
 			textureTemp = Texture::Get("data/escena/fabrica.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/fabrica.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 33:
+		case NAVE_1:
 			textureTemp = Texture::Get("data/escena/nave.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/nave.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 34:
+		case TRANSFORMADORES:
 			textureTemp = Texture::Get("data/escena/transformadores.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/transformadores.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 35:
+		case ROOM_1:
 			textureTemp = Texture::Get("data/escena/habitacion control.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/habitacion control.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 36:
+		case ROOM_2:
 			textureTemp = Texture::Get("data/escena/habitacion control 2.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/habitacion control 2.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 37:
+		case ROOM_3:
 			textureTemp = Texture::Get("data/escena/habitacion control 3.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/habitacion control 3.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, material, "game");
 			break;
-		case 38:
+		case PUERTO:
 			textureTemp = Texture::Get("data/escena/puerto.png");
 			shaderTemp = shaderGame;
 			MeshTemp = Mesh::Get("data/escena/puerto.obj");
@@ -380,7 +385,7 @@ void LoadMap() {
 				continue;
 
 			if (cell.type > 0 && cell.type <= NUM_ENTITIES) {
-				EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type - 1];
+				EntityMesh* tempmesh = (EntityMesh*)mapaObjects[cell.type];
 				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, material,tempmesh->nameShader, 3.0f);
 
 				temp->model->translate(x*3, 0.0f, y*3);
