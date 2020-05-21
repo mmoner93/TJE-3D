@@ -33,9 +33,13 @@ struct sMapHeader {
 
 
 struct sParticle {
-	float vel;
+	Vector3 pos=Vector3(10,0,10);
+	Vector3 vel_x;
+	Vector3 vel_y;
 	float vel_ang;
 	float angle;
+	float radius;
+	sParticle(){ angle = vel_ang = 0.0f; }
 };
 
 

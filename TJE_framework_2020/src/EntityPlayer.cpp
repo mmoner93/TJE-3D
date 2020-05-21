@@ -21,7 +21,7 @@ void EntityPlayer::render(Light* light) {
 	if (!GameI->free_cam)
 		camera->lookAt(eye, center, up); //position the camera and point to 0,0,0
 
-	//std::cout << "El position es " << position.x  << "," << position.y << "," << position.z  << std::endl;
+	std::cout << "El position es " << particle.pos.x  << "," << particle.pos.y << "," << particle.pos.z  << std::endl;
 	//al personaje
 	EntityGameObject::render(light);
 
@@ -47,15 +47,27 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	Vector3 front = R.rotateVector(Vector3(0, 0, -1));
 	Vector3 right = R.rotateVector(Vector3(1, 0, 0));
 	Vector3 target_pos = position;
+	Vector3 delta;
 
-	if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 10; //move faster with left shift
+	/*if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 10; //move faster with left shift
 	if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) target_pos = position + front * 10 * speed * seconds_elapsed;
 	if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) target_pos = position - front * 10 * speed * seconds_elapsed;
 	if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT))  target_pos = position - right * 10 * speed * seconds_elapsed;
-	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) target_pos = position + right * 10 * speed * seconds_elapsed;
+	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) target_pos = position + right * 10 * speed * seconds_elapsed;*/
 	//if (Input::isKeyPressed(SDL_SCANCODE_Q)) plane_model.rotate(40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
 	//if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
 
+
+	if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 2; //move faster with left shift
+	if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) {
+		delta = delta+Vector3(1, 0, 0);
+	} 
+	if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) delta = delta + Vector3(-1, 0, 0);
+	if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT))  delta = delta + Vector3(0, 0,-1 );
+	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) delta = delta + Vector3(0, 0, 1);
+
+
+	delta = delta * speed;
 	yaw -= Input::mouse_delta.x * 0.1;
 
 	pitch -= Input::mouse_delta.y * 0.1;
@@ -66,17 +78,39 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 		pitch = -89.9;
 	}
 
-	target_pos = testCollision(target_pos, seconds_elapsed, objects);
+
+	//para particulas
+
+	Vector3 front1 = Vector3(0, 0, -1);
+	//Vector3 right1 = R.rotateVector(Vector3(1, 0, 0));
+	Matrix44 R1;
+	R1.rotate(particle.angle * DEG2RAD, Vector3(0, 1, 0));
+	front1 = R * front;
+	particle.vel_x = particle.vel_x + delta.x * front;
+	particle.vel_x = particle.vel_x - particle.vel_x * 0.04;
+
+	particle.vel_y = particle.vel_y + delta.z * right;
+	particle.vel_y = particle.vel_y - particle.vel_y * 0.04;
+
+	particle.vel_ang += yaw * seconds_elapsed;
+	particle.vel_ang = particle.vel_ang - particle.vel_ang * 0.02;
+	particle.pos = particle.pos + particle.vel_x * seconds_elapsed;
+	particle.pos = particle.pos + particle.vel_y * seconds_elapsed;
+	particle.angle = particle.angle + particle.vel_ang;
 
 
+
+	//target_pos = testCollision(target_pos, seconds_elapsed, objects);
+
+	target_pos = testCollision(particle.pos, seconds_elapsed, objects);
 	//TRS
 
 	//if (!has_collision) 
-	position = target_pos;
+	particle.pos = target_pos;
 
 	//player.model.setIdentity();
 
-	model->setTranslation(position.x, position.y, position.z);
+	model->setTranslation(particle.pos.x, particle.pos.y, particle.pos.z);
 
 	model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
 }
@@ -86,7 +120,7 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 
 	//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
-	Vector3 character_center = target_pos + Vector3(0, 0.8, 0);
+	Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
 	bool has_collision = false;
 
 	for (int i = 0; i < objects.size(); i++)
@@ -102,21 +136,22 @@ Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, s
 		
 		Vector3 objectPositio = en->model->getTranslation();
 
-		float distance = objectPositio.distance(position);
+		float distance = objectPositio.distance(particle.pos);
 		
 		if (distance > 20) {
 			continue;
 		}
 
 		//comprobamos si colisiona el objeto con la esfera (radio 3)
-		if (mesh->testSphereCollision(*(en->model), character_center, 0.1, coll, collnorm) == false) {
+		if (mesh->testSphereCollision(*(en->model), character_center, 0.15, coll, collnorm) == false) {
 			continue; //si no colisiona, pasamos al siguiente objeto
 		}
 		/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
 			continue;*/
 		has_collision = true;
+		std::cout << "He colisionao"<<std::endl;
 		Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
-		target_pos = position - push_away;
+		target_pos = particle.pos - push_away*((Vector3(0,0,0).distance(particle.vel_x+particle.vel_y)) * 1.5);
 		target_pos.y = 0;
 		break;
 

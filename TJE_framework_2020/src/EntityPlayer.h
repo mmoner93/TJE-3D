@@ -5,6 +5,7 @@
 #include "includes.h"
 #include "input.h"
 #include "game.h"
+#include "enumStructs.h"
 class EntityPlayer :public EntityGameObject
 {
 public:
@@ -12,6 +13,7 @@ public:
 	float yaw;
 	float pitch;
 	EntityGameObject* weapon;
+	sParticle particle;
 
 	EntityPlayer(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		
