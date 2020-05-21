@@ -156,6 +156,7 @@
     <ClCompile Include="..\..\src\Scene.cpp" />
     <ClCompile Include="..\..\src\shader.cpp" />
     <ClCompile Include="..\..\src\Stage.cpp" />
+    <ClCompile Include="..\..\src\StageEditor.cpp" />
     <ClCompile Include="..\..\src\StagePlay.cpp" />
     <ClCompile Include="..\..\src\texture.cpp" />
     <ClCompile Include="..\..\src\utils.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="..\..\src\Scene.h" />
     <ClInclude Include="..\..\src\shader.h" />
     <ClInclude Include="..\..\src\Stage.h" />
+    <ClInclude Include="..\..\src\StageEditor.h" />
     <ClInclude Include="..\..\src\StagePlay.h" />
     <ClInclude Include="..\..\src\texture.h" />
     <ClInclude Include="..\..\src\utils.h" />

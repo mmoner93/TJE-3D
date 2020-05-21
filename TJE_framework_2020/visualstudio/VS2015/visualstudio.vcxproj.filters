@@ -69,15 +69,36 @@
     <ClCompile Include="..\..\src\StagePlay.cpp">
       <Filter>Stages</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\light.cpp" />
-    <ClCompile Include="..\..\src\material.cpp" />
-    <ClCompile Include="..\..\src\GameMap.cpp" />
-    <ClCompile Include="..\..\src\Scene.cpp" />
-    <ClCompile Include="..\..\src\EntityMesh.cpp" />
-    <ClCompile Include="..\..\src\Entity.cpp" />
-    <ClCompile Include="..\..\src\EntityLight.cpp" />
-    <ClCompile Include="..\..\src\EntityGameObject.cpp" />
-    <ClCompile Include="..\..\src\EntityPlayer.cpp" />
+    <ClCompile Include="..\..\src\StageEditor.cpp">
+      <Filter>Stages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Entity.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EntityGameObject.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EntityLight.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EntityMesh.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EntityPlayer.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\light.cpp">
+      <Filter>mygame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\material.cpp">
+      <Filter>mygame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GameMap.cpp">
+      <Filter>mygame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Scene.cpp">
+      <Filter>mygame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -144,16 +165,37 @@
     <ClInclude Include="..\..\src\StagePlay.h">
       <Filter>Stages</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\light.h" />
-    <ClInclude Include="..\..\src\material.h" />
-    <ClInclude Include="..\..\src\GameMap.h" />
     <ClInclude Include="..\..\src\enumStructs.h" />
-    <ClInclude Include="..\..\src\Entity.h" />
-    <ClInclude Include="..\..\src\Scene.h" />
-    <ClInclude Include="..\..\src\EntityMesh.h" />
-    <ClInclude Include="..\..\src\EntityLight.h" />
-    <ClInclude Include="..\..\src\EntityGameObject.h" />
-    <ClInclude Include="..\..\src\EntityPlayer.h" />
+    <ClInclude Include="..\..\src\StageEditor.h">
+      <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Entity.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EntityGameObject.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EntityLight.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EntityMesh.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EntityPlayer.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\light.h">
+      <Filter>mygame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\material.h">
+      <Filter>mygame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GameMap.h">
+      <Filter>mygame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Scene.h">
+      <Filter>mygame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extra">
@@ -173,6 +215,9 @@
     </Filter>
     <Filter Include="Stages">
       <UniqueIdentifier>{a507922d-9e23-45b7-9c50-445dc59d9c3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{8e62b2dc-2ded-424c-b7ee-11c35a8b42bc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

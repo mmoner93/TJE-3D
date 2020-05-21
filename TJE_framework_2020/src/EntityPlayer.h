@@ -15,15 +15,6 @@ public:
 
 	EntityPlayer(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		
-		/*textura = t;
-		shader = s;
-		mesh = m;
-		material = mat;
-		model = new Matrix44();
-		model->scale(sc, sc, sc);
-		scale = sc;
-		tilling = til;
-		nameShader = nS;*/
 		position = pos;
 		yaw = ya;
 		pitch = pi;
@@ -38,7 +29,6 @@ public:
 	void atachWeapon(EntityGameObject* wea) {
 		weapon = wea;
 	}
-	void renderPlayer(Light* light);
 };
 
 

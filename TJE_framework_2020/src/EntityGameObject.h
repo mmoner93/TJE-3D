@@ -12,12 +12,8 @@
 class EntityGameObject :public EntityMesh
 {
 public:
-	Texture* textura=NULL;
-	Shader* shader = NULL;
-	Mesh* mesh = NULL;
-	Material* material = NULL;
+
 	Matrix44* model = NULL;
-	std::string nameShader;
 	float scale;
 	float tilling;
 	EntityGameObject(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS,float sc=1.0,float til=1.0):EntityMesh(t,s,m,mat,nS) {
