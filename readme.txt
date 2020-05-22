@@ -1,5 +1,5 @@
-Autores : Marçal Moner u124298  nia 183749
-	  Edgar Gil    u150283  nia 205780
+Autores : Marçal Moner u124298  nia 183749 marcal.moner01@estudiant.upf.edu
+	  Edgar Gil    u150283  nia 205780 edgar.gil01@estudiant.upf.edu
 
 
 Cosas realizadas:

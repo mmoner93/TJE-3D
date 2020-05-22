@@ -123,21 +123,21 @@ void StagePlay::rellenarEntitys() {
 			MeshTemp = NULL;
 			temp = NULL;
 		case TREE_OLIVE:
-			textureTemp = Texture::Get("data/trees/leaves_olive.tga", false, false);
+			//textureTemp = Texture::Get("data/trees/leaves_olive.tga", false, false);
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/trees/leaves.obj");
+			//MeshTemp = Mesh::Get("data/trees/leaves.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP,"game");
 			break;
 		case TREE_POPLAR:
-			textureTemp = Texture::Get("data/trees/leaves_poplar.tga", false, false);
+			//textureTemp = Texture::Get("data/trees/leaves_poplar.tga", false, false);
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/trees/leaves.obj");
+			//MeshTemp = Mesh::Get("data/trees/leaves.obj");
 			temp =  new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
 			break;
 		case TREE_POPLAR_AUTUM:
-			textureTemp = Texture::Get("data/trees/leaves_poplar_autumn.tga", false, false);
+			//textureTemp = Texture::Get("data/trees/leaves_poplar_autumn.tga", false, false);
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/trees/leaves.obj");
+			//MeshTemp = Mesh::Get("data/trees/leaves.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
 			break;
 		case HOUSE_CUTRE:
