@@ -151,7 +151,7 @@ Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, s
 		has_collision = true;
 		std::cout << "He colisionao"<<std::endl;
 		Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
-		target_pos = particle.pos - push_away*((Vector3(0,0,0).distance(particle.vel_x+particle.vel_y)) * 1.5);
+		target_pos = particle.pos - push_away*((particle.vel_x+particle.vel_y).length() * 1.5);
 		target_pos.y = 0;
 		break;
 

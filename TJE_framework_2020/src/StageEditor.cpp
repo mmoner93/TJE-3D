@@ -23,9 +23,12 @@ void StageEditor::init() {
 	glEnable(GL_DEPTH_TEST); //check the occlusions using the Z buffer
 
 	//create our camera
-	camera = new Camera();
-	camera->lookAt(Vector3(0.f, 10.f, 10.f), Vector3(0.f, 0.f, 0.f), Vector3(0.f, 1.f, 0.f)); //position the camera and point to 0,0,0
-	camera->setPerspective(70.f, gameI->window_width / (float)gameI->window_height, 0.1f, 100000.f); //set the projection, we want to be perspective
+	//camera = new Camera();
+	//camera->lookAt(Vector3(0.f, 10.f, 10.f), Vector3(0.f, 0.f, 0.f), Vector3(0.f, 1.f, 0.f)); //position the camera and point to 0,0,0
+	//camera->setPerspective(70.f, gameI->window_width / (float)gameI->window_height, 0.1f, 100000.f); //set the projection, we want to be perspective
+
+
+
 
 	// example of shader loading using the shaders manager
 	shaderBasic = Shader::Get("data/shaders/basic.vs", "data/shaders/texture.fs");

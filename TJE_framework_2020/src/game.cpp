@@ -95,7 +95,7 @@ void Game::onKeyDown( SDL_KeyboardEvent event )
 				
 
 				((StageEditor*)Stage::getStage("Editor"))->gameScene= ((StagePlay*)Stage::current_state)->gameSceneSP;
-
+				((StageEditor*)Stage::getStage("Editor"))->camera = ((StagePlay*)Stage::current_state)->cameraSP;
 				Stage::changeState("Editor");
 				Stage::current_state->init();
 				

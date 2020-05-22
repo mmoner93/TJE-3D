@@ -48,7 +48,15 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 				EntityMesh* tempmesh = (EntityMesh*)EntityVector[cell.type];
 				EntityGameObject* temp = new EntityGameObject(tempmesh->textura, tempmesh->shader, tempmesh->mesh, tempmesh->material, tempmesh->nameShader, 3.0f);
 
-				temp->model->translate(x * 3, 0.0f, y * 3);
+
+
+				if (cell.type == HANGAR_1) {
+					temp->model->translate(x * 3, 0.05f, y * 3);
+				}
+				else {
+					temp->model->translate(x * 3, 0.0f, y * 3);
+				}
+				
 
 				//podria hacer una función para indicar estas cosas. Roto las figuras para que cuadren en escenario (esquinas , paredes)
 				if (cell.type == CORNER_IZQUIERDA_SUP) {
@@ -75,6 +83,9 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 				if (cell.type == WALL_INF) {
 					temp->model->rotate(-PI / 2, Vector3(0, 1, 0));
 				}
+
+
+				
 
 
 				addObject(temp);
