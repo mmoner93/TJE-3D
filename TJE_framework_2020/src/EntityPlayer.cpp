@@ -21,7 +21,7 @@ void EntityPlayer::render(Light* light) {
 	if (!GameI->free_cam)
 		camera->lookAt(eye, center, up); //position the camera and point to 0,0,0
 
-	std::cout << "El position es " << particle.pos.x  << "," << particle.pos.y << "," << particle.pos.z  << std::endl;
+	//std::cout << "El position es " << particle.pos.x  << "," << particle.pos.y << "," << particle.pos.z  << std::endl;
 	//al personaje
 	EntityGameObject::render(light);
 
@@ -84,33 +84,33 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	Vector3 front1 = Vector3(0, 0, -1);
 	//Vector3 right1 = R.rotateVector(Vector3(1, 0, 0));
 	Matrix44 R1;
-	R1.rotate(particle.angle * DEG2RAD, Vector3(0, 1, 0));
+	R1.rotate(angle * DEG2RAD, Vector3(0, 1, 0));
 	front1 = R * front;
-	particle.vel_x = particle.vel_x + delta.x * front;
-	particle.vel_x = particle.vel_x - particle.vel_x * 0.04;
+	vel_x = vel_x + delta.x * front;
+	vel_x = vel_x - vel_x * 0.04;
 
-	particle.vel_y = particle.vel_y + delta.z * right;
-	particle.vel_y = particle.vel_y - particle.vel_y * 0.04;
+	vel_y = vel_y + delta.z * right;
+	vel_y = vel_y - vel_y * 0.04;
 
-	particle.vel_ang += yaw * seconds_elapsed;
-	particle.vel_ang = particle.vel_ang - particle.vel_ang * 0.02;
-	particle.pos = particle.pos + particle.vel_x * seconds_elapsed;
-	particle.pos = particle.pos + particle.vel_y * seconds_elapsed;
-	particle.angle = particle.angle + particle.vel_ang;
+	vel_ang += yaw * seconds_elapsed;
+	vel_ang = vel_ang - vel_ang * 0.02;
+	position = position + vel_x * seconds_elapsed;
+	position = position + vel_y * seconds_elapsed;
+	angle = angle + vel_ang;
 
 
 
 	//target_pos = testCollision(target_pos, seconds_elapsed, objects);
 
-	target_pos = testCollision(particle.pos, seconds_elapsed, objects);
+	target_pos = testCollision(position, seconds_elapsed, objects);
 	//TRS
 
 	//if (!has_collision) 
-	particle.pos = target_pos;
+	position = target_pos;
 
 	//player.model.setIdentity();
 
-	model->setTranslation(particle.pos.x, particle.pos.y, particle.pos.z);
+	model->setTranslation(position.x, position.y, position.z);
 
 	model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
 }
@@ -136,7 +136,7 @@ Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, s
 		
 		Vector3 objectPositio = en->model->getTranslation();
 
-		float distance = objectPositio.distance(particle.pos);
+		float distance = objectPositio.distance(position);
 		
 		if (distance > 20) {
 			continue;
@@ -151,7 +151,7 @@ Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, s
 		has_collision = true;
 		std::cout << "He colisionao"<<std::endl;
 		Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
-		target_pos = particle.pos - push_away*((particle.vel_x+particle.vel_y).length() * 1.5);
+		target_pos = position - push_away*((vel_x+vel_y).length() * 1.5);
 		target_pos.y = 0;
 		break;
 

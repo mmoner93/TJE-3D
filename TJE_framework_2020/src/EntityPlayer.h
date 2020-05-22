@@ -13,15 +13,20 @@ public:
 	float yaw;
 	float pitch;
 	EntityGameObject* weapon;
-	sParticle particle;
+	Vector3 vel_x;
+	Vector3 vel_y;
+	float vel_ang;
+	float angle;
+	
 
 	EntityPlayer(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		
-		position = pos;
 		yaw = ya;
 		pitch = pi;
 		weapon = NULL;
-
+		angle = 0.0;
+		vel_ang = 0.0;
+		position = pos;
 	}
 
 

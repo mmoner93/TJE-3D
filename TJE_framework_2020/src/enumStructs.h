@@ -32,6 +32,7 @@ struct sMapHeader {
 };
 
 
+//no se usa
 struct sParticle {
 	Vector3 pos=Vector3(10,0,10);
 	Vector3 vel_x;

@@ -213,9 +213,9 @@ void StagePlay::rellenarEntitys() {
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
 			break;
 		case TORRETAS_DEFENS:
-			textureTemp = Texture::Get("data/escena/defend zone.png");
+			textureTemp = Texture::Get("data/escena/defend zone2.png");
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/escena/defend zone.obj");
+			MeshTemp = Mesh::Get("data/escena/defend zone2.obj");
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
 			break;
 		case HANGAR_1:
@@ -626,8 +626,7 @@ void StagePlay::update(double seconds_elapsed)
 		cameraSP->rotate(Input::mouse_delta.y * 0.005f, cameraSP->getLocalVector(Vector3(-1.0f, 0.0f, 0.0f)));
 	}
 
-	if (gameISP->free_cam == false)
-	{
+	
 		//actualizo para collisiones.
 		gameSceneSP->myPlayer->update(seconds_elapsed, gameSceneSP->mapaObjects);
 		
@@ -640,16 +639,6 @@ void StagePlay::update(double seconds_elapsed)
 		if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
 		*/
 
-	}
-	else
-	{
-		//async input to move the camera around
-		if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 10; //move faster with left shift
-		if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) cameraSP->move(Vector3(0.0f, 0.0f, 1.0f) * speed);
-		if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) cameraSP->move(Vector3(0.0f, 0.0f, -1.0f) * speed);
-		if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT)) cameraSP->move(Vector3(1.0f, 0.0f, 0.0f) * speed);
-		if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) cameraSP->move(Vector3(-1.0f, 0.0f, 0.0f) * speed);
-	}
 
 	//para disparar los puntos de colision
 	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
@@ -683,12 +672,9 @@ void StagePlay::update(double seconds_elapsed)
 	//para que el cielo siga a la camara
 	gameSceneSP->cielo->model->setTranslation(cameraSP->center.x, cameraSP->center.y, cameraSP->center.z);
 
-	if (gameISP->free_cam == false) {
+	
 		Input::centerMouse();
 		SDL_ShowCursor(false);
-	}
-	else {
-		SDL_ShowCursor(true);
-	}
+	
 
 }

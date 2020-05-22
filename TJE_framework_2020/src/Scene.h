@@ -28,7 +28,7 @@ public:
 	}
 
 	void addObject(EntityGameObject* temp);
-	void addEnemy(EntityGameObject* temp);
+	
 	void LoadMap(std::vector<Entity*> EntityVector);
 	void loadEnemys(std::map<std::string, Entity*> enemysMap);
 
