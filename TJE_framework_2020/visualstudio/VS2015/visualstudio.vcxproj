@@ -147,6 +147,7 @@
     <ClCompile Include="..\..\src\framework.cpp" />
     <ClCompile Include="..\..\src\game.cpp" />
     <ClCompile Include="..\..\src\GameMap.cpp" />
+    <ClCompile Include="..\..\src\impactShoot.cpp" />
     <ClCompile Include="..\..\src\input.cpp" />
     <ClCompile Include="..\..\src\Inventario.cpp" />
     <ClCompile Include="..\..\src\light.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="..\..\src\framework.h" />
     <ClInclude Include="..\..\src\game.h" />
     <ClInclude Include="..\..\src\GameMap.h" />
+    <ClInclude Include="..\..\src\impactShoot.h" />
     <ClInclude Include="..\..\src\includes.h" />
     <ClInclude Include="..\..\src\input.h" />
     <ClInclude Include="..\..\src\Inventario.h" />

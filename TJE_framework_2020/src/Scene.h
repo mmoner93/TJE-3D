@@ -18,6 +18,7 @@ public:
 	std::vector<EntityGameObject*> mapaObjects;
 	std::vector<EntityEnemy*> Enemys; 
 	GameMap* mapGame = NULL;
+	std::vector<Vector3> pointsSP;
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
 		lightScene = l;
 		suelo = s;

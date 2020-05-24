@@ -1,6 +1,6 @@
 #include "Scene.h"
-
-
+#include "Stage.h"
+#include "StagePlay.h"
 void Scene::addObject(EntityGameObject* temp) {
 	mapaObjects.push_back(temp);
 }
@@ -44,10 +44,19 @@ void Scene::pintarScene() {
 
 	for (int i = 0; i < Enemys.size(); i++) {
 
-
-		Enemys[i]->render(lightScene->light);
+		if (Enemys[i]->aLive) {
+			Enemys[i]->render(lightScene->light);
+		}
+		
 
 	}
+
+	Mesh points_mesh;
+	points_mesh.vertices = pointsSP;
+	if (pointsSP.size()) {
+		((StagePlay*)Stage::getStage("Play"))->renderPoints(Matrix44(), &points_mesh, 0);
+	}
+
 
 }
 
@@ -165,8 +174,8 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 			break;
 		}
 
-
-		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game",Vector3(0, 0, i * 10.0f));
+		
+		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game",Vector3(0, 0, i * 10.0f), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 
 		temp->model->translate(0, 0, i * 10.0f);
 
