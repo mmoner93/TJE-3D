@@ -147,6 +147,7 @@
     <ClCompile Include="..\..\src\game.cpp" />
     <ClCompile Include="..\..\src\GameMap.cpp" />
     <ClCompile Include="..\..\src\input.cpp" />
+    <ClCompile Include="..\..\src\Inventario.cpp" />
     <ClCompile Include="..\..\src\light.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\material.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="..\..\src\StageEditor.cpp" />
     <ClCompile Include="..\..\src\StageMenu.cpp" />
     <ClCompile Include="..\..\src\StagePlay.cpp" />
+    <ClCompile Include="..\..\src\StageShop.cpp" />
     <ClCompile Include="..\..\src\texture.cpp" />
     <ClCompile Include="..\..\src\utils.cpp" />
   </ItemGroup>
@@ -184,6 +186,7 @@
     <ClInclude Include="..\..\src\GameMap.h" />
     <ClInclude Include="..\..\src\includes.h" />
     <ClInclude Include="..\..\src\input.h" />
+    <ClInclude Include="..\..\src\Inventario.h" />
     <ClInclude Include="..\..\src\light.h" />
     <ClInclude Include="..\..\src\material.h" />
     <ClInclude Include="..\..\src\mesh.h" />
@@ -195,6 +198,7 @@
     <ClInclude Include="..\..\src\StageEditor.h" />
     <ClInclude Include="..\..\src\StageMenu.h" />
     <ClInclude Include="..\..\src\StagePlay.h" />
+    <ClInclude Include="..\..\src\StageShop.h" />
     <ClInclude Include="..\..\src\texture.h" />
     <ClInclude Include="..\..\src\utils.h" />
   </ItemGroup>
