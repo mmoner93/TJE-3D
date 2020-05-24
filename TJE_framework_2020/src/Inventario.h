@@ -1,5 +1,5 @@
-#ifndef ENTITYPLAYER_H
-#define ENTITYPLAYER_H
+#ifndef INVENTARIO_H
+#define INVENTARIO_H
 
 #include "EntityGameObject.h" 
 #include "includes.h"

@@ -163,6 +163,7 @@
     <ClCompile Include="..\..\src\StageMenu.cpp" />
     <ClCompile Include="..\..\src\StageMenuInGame.cpp" />
     <ClCompile Include="..\..\src\StagePlay.cpp" />
+    <ClCompile Include="..\..\src\StageSaveLoad.cpp" />
     <ClCompile Include="..\..\src\StageShop.cpp" />
     <ClCompile Include="..\..\src\texture.cpp" />
     <ClCompile Include="..\..\src\utils.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="..\..\src\StageMenu.h" />
     <ClInclude Include="..\..\src\StageMenuInGame.h" />
     <ClInclude Include="..\..\src\StagePlay.h" />
+    <ClInclude Include="..\..\src\StageSaveLoad.h" />
     <ClInclude Include="..\..\src\StageShop.h" />
     <ClInclude Include="..\..\src\texture.h" />
     <ClInclude Include="..\..\src\utils.h" />
