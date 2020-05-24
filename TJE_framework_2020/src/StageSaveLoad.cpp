@@ -30,6 +30,7 @@ void StageSaveLoad::render() {
 	drawText(160, 120, std::to_string(partidas[1].lastlvl), Vector3(1, 1, 1), 2);
 	drawText(160, 140, std::to_string(partidas[2].lastlvl), Vector3(1, 1, 1), 2);
 
+	drawText(20, 300, "M go to Menu", Vector3(1, 1, 1), 2);
 
 	SDL_GL_SwapWindow(Game::instance->window);
 	//print some state of the saved files
@@ -41,10 +42,13 @@ void StageSaveLoad::update(double dt) {
 	else if (Input::wasKeyPressed(SDL_SCANCODE_L))
 	{
 		loadGameInfo();
-		//load game
-		//namefile+"sslot"+.file
-
 	}
+	else if (Input::wasKeyPressed(SDL_SCANCODE_M))
+	{
+		Stage::changeState("Menu");
+	}
+
+
 
 }
 void StageSaveLoad::init() {
