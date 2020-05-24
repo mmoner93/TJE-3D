@@ -36,4 +36,6 @@ TJE_framework_2020/visualstudio/.vs/visualstudio/v16/ipch/AutoPCH/1c9bed02a521f4
 TJE_framework_2020/visualstudio/.vs/visualstudio/v16/ipch/AutoPCH/ceea94116c3b3bbd/STAGEPLAY.ipch
 TJE_framework_2020/visualstudio/.vs/visualstudio/v16/ipch/AutoPCH/b120b9f0fa69e270/STAGEEDITOR.ipch
 TJE_framework_2020/visualstudio/.vs/visualstudio/v16/ipch/AutoPCH/660d6ff5edc2bdb2/STAGEMENU.ipch
-TJE_framework_2020/visualstudio/.vs/visualstudio/v16/ipch/AutoPCH/277995e017a286e2/STAGELVLSELECTOR.ipch
+*.ipch
+TJE_framework_2020/visualstudio/.vs/visualstudio/v16/Browse.VC.db
+TJE_framework_2020/visualstudio/.vs/visualstudio/v16/.suo

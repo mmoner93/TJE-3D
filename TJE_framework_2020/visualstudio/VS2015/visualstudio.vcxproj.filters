@@ -102,6 +102,12 @@
     <ClCompile Include="..\..\src\StageMenu.cpp">
       <Filter>Stages</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\StageShop.cpp">
+      <Filter>Stages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Inventario.cpp">
+      <Filter>mygame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -201,6 +207,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\StageMenu.h">
       <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\StageShop.h">
+      <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Inventario.h">
+      <Filter>mygame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
