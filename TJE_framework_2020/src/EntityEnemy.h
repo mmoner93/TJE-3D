@@ -20,8 +20,12 @@ public:
 	float timeTopNextMove = 0.5;
 	float timeNextMove = 0.5;
 	enumEnemyMove actualDirection= STOP;
-
-	EntityEnemy(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
+	float health = 1.0;
+	bool aLive = true;
+	std::vector<Vector3> pointsSP;
+	Shader* shaderPuntos;
+	Matrix44 puntos;
+	EntityEnemy(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, Shader* shaderP, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 
 		yaw = ya;
 		pitch = pi;
@@ -29,6 +33,7 @@ public:
 		angle = 0.0;
 		vel_ang = 0.0;
 		position = pos;
+		shaderPuntos = shaderP;
 	}
 
 
@@ -37,6 +42,8 @@ public:
 	bool testCollision(Vector3 target_pos, float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	Vector3 moveEnemy(float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	bool checkTime(float seconds_elapsed);
+	void onReceveidShoot(Vector3 temp);
+	void renderPoints(Mesh* meshT);
 };
 
 

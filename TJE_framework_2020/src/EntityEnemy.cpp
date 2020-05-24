@@ -4,8 +4,12 @@ void EntityEnemy::render(Light* light) {
 
 	//al personaje
 	EntityGameObject::render(light);
-
 	
+	Mesh points_mesh;
+	points_mesh.vertices = pointsSP;
+	if (pointsSP.size()) {
+		renderPoints(&points_mesh);
+	}
 
 }
 
@@ -86,8 +90,10 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 
 		model->setTranslation(position.x, position.y, position.z);
 
-		model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
+		//model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
 	}
+
+	//puntos = puntos * *model;
 	
 }
 
@@ -164,7 +170,31 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 
 
 }
+//de momento lo dejo aqui. Se puede transladar cuando haga mecanica pensada de "pegamento" para reparar.
+void EntityEnemy::renderPoints(Mesh* meshT)
+{
+	if (!shaderPuntos)
+		return;
 
+	Camera* camera = Camera::current;
+
+	//enable shader
+	shaderPuntos->enable();
+
+	//upload uniforms
+	shaderPuntos->setUniform("u_color", Vector4(1, 1, 1, 1));
+	shaderPuntos->setUniform("u_viewprojection", camera->viewprojection_matrix);
+	
+	
+	
+	shaderPuntos->setUniform("u_model", *model);
+	shaderPuntos->setFloat("u_tilling", 1.0);
+	//shader->setUniform("u_time", time);
+	meshT->render(GL_POINTS, -1);
+
+	//disable shader
+	shaderPuntos->disable();
+}
 
 bool EntityEnemy::testCollision(Vector3 target_pos, float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 
@@ -222,5 +252,11 @@ bool EntityEnemy::checkTime(float seconds_elapsed) {
 
 	return false;
 
+
+}
+
+void EntityEnemy::onReceveidShoot(Vector3 temp) {
+
+	pointsSP.push_back(temp);
 
 }

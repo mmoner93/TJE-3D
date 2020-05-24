@@ -37,6 +37,9 @@ public:
 	void atachWeapon(EntityGameObject* wea) {
 		weapon = wea;
 	}
+	void shoot();
+	
+
 };
 
 

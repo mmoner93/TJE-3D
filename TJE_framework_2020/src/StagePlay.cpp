@@ -641,10 +641,10 @@ void StagePlay::update(double seconds_elapsed)
 
 
 	//para disparar los puntos de colision
-	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
+	/*if (Input::isKeyPressed(SDL_SCANCODE_C)) {
 		addPoint();
 	}
-
+	*/
 
 	/* avion
 	if (Input::isKeyPressed(SDL_SCANCODE_F) && attached_torpedo)

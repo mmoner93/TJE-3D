@@ -120,6 +120,9 @@
     <ClCompile Include="..\..\src\StageSaveLoad.cpp">
       <Filter>Stages</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\impactShoot.cpp">
+      <Filter>mygame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -237,6 +240,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\StageSaveLoad.h">
       <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\impactShoot.h">
+      <Filter>mygame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

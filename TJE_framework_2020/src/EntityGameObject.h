@@ -34,7 +34,7 @@ public:
 	 void renderTilling();
 	 void update(float seconds_elapsed);
 
-
+	 void renderPoints();
 
 };
 
