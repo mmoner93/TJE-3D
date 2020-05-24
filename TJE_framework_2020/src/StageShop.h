@@ -8,6 +8,7 @@
 #include "Entity.h"
 #include "material.h"
 #include "Scene.h"
+#include "enumStructs.h"
 class StageShop :public Stage
 {
 public:

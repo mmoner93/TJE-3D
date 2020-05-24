@@ -5,6 +5,7 @@
 //include invetario h
 
 int coins = 1000;
+int weaponShowing = 0;
 //invetario
 void StageShop::render() {
 	
@@ -51,13 +52,30 @@ void StageShop::update(double dt) {
 			//Granadas equipadas ++
 		}
 	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_W)) {
+	if (Input::wasKeyPressed(SDL_SCANCODE_SPACE)) {    //select weapon
 		if (coins > 50) {
-			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.selectedWeapon = 2;
+			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.selectedWeapon = weaponShowing;
 			std::cout << ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.selectedWeapon << std::endl;
 			//new weapon ++
 		}
 	}
+	if (Input::wasKeyPressed(SDL_SCANCODE_RIGHT)) {
+		//mostrar siguiente arma
+		weaponShowing += 1;
+		if (weaponShowing > 8)
+		{
+			weaponShowing = 0; //loop
+		}
+	}
+	if (Input::wasKeyPressed(SDL_SCANCODE_RIGHT)) {
+		//mostrar anterior arma
+		weaponShowing -= 1;
+		if (weaponShowing < 0)
+		{
+			weaponShowing = 8; //loop
+		}
+	}
+
 
 }
 void StageShop::init() {

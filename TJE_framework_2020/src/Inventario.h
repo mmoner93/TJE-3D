@@ -10,11 +10,12 @@ class Inventario
 {
 public:
 	float velociti = 0;
-	int armaour = 1;
-	int stuntTime = 1;
-	int grenades = 1;
+	int armaour = 0;
+	int stuntTime = 0;
+	int ammo = 0;
+	int grenades = 0;
 	int selectedWeapon = 1;
-	int weapons[8];
+	int weapons[8];   // set de armas para comprar/equipar
 };
 
 
