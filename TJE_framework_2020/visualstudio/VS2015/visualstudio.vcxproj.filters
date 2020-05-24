@@ -105,7 +105,6 @@
     <ClCompile Include="..\..\src\StageLvlSelector.cpp">
       <Filter>Stages</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\StageMenuInGame.cpp" />
     <ClCompile Include="..\..\src\Inventario.cpp">
       <Filter>mygame</Filter>
     </ClCompile>
@@ -114,6 +113,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\EntityEnemy.cpp">
       <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\StageMenuInGame.cpp">
+      <Filter>Stages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\StageSaveLoad.cpp">
+      <Filter>Stages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,7 +223,6 @@
     <ClInclude Include="..\..\src\StageLvlSelector.h">
       <Filter>Stages</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\StageMenuInGame.h" />
     <ClInclude Include="..\..\src\Inventario.h">
       <Filter>mygame</Filter>
     </ClInclude>
@@ -227,6 +231,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\EntityEnemy.h">
       <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\StageMenuInGame.h">
+      <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\StageSaveLoad.h">
+      <Filter>Stages</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
