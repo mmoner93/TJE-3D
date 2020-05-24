@@ -604,7 +604,7 @@ void StagePlay::render()
 	//render the FPS, Draw Calls, etc
 	drawText(2, 2, getGPUStats(), Vector3(1, 1, 1), 2);
 
-	//drawText(20, 20, "HEllo World", Vector3(1, 1, 1), 2);
+	drawText(400, 295, "X", Vector3(1, 1, 1), 2);
 
 	//swap between front buffer and back buffer
 	SDL_GL_SwapWindow(gameISP->window);
