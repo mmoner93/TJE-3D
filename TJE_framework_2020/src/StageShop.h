@@ -1,5 +1,5 @@
-#ifndef STAGEMENU_H
-#define STAGEMENU_H
+#ifndef STAGESHOP_H
+#define STAGESHOP_H
 
 #include "includes.h"
 #include "Stage.h"
@@ -8,12 +8,12 @@
 #include "Entity.h"
 #include "material.h"
 #include "Scene.h"
-class StageMenu :public Stage
+class StageShop :public Stage
 {
 public:
 
 
-	StageMenu() :Stage("Menu") {
+	StageShop() :Stage("Shop") {
 		iniciado = true;
 	};
 

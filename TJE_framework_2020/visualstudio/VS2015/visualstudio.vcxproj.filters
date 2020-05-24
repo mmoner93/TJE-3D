@@ -106,6 +106,12 @@
       <Filter>Stages</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\StageMenuInGame.cpp" />
+    <ClCompile Include="..\..\src\Inventario.cpp">
+      <Filter>mygame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\StageShop.cpp">
+      <Filter>Stages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -210,6 +216,12 @@
       <Filter>Stages</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\StageMenuInGame.h" />
+    <ClInclude Include="..\..\src\Inventario.h">
+      <Filter>mygame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\StageShop.h">
+      <Filter>Stages</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extra">

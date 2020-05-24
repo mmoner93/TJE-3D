@@ -1,11 +1,12 @@
 #include "Stage.h"
 #include "StageMenu.h"
 #include "StagePlay.h"
+#include "StageShop.h"
 //include invetario h
 
 int coins = 1000;
 //invetario
-void StageMenu::render() {
+void StageShop::render() {
 	
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 
@@ -16,7 +17,7 @@ void StageMenu::render() {
 	drawText(20, 100, "New Weapon", Vector3(1, 1, 1), 2);
 	SDL_GL_SwapWindow(Game::instance->window);
 }
-void StageMenu::update(double dt) {
+void StageShop::update(double dt) {
 	if (Input::isKeyPressed(SDL_SCANCODE_A)) {
 		Stage::changeState("Play");
 		//Stage::current_state->init();
@@ -49,7 +50,7 @@ void StageMenu::update(double dt) {
 	}
 
 }
-void StageMenu::init() {
+void StageShop::init() {
 	
 	// crear inventario
 }
