@@ -120,7 +120,7 @@ void StageEditor::update(double seconds_elapsed)
 
 	//para que el cielo siga a la camara
 	gameScene->cielo->model->setTranslation(camera->center.x, camera->center.y, camera->center.z);
-
+	gameScene->updateScene(seconds_elapsed);
 	
     SDL_ShowCursor(true);
 	

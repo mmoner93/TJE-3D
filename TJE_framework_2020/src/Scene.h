@@ -7,6 +7,7 @@
 #include "EntityPlayer.h"
 #include "GameMap.h"
 #include "enumStructs.h"
+#include "EntityEnemy.h"
 class Scene
 {
 public:
@@ -15,7 +16,7 @@ public:
 	EntityGameObject* suelo;
 	EntityGameObject* cielo;
 	std::vector<EntityGameObject*> mapaObjects;
-	std::vector<EntityGameObject*> Enemys; //esto seguramente cambiara a entityEnemy cuando tengan comportamiento y tal.
+	std::vector<EntityEnemy*> Enemys; 
 	GameMap* mapGame = NULL;
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
 		lightScene = l;
@@ -28,11 +29,12 @@ public:
 	}
 
 	void addObject(EntityGameObject* temp);
-	
+	void addEnemy(EntityEnemy* temp);
 	void LoadMap(std::vector<Entity*> EntityVector);
 	void loadEnemys(std::map<std::string, Entity*> enemysMap);
 
 	void pintarScene();
+	void updateScene(float seconds_elapsed);
 	
 };
 

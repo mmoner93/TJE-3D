@@ -112,6 +112,9 @@
     <ClCompile Include="..\..\src\StageShop.cpp">
       <Filter>Stages</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\EntityEnemy.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -221,6 +224,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\StageShop.h">
       <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EntityEnemy.h">
+      <Filter>Entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
