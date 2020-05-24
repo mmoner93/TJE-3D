@@ -4,8 +4,19 @@
 void Scene::addObject(EntityGameObject* temp) {
 	mapaObjects.push_back(temp);
 }
+void Scene::addEnemy(EntityEnemy* temp) {
+	Enemys.push_back(temp);
+}
+void Scene :: updateScene(float seconds_elapsed) {
+
+	for (int i = 0; i < Enemys.size(); i++) {
 
 
+		Enemys[i]->update(seconds_elapsed,mapaObjects);
+
+	}
+
+}
 void Scene::pintarScene() {
 	glDisable(GL_DEPTH_TEST);
 	 cielo->renderTilling();
@@ -31,7 +42,16 @@ void Scene::pintarScene() {
 	}
 
 
+	for (int i = 0; i < Enemys.size(); i++) {
+
+
+		Enemys[i]->render(lightScene->light);
+
+	}
+
 }
+
+
 
 
 
@@ -103,7 +123,7 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
-	for (int i = 0; i < NUM_ENEMYS; i++) {
+	for (int i = 0; i < enemysMap.size(); i++) {
 		EntityMesh* en;
 
 		switch (i) {
@@ -146,11 +166,11 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		}
 
 
-		EntityGameObject* temp = new EntityGameObject(en->textura, en->shader, en->mesh, en->material, "game");
+		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game",Vector3(0, 0, i * 10.0f));
 
 		temp->model->translate(0, 0, i * 10.0f);
 
-		addObject(temp);
+		addEnemy(temp);
 	}
 
 
