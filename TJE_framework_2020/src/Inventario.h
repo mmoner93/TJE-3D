@@ -9,7 +9,7 @@
 class Inventario
 {
 public:
-	int velociti = 1;
+	float velociti = 0;
 	int armaour = 1;
 	int stuntTime = 1;
 	int grenades = 1;

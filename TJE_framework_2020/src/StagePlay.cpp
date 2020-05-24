@@ -644,6 +644,9 @@ void StagePlay::update(double seconds_elapsed)
 	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
 		addPoint();
 	}
+	if (Input::isKeyPressed(SDL_SCANCODE_M)) {
+		Stage::changeState("Menu");
+	}
 
 
 	/* avion

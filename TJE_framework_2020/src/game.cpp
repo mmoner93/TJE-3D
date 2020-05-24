@@ -41,8 +41,9 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	elapsed_time = 0.0f;
 	mouse_locked = false;
 	//new StageSaveLoad();
-	//new StageShop();
 	new StageMenu();
+	new StageShop();
+
 	new StagePlay();
 	new StageEditor();
 

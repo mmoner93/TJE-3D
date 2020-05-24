@@ -58,7 +58,7 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	//if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
 
 
-	if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 2; //move faster with left shift
+	if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 8; //move faster with left shift
 	if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) {
 		delta = delta+Vector3(1, 0, 0);
 	} 
@@ -67,7 +67,7 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) delta = delta + Vector3(0, 0, 1);
 
 
-	delta = delta * speed;
+	delta = delta * (speed + mejoras.velociti);
 	yaw -= Input::mouse_delta.x * 0.1;
 
 	pitch -= Input::mouse_delta.y * 0.1;
