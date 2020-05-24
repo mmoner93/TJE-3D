@@ -6,6 +6,7 @@
 #include "input.h"
 #include "game.h"
 #include "enumStructs.h"
+#include "Inventario.h"
 class EntityPlayer :public EntityGameObject
 {
 public:
@@ -17,7 +18,7 @@ public:
 	Vector3 vel_y;
 	float vel_ang;
 	float angle;
-	
+	Inventario mejoras;
 
 	EntityPlayer(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		

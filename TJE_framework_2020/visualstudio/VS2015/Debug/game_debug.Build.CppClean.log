@@ -1,48 +1,50 @@
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\vc142.pdb
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\vc142.idb
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\input.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\gamemap.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\framework.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\fbo.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\textparser.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\picopng.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\sysdep.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\mytritri.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\math3d.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\coldet_bld.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\coldet.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\box_bld.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\box.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entity.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitymesh.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitylight.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitygameobject.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\camera.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\animation.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\utils.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\texture.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageplay.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stage.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\shader.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\scene.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\rendertotexture.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entityplayer.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\mesh.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\material.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\main.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\light.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\tritri.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageeditor.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\game_debug.exe
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\game_debug.pdb
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.command.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.read.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.write.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link-cvtres.read.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link-cvtres.write.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link-rc.read.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link-rc.write.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.command.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.read.1.tlog
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.write.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\vc142.pdb
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\vc142.idb
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\input.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\gamemap.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\framework.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\fbo.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\textparser.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\picopng.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\sysdep.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\mytritri.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\math3d.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\coldet_bld.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\coldet.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\box_bld.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\box.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entity.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitymesh.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitylight.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitygameobject.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\camera.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\animation.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\utils.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\texture.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageshop.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageplay.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stagemenuingame.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stagemenu.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stagelvlselector.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageeditor.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stage.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\shader.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\scene.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\rendertotexture.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entityplayer.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\mesh.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\material.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\main.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\light.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\inventario.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\tritri.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\game_debug.exe
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\game_debug.pdb
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\..\..\game_debug.exe
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.command.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.read.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.write.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.command.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.read.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.write.1.tlog

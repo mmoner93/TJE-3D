@@ -10,6 +10,8 @@
 #include "StagePlay.h"
 #include "StageEditor.h"
 #include "StageMenu.h"
+#include "StageShop.h"
+#include "StageSaveLoad.h"
 #include <cmath>
 
 //some globals
@@ -38,7 +40,8 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	time = 0.0f;
 	elapsed_time = 0.0f;
 	mouse_locked = false;
-
+	new StageSaveLoad();
+	new StageShop();
 	new StageMenu();
 	new StagePlay();
 	new StageEditor();
