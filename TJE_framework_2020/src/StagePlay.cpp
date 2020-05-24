@@ -671,7 +671,7 @@ void StagePlay::update(double seconds_elapsed)
 
 	//para que el cielo siga a la camara
 	gameSceneSP->cielo->model->setTranslation(cameraSP->center.x, cameraSP->center.y, cameraSP->center.z);
-
+	gameSceneSP->updateScene(seconds_elapsed);
 	
 		Input::centerMouse();
 		SDL_ShowCursor(false);
