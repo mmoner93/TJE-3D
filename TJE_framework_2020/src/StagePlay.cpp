@@ -677,7 +677,7 @@ void StagePlay::update(double seconds_elapsed)
 	SDL_ShowCursor(false);
 	if (Input::wasKeyPressed(SDL_SCANCODE_M))
 	{
-		Stage::changeState("Menu");
+		Stage::changeState("MenuInGame");
 	}
 
 }

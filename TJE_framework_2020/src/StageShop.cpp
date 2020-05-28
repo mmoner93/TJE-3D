@@ -22,8 +22,8 @@ void StageShop::render() {
 	drawText(500, 80, "P to Play", Vector3(1, 1, 1), 2);
 	drawText(500, 80, "M to Play", Vector3(1, 1, 1), 2);
 
-	drawText(320, 400, "-->", Vector3(1, 1, 1), 2);
-	drawText(280, 400, "<--", Vector3(1, 1, 1), 2);
+	drawText(330, 400, "D-->", Vector3(1, 1, 1), 2);
+	drawText(270, 400, "<--A", Vector3(1, 1, 1), 2);
 	drawText(298, 80, std::to_string(weaponOnScreen), Vector3(1, 1, 1), 2);
 
 

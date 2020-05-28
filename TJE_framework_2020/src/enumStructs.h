@@ -4,6 +4,8 @@
 #define NUM_ENTITIES 39
 #define NUM_ENEMYS 9
 
+enum levels { LVL1, LVL2, LVL3 };
+
 enum enumWeapons {
 	WEAPON1, WEAPON2, WEAPON3, WEAPON4, WEAPON5, WEAPON6, WEAPON7, WEAPON8
 };

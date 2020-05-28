@@ -10,7 +10,9 @@
 #include "StagePlay.h"
 #include "StageEditor.h"
 #include "StageMenu.h"
+#include "StageMenuInGame.h"
 #include "StageShop.h"
+#include "StageLVL.h"
 #include "StageSaveLoad.h"
 #include <cmath>
 
@@ -44,6 +46,8 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	new StageMenu();
 	new StageShop();
 	new StageSaveLoad();
+	new StageMenuInGame();
+	new StageLVL();
 	new StagePlay();
 	new StageEditor();
 

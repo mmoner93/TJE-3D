@@ -161,7 +161,7 @@
     <ClCompile Include="..\..\src\shader.cpp" />
     <ClCompile Include="..\..\src\Stage.cpp" />
     <ClCompile Include="..\..\src\StageEditor.cpp" />
-    <ClCompile Include="..\..\src\StageLvlSelector.cpp" />
+    <ClCompile Include="..\..\src\StageLVL.cpp" />
     <ClCompile Include="..\..\src\StageMenu.cpp" />
     <ClCompile Include="..\..\src\StageMenuInGame.cpp" />
     <ClCompile Include="..\..\src\StagePlay.cpp" />
@@ -205,7 +205,7 @@
     <ClInclude Include="..\..\src\shader.h" />
     <ClInclude Include="..\..\src\Stage.h" />
     <ClInclude Include="..\..\src\StageEditor.h" />
-    <ClInclude Include="..\..\src\StageLvlSelector.h" />
+    <ClInclude Include="..\..\src\StageLVL.h" />
     <ClInclude Include="..\..\src\StageMenu.h" />
     <ClInclude Include="..\..\src\StageMenuInGame.h" />
     <ClInclude Include="..\..\src\StagePlay.h" />
