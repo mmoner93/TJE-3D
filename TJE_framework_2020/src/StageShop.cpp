@@ -2,31 +2,47 @@
 #include "StageMenu.h"
 #include "StagePlay.h"
 #include "StageShop.h"
+#include "enumStructs.h"
+#include <string>
 //include invetario h
 
 int coins = 1000;
-int weaponShowing = 0;
+int weaponOnScreen = 0;
+int weapons[8] = { WEAPON1, WEAPON2, WEAPON3, WEAPON4, WEAPON5, WEAPON6, WEAPON7, WEAPON8 };
 //invetario
 void StageShop::render() {
-	
+
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	drawText(20, 20,  "S to + Speed", Vector3(1, 1, 1), 2);
-	drawText(20, 40,  "L to + Live", Vector3(1, 1, 1), 2);
-	drawText(20, 60,  "S to + Stunt Time", Vector3(1, 1, 1), 2);
-	drawText(20, 80,  "G to + Grenades", Vector3(1, 1, 1), 2);
-	drawText(20, 100, "M to Menu", Vector3(1, 1, 1), 2);
+
+	drawText(20, 20, "S to + Speed", Vector3(1, 1, 1), 2);
+	drawText(20, 40, "L to + Live", Vector3(1, 1, 1), 2);
+	drawText(20, 60, "T to + Stunt Time", Vector3(1, 1, 1), 2);
+	drawText(20, 80, "G to + Grenades", Vector3(1, 1, 1), 2);
+	drawText(500, 80, "P to Play", Vector3(1, 1, 1), 2);
+	drawText(500, 80, "M to Play", Vector3(1, 1, 1), 2);
+
+	drawText(320, 400, "-->", Vector3(1, 1, 1), 2);
+	drawText(280, 400, "<--", Vector3(1, 1, 1), 2);
+	drawText(298, 80, std::to_string(weaponOnScreen), Vector3(1, 1, 1), 2);
+
+
+	//drawText(20, 100, "New Weapon", Vector3(1, 1, 1), 2);
 	//hacer un selector de armas que te diga si la tienes comprada seleccionar, sino precio para comprar
 	SDL_GL_SwapWindow(Game::instance->window);
 }
 void StageShop::update(double dt) {
-	if (Input::isKeyPressed(SDL_SCANCODE_M)) {
+	if (Input::isKeyPressed(SDL_SCANCODE_P)) {
+		Stage::changeState("Play");
+		//Stage::current_state->init();
+	}
+	else if (Input::isKeyPressed(SDL_SCANCODE_M)) {
 		Stage::changeState("Menu");
 		//Stage::current_state->init();
 	}
 	if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
 		if (coins > 50) {
-			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.velociti += 0.1;
+			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.velociti += 1;
 			//speed ++
 			std::cout << ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.velociti << std::endl;
 		}
@@ -52,33 +68,28 @@ void StageShop::update(double dt) {
 			//Granadas equipadas ++
 		}
 	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_SPACE)) {    //select weapon
+	if (Input::wasKeyPressed(SDL_SCANCODE_SPACE)) {
 		if (coins > 50) {
-			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.selectedWeapon = weaponShowing;
+			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.selectedWeapon = weaponOnScreen;
 			std::cout << ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.selectedWeapon << std::endl;
 			//new weapon ++
 		}
 	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_RIGHT)) {
-		//mostrar siguiente arma
-		weaponShowing += 1;
-		if (weaponShowing > 8)
-		{
-			weaponShowing = 0; //loop
+	if (Input::wasKeyPressed(SDL_SCANCODE_A)) {
+		weaponOnScreen -= 1;
+		if (weaponOnScreen < 0) {
+			weaponOnScreen = 8;
 		}
 	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_RIGHT)) {
-		//mostrar anterior arma
-		weaponShowing -= 1;
-		if (weaponShowing < 0)
-		{
-			weaponShowing = 8; //loop
+	if (Input::wasKeyPressed(SDL_SCANCODE_D)) {
+		weaponOnScreen += 1;
+		if (weaponOnScreen > 8) {
+			weaponOnScreen = 0;
 		}
 	}
-
 
 }
 void StageShop::init() {
-	
+
 	// crear inventario
 }

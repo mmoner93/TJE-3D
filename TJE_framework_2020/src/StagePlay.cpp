@@ -626,18 +626,18 @@ void StagePlay::update(double seconds_elapsed)
 		cameraSP->rotate(Input::mouse_delta.y * 0.005f, cameraSP->getLocalVector(Vector3(-1.0f, 0.0f, 0.0f)));
 	}
 
-	
-		//actualizo para collisiones.
-		gameSceneSP->myPlayer->update(seconds_elapsed, gameSceneSP->mapaObjects);
+
+	//actualizo para collisiones.
+	gameSceneSP->myPlayer->update(seconds_elapsed, gameSceneSP->mapaObjects);
 		
-		/*Avion
-		if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
-		if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
-		if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(0, 1, 0));
-		if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(0, 1, 0));
-		if (Input::isKeyPressed(SDL_SCANCODE_Q)) plane_model.rotate(40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
-		if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
-		*/
+	/*Avion
+	if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
+	if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
+	if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(0, 1, 0));
+	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(0, 1, 0));
+	if (Input::isKeyPressed(SDL_SCANCODE_Q)) plane_model.rotate(40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
+	if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
+	*/
 
 
 	//para disparar los puntos de colision
@@ -673,8 +673,11 @@ void StagePlay::update(double seconds_elapsed)
 	gameSceneSP->cielo->model->setTranslation(cameraSP->center.x, cameraSP->center.y, cameraSP->center.z);
 	gameSceneSP->updateScene(seconds_elapsed);
 	
-		Input::centerMouse();
-		SDL_ShowCursor(false);
-	
+	Input::centerMouse();
+	SDL_ShowCursor(false);
+	if (Input::wasKeyPressed(SDL_SCANCODE_M))
+	{
+		Stage::changeState("Menu");
+	}
 
 }
