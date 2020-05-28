@@ -60,12 +60,96 @@ void Scene::pintarScene() {
 
 }
 
+void Scene::cargarWallsInIA() {
 
+	for (int x = 0; x < mapGame->width*9; ++x){
+		for (int y = 0; y < mapGame->height*9; ++y)
+		{
+
+			Vector3 target_pos=Vector3((float)y,0, (float)x);
+			//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
+			Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
+			bool has_collision = false;
+
+			for (int i = 0; i < mapaObjects.size(); i++)
+			{
+
+				EntityGameObject* en = mapaObjects[i];
+
+				Mesh* mesh = en->mesh;
+
+				//para cada objecto de la escena...
+				Vector3 coll;
+				Vector3 collnorm;
+
+
+				//comprobamos si colisiona el objeto con la esfera (radio 3)
+				if (mesh->testSphereCollision(*(en->model), character_center, 0.1, coll, collnorm) == false) {
+					continue; //si no colisiona, pasamos al siguiente objeto
+				}
+				/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
+					continue;*/
+				has_collision = true;
+				generatorIA.addCollision({ x, y });
+				//std::cout << "He colisionao" << std::endl;
+				//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
+				//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
+				//target_pos.y = 0;
+				break;
+			}
+		}
+	}
+}
+
+void Scene::cargarWallsInIA2() {
+
+	for (int x = 0; x < mapGame->width * 9; ++x) {
+		for (int y = 0; y < mapGame->height * 9; ++y)
+		{
+
+			Vector3 target_pos = Vector3((float)y, 0, (float)x);
+			//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
+			Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
+			bool has_collision = false;
+
+			for (int i = 0; i < mapaObjects.size(); i++)
+			{
+
+				EntityGameObject* en = mapaObjects[i];
+
+				Mesh* mesh = en->mesh;
+
+				//para cada objecto de la escena...
+				Vector3 coll;
+				Vector3 collnorm;
+
+
+				//comprobamos si colisiona el objeto con la esfera (radio 3)
+				if (mesh->testSphereCollision(*(en->model), character_center, 0.1, coll, collnorm) == false) {
+					continue; //si no colisiona, pasamos al siguiente objeto
+				}
+				/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
+					continue;*/
+				has_collision = true;
+				mapPARAIA[x + y * mapGame->width * 9] = 0;
+				//std::cout << "He colisionao" << std::endl;
+				//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
+				//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
+				//target_pos.y = 0;
+				break;
+			}
+			if (!has_collision) {
+				mapPARAIA[x + y * mapGame->width * 9] = 1;
+			}
+
+		}
+	}
+}
 
 
 
 void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
-	for (int x = 0; x < mapGame->width; ++x)
+	for (int x = 0; x < mapGame->width; ++x){
 		for (int y = 0; y < mapGame->height; ++y)
 		{
 			//get cell info
@@ -80,10 +164,10 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 
 				if (cell.type == HANGAR_1) {
-					temp->model->translate(x * 3, 0.05f, y * 3);
+					temp->model->translate((float)((x+1) * 3.0), 0.05f, (float)((y + 1) * 3.0));
 				}
 				else {
-					temp->model->translate(x * 3, 0.0f, y * 3);
+					temp->model->translate((float)((x + 1) * 3.0), 0.0f, (float)((y + 1) * 3.0));
 				}
 				
 
@@ -125,6 +209,9 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 
 		}
+	}
+
+	cargarWallsInIA2();
 
 }
 
@@ -179,7 +266,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		
 		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game",Vector3(0, 0, i * 10.0f), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 
-		temp->model->translate(0, 0, i * 10.0f);
+		temp->model->translate((i + 1.0) * 10.0f, 0, (i+1.0) * 10.0f);
 
 		addEnemy(temp);
 	}
