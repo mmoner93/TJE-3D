@@ -1,6 +1,8 @@
 #include "EntityEnemy.h"
 #include "Stage.h"
 #include "StagePlay.h"
+#include "AStar.hpp"
+
 void EntityEnemy::render(Light* light) {
 
 	//al personaje
@@ -80,7 +82,7 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 
 
 	//target_pos = testCollision(target_pos, seconds_elapsed, objects);
-	if (checkTime(seconds_elapsed)) {
+	/*if (checkTime(seconds_elapsed)) {
 		target_pos = moveEnemy(seconds_elapsed, objects);
 		//TRS
 
@@ -92,17 +94,48 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 		model->setTranslation(position.x, position.y, position.z);
 
 		//model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
-	}
+	}*/
 
+	if (checkTime(seconds_elapsed)) {
+		raroIA();
+	}
+	
 	atacar();
 
 	//puntos = puntos * *model;
 	
 }
 
+void EntityEnemy::raroIA() {
+
+	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+
+	AStar::Generator generator;
+	// Set 2d map size.
+	generator.setWorldSize({ ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width, ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->height });
+	// You can use a few heuristics : manhattan, euclidean or octagonal.
+	generator.setHeuristic(AStar::Heuristic::euclidean);
+	generator.setDiagonalMovement(true);
+
+	std::cout << "Generate path ... \n";
+	// This method returns vector of coordinates from target to source.
+	//auto path = generator.findPath({ (int) model->getTranslation().z, (int) model->getTranslation().x }, { (int)player->model->getTranslation().z, (int)player->model->getTranslation().x });
+
+	auto path = generator.findPath({ 0, 0}, { 1, 1});
+
+	for (auto& coordinate : path) {
+		//std::cout << coordinate.x << " " << coordinate.y << "\n";
+
+		model->translate(coordinate.y, 0.0, coordinate.x);
+		break;
+
+	}
+
+}
+
 
 Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
-	float speed = (float)seconds_elapsed * (float)400;
+	float speed = (float)seconds_elapsed * (float)200;
 	int whatToMake = rand() % 4;
 	enumEnemyMove moveTo = STOP;
 	bool goodMove = false;
@@ -111,6 +144,16 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 	//falta meter que rote? o arriba ?
 
 
+	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+
+	Vector3 director = player->model->getTranslation() - model->getTranslation();
+	director = director.normalize();
+	//std::cout << "el vector es : x " << director.x << " y :" << director.y << "z: " << director.z << std::endl;
+
+	float distance = player->model->getTranslation().distance(model->getTranslation());
+
+
+	/*
 	if (actualDirection != STOP) {
 		switch (actualDirection) {
 		case 3:
@@ -137,38 +180,99 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 		
 	}
 	
-	while (!goodMove) {
-		whatToMake = rand() % 4;
-		switch (whatToMake) {
-		case 0:
-			moveTo = UP;
-			actualDirection = UP;
-			target_pos = position + Vector3(0, 0, -1) * 10 * speed * seconds_elapsed;
-			break;
-		case 1:
-			moveTo = LEFT;
-			actualDirection = LEFT;
-			target_pos = position - Vector3(1, 0, 0) * 10 * speed * seconds_elapsed;
-			break;
-		case 2:
-			moveTo = RIGHT;
-			actualDirection = RIGHT;
-			target_pos = position - Vector3(-1, 0, 0) * 10 * speed * seconds_elapsed;
-			break;
-		case 3:
-			moveTo = DOWN;
-			actualDirection = DOWN;
-			target_pos = position + Vector3(0, 0, +1) * 10 * speed * seconds_elapsed;
-			break;
+	*/
+
+	target_pos = position + director*0.1;
+
+
+	if (distance < 30.0 && contadorCollisions < 200 && contadorMovimientos == 0) {
+		if (testCollision(target_pos, seconds_elapsed, objects)) {
+			
+			return target_pos;
+		}
+		else {
+			contadorMovimientos = 0;
+			contadorCollisions++;
+		}
+
+	}
+	
+		if (actualDirection != STOP && contadorMovimientos<200) {
+			switch (actualDirection) {
+			case 3:
+				actualDirection = UP;
+				target_pos = position + Vector3(0, 0, -1) * 1 * speed * seconds_elapsed;
+				break;
+			case 1:
+				actualDirection = LEFT;
+				target_pos = position - Vector3(1, 0, 0) * 1 * speed * seconds_elapsed;
+				break;
+			case 2:
+				actualDirection = RIGHT;
+				target_pos = position - Vector3(-1, 0, 0) * 1 * speed * seconds_elapsed;
+				break;
+			case 4:
+				actualDirection = DOWN;
+				target_pos = position + Vector3(0, 0, +1) * 1 * speed * seconds_elapsed;
+				break;
+
+			}
+			if (testCollision(target_pos, seconds_elapsed, objects)) {
+				contadorMovimientos++;
+				if (contadorMovimientos> 200) {
+					contadorMovimientos = 0;
+					contadorCollisions = 0;
+				}
+				
+				return target_pos;
+
+			}
 
 		}
 
-		goodMove = testCollision(target_pos, seconds_elapsed, objects);
+
+		while (!goodMove) {
+			whatToMake = rand() % 4;
+			switch (whatToMake) {
+			case 0:
+				moveTo = UP;
+				actualDirection = UP;
+				target_pos = position + Vector3(0, 0, -1)   * speed * seconds_elapsed;
+				break;
+			case 1:
+				moveTo = LEFT;
+				actualDirection = LEFT;
+				target_pos = position - Vector3(1, 0, 0)   * speed * seconds_elapsed;
+				break;
+			case 2:
+				moveTo = RIGHT;
+				actualDirection = RIGHT;
+				target_pos = position - Vector3(-1, 0, 0)   * speed * seconds_elapsed;
+				break;
+			case 3:
+				moveTo = DOWN;
+				actualDirection = DOWN;
+				target_pos = position + Vector3(0, 0, +1)  * speed * seconds_elapsed;
+				break;
+
+			}
+
+			goodMove = testCollision(target_pos, seconds_elapsed, objects);
 
 
 
-	}
+		}
 
+
+
+
+	
+	
+	
+
+	
+
+		contadorMovimientos = 0;
 	return target_pos;
 
 
@@ -220,12 +324,12 @@ bool EntityEnemy::testCollision(Vector3 target_pos, float seconds_elapsed, std::
 
 		float distance = objectPositio.distance(position);
 
-		if (distance > 5) {
+		if (distance > 10) {
 			continue;
 		}
 
 		//comprobamos si colisiona el objeto con la esfera (radio 3)
-		if (mesh->testSphereCollision(*(en->model), character_center, 0.15, coll, collnorm) == false) {
+		if (mesh->testSphereCollision(*(en->model), character_center, 0.25, coll, collnorm) == false) {
 			continue; //si no colisiona, pasamos al siguiente objeto
 		}
 		/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
@@ -289,4 +393,19 @@ bool EntityEnemy::mirarSiPlayerCerca() {
 	}
 
 }
+
+
+void EntityEnemy::contadorMovUp() {
+
+	contadorMovimientos++;
+	if (contadorMovimientos > 40) {
+		contadorMovimientos = 0;
+	}
+
+}
+void EntityEnemy::contadorCollUp() {
+
+
+}
+
 

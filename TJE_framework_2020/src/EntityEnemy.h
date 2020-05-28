@@ -17,14 +17,16 @@ public:
 	Vector3 vel_y;
 	float vel_ang;
 	float angle;
-	float timeTopNextMove = 0.0;
-	float timeNextMove = 0.0;
+	float timeTopNextMove = 1.0;
+	float timeNextMove = 1.0;
 	enumEnemyMove actualDirection= STOP;
 	float health = 1.0;
 	bool aLive = true;
 	std::vector<Vector3> pointsSP;
 	Shader* shaderPuntos;
 	Matrix44 puntos;
+	int contadorMovimientos = 0;
+	int contadorCollisions = 0;
 	EntityEnemy(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, Shader* shaderP, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 
 		yaw = ya;
@@ -46,6 +48,10 @@ public:
 	void renderPoints(Mesh* meshT);
 	void atacar();
 	bool mirarSiPlayerCerca();
+	void contadorMovUp();
+	void contadorCollUp();
+	void raroIA();
+
 };
 
 

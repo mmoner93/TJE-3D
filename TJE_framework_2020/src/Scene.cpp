@@ -132,9 +132,9 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
-	
+	//enemysMap.size()
 
-	for (int i = 0; i < enemysMap.size(); i++) {
+	for (int i = 0; i < 1; i++) {
 		EntityMesh* en;
 
 		switch (i) {

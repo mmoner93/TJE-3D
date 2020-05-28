@@ -14,7 +14,7 @@ void EntityPlayer::render(Light* light) {
 	front = PITCH.rotateVector(front);
 	Matrix44 YAW;
 	YAW.setRotation(yaw * DEG2RAD, Vector3(0, 1, 0));
-	std::cout << "El pitch es " << pitch << std::endl;
+	//std::cout << "El pitch es " << pitch << std::endl;
 	front = YAW.rotateVector(front);
 	Vector3 center = eye + front;
 	Vector3 up = Vector3(0, 1, 0);
