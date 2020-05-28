@@ -1,5 +1,6 @@
 #include "EntityEnemy.h"
-
+#include "Stage.h"
+#include "StagePlay.h"
 void EntityEnemy::render(Light* light) {
 
 	//al personaje
@@ -93,6 +94,8 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 		//model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
 	}
 
+	atacar();
+
 	//puntos = puntos * *model;
 	
 }
@@ -112,19 +115,19 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 		switch (actualDirection) {
 		case 3:
 			actualDirection = UP;
-			target_pos = position + Vector3(0, 0, -1) * 10 * speed * seconds_elapsed;
+			target_pos = position + Vector3(0, 0, -1) * 1 * speed * seconds_elapsed;
 			break;
 		case 1:
 			actualDirection = LEFT;
-			target_pos = position - Vector3(1, 0, 0) * 10 * speed * seconds_elapsed;
+			target_pos = position - Vector3(1, 0, 0) * 1 * speed * seconds_elapsed;
 			break;
 		case 2:
 			actualDirection = RIGHT;
-			target_pos = position - Vector3(-1, 0, 0) * 10 * speed * seconds_elapsed;
+			target_pos = position - Vector3(-1, 0, 0) * 1 * speed * seconds_elapsed;
 			break;
 		case 4:
 			actualDirection = DOWN;
-			target_pos = position + Vector3(0, 0, +1) * 10 * speed * seconds_elapsed;
+			target_pos = position + Vector3(0, 0, +1) * 1 * speed * seconds_elapsed;
 			break;
 
 		}
@@ -260,3 +263,30 @@ void EntityEnemy::onReceveidShoot(Vector3 temp) {
 	pointsSP.push_back(temp);
 
 }
+
+void EntityEnemy::atacar() {
+	if (mirarSiPlayerCerca()) {
+		std::cout << "ATACO"<<std::endl;
+	}
+
+}
+
+bool EntityEnemy::mirarSiPlayerCerca() {
+
+
+	EntityPlayer* player=((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+
+
+	float distance=player->model->getTranslation().distance(model->getTranslation());
+
+	//std::cout << "Distancia del player " << distance << std::endl;
+
+	if (distance <= 2.0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+

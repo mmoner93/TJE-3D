@@ -17,8 +17,8 @@ public:
 	Vector3 vel_y;
 	float vel_ang;
 	float angle;
-	float timeTopNextMove = 0.5;
-	float timeNextMove = 0.5;
+	float timeTopNextMove = 0.0;
+	float timeNextMove = 0.0;
 	enumEnemyMove actualDirection= STOP;
 	float health = 1.0;
 	bool aLive = true;
@@ -44,6 +44,8 @@ public:
 	bool checkTime(float seconds_elapsed);
 	void onReceveidShoot(Vector3 temp);
 	void renderPoints(Mesh* meshT);
+	void atacar();
+	bool mirarSiPlayerCerca();
 };
 
 
