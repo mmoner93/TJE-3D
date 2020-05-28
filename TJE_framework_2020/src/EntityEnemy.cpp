@@ -2,7 +2,7 @@
 #include "Stage.h"
 #include "StagePlay.h"
 #include "AStar.hpp"
-
+#include "pathfinders.h"
 void EntityEnemy::render(Light* light) {
 
 	//al personaje
@@ -97,7 +97,7 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 	}*/
 
 	if (checkTime(seconds_elapsed)) {
-		raroIA();
+		raroIA2();
 	}
 	
 	atacar();
@@ -110,26 +110,82 @@ void EntityEnemy::raroIA() {
 
 	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
 
-	AStar::Generator generator;
-	// Set 2d map size.
-	generator.setWorldSize({ ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width, ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->height });
-	// You can use a few heuristics : manhattan, euclidean or octagonal.
-	generator.setHeuristic(AStar::Heuristic::euclidean);
-	generator.setDiagonalMovement(true);
+	AStar::Generator temp = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA;
+	float distance = player->model->getTranslation().distance(model->getTranslation());
 
-	std::cout << "Generate path ... \n";
+	//std::cout << "Generate path ... \n";
 	// This method returns vector of coordinates from target to source.
 	//auto path = generator.findPath({ (int) model->getTranslation().z, (int) model->getTranslation().x }, { (int)player->model->getTranslation().z, (int)player->model->getTranslation().x });
 
-	auto path = generator.findPath({ 0, 0}, { 1, 1});
+	
+	std::cout << "Del player x "<< (int)player->model->getTranslation().x <<" y " << (int)player->model->getTranslation().y << " z " << (int)player->model->getTranslation().z << std::endl;
+	
+	if (distance < 30.0) {
+		auto path = temp.findPath({ (int)model->getTranslation().z ,(int)model->getTranslation().x }, { (int)player->model->getTranslation().z ,(int)player->model->getTranslation().x });
 
-	for (auto& coordinate : path) {
-		//std::cout << coordinate.x << " " << coordinate.y << "\n";
+		if (((int)path.size() - 2) > 0) {
+			model->setTranslation(path[path.size() - 2].y, 0.0, path[path.size() - 2].x);
+		}
+		else {
+			model->setTranslation(path[0].y, 0.0, path[0].x);
+		}
+	}
+	
+    
 
-		model->translate(coordinate.y, 0.0, coordinate.x);
+
+
+	/*for (auto& coordinate : path) {
+		std::cout << coordinate.x << " " << coordinate.y << "\n";
+
+		model->setTranslation(coordinate.y, 0.0, coordinate.x);
 		break;
 
+	}*/
+
+}
+
+
+void EntityEnemy::raroIA2() {
+
+	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+
+	//here we must fill the map with all the info
+	//...
+	//when we want to find the shortest path, this array contains the shortest path, every value is the Nth position in the map, 100 steps max
+	int output[100];
+
+	//we call the path function, it returns the number of steps to reach target, otherwise 0
+	int path_steps = AStarFindPathNoTieDiag(
+		(int)model->getTranslation().z, (int)model->getTranslation().x, //origin (tienen que ser enteros)
+		(int)player->model->getTranslation().z, (int)player->model->getTranslation().x, //target (tienen que ser enteros)
+		((StagePlay*)Stage::current_state)->gameSceneSP->mapPARAIA, //pointer to map data
+		((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width*9, ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->height * 9, //map width and height
+		output, //pointer where the final path will be stored
+		100); //max supported steps of the final path
+
+//check if there was a path
+	if (path_steps != -1)
+	{
+		for (int i = 0; i < path_steps; ++i) {
+			std::cout << "X: " << (output[i] % ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9) << ", Y: " << floor(output[i] / (((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9)) << std::endl;
+			
+		}
+		model->setTranslation(floor(output[0] / (((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9)), 0.0, (output[0] % ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9));
+	
 	}
+
+
+
+
+
+	/*for (auto& coordinate : path) {
+		std::cout << coordinate.x << " " << coordinate.y << "\n";
+
+		model->setTranslation(coordinate.y, 0.0, coordinate.x);
+		break;
+
+	}*/
 
 }
 

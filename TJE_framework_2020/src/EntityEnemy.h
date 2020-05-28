@@ -51,7 +51,7 @@ public:
 	void contadorMovUp();
 	void contadorCollUp();
 	void raroIA();
-
+	void raroIA2();
 };
 
 
