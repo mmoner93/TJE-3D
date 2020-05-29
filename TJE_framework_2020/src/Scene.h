@@ -20,7 +20,7 @@ public:
 	std::vector<EntityEnemy*> Enemys; 
 	GameMap* mapGame = NULL;
 	std::vector<Vector3> pointsSP;
-	AStar::Generator generatorIA;
+	AStar::Generator* generatorIA;
 	// Set 2d map size.
 	uint8* mapPARAIA;
 
@@ -32,13 +32,13 @@ public:
 
 		mapGame = new GameMap(256, 256);
 		mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
-
+		generatorIA = new AStar::Generator();
 		//pongo *9 por que es como lo he escalado de momento .
-		generatorIA.setWorldSize({mapGame->width * 9, mapGame->height * 9 });
+		generatorIA->setWorldSize({mapGame->width * 9, mapGame->height * 9 });
 		
 		// You can use a few heuristics : manhattan, euclidean or octagonal.
-		generatorIA.setHeuristic(AStar::Heuristic::euclidean);
-		generatorIA.setDiagonalMovement(true);
+		generatorIA->setHeuristic(AStar::Heuristic::euclidean);
+		generatorIA->setDiagonalMovement(true);
 		mapPARAIA = new uint8[mapGame->width * 9 * mapGame->height * 9];
 
 	}

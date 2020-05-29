@@ -6,6 +6,7 @@
 #include "input.h"
 #include "game.h"
 #include "enumStructs.h"
+#include <list>
 class EntityEnemy :public EntityGameObject
 {
 public:
@@ -27,6 +28,10 @@ public:
 	Matrix44 puntos;
 	int contadorMovimientos = 0;
 	int contadorCollisions = 0;
+	std::list<Vector3> movs;
+
+
+
 	EntityEnemy(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, Shader* shaderP, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 
 		yaw = ya;

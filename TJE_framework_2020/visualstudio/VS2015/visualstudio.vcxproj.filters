@@ -124,6 +124,7 @@
       <Filter>mygame</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\AStar.cpp" />
+    <ClCompile Include="..\..\src\pathfinders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -246,6 +247,7 @@
       <Filter>mygame</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\AStar.hpp" />
+    <ClInclude Include="..\..\src\pathfinders.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extra">

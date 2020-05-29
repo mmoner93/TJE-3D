@@ -62,6 +62,9 @@ void Scene::pintarScene() {
 
 void Scene::cargarWallsInIA() {
 
+	FILE* fp = fopen("mapaIAConfigA.txt", "rb");
+	if (fp == NULL) {
+
 	for (int x = 0; x < mapGame->width*9; ++x){
 		for (int y = 0; y < mapGame->height*9; ++y)
 		{
@@ -84,13 +87,13 @@ void Scene::cargarWallsInIA() {
 
 
 				//comprobamos si colisiona el objeto con la esfera (radio 3)
-				if (mesh->testSphereCollision(*(en->model), character_center, 0.1, coll, collnorm) == false) {
+				if (mesh->testSphereCollision(*(en->model), character_center, 0.25, coll, collnorm) == false) {
 					continue; //si no colisiona, pasamos al siguiente objeto
 				}
 				/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
 					continue;*/
 				has_collision = true;
-				generatorIA.addCollision({ x, y });
+				generatorIA->addCollision({ x, y });
 				//std::cout << "He colisionao" << std::endl;
 				//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 				//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
@@ -99,51 +102,93 @@ void Scene::cargarWallsInIA() {
 			}
 		}
 	}
+
+
+
+	FILE* fp = fopen("mapaIAConfigA.txt", "wb");
+	fwrite(&generatorIA, sizeof(AStar::Generator), 1, fp);
+	fclose(fp);
+
+
+	}
+	else {
+		fread(&generatorIA, sizeof(AStar::Generator), 1, fp);
+
+		fclose(fp);
+	}
+
+
 }
 
 void Scene::cargarWallsInIA2() {
 
-	for (int x = 0; x < mapGame->width * 9; ++x) {
-		for (int y = 0; y < mapGame->height * 9; ++y)
-		{
-
-			Vector3 target_pos = Vector3((float)y, 0, (float)x);
-			//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
-			Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
-			bool has_collision = false;
-
-			for (int i = 0; i < mapaObjects.size(); i++)
+	FILE* fp = fopen("mapaIAConfig.bin", "rb");
+	if (fp == NULL) {
+	
+		for (int x = 0; x < mapGame->width * 9; ++x) {
+			for (int y = 0; y < mapGame->height * 9; ++y)
 			{
 
-				EntityGameObject* en = mapaObjects[i];
+				Vector3 target_pos = Vector3((float)y, 0, (float)x);
+				//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
+				Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
+				bool has_collision = false;
 
-				Mesh* mesh = en->mesh;
+				for (int i = 0; i < mapaObjects.size(); i++)
+				{
 
-				//para cada objecto de la escena...
-				Vector3 coll;
-				Vector3 collnorm;
+					EntityGameObject* en = mapaObjects[i];
+
+					Mesh* mesh = en->mesh;
+
+					//para cada objecto de la escena...
+					Vector3 coll;
+					Vector3 collnorm;
 
 
-				//comprobamos si colisiona el objeto con la esfera (radio 3)
-				if (mesh->testSphereCollision(*(en->model), character_center, 0.1, coll, collnorm) == false) {
-					continue; //si no colisiona, pasamos al siguiente objeto
+					//comprobamos si colisiona el objeto con la esfera (radio 3)
+					if (mesh->testSphereCollision(*(en->model), character_center, 0.1, coll, collnorm) == false) {
+						continue; //si no colisiona, pasamos al siguiente objeto
+					}
+					/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
+						continue;*/
+					has_collision = true;
+					mapPARAIA[x + y * mapGame->width * 9] = 0;
+					//std::cout << "He colisionao" << std::endl;
+					//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
+					//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
+					//target_pos.y = 0;
+					break;
 				}
-				/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
-					continue;*/
-				has_collision = true;
-				mapPARAIA[x + y * mapGame->width * 9] = 0;
-				//std::cout << "He colisionao" << std::endl;
-				//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
-				//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
-				//target_pos.y = 0;
-				break;
-			}
-			if (!has_collision) {
-				mapPARAIA[x + y * mapGame->width * 9] = 1;
-			}
+				if (!has_collision) {
+					mapPARAIA[x + y * mapGame->width * 9] = 1;
+				}
 
+			}
 		}
+
+
+
+		FILE* fp = fopen("mapaIAConfig.bin", "wb");
+		fwrite(&mapPARAIA, sizeof(mapPARAIA), 1, fp);
+		fclose(fp);
+
+
 	}
+	else {
+		fread(&mapPARAIA, sizeof(mapPARAIA), 1, fp);
+
+		fclose(fp);
+	}
+		
+
+	
+	
+
+
+	
+
+
 }
 
 
@@ -211,7 +256,7 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 		}
 	}
 
-	cargarWallsInIA2();
+	cargarWallsInIA();
 
 }
 

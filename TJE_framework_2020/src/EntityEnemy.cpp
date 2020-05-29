@@ -97,7 +97,16 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 	}*/
 
 	if (checkTime(seconds_elapsed)) {
-		raroIA2();
+
+		//if (movs.size() < 1) {
+			raroIA();
+		//}
+		else {
+		
+
+		}
+		
+
 	}
 	
 	atacar();
@@ -110,7 +119,7 @@ void EntityEnemy::raroIA() {
 
 	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
 
-	AStar::Generator temp = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA;
+	//AStar::Generator temp = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA;
 	float distance = player->model->getTranslation().distance(model->getTranslation());
 
 	//std::cout << "Generate path ... \n";
@@ -121,19 +130,30 @@ void EntityEnemy::raroIA() {
 	std::cout << "Del player x "<< (int)player->model->getTranslation().x <<" y " << (int)player->model->getTranslation().y << " z " << (int)player->model->getTranslation().z << std::endl;
 	
 	if (distance < 30.0) {
-		auto path = temp.findPath({ (int)model->getTranslation().z ,(int)model->getTranslation().x }, { (int)player->model->getTranslation().z ,(int)player->model->getTranslation().x });
 
+		Vector3 yo = model->getTranslation();
+		Vector3 playerTe = player->model->getTranslation();
+		
+		auto path = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+
+		//con esto va , pero muy lento
 		if (((int)path.size() - 2) > 0) {
 			model->setTranslation(path[path.size() - 2].y, 0.0, path[path.size() - 2].x);
 		}
-		else {
+		else if((int)path.size()==1) {
 			model->setTranslation(path[0].y, 0.0, path[0].x);
 		}
-	}
 	
+	/*	for (auto& coordinate : path) {
+			std::cout << coordinate.x << " " << coordinate.y << "\n";
+			movs.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
+			//model->setTranslation(coordinate.y, 0.0, coordinate.x);
+			//break;
+
+		}*/
     
 
-
+	}
 
 	/*for (auto& coordinate : path) {
 		std::cout << coordinate.x << " " << coordinate.y << "\n";
@@ -149,7 +169,7 @@ void EntityEnemy::raroIA() {
 void EntityEnemy::raroIA2() {
 
 	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
-
+	uint8* mapPARAIA = ((StagePlay*)Stage::current_state)->gameSceneSP->mapPARAIA;
 	//here we must fill the map with all the info
 	//...
 	//when we want to find the shortest path, this array contains the shortest path, every value is the Nth position in the map, 100 steps max
@@ -159,8 +179,8 @@ void EntityEnemy::raroIA2() {
 	int path_steps = AStarFindPathNoTieDiag(
 		(int)model->getTranslation().z, (int)model->getTranslation().x, //origin (tienen que ser enteros)
 		(int)player->model->getTranslation().z, (int)player->model->getTranslation().x, //target (tienen que ser enteros)
-		((StagePlay*)Stage::current_state)->gameSceneSP->mapPARAIA, //pointer to map data
-		((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width*9, ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->height * 9, //map width and height
+		mapPARAIA, //pointer to map data
+		32*9, 32 * 9, //map width and height
 		output, //pointer where the final path will be stored
 		100); //max supported steps of the final path
 
@@ -171,7 +191,7 @@ void EntityEnemy::raroIA2() {
 			std::cout << "X: " << (output[i] % ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9) << ", Y: " << floor(output[i] / (((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9)) << std::endl;
 			
 		}
-		model->setTranslation(floor(output[0] / (((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9)), 0.0, (output[0] % ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9));
+		model->setTranslation((float)floor(output[0] / (((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9)), 0.0, (float)(output[0] % ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9));
 	
 	}
 
