@@ -101,10 +101,10 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 		//if (movs.size() < 1) {
 			raroIA();
 		//}
-		else {
-		
+		//else {
+		//
 
-		}
+		//}
 		
 
 	}

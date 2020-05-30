@@ -62,8 +62,8 @@ void Scene::pintarScene() {
 
 void Scene::cargarWallsInIA() {
 
-	FILE* fp = fopen("mapaIAConfigA.txt", "rb");
-	if (fp == NULL) {
+	
+	if (!loadWalls()) {
 
 	for (int x = 0; x < mapGame->width*9; ++x){
 		for (int y = 0; y < mapGame->height*9; ++y)
@@ -104,21 +104,98 @@ void Scene::cargarWallsInIA() {
 	}
 
 
-
-	FILE* fp = fopen("mapaIAConfigA.txt", "wb");
-	fwrite(&generatorIA, sizeof(AStar::Generator), 1, fp);
-	fclose(fp);
+	writeWalls();
+	
 
 
-	}
-	else {
-		fread(&generatorIA, sizeof(AStar::Generator), 1, fp);
-
-		fclose(fp);
 	}
 
 
 }
+
+
+std::vector<std::string> split_istringstream(std::string str) {
+	std::vector<std::string> resultado;
+	std::istringstream isstream(str);
+	std::string palabra;
+
+	while (isstream >> palabra) {
+		resultado.push_back(palabra);
+	}
+
+	return resultado;
+}
+
+
+bool Scene::loadWalls() {
+	FILE* fp = fopen("mapaIAConfig.txt", "rb");
+	if (fp == NULL) {
+		std::cout << "No se encuentra archivo apaIAConfig.txt "  << std::endl;
+		return false;
+	}
+	else {
+	
+		char mystring[10];
+
+		int l = 0;
+		while (!feof(fp)) {
+			if (fgets(mystring, 10, fp) != NULL) {
+				char* stringx;
+				char* stringy;
+				//char* token = strtok(mystring, ",");
+				int o = 0;
+				while (o<2)
+				{
+					if (o == 0) {
+						stringx = strtok(mystring, ",");
+					}else if(o == 1) {
+						stringy = strtok(NULL, ",");
+						stringy = strtok(stringy, "\n");
+					}
+					//cout << token << endl;
+
+					o++;
+				}
+
+				generatorIA->addCollision({ atoi(stringx) , atoi(stringy) });
+				
+				//std::cout << "En walls x " << generatorIA->walls[l].x << " y " << generatorIA->walls[l].y << std::endl;
+				l++;
+			}
+	
+		}
+
+		std::cout << "Size de lectura de walls : " << generatorIA->walls.size() << std::endl;
+	}
+	return true;
+
+}
+
+
+
+
+
+void Scene::writeWalls() {
+	AStar::CoordinateList temp;
+	FILE* fp = fopen("mapaIAConfig.txt", "wb");
+	for (int i = 0; i < generatorIA->walls.size();i++) {
+		//temp.push_back(generatorIA->walls[i]);
+
+		int o;
+		
+		std::string meter = std::to_string(generatorIA->walls[i].x )+","+ std::to_string(generatorIA->walls[i].y)+"\n";
+		//std::string meter2 = ",";
+		//std::string meter3 = meter+meter;
+		fputs(meter.c_str(), fp);
+
+
+	}
+
+	fclose(fp);
+	std::cout << "Archivo creado apaIAConfig.txt " << std::endl;
+	std::cout << "Size de escritura de walls : " << generatorIA->walls.size() << std::endl;
+}
+
 
 void Scene::cargarWallsInIA2() {
 

@@ -4,25 +4,33 @@ C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(45,20): warning C4018: '<': no coinciden signed/unsigned
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(74,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(77,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(65,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(131,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(108,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(150,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(152,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(153,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(181,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(180,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(134,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(137,23): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(150,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(125,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(184,7): warning C4101: 'o': variable local sin referencia
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(211,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(214,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(227,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(202,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(172,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(249,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(221,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(225,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(229,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(234,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(238,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(242,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(314,56): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(314,36): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(298,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(302,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(306,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(311,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(315,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(319,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(391,56): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(391,36): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
 animation.obj : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/INCREMENTAL:NO'
 LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
 glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración

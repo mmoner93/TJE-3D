@@ -52,6 +52,12 @@ public:
 	void updateScene(float seconds_elapsed);
 	void cargarWallsInIA();
 	void cargarWallsInIA2();
+
+
+	bool loadWalls();
+
+	void writeWalls();
+
 };
 
 
