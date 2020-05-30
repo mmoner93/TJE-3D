@@ -389,9 +389,64 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game",Vector3(0, 0, i * 10.0f), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 
 		temp->model->translate((i + 1.0) * 10.0f, 0, (i+1.0) * 10.0f);
-
+		temp->actualState = ANDAR_TONTO;
 		addEnemy(temp);
 	}
+
+	/*int o = enemysMap.size();
+
+	for (int i = 0; i < enemysMap.size(); i++) {
+		EntityMesh* en;
+
+		switch (i) {
+		case 0:
+			en = (EntityMesh*)enemysMap["Arachnoid"];
+
+			break;
+		case 1:
+
+			en = (EntityMesh*)enemysMap["ReconBot"];
+			break;
+		case 2:
+
+			en = (EntityMesh*)enemysMap["Companion"];
+			break;
+		case 3:
+
+			en = (EntityMesh*)enemysMap["MobileStorageBot"];
+			break;
+		case 4:
+
+			en = (EntityMesh*)enemysMap["MechaTrooper"];
+			break;
+		case 5:
+
+			en = (EntityMesh*)enemysMap["FieldFighter"];
+			break;
+		case 6:
+
+			en = (EntityMesh*)enemysMap["QuadrupedTank"];
+			break;
+		case 7:
+
+			en = (EntityMesh*)enemysMap["MechaGolem"];
+			break;
+		case 8:
+
+			en = (EntityMesh*)enemysMap["Mecha01"];
+			break;
+		}
+
+
+		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(0, 0, i * 10.0f), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+
+		
+		temp->model->translate((o + 1.0) * 10.0f, 0, (o + 1.0) * 10.0f);
+		temp->actualState = ANDAR_TONTO;
+		addEnemy(temp);
+		o++;
+	}*/
+
 
 
 }

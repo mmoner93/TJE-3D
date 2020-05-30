@@ -81,7 +81,7 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 
 
 
-	//target_pos = testCollision(target_pos, seconds_elapsed, objects);
+	//arget_pos = testCollision(target_pos, seconds_elapsed, objects);
 	/*if (checkTime(seconds_elapsed)) {
 		target_pos = moveEnemy(seconds_elapsed, objects);
 		//TRS
@@ -96,7 +96,7 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 		//model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
 	}*/
 
-	if (checkTime(seconds_elapsed)) {
+	/*if (checkTime(seconds_elapsed)) {
 
 		//if (movs.size() < 1) {
 			raroIA();
@@ -107,13 +107,39 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 		//}
 		
 
-	}
-	
+	}*/
+
+	queHacer(seconds_elapsed,objects);
+
+	timeNextCalcCaminoIa -= seconds_elapsed;
 	atacar();
 
 	//puntos = puntos * *model;
 	
 }
+
+void EntityEnemy::calcularCaminoIA() {
+	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+	Vector3 yo = model->getTranslation();
+	Vector3 playerTe = player->model->getTranslation();
+
+	if (!(((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->detectCollision({ (int)playerTe.z ,(int)playerTe.x }))) {
+		auto path = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+
+		int con = 0;
+		movs.clear();
+		for (auto& coordinate : path) {
+
+			movs.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
+		}
+	}
+	
+
+
+	
+
+}
+
 
 void EntityEnemy::raroIA() {
 
@@ -131,18 +157,33 @@ void EntityEnemy::raroIA() {
 	
 	if (distance < 30.0) {
 
-		Vector3 yo = model->getTranslation();
-		Vector3 playerTe = player->model->getTranslation();
 		
-		auto path = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+
+
+	if (timeNextCalcCaminoIa <= 0.0) {
+	
+		calcularCaminoIA();
+		timeNextCalcCaminoIa = initTimeNextCalcCaminoIa;
+	}
+
+
+
+		if (movs.size() > 0) {
+			Vector3 movimiento = movs.front();
+			model->setTranslation(movimiento.x, movimiento.y, movimiento.z);
+			movs.pop_front();
+		}
+		else {
+			actualState = ANDAR_TONTO;
+		}
 
 		//con esto va , pero muy lento
-		if (((int)path.size() - 2) > 0) {
+	/*	if (((int)path.size() - 2) > 0) {
 			model->setTranslation(path[path.size() - 2].y, 0.0, path[path.size() - 2].x);
 		}
 		else if((int)path.size()==1) {
 			model->setTranslation(path[0].y, 0.0, path[0].x);
-		}
+		}*/
 	
 	/*	for (auto& coordinate : path) {
 			std::cout << coordinate.x << " " << coordinate.y << "\n";
@@ -208,7 +249,37 @@ void EntityEnemy::raroIA2() {
 	}*/
 
 }
+void EntityEnemy :: queHacer(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 
+
+	switch (actualState) {
+	case STOP_R:
+		break;
+	case ANDAR_TONTO:
+		if (checkTime(seconds_elapsed)) {
+			Vector3 target_pos = moveEnemy(seconds_elapsed, objects);
+			//TRS
+
+			//if (!has_collision) 
+			position = target_pos;
+
+			//player.model.setIdentity();
+
+			model->setTranslation(position.x, position.y, position.z);
+
+			//model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
+		}
+		break;
+	case ANDAR_LISTO:
+		if (checkTime(seconds_elapsed)) {
+			raroIA();
+		}
+		break;
+	default:std::cout << "Estado de robot no localizado" << std::endl; break;
+	}
+
+
+}
 
 Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 	float speed = (float)seconds_elapsed * (float)200;
@@ -258,53 +329,59 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 	
 	*/
 
-	target_pos = position + director*0.1;
+	target_pos = model->getTranslation() + director*0.1;
 
 
-	if (distance < 30.0 && contadorCollisions < 200 && contadorMovimientos == 0) {
+	if (distance < 30.0 && contadorCollisions < 5 ) {
 		if (testCollision(target_pos, seconds_elapsed, objects)) {
 			
 			return target_pos;
 		}
 		else {
-			contadorMovimientos = 0;
+
 			contadorCollisions++;
 		}
 
 	}
 	
+
+	if (contadorCollisions == 5) {
+		actualState = ANDAR_LISTO;
+		contadorCollisions = 0;
+	}
+
+
 		if (actualDirection != STOP && contadorMovimientos<200) {
 			switch (actualDirection) {
 			case 3:
 				actualDirection = UP;
-				target_pos = position + Vector3(0, 0, -1) * 1 * speed * seconds_elapsed;
+				target_pos = model->getTranslation() + Vector3(0, 0, -1) * 1 * speed * seconds_elapsed;
 				break;
 			case 1:
 				actualDirection = LEFT;
-				target_pos = position - Vector3(1, 0, 0) * 1 * speed * seconds_elapsed;
+				target_pos = model->getTranslation() - Vector3(1, 0, 0) * 1 * speed * seconds_elapsed;
 				break;
 			case 2:
 				actualDirection = RIGHT;
-				target_pos = position - Vector3(-1, 0, 0) * 1 * speed * seconds_elapsed;
+				target_pos = model->getTranslation() - Vector3(-1, 0, 0) * 1 * speed * seconds_elapsed;
 				break;
 			case 4:
 				actualDirection = DOWN;
-				target_pos = position + Vector3(0, 0, +1) * 1 * speed * seconds_elapsed;
+				target_pos = model->getTranslation() + Vector3(0, 0, +1) * 1 * speed * seconds_elapsed;
 				break;
 
 			}
 			if (testCollision(target_pos, seconds_elapsed, objects)) {
 				contadorMovimientos++;
-				if (contadorMovimientos> 200) {
-					contadorMovimientos = 0;
-					contadorCollisions = 0;
-				}
-				
 				return target_pos;
 
 			}
 
 		}
+
+
+
+
 
 
 		while (!goodMove) {
@@ -313,22 +390,22 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 			case 0:
 				moveTo = UP;
 				actualDirection = UP;
-				target_pos = position + Vector3(0, 0, -1)   * speed * seconds_elapsed;
+				target_pos = model->getTranslation() + Vector3(0, 0, -1)   * speed * seconds_elapsed;
 				break;
 			case 1:
 				moveTo = LEFT;
 				actualDirection = LEFT;
-				target_pos = position - Vector3(1, 0, 0)   * speed * seconds_elapsed;
+				target_pos = model->getTranslation() - Vector3(1, 0, 0)   * speed * seconds_elapsed;
 				break;
 			case 2:
 				moveTo = RIGHT;
 				actualDirection = RIGHT;
-				target_pos = position - Vector3(-1, 0, 0)   * speed * seconds_elapsed;
+				target_pos = model->getTranslation() - Vector3(-1, 0, 0)   * speed * seconds_elapsed;
 				break;
 			case 3:
 				moveTo = DOWN;
 				actualDirection = DOWN;
-				target_pos = position + Vector3(0, 0, +1)  * speed * seconds_elapsed;
+				target_pos = model->getTranslation() + Vector3(0, 0, +1)  * speed * seconds_elapsed;
 				break;
 
 			}
@@ -405,7 +482,7 @@ bool EntityEnemy::testCollision(Vector3 target_pos, float seconds_elapsed, std::
 		}
 
 		//comprobamos si colisiona el objeto con la esfera (radio 3)
-		if (mesh->testSphereCollision(*(en->model), character_center, 0.25, coll, collnorm) == false) {
+		if (mesh->testSphereCollision(*(en->model), character_center, 0.15, coll, collnorm) == false) {
 			continue; //si no colisiona, pasamos al siguiente objeto
 		}
 		/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)

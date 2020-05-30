@@ -5,7 +5,7 @@
 #define NUM_ENEMYS 9
 
 enum weapons {ARMA1, ARMA2, ARMA3, ARMA4, ARMA5, ARMA6, ARMA7, ARMA8, ARMA9};
-
+enum estadosRobot {STOP_R,ANDAR_TONTO,ANDAR_LISTO};
 enum enumEnemyMove {
 	STOP,LEFT,RIGHT,UP,DOWN
 };
