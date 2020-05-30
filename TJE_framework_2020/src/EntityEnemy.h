@@ -42,6 +42,8 @@ public:
 	float timeNextCalcCaminoIa = 0.0;
 
 
+	bool calculando;
+
 	EntityEnemy(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, Shader* shaderP, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 
 		yaw = ya;
@@ -52,6 +54,7 @@ public:
 		position = pos;
 		shaderPuntos = shaderP;
 		actualState = STOP_R;
+		calculando = false;
 	}
 
 
@@ -67,11 +70,15 @@ public:
 	void contadorMovUp();
 	void contadorCollUp();
 	void raroIA();
-	void raroIA2();
+	
 
 
 	void calcularCaminoIA();
 	void queHacer(float seconds_elapsed, std::vector<EntityGameObject*> objects);
+
+
+	bool estoyEnUsoIACalc();
+
 };
 
 

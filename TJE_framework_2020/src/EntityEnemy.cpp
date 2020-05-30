@@ -124,22 +124,67 @@ void EntityEnemy::calcularCaminoIA() {
 	Vector3 playerTe = player->model->getTranslation();
 
 	if (!(((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->detectCollision({ (int)playerTe.z ,(int)playerTe.x }))) {
-		auto path = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+		if (!(((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->detectCollision({ (int)yo.z ,(int)yo.x }))) {
+			auto path = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
 
-		int con = 0;
-		movs.clear();
-		for (auto& coordinate : path) {
+			int con = 0;
+			movs.clear();
+			for (auto& coordinate : path) {
 
-			movs.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
+				movs.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
+			}
 		}
+		else {
+		
+
+			EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+
+			Vector3 director = player->model->getTranslation() - model->getTranslation();
+			director = director.normalize();
+			//std::cout << "el vector es : x " << director.x << " y :" << director.y << "z: " << director.z << std::endl;
+
+			float distance = player->model->getTranslation().distance(model->getTranslation());
+
+
+			Vector3 target_pos = model->getTranslation() + director * 0.1;
+
+
+			Vector3 push_away = normalize(target_pos - model->getTranslation());
+			push_away = model->getTranslation() - push_away*2.0;
+			if (!(((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->detectCollision({ (int)push_away.z ,(int)push_away.x }))) {
+				auto path = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+
+				int con = 0;
+				movs.clear();
+				for (auto& coordinate : path) {
+
+					movs.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
+				}
+			}
+		}
+
+		
 	}
-	
+	//calculando = false;
 
 
 	
 
 }
+bool EntityEnemy::estoyEnUsoIACalc() {
 
+
+	for (int i=0; i < ((StagePlay*)Stage::current_state)->gameSceneSP->Enemys.size(); i++) {
+	
+		if (((StagePlay*)Stage::current_state)->gameSceneSP->Enemys[i]->calculando) {
+			return true;
+		}
+
+	}
+
+	return false;
+	
+}
 
 void EntityEnemy::raroIA() {
 
@@ -162,6 +207,11 @@ void EntityEnemy::raroIA() {
 
 	if (timeNextCalcCaminoIa <= 0.0) {
 	
+		//if (!estoyEnUsoIACalc()) {
+		//	calculando = true;
+			
+		//}
+			
 		calcularCaminoIA();
 		timeNextCalcCaminoIa = initTimeNextCalcCaminoIa;
 	}
@@ -176,79 +226,14 @@ void EntityEnemy::raroIA() {
 		else {
 			actualState = ANDAR_TONTO;
 		}
-
-		//con esto va , pero muy lento
-	/*	if (((int)path.size() - 2) > 0) {
-			model->setTranslation(path[path.size() - 2].y, 0.0, path[path.size() - 2].x);
-		}
-		else if((int)path.size()==1) {
-			model->setTranslation(path[0].y, 0.0, path[0].x);
-		}*/
-	
-	/*	for (auto& coordinate : path) {
-			std::cout << coordinate.x << " " << coordinate.y << "\n";
-			movs.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
-			//model->setTranslation(coordinate.y, 0.0, coordinate.x);
-			//break;
-
-		}*/
     
 
 	}
 
-	/*for (auto& coordinate : path) {
-		std::cout << coordinate.x << " " << coordinate.y << "\n";
-
-		model->setTranslation(coordinate.y, 0.0, coordinate.x);
-		break;
-
-	}*/
 
 }
 
 
-void EntityEnemy::raroIA2() {
-
-	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
-	uint8* mapPARAIA = ((StagePlay*)Stage::current_state)->gameSceneSP->mapPARAIA;
-	//here we must fill the map with all the info
-	//...
-	//when we want to find the shortest path, this array contains the shortest path, every value is the Nth position in the map, 100 steps max
-	int output[100];
-
-	//we call the path function, it returns the number of steps to reach target, otherwise 0
-	int path_steps = AStarFindPathNoTieDiag(
-		(int)model->getTranslation().z, (int)model->getTranslation().x, //origin (tienen que ser enteros)
-		(int)player->model->getTranslation().z, (int)player->model->getTranslation().x, //target (tienen que ser enteros)
-		mapPARAIA, //pointer to map data
-		32*9, 32 * 9, //map width and height
-		output, //pointer where the final path will be stored
-		100); //max supported steps of the final path
-
-//check if there was a path
-	if (path_steps != -1)
-	{
-		for (int i = 0; i < path_steps; ++i) {
-			std::cout << "X: " << (output[i] % ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9) << ", Y: " << floor(output[i] / (((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9)) << std::endl;
-			
-		}
-		model->setTranslation((float)floor(output[0] / (((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9)), 0.0, (float)(output[0] % ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width * 9));
-	
-	}
-
-
-
-
-
-	/*for (auto& coordinate : path) {
-		std::cout << coordinate.x << " " << coordinate.y << "\n";
-
-		model->setTranslation(coordinate.y, 0.0, coordinate.x);
-		break;
-
-	}*/
-
-}
 void EntityEnemy :: queHacer(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 
 
@@ -300,35 +285,6 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 	float distance = player->model->getTranslation().distance(model->getTranslation());
 
 
-	/*
-	if (actualDirection != STOP) {
-		switch (actualDirection) {
-		case 3:
-			actualDirection = UP;
-			target_pos = position + Vector3(0, 0, -1) * 1 * speed * seconds_elapsed;
-			break;
-		case 1:
-			actualDirection = LEFT;
-			target_pos = position - Vector3(1, 0, 0) * 1 * speed * seconds_elapsed;
-			break;
-		case 2:
-			actualDirection = RIGHT;
-			target_pos = position - Vector3(-1, 0, 0) * 1 * speed * seconds_elapsed;
-			break;
-		case 4:
-			actualDirection = DOWN;
-			target_pos = position + Vector3(0, 0, +1) * 1 * speed * seconds_elapsed;
-			break;
-
-		}
-		if (testCollision(target_pos, seconds_elapsed, objects)) {
-			return target_pos;
-		}
-		
-	}
-	
-	*/
-
 	target_pos = model->getTranslation() + director*0.1;
 
 
@@ -355,19 +311,19 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 			switch (actualDirection) {
 			case 3:
 				actualDirection = UP;
-				target_pos = model->getTranslation() + Vector3(0, 0, -1) * 1 * speed * seconds_elapsed;
+				target_pos = model->getTranslation() + Vector3(0, 0, -1) * 10 * speed * seconds_elapsed;
 				break;
 			case 1:
 				actualDirection = LEFT;
-				target_pos = model->getTranslation() - Vector3(1, 0, 0) * 1 * speed * seconds_elapsed;
+				target_pos = model->getTranslation() - Vector3(1, 0, 0) * 10 * speed * seconds_elapsed;
 				break;
 			case 2:
 				actualDirection = RIGHT;
-				target_pos = model->getTranslation() - Vector3(-1, 0, 0) * 1 * speed * seconds_elapsed;
+				target_pos = model->getTranslation() - Vector3(-1, 0, 0) * 10 * speed * seconds_elapsed;
 				break;
 			case 4:
 				actualDirection = DOWN;
-				target_pos = model->getTranslation() + Vector3(0, 0, +1) * 1 * speed * seconds_elapsed;
+				target_pos = model->getTranslation() + Vector3(0, 0, +1) * 10 * speed * seconds_elapsed;
 				break;
 
 			}
@@ -390,22 +346,22 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 			case 0:
 				moveTo = UP;
 				actualDirection = UP;
-				target_pos = model->getTranslation() + Vector3(0, 0, -1)   * speed * seconds_elapsed;
+				target_pos = model->getTranslation() + Vector3(0, 0, -1) * 10 * speed * seconds_elapsed;
 				break;
 			case 1:
 				moveTo = LEFT;
 				actualDirection = LEFT;
-				target_pos = model->getTranslation() - Vector3(1, 0, 0)   * speed * seconds_elapsed;
+				target_pos = model->getTranslation() - Vector3(1, 0, 0) * 10 * speed * seconds_elapsed;
 				break;
 			case 2:
 				moveTo = RIGHT;
 				actualDirection = RIGHT;
-				target_pos = model->getTranslation() - Vector3(-1, 0, 0)   * speed * seconds_elapsed;
+				target_pos = model->getTranslation() - Vector3(-1, 0, 0) * 10 * speed * seconds_elapsed;
 				break;
 			case 3:
 				moveTo = DOWN;
 				actualDirection = DOWN;
-				target_pos = model->getTranslation() + Vector3(0, 0, +1)  * speed * seconds_elapsed;
+				target_pos = model->getTranslation() + Vector3(0, 0, +1) * 10 * speed * seconds_elapsed;
 				break;
 
 			}
@@ -424,7 +380,7 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 	
 
 	
-
+		contadorCollisions = 0;
 		contadorMovimientos = 0;
 	return target_pos;
 

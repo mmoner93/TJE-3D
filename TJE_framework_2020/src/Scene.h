@@ -24,6 +24,7 @@ public:
 	// Set 2d map size.
 	uint8* mapPARAIA;
 
+
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
 		lightScene = l;
 		suelo = s;
