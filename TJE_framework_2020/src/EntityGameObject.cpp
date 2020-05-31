@@ -13,7 +13,7 @@ void EntityGameObject::render(Light* light) {
 	//upload uniforms
 	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
 	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);
-	shader->setUniform("u_texture", textura);
+	shader->setUniform("u_texture", textura,0);
 	shader->setUniform("u_model", m);
 	Vector3 light_direction = light->position - model->getTranslation();
 	shader->setUniform("u_light_direction", light_direction);
@@ -39,7 +39,7 @@ void EntityGameObject::renderConPhong( Light* light ) {
 	shader->setMatrix44("model", m); //upload info to the shader
 	shader->setMatrix44("viewprojection", camera->viewprojection_matrix); //upload info to the shader
 
-	shader->setTexture("color_texture", textura); //set texture in slot 0
+	shader->setTexture("color_texture", textura,0); //set texture in slot 0
 	//shaderFlat->setTexture("nomal_texture", textureNorrmal, 1); //set texture in slot 1
 
 	shader->setFloat("u_tilling", tilling);
@@ -67,7 +67,7 @@ void EntityGameObject::renderTilling() {
 	//upload uniforms
 	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
 	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);
-	shader->setUniform("u_texture", textura);
+	shader->setUniform("u_texture", textura,0);
 	shader->setUniform("u_model", m);
 
 	shader->setFloat("u_tilling", tilling);

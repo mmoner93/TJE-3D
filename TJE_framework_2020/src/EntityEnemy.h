@@ -19,7 +19,8 @@ public:
 	float vel_ang;
 	float angle;
 	
-
+	Mesh* disparoMesh;
+	Texture* disparoTexture;
 
 	estadosRobot actualState;
 	enumEnemyMove actualDirection= STOP;
@@ -55,6 +56,9 @@ public:
 		shaderPuntos = shaderP;
 		actualState = STOP_R;
 		calculando = false;
+		disparoMesh = Mesh::Get("data/impactos/damage_vertical.OBJ");
+		disparoTexture = Texture::Get("data/impactos/damage.png");
+
 	}
 
 

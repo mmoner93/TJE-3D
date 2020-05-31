@@ -409,10 +409,13 @@ void StagePlay::inicializarScena() {
 
 	//player
 
-	Mesh* meshTemp = Mesh::Get("data/personajes/playerRojoMascara.OBJ");
-	Texture* texTemp = Texture::Get("data/personajes/playerRojoMascara.png", false, true);
+	//Mesh* meshTemp = Mesh::Get("data/personajes/playerRojoMascara.OBJ");
+	//Texture* texTemp = Texture::Get("data/personajes/playerRojoMascara.png", false, true);
+	Mesh* meshTemp = Mesh::Get("data/animations/character.mesh");
+	Texture* texTemp = Texture::Get("data/animations/new_caracther.png");
 	EntityPlayer* player;
-	player = new EntityPlayer(texTemp, shaderGameSP, meshTemp, materialSP, "game", Vector3(10.f, 0.f, 10.f));
+	player = new EntityPlayer(texTemp, shaderAnimSP, meshTemp, materialSP, "game", Vector3(10.f, 0.f, 10.f));
+	player->loalAnim();
 
 	texTemp = Texture::Get("data/arma/uzi.png", false, true);
 	meshTemp = Mesh::Get("data/arma/uzi.obj");
@@ -448,7 +451,7 @@ void StagePlay::init() {
 	shaderPhongSP = Shader::Get("data/shaders/phong.vs", "data/shaders/phong.fs");
 	shaderFlatSP= Shader::Get("data/shaders/basic.vs", "data/shaders/flat.fs");
 	shaderGameSP= Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs");
-	
+	shaderAnimSP = Shader::Get("data/shaders/skinningnew.vs", "data/shaders/Game.fs");
 	materialSP = new Material();
 
 	

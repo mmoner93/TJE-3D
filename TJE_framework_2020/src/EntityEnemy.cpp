@@ -14,6 +14,15 @@ void EntityEnemy::render(Light* light) {
 		renderPoints(&points_mesh);
 	}
 
+
+	for (int i; i < pointsSP.size(); i++) {
+	
+		EntityGameObject* temp = new EntityGameObject(disparoTexture, shader, disparoMesh, NULL, "Game");
+		
+		temp->render(light);
+	}
+
+
 }
 
 
@@ -119,13 +128,13 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 }
 
 void EntityEnemy::calcularCaminoIA() {
-	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+	EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 	Vector3 yo = model->getTranslation();
 	Vector3 playerTe = player->model->getTranslation();
 
-	if (!(((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->detectCollision({ (int)playerTe.z ,(int)playerTe.x }))) {
-		if (!(((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->detectCollision({ (int)yo.z ,(int)yo.x }))) {
-			auto path = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+	if (!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)playerTe.z ,(int)playerTe.x }))) {
+		if (!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)yo.z ,(int)yo.x }))) {
+			auto path = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
 
 			int con = 0;
 			movs.clear();
@@ -151,8 +160,8 @@ void EntityEnemy::calcularCaminoIA() {
 
 			Vector3 push_away = normalize(target_pos - model->getTranslation());
 			push_away = model->getTranslation() - push_away*2.0;
-			if (!(((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->detectCollision({ (int)push_away.z ,(int)push_away.x }))) {
-				auto path = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+			if (!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)push_away.z ,(int)push_away.x }))) {
+				auto path = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
 
 				int con = 0;
 				movs.clear();
@@ -174,7 +183,7 @@ void EntityEnemy::calcularCaminoIA() {
 bool EntityEnemy::estoyEnUsoIACalc() {
 
 
-	for (int i=0; i < ((StagePlay*)Stage::current_state)->gameSceneSP->Enemys.size(); i++) {
+	for (int i=0; i < ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->Enemys.size(); i++) {
 	
 		if (((StagePlay*)Stage::current_state)->gameSceneSP->Enemys[i]->calculando) {
 			return true;
@@ -188,7 +197,7 @@ bool EntityEnemy::estoyEnUsoIACalc() {
 
 void EntityEnemy::raroIA() {
 
-	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+	EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 
 	//AStar::Generator temp = ((StagePlay*)Stage::current_state)->gameSceneSP->generatorIA;
 	float distance = player->model->getTranslation().distance(model->getTranslation());
@@ -276,7 +285,7 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 	//falta meter que rote? o arriba ?
 
 
-	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+	EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 
 	Vector3 director = player->model->getTranslation() - model->getTranslation();
 	director = director.normalize();
@@ -487,7 +496,7 @@ void EntityEnemy::atacar() {
 bool EntityEnemy::mirarSiPlayerCerca() {
 
 
-	EntityPlayer* player=((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+	EntityPlayer* player=((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 
 
 	float distance=player->model->getTranslation().distance(model->getTranslation());
