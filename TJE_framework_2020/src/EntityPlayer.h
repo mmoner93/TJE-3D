@@ -7,6 +7,8 @@
 #include "game.h"
 #include "enumStructs.h"
 #include "Inventario.h"
+#include "animation.h"
+
 class EntityPlayer :public EntityGameObject
 {
 public:
@@ -19,6 +21,11 @@ public:
 	float vel_ang;
 	float angle;
 	Inventario mejoras;
+	Animation* dancing = NULL;
+	Animation* run = NULL;
+	Animation* walk = NULL;
+	Skeleton* blendWalkRun = NULL;
+	bool loadanim = false;
 
 	EntityPlayer(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		
@@ -30,7 +37,8 @@ public:
 		position = pos;
 	}
 
-
+	void loalAnim();
+	void renderAnimated();
 	void render(Light* light);
 	void update(float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	Vector3 testCollision(Vector3 target_pos, float seconds_elapsed, std::vector<EntityGameObject*> objects);

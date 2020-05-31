@@ -108,11 +108,11 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 
 void EntityEnemy::raroIA() {
 
-	EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+	EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 
 	AStar::Generator generator;
 	// Set 2d map size.
-	generator.setWorldSize({ ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->width, ((StagePlay*)Stage::current_state)->gameSceneSP->mapGame->height });
+	generator.setWorldSize({ ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->mapGame->width, ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->mapGame->height });
 	// You can use a few heuristics : manhattan, euclidean or octagonal.
 	generator.setHeuristic(AStar::Heuristic::euclidean);
 	generator.setDiagonalMovement(true);
@@ -378,7 +378,7 @@ void EntityEnemy::atacar() {
 bool EntityEnemy::mirarSiPlayerCerca() {
 
 
-	EntityPlayer* player=((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+	EntityPlayer* player=((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 
 
 	float distance=player->model->getTranslation().distance(model->getTranslation());

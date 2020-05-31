@@ -16,6 +16,7 @@ public:
 	Shader* shaderFlatSP;
 	Shader* shaderPhongSP;
 	Shader* shaderGameSP;
+	Shader* shaderAnimSP;
 
 	Camera* cameraSP;
 	Game* gameISP;

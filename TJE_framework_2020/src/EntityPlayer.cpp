@@ -1,6 +1,44 @@
 #include "EntityPlayer.h"
 #include "Stage.h"
 #include "StagePlay.h"
+
+void EntityPlayer::loalAnim() {
+	dancing = Animation::Get("data/personajes/animations_dancing.skanim");
+	walk = Animation::Get("data/personajes/animations_walking.skanim");
+	run = Animation::Get("data/personajes/animations_rifle_run.skanim");
+	//walk->assignTime(Game::instance->time);
+	//run->assignTime(Game::instance->time);
+
+	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+}
+
+void EntityPlayer::renderAnimated() {
+
+	Camera* camera = Camera::current;
+	Vector3 ambientLight(0.3, 0.3, 0.3);
+	Matrix44 m = *model;
+
+	//enable shader
+	shader->enable();
+
+	//m.scale(scale, scale, scale);
+	//upload uniforms
+	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);
+	shader->setUniform("u_texture", textura, 0);
+	shader->setUniform("u_model", m);
+	shader->setUniform("u_time", Game::instance->time);
+
+
+	dancing->assignTime(Game::instance->time);
+	
+	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+	mesh->renderAnimated(GL_TRIANGLES, &run->skeleton);
+	run->assignTime(Game::instance->time);
+
+	shader->disable();
+}
+
 void EntityPlayer::render(Light* light) {
 
 
@@ -24,8 +62,10 @@ void EntityPlayer::render(Light* light) {
 
 	//std::cout << "El position es " << particle.pos.x  << "," << particle.pos.y << "," << particle.pos.z  << std::endl;
 	//al personaje
-	EntityGameObject::render(light);
-
+	
+	//EntityGameObject::render(light);
+	renderAnimated();
+	
 	Matrix44* ter = new Matrix44(*model);
 
 	//ter->scale(0.5, 0.5, 0.5);
@@ -41,6 +81,12 @@ void EntityPlayer::render(Light* light) {
 
 
 void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
+	if (loadanim == false) {
+		loalAnim();
+		loadanim = true;
+	}
+	//dancing.assignTime(Game::instance->time);
+
 	float speed = (float)seconds_elapsed * (float)10; //the speed is defined by the seconds_elapsed so it goes constant
 	Matrix44 R;
 

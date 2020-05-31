@@ -32,6 +32,7 @@ public:
 	 void render(Light* light);
 	 void renderConPhong( Light* light);
 	 void renderTilling();
+	 //void renderAnimated();
 	 void update(float seconds_elapsed);
 
 	 void renderPoints();
