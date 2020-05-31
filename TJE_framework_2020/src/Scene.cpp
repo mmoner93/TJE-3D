@@ -60,12 +60,218 @@ void Scene::pintarScene() {
 
 }
 
+void Scene::cargarWallsInIA() {
 
+	
+	if (!loadWalls()) {
+
+	for (int x = 0; x < mapGame->width*9; ++x){
+		for (int y = 0; y < mapGame->height*9; ++y)
+		{
+
+			Vector3 target_pos=Vector3((float)y,0, (float)x);
+			//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
+			Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
+			bool has_collision = false;
+
+			for (int i = 0; i < mapaObjects.size(); i++)
+			{
+
+				EntityGameObject* en = mapaObjects[i];
+
+				Mesh* mesh = en->mesh;
+
+				//para cada objecto de la escena...
+				Vector3 coll;
+				Vector3 collnorm;
+
+
+				//comprobamos si colisiona el objeto con la esfera (radio 3)
+				if (mesh->testSphereCollision(*(en->model), character_center, 0.25, coll, collnorm) == false) {
+					continue; //si no colisiona, pasamos al siguiente objeto
+				}
+				/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
+					continue;*/
+				has_collision = true;
+				generatorIA->addCollision({ x, y });
+				//std::cout << "He colisionao" << std::endl;
+				//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
+				//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
+				//target_pos.y = 0;
+				break;
+			}
+		}
+	}
+
+
+	writeWalls();
+	
+
+
+	}
+
+
+}
+
+
+std::vector<std::string> split_istringstream(std::string str) {
+	std::vector<std::string> resultado;
+	std::istringstream isstream(str);
+	std::string palabra;
+
+	while (isstream >> palabra) {
+		resultado.push_back(palabra);
+	}
+
+	return resultado;
+}
+
+
+bool Scene::loadWalls() {
+	FILE* fp = fopen("mapaIAConfig.txt", "rb");
+	if (fp == NULL) {
+		std::cout << "No se encuentra archivo apaIAConfig.txt "  << std::endl;
+		return false;
+	}
+	else {
+	
+		char mystring[10];
+
+		int l = 0;
+		while (!feof(fp)) {
+			if (fgets(mystring, 10, fp) != NULL) {
+				char* stringx;
+				char* stringy;
+				//char* token = strtok(mystring, ",");
+				int o = 0;
+				while (o<2)
+				{
+					if (o == 0) {
+						stringx = strtok(mystring, ",");
+					}else if(o == 1) {
+						stringy = strtok(NULL, ",");
+						stringy = strtok(stringy, "\n");
+					}
+					//cout << token << endl;
+
+					o++;
+				}
+
+				generatorIA->addCollision({ atoi(stringx) , atoi(stringy) });
+				
+				//std::cout << "En walls x " << generatorIA->walls[l].x << " y " << generatorIA->walls[l].y << std::endl;
+				l++;
+			}
+	
+		}
+
+		std::cout << "Size de lectura de walls : " << generatorIA->walls.size() << std::endl;
+	}
+	return true;
+
+}
+
+
+
+
+
+void Scene::writeWalls() {
+	AStar::CoordinateList temp;
+	FILE* fp = fopen("mapaIAConfig.txt", "wb");
+	for (int i = 0; i < generatorIA->walls.size();i++) {
+		//temp.push_back(generatorIA->walls[i]);
+
+		int o;
+		
+		std::string meter = std::to_string(generatorIA->walls[i].x )+","+ std::to_string(generatorIA->walls[i].y)+"\n";
+		//std::string meter2 = ",";
+		//std::string meter3 = meter+meter;
+		fputs(meter.c_str(), fp);
+
+
+	}
+
+	fclose(fp);
+	std::cout << "Archivo creado apaIAConfig.txt " << std::endl;
+	std::cout << "Size de escritura de walls : " << generatorIA->walls.size() << std::endl;
+}
+
+
+void Scene::cargarWallsInIA2() {
+
+	FILE* fp = fopen("mapaIAConfig.bin", "rb");
+	if (fp == NULL) {
+	
+		for (int x = 0; x < mapGame->width * 9; ++x) {
+			for (int y = 0; y < mapGame->height * 9; ++y)
+			{
+
+				Vector3 target_pos = Vector3((float)y, 0, (float)x);
+				//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
+				Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
+				bool has_collision = false;
+
+				for (int i = 0; i < mapaObjects.size(); i++)
+				{
+
+					EntityGameObject* en = mapaObjects[i];
+
+					Mesh* mesh = en->mesh;
+
+					//para cada objecto de la escena...
+					Vector3 coll;
+					Vector3 collnorm;
+
+
+					//comprobamos si colisiona el objeto con la esfera (radio 3)
+					if (mesh->testSphereCollision(*(en->model), character_center, 0.1, coll, collnorm) == false) {
+						continue; //si no colisiona, pasamos al siguiente objeto
+					}
+					/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
+						continue;*/
+					has_collision = true;
+					mapPARAIA[x + y * mapGame->width * 9] = 0;
+					//std::cout << "He colisionao" << std::endl;
+					//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
+					//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
+					//target_pos.y = 0;
+					break;
+				}
+				if (!has_collision) {
+					mapPARAIA[x + y * mapGame->width * 9] = 1;
+				}
+
+			}
+		}
+
+
+
+		FILE* fp = fopen("mapaIAConfig.bin", "wb");
+		fwrite(&mapPARAIA, sizeof(mapPARAIA), 1, fp);
+		fclose(fp);
+
+
+	}
+	else {
+		fread(&mapPARAIA, sizeof(mapPARAIA), 1, fp);
+
+		fclose(fp);
+	}
+		
+
+	
+	
+
+
+	
+
+
+}
 
 
 
 void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
-	for (int x = 0; x < mapGame->width; ++x)
+	for (int x = 0; x < mapGame->width; ++x){
 		for (int y = 0; y < mapGame->height; ++y)
 		{
 			//get cell info
@@ -80,10 +286,10 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 
 				if (cell.type == HANGAR_1) {
-					temp->model->translate(x * 3, 0.05f, y * 3);
+					temp->model->translate((float)((x+1) * 3.0), 0.05f, (float)((y + 1) * 3.0));
 				}
 				else {
-					temp->model->translate(x * 3, 0.0f, y * 3);
+					temp->model->translate((float)((x + 1) * 3.0), 0.0f, (float)((y + 1) * 3.0));
 				}
 				
 
@@ -125,6 +331,9 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 
 		}
+	}
+
+	cargarWallsInIA();
 
 }
 
@@ -134,7 +343,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 	//enemysMap.size()
 
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < enemysMap.size(); i++) {
 		EntityMesh* en;
 
 		switch (i) {
@@ -179,10 +388,65 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		
 		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game",Vector3(0, 0, i * 10.0f), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 
-		temp->model->translate(0, 0, i * 10.0f);
-
+		temp->model->translate((i + 1.0) + 10.0f, 0, (i+1.0) * 10.0f);
+		temp->actualState = ANDAR_TONTO;
 		addEnemy(temp);
 	}
+
+	/*int o = enemysMap.size();
+
+	for (int i = 0; i < enemysMap.size(); i++) {
+		EntityMesh* en;
+
+		switch (i) {
+		case 0:
+			en = (EntityMesh*)enemysMap["Arachnoid"];
+
+			break;
+		case 1:
+
+			en = (EntityMesh*)enemysMap["ReconBot"];
+			break;
+		case 2:
+
+			en = (EntityMesh*)enemysMap["Companion"];
+			break;
+		case 3:
+
+			en = (EntityMesh*)enemysMap["MobileStorageBot"];
+			break;
+		case 4:
+
+			en = (EntityMesh*)enemysMap["MechaTrooper"];
+			break;
+		case 5:
+
+			en = (EntityMesh*)enemysMap["FieldFighter"];
+			break;
+		case 6:
+
+			en = (EntityMesh*)enemysMap["QuadrupedTank"];
+			break;
+		case 7:
+
+			en = (EntityMesh*)enemysMap["MechaGolem"];
+			break;
+		case 8:
+
+			en = (EntityMesh*)enemysMap["Mecha01"];
+			break;
+		}
+
+
+		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(0, 0, i * 10.0f), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+
+		
+		temp->model->translate((o + 1.0) * 10.0f, 0, (o + 1.0) * 10.0f);
+		temp->actualState = ANDAR_TONTO;
+		addEnemy(temp);
+		o++;
+	}*/
+
 
 
 }
