@@ -4,12 +4,12 @@
 
 void EntityPlayer::loalAnim() {
 	dancing = Animation::Get("data/animations_dancing.skanim");
-	//walk = Animation::Get("data/personajes/animations_walking.skanim");
+	walk = Animation::Get("data/animations_walking.skanim");
 	//run = Animation::Get("data/personajes/animations_rifle_run.skanim");
 	//walk->assignTime(Game::instance->time);
 	//run->assignTime(Game::instance->time);
-
-	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+	blendWalkRun = new Skeleton();
+	
 }
 
 void EntityPlayer::renderAnimated(Light* light) {
@@ -32,12 +32,12 @@ void EntityPlayer::renderAnimated(Light* light) {
 	Vector3 light_direction = light->position - model->getTranslation();
 	shader->setUniform("u_light_direction", light_direction);
 	shader->setUniform("u_ambient_light", Vector3(0.2, 0.2, 0.2));
-	dancing->assignTime(Game::instance->time);
-	
-	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
-	mesh->renderAnimated(GL_TRIANGLES, &dancing->skeleton);
-	//run->assignTime(Game::instance->time);
 
+	blendSkeleton(&walk->skeleton, &dancing->skeleton, 0.5, blendWalkRun);
+	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+	mesh->renderAnimated(GL_TRIANGLES, blendWalkRun);
+	walk->assignTime(Game::instance->time);
+	dancing->assignTime(Game::instance->time);
 	shader->disable();
 }
 
