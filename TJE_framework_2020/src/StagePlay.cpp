@@ -409,8 +409,8 @@ void StagePlay::inicializarScena() {
 
 	//player
 
-	Mesh* meshTemp = Mesh::Get("data/personajes/character new.mesh");
-	Texture* texTemp = Texture::Get("data/personajes/new caracther.png");
+	Mesh* meshTemp = Mesh::Get("data/character.mesh");
+	Texture* texTemp = Texture::Get("data/new caracther.png");
 	EntityPlayer* player;
 	player = new EntityPlayer(texTemp, shaderAnimSP, meshTemp, materialSP, "game", Vector3(10.f, 0.f, 10.f));
 	player->loalAnim();

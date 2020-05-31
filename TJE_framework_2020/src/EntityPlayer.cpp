@@ -3,9 +3,9 @@
 #include "StagePlay.h"
 
 void EntityPlayer::loalAnim() {
-	dancing = Animation::Get("data/personajes/animations_dancing.skanim");
-	walk = Animation::Get("data/personajes/animations_walking.skanim");
-	run = Animation::Get("data/personajes/animations_rifle_run.skanim");
+	dancing = Animation::Get("data/animations_dancing.skanim");
+	//walk = Animation::Get("data/personajes/animations_walking.skanim");
+	//run = Animation::Get("data/personajes/animations_rifle_run.skanim");
 	//walk->assignTime(Game::instance->time);
 	//run->assignTime(Game::instance->time);
 
@@ -33,8 +33,8 @@ void EntityPlayer::renderAnimated() {
 	dancing->assignTime(Game::instance->time);
 	
 	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
-	mesh->renderAnimated(GL_TRIANGLES, &run->skeleton);
-	run->assignTime(Game::instance->time);
+	mesh->renderAnimated(GL_TRIANGLES, &dancing->skeleton);
+	//run->assignTime(Game::instance->time);
 
 	shader->disable();
 }
