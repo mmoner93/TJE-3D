@@ -26,9 +26,9 @@ void EntityEnemy::render(Light* light) {
 		*(temp->model) = *model;
 		//Vector3 proe = pointsSP[i] + normPointsSP[i];
 		Vector3 push_away = normalize(normPointsSP[i] - pointsSP[i]);
-		//Vector3 proe = pointsSP[i] * push_away;
-		temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
-		//temp->model->translate(proe.x, proe.y, proe.z);
+		Vector3 proe = pointsSP[i] - normalize(normPointsSP[i])*0.1;
+		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
+		temp->model->translate(proe.x, proe.y, proe.z);
 		//temp->model = *(temp->model) * normPointsSP[i];
 		temp->render(light);
 		

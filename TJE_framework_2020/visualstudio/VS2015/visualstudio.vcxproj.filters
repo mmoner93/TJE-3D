@@ -124,6 +124,10 @@
     <ClCompile Include="..\..\src\StageLVL.cpp">
       <Filter>Stages</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\pathfinders.cpp" />
+    <ClCompile Include="..\..\src\EntityImpactoDisparo.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -218,9 +222,6 @@
     <ClInclude Include="..\..\src\GameMap.h">
       <Filter>mygame</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Scene.h">
-      <Filter>mygame</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\StageMenu.h">
       <Filter>Stages</Filter>
     </ClInclude>
@@ -245,6 +246,13 @@
     <ClInclude Include="..\..\src\AStar.hpp" />
     <ClInclude Include="..\..\src\StageLVL.h">
       <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\pathfinders.h" />
+    <ClInclude Include="..\..\src\EntityImpactoDisparo.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Scene.h">
+      <Filter>mygame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

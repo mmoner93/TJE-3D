@@ -428,6 +428,7 @@ void StagePlay::inicializarScena() {
 	gameSceneSP = new Scene(ltemp, entitySuelo, entityCielo,player);
 	gameSceneSP->LoadMap(listEntitysSP);
 	gameSceneSP->loadEnemys(enemysMapSP);
+	gameSceneSP->initListDisparos();
 }
 
 

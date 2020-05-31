@@ -9,6 +9,8 @@
 #include "enumStructs.h"
 #include "EntityEnemy.h"
 #include "AStar.hpp"
+#include "EntityImpactoDisparo.h"
+
 class Scene
 {
 public:
@@ -20,9 +22,17 @@ public:
 	std::vector<EntityEnemy*> Enemys; 
 	GameMap* mapGame = NULL;
 	std::vector<Vector3> pointsSP;
+	std::vector<Vector3> disparosPoints;
+	std::vector<Vector3> normPointsSP;
 	AStar::Generator* generatorIA;
 	// Set 2d map size.
 	uint8* mapPARAIA;
+	Mesh* disparoMesh;
+	Texture* disparoTexture;
+
+	int contadorIdDisparo = 0;
+	std::vector<EntityImpactoDisparo*> EntitysImpactoDisparo;
+	
 
 
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
@@ -41,6 +51,10 @@ public:
 		generatorIA->setHeuristic(AStar::Heuristic::euclidean);
 		generatorIA->setDiagonalMovement(true);
 		mapPARAIA = new uint8[mapGame->width * 9 * mapGame->height * 9];
+		disparoMesh = Mesh::Get("data/impactos/impacto.OBJ");
+		disparoTexture = Texture::Get("data/impactos/impacto.png");
+
+
 
 	}
 
@@ -54,10 +68,14 @@ public:
 	void cargarWallsInIA();
 	void cargarWallsInIA2();
 
-
+	void initListDisparos();
 	bool loadWalls();
 
 	void writeWalls();
+
+	void pintarDisparos();
+	void emplaceDisparo(Vector3 pos);
+	int idMasBajo();
 
 };
 

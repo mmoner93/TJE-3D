@@ -116,9 +116,21 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT))  delta = delta + Vector3(0, 0,-1 );
 	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) delta = delta + Vector3(0, 0, 1);
 	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
-		shoot();
+		fixShoot();
 	}
 
+	if (Input::isMousePressed(SDL_BUTTON_LEFT) && !shooting) {
+		shooting = true;
+		shoot();
+
+	}
+
+
+	if (!Input::isMousePressed(SDL_BUTTON_LEFT) && shooting) {
+		shooting = false;
+
+	}
+	
 	delta = delta * (speed + mejoras.velociti);
 	yaw -= Input::mouse_delta.x * 0.1;
 
@@ -215,6 +227,52 @@ Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, s
 }
 
 
+void EntityPlayer::fixShoot() {
+	Game* GameI = Game::instance;
+	Camera* camera = Camera::current;
+	Vector3 pos = camera->center;
+	pos.y = 0;
+	Vector3 origin = camera->center;
+	Vector3 dir = camera->getRayDirection(Input::mouse_position.x, Input::mouse_position.y, GameI->window_width, GameI->window_height);
+	//para poner algo en el suelo
+	//pos = RayPlaneCollision(Vector3(),Vector3(0,1,0),origin,dir);
+	StagePlay* temp = (StagePlay*)Stage::current_state;
+	bool control = true;
+	Vector3 collnorm;
+
+	for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
+		EntityGameObject* en = temp->gameSceneSP->Enemys[i];
+
+		Mesh* mesh = en->mesh;
+
+		if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm, 99, true)) {
+			temp->gameSceneSP->Enemys[i]->onReceveidShoot(pos, collnorm);
+			control = false;
+			break;
+		}
+
+	}
+
+
+	if (control) {
+
+
+		for (int i = 0; i < temp->gameSceneSP->mapaObjects.size(); i++) {
+			EntityGameObject* en = temp->gameSceneSP->mapaObjects[i];
+
+			Mesh* mesh = en->mesh;
+
+			if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm)) {
+				temp->gameSceneSP->pointsSP.push_back(pos);
+				
+				
+				break;
+			}
+
+		}
+	}
+}
+
 void EntityPlayer::shoot() {
 	Game* GameI = Game::instance;
 	Camera* camera = Camera::current;
@@ -251,8 +309,10 @@ void EntityPlayer::shoot() {
 
 		Mesh* mesh = en->mesh;
 
-		if (mesh->testRayCollision(*en->model, origin, dir, pos, Vector3())) {
-			temp->gameSceneSP->pointsSP.push_back(pos);
+		if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm)) {
+			//temp->gameSceneSP->disparosPoints.push_back(pos);
+			//temp->gameSceneSP->normPointsSP.push_back(collnorm);
+			temp->gameSceneSP->emplaceDisparo(pos);
 			break;
 		}
 
