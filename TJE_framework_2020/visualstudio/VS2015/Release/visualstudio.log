@@ -11,110 +11,12 @@ C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnem
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(427,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(430,20): warning C4018: '<': no coinciden signed/unsigned
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(450,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  EntityPlayer.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(19,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(53,45): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(56,26): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(59,22): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(75,43): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(75,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(76,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(77,21): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(96,20): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(123,35): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(125,37): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(127,15): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(130,16): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(139,18): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(142,30): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(145,30): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(148,20): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(167,20): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(175,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(178,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(198,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(206,61): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(224,116): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(224,95): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(224,86): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(224,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(232,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(249,20): warning C4018: '<': no coinciden signed/unsigned
-  Scene.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(12,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(29,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(45,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(74,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(77,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(131,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(150,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(152,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(153,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(181,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(180,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(184,7): warning C4101: 'o': variable local sin referencia
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(211,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(214,23): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(227,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(202,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(249,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(298,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(302,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(306,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(311,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(315,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(319,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(346,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(391,56): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(391,36): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  StageEditor.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(44,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(45,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(123,25): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  StageLVL.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  StageMenu.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  StageMenuInGame.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  StagePlay.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(387,100): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(473,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(474,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(540,121): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(540,98): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(540,87): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(540,63): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(546,19): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(634,32): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(677,27): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  StageSaveLoad.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageSaveLoad.cpp(67,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageSaveLoad.cpp(79,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
-  StageShop.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  game.cpp
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(40,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(18): warning C4700: se utilizó la variable local 'i' sin inicializar
-  901 of 2866 functions (31.4%) were compiled, the rest were copied from previous compilation.
+  22 of 2867 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    248 functions had inline decision re-evaluated but remain unchanged
+    25 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
 glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
   visualstudio.vcxproj -> C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\visualstudio\VS2015\..\..\game.exe

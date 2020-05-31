@@ -28,6 +28,7 @@ public:
 	float health = 1.0;
 	bool aLive = true;
 	std::vector<Vector3> pointsSP;
+	std::vector<Vector3> normPointsSP;
 	Shader* shaderPuntos;
 	Matrix44 puntos;
 
@@ -56,8 +57,8 @@ public:
 		shaderPuntos = shaderP;
 		actualState = STOP_R;
 		calculando = false;
-		disparoMesh = Mesh::Get("data/impactos/damage_vertical.OBJ");
-		disparoTexture = Texture::Get("data/impactos/damage.png");
+		disparoMesh = Mesh::Get("data/impactos/impacto.OBJ");
+		disparoTexture = Texture::Get("data/impactos/impacto.png");
 
 	}
 
@@ -67,7 +68,7 @@ public:
 	bool testCollision(Vector3 target_pos, float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	Vector3 moveEnemy(float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	bool checkTime(float seconds_elapsed);
-	void onReceveidShoot(Vector3 temp);
+	void onReceveidShoot(Vector3 temp, Vector3 norm);
 	void renderPoints(Mesh* meshT);
 	void atacar();
 	bool mirarSiPlayerCerca();

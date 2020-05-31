@@ -15,11 +15,23 @@ void EntityEnemy::render(Light* light) {
 	}
 
 
-	for (int i; i < pointsSP.size(); i++) {
+	for (int i=0; i < pointsSP.size(); i++) {
 	
-		EntityGameObject* temp = new EntityGameObject(disparoTexture, shader, disparoMesh, NULL, "Game");
-		
+		EntityGameObject* temp = new EntityGameObject(disparoTexture, shader, disparoMesh, NULL, "Game",1.0f);
+		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
+		Vector3 mov = model->getTranslation();
+		temp->model->setIdentity();
+		//temp->model->translate(mov.x, mov.y, mov.z);
+		//Matrix44 modelTemp = *(temp->model) * *model;
+		*(temp->model) = *model;
+		//Vector3 proe = pointsSP[i] + normPointsSP[i];
+		Vector3 push_away = normalize(normPointsSP[i] - pointsSP[i]);
+		//Vector3 proe = pointsSP[i] * push_away;
+		temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
+		//temp->model->translate(proe.x, proe.y, proe.z);
+		//temp->model = *(temp->model) * normPointsSP[i];
 		temp->render(light);
+		
 	}
 
 
@@ -480,10 +492,10 @@ bool EntityEnemy::checkTime(float seconds_elapsed) {
 
 }
 
-void EntityEnemy::onReceveidShoot(Vector3 temp) {
+void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 
 	pointsSP.push_back(temp);
-
+	normPointsSP.push_back(norm);
 }
 
 void EntityEnemy::atacar() {

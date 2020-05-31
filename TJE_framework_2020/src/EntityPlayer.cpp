@@ -235,7 +235,7 @@ void EntityPlayer::shoot() {
 		Mesh* mesh = en->mesh;
 
 		if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm,99,true)) {
-			temp->gameSceneSP->Enemys[i]->onReceveidShoot(pos);
+			temp->gameSceneSP->Enemys[i]->onReceveidShoot(pos,collnorm);
 			control = false;
 			break;
 		}
