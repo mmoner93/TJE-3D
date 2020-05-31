@@ -12,7 +12,7 @@ void EntityPlayer::loalAnim() {
 	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
 }
 
-void EntityPlayer::renderAnimated() {
+void EntityPlayer::renderAnimated(Light* light) {
 
 	Camera* camera = Camera::current;
 	Vector3 ambientLight(0.3, 0.3, 0.3);
@@ -28,8 +28,10 @@ void EntityPlayer::renderAnimated() {
 	shader->setUniform("u_texture", textura, 0);
 	shader->setUniform("u_model", m);
 	shader->setUniform("u_time", Game::instance->time);
-
-
+	shader->setFloat("u_tilling", tilling);
+	Vector3 light_direction = light->position - model->getTranslation();
+	shader->setUniform("u_light_direction", light_direction);
+	shader->setUniform("u_ambient_light", Vector3(0.2, 0.2, 0.2));
 	dancing->assignTime(Game::instance->time);
 	
 	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
@@ -64,7 +66,7 @@ void EntityPlayer::render(Light* light) {
 	//al personaje
 	
 	//EntityGameObject::render(light);
-	renderAnimated();
+	renderAnimated(light);
 	
 	Matrix44* ter = new Matrix44(*model);
 

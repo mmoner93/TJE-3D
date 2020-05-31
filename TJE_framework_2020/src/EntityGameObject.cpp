@@ -23,6 +23,8 @@ void EntityGameObject::render(Light* light) {
 	mesh->render(GL_TRIANGLES, -1);
 
 	shader->disable();
+
+	
 }
 
 

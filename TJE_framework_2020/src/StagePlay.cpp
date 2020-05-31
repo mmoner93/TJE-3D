@@ -448,7 +448,7 @@ void StagePlay::init() {
 	shaderPhongSP = Shader::Get("data/shaders/phong.vs", "data/shaders/phong.fs");
 	shaderFlatSP= Shader::Get("data/shaders/basic.vs", "data/shaders/flat.fs");
 	shaderGameSP= Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs");
-	shaderAnimSP = Shader::Get("data/shaders/skinningnew.vs", "data/shaders/texture.fs");
+	shaderAnimSP = Shader::Get("data/shaders/skinningnew.vs", "data/shaders/Game.fs");
 	materialSP = new Material();
 
 	
