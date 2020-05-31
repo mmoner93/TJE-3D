@@ -58,7 +58,96 @@ void Scene::pintarScene() {
 	}
 
 
+	pintarDisparos();
+
+
 }
+
+
+void Scene::pintarDisparos() {
+	for (int i = 0; i < EntitysImpactoDisparo.size(); i++) {
+		if (EntitysImpactoDisparo[i]->in_use == true) {
+			/*Vector3 proe;
+			if (normPointsSP[i].x != 0.0 && normPointsSP[i].y != 0.0 && normPointsSP[i].z != 0.0) {
+				proe = disparosPoints[i] - normalize(normPointsSP[i]) * 0.1;
+			}
+			else {
+				proe = disparosPoints[i] - normPointsSP[i] * 0.1;
+			}*/
+
+			//EntitysImpactoDisparo[i]->model->translate(proe.x, proe.y, proe.z);
+			//temp->model->translate(proe.x, proe.y, proe.z);
+			//temp->model = *(temp->model) * normPointsSP[i];
+			EntitysImpactoDisparo[i]->render(lightScene->light);
+		}
+	}
+}
+
+
+int  Scene::idMasBajo() {
+	int idmax=-1;//max id
+	int idmin = MAXINT32;
+	for (int i = 0; i < EntitysImpactoDisparo.size(); i++) {
+		if (idmax < EntitysImpactoDisparo[i]->id) {
+			idmax = EntitysImpactoDisparo[i]->id;
+		}
+		if (idmin > EntitysImpactoDisparo[i]->id) {
+			idmin = EntitysImpactoDisparo[i]->id;
+		}
+	}
+	for (int i = 0; i < EntitysImpactoDisparo.size(); i++) {
+		if (EntitysImpactoDisparo[i]->id== idmin) {
+			EntitysImpactoDisparo[i]->in_use = false;
+			break;
+		}
+	}
+
+
+
+	return idmax;
+
+}
+
+
+void Scene::emplaceDisparo(Vector3 pos) {
+	bool control = true;
+		for (int i = 0; i < EntitysImpactoDisparo.size(); i++) {
+			if (!EntitysImpactoDisparo[i]->in_use) {
+				EntitysImpactoDisparo[i]->in_use = true;
+				EntitysImpactoDisparo[i]->model->translateGlobal(pos.x, pos.y, pos.z);
+				control = false;
+				break;
+			}
+		}
+
+		if (control) {
+			int alto = idMasBajo();
+			alto++;
+			for (int i = 0; i < EntitysImpactoDisparo.size(); i++) {
+				if (!EntitysImpactoDisparo[i]->in_use) {
+					EntitysImpactoDisparo[i]->in_use = true;
+					EntitysImpactoDisparo[i]->id = alto;
+					EntitysImpactoDisparo[i]->model->setTranslation(pos.x, pos.y, pos.z);
+					control = false;
+					break;
+				}
+			}
+		}
+		
+
+
+}
+
+void Scene::initListDisparos() {
+
+	for (int i = 0; i < MAX_IMPACTO_DISPAROS; i++) {
+		EntityImpactoDisparo* temp = new EntityImpactoDisparo(contadorIdDisparo, disparoTexture, ((StagePlay*)Stage::getStage("Play"))->shaderGameSP, disparoMesh, NULL, "Game", 1.0f);
+		EntitysImpactoDisparo.push_back(temp);
+		contadorIdDisparo++;
+	}
+}
+
+
 
 void Scene::cargarWallsInIA() {
 
