@@ -20,7 +20,7 @@ public:
 	float vel_ang;
 	float angle;
 	Inventario mejoras;
-	Animation* dancing;
+	Animation* idle;
 	Animation* run ;
 	Animation* walk ;
 	Skeleton* blendWalkRun ;

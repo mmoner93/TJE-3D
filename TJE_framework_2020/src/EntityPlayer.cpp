@@ -4,13 +4,13 @@
 
 
 void EntityPlayer::loalAnim() {
-	dancing = Animation::Get("data/animations/animations_dancing.skanim");
-	//walk = Animation::Get("data/personajes/animations_walking.skanim");
-	//run = Animation::Get("data/personajes/animations_rifle_run.skanim");
+	idle = Animation::Get("data/animations/animations_orc_idle.skanim");
+	walk = Animation::Get("data/animations/animations_walking final.skanim");
+	run = Animation::Get("data/animations/animations_running.skanim");
 	//walk->assignTime(Game::instance->time);
 	//run->assignTime(Game::instance->time);
-
-	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+	blendWalkRun = new Skeleton();
+	
 }
 
 void EntityPlayer::renderAnimated(Light* light) {
@@ -19,6 +19,26 @@ void EntityPlayer::renderAnimated(Light* light) {
 	Vector3 ambientLight(0.3, 0.3, 0.3);
 	Matrix44 m = *model;
 
+	//animations
+	float t = fmod(Game::instance->time, idle->duration) / idle->duration;
+	idle->assignTime(Game::instance->time);
+	t = fmod(Game::instance->time, walk->duration) / walk->duration;
+	walk->assignTime(t * walk->duration);
+	t = fmod(Game::instance->time, run->duration) / run->duration;
+	run->assignTime(t * run->duration);
+
+	float speedFactor = (vel_x + vel_y).length() *0.5;
+	if (speedFactor < 1)
+	{
+		blendSkeleton(&idle->skeleton, &walk->skeleton, speedFactor, blendWalkRun);
+	}
+	else
+	{
+		blendSkeleton(&walk->skeleton, &run->skeleton, speedFactor, blendWalkRun);
+	}
+
+
+	
 	//enable shader
 	shader->enable();
 
@@ -36,9 +56,10 @@ void EntityPlayer::renderAnimated(Light* light) {
 	
 
 	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
-	mesh->renderAnimated(GL_TRIANGLES, &dancing->skeleton);
-	//run->assignTime(Game::instance->time);
-	dancing->assignTime(Game::instance->time);
+	mesh->renderAnimated(GL_TRIANGLES, blendWalkRun);
+
+	
+
 	shader->disable();
 }
 

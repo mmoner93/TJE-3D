@@ -411,7 +411,7 @@ void StagePlay::inicializarScena() {
 
 	//Mesh* meshTemp = Mesh::Get("data/personajes/playerRojoMascara.OBJ");
 	//Texture* texTemp = Texture::Get("data/personajes/playerRojoMascara.png", false, true);
-	Mesh* meshTemp = Mesh::Get("data/animations/character.mesh");
+	Mesh* meshTemp = Mesh::Get("data/animations/character final.mesh");
 	Texture* texTemp = Texture::Get("data/animations/new_caracther.png");
 	EntityPlayer* player;
 	player = new EntityPlayer(texTemp, shaderAnimSP, meshTemp, materialSP, "game", Vector3(10.f, 0.f, 10.f));
