@@ -44,6 +44,7 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	mouse_locked = false;
 	
 	new StageMenu();
+	((StagePlay*)Stage::getStage("Menu"))->init();
 	new StageShop();
 	new StageSaveLoad();
 	new StageMenuInGame();

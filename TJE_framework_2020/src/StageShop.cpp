@@ -32,11 +32,11 @@ void StageShop::render() {
 	SDL_GL_SwapWindow(Game::instance->window);
 }
 void StageShop::update(double dt) {
-	if (Input::isKeyPressed(SDL_SCANCODE_P)) {
-		Stage::changeState("Play");
+	//if (Input::isKeyPressed(SDL_SCANCODE_P)) {
+		//Stage::changeState("Play");
 		//Stage::current_state->init();
-	}
-	else if (Input::isKeyPressed(SDL_SCANCODE_M)) {
+	//}
+	if (Input::isKeyPressed(SDL_SCANCODE_M)) {
 		Stage::changeState("Menu");
 		//Stage::current_state->init();
 	}
