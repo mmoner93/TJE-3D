@@ -128,6 +128,9 @@
     <ClCompile Include="..\..\src\EntityImpactoDisparo.cpp">
       <Filter>Entity</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\EntityTorreArreglo.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -253,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Scene.h">
       <Filter>mygame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EntityTorreArreglo.h">
+      <Filter>Entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

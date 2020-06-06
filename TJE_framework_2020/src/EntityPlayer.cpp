@@ -141,10 +141,23 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
 		fixShoot();
 	}
-
+	if (Input::wasKeyPressed(SDL_SCANCODE_1)) {
+		if (weaponUsing == PEGAMENTO) {
+			weaponUsing = WEAPON1;
+		}
+		else {
+			weaponUsing = PEGAMENTO;
+		}
+	}
 	if (Input::isMousePressed(SDL_BUTTON_LEFT) && !shooting) {
 		shooting = true;
-		shoot();
+		if (weaponUsing == PEGAMENTO) {
+			fixShoot();
+		}
+		else {
+			shoot();
+		}
+		
 
 	}
 
@@ -275,6 +288,13 @@ void EntityPlayer::fixShoot() {
 		}
 
 	}
+	EntityTowerArreglo* t = temp->gameSceneSP->towerTemp;
+	if (t->mesh->testRayCollision(*t->model, origin, dir, pos, collnorm, 99, true)) {
+		t->onReceveidShootPegamento(pos, collnorm);
+		control = false;
+	}
+
+	
 
 
 	if (control) {

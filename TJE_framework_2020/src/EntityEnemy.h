@@ -64,8 +64,6 @@ public:
 		disparoTexture = Texture::Get("data/impactos/impacto.png");
 		disparoMeshPegamento = Mesh::Get("data/impactos/impactoPegamento.OBJ");
 		disparoPegamentoTexture = Texture::Get("data/impactos/impactogris.png");
-		Mesh* disparoMeshPegamento;
-		Texture* disparoPegamentoTexture;
 	}
 
 

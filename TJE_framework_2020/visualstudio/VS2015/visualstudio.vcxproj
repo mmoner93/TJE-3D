@@ -135,6 +135,7 @@
     <ClCompile Include="..\..\src\EntityLight.cpp" />
     <ClCompile Include="..\..\src\EntityMesh.cpp" />
     <ClCompile Include="..\..\src\Entity.cpp" />
+    <ClCompile Include="..\..\src\EntityTorreArreglo.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\box.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\box_bld.cpp" />
     <ClCompile Include="..\..\src\extra\coldet\coldet.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="..\..\src\EntityImpactoDisparo.h" />
     <ClInclude Include="..\..\src\EntityLight.h" />
     <ClInclude Include="..\..\src\EntityMesh.h" />
+    <ClInclude Include="..\..\src\EntityTorreArreglo.h" />
     <ClInclude Include="..\..\src\enumStructs.h" />
     <ClInclude Include="..\..\src\extra\coldet\box.h" />
     <ClInclude Include="..\..\src\extra\coldet\coldet.h" />

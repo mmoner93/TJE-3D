@@ -26,6 +26,9 @@ public:
 	Skeleton* blendWalkRun ;
 	bool loadanim = false;
 	bool shooting = false;
+	enumWeapons weaponUsing;
+
+
 	EntityPlayer(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		
 		yaw = ya;
@@ -34,7 +37,7 @@ public:
 		angle = 0.0;
 		vel_ang = 0.0;
 		position = pos;
-
+		weaponUsing = PEGAMENTO;
 	}
 
 

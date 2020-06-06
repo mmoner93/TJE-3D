@@ -60,7 +60,7 @@ void Scene::pintarScene() {
 
 	pintarDisparos();
 	pintarDisparosPegamento();
-
+	pintarTowerArreglo();
 }
 
 
@@ -599,4 +599,9 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 
 
+}
+
+
+void Scene::pintarTowerArreglo() {
+	towerTemp->render(lightScene->light);
 }
