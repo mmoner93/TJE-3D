@@ -107,7 +107,7 @@ void Stage::renderUI(int cuadrante, Texture* tex) {
 	shader->enable();
 	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
 	shader->setUniform("u_texture", tex, 0);
-	shader->setFloat("u_opacity", 0.5f);
+	shader->setFloat("u_opacity", 0.6f);
 	quad.render(GL_TRIANGLES);
 	shader->disable();
 }

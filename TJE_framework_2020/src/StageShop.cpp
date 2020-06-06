@@ -3,29 +3,28 @@
 #include "StagePlay.h"
 #include "StageShop.h"
 #include "enumStructs.h"
+#include "texture.h"
 #include <string>
 //include invetario h
 
 int coins = 1000;
 int weaponOnScreen = 0;
 int weapons[8] = { WEAPON1, WEAPON2, WEAPON3, WEAPON4, WEAPON5, WEAPON6, WEAPON7, WEAPON8 };
+Texture* uiTexture = NULL;
 //invetario
 void StageShop::render() {
 
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	renderUI(0, uiTexture);
+	drawText(130, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.armaour), Vector3(1, 1, 1), 2);
+	drawText(390, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.grenades), Vector3(1, 1, 1), 2);
+	drawText(660, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.selectedWeapon), Vector3(1, 1, 1), 2);
+	drawText(130, 420, std::to_string(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.velociti), Vector3(1, 1, 1), 2);
+	drawText(660, 420, std::to_string(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.stuntTime), Vector3(1, 1, 1), 2);
 
-	drawText(20, 20, "S to + Speed", Vector3(1, 1, 1), 2);
-	drawText(20, 40, "L to + Live", Vector3(1, 1, 1), 2);
-	drawText(20, 60, "T to + Stunt Time", Vector3(1, 1, 1), 2);
-	drawText(20, 80, "G to + Grenades", Vector3(1, 1, 1), 2);
-	drawText(500, 80, "P to Play", Vector3(1, 1, 1), 2);
-	drawText(500, 80, "M to Play", Vector3(1, 1, 1), 2);
-
-	drawText(330, 400, "D-->", Vector3(1, 1, 1), 2);
-	drawText(270, 400, "<--A", Vector3(1, 1, 1), 2);
-	drawText(298, 80, std::to_string(weaponOnScreen), Vector3(1, 1, 1), 2);
-
+	drawText(395, 570, std::to_string(weaponOnScreen), Vector3(1, 1, 1), 2);
+	
 
 	//drawText(20, 100, "New Weapon", Vector3(1, 1, 1), 2);
 	//hacer un selector de armas que te diga si la tienes comprada seleccionar, sino precio para comprar
@@ -90,6 +89,6 @@ void StageShop::update(double dt) {
 
 }
 void StageShop::init() {
-
+	uiTexture = Texture::Get("data/UI/shop.png");
 	// crear inventario
 }

@@ -423,7 +423,8 @@ void StagePlay::inicializarScena() {
 	EntityGameObject* tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
 
 	player->atachWeapon(tempWeapon);
-	uiTexture = Texture::Get("data/UI/vida.png");
+	uiTexture = Texture::Get("data/UI/items.png");
+	damage = Texture::Get("data/UI/vida.png");
 
 	gameSceneSP = new Scene(ltemp, entitySuelo, entityCielo,player);
 	gameSceneSP->LoadMap(listEntitysSP);
@@ -615,7 +616,9 @@ void StagePlay::render()
 	
 
 	renderUI(0, uiTexture);
-
+	drawText(725, 525, "A", Vector3(1, 1, 1), 2);
+	drawText(725, 570, "G", Vector3(1, 1, 1), 2);
+	renderUI(0, damage);
 	SDL_GL_SwapWindow(gameISP->window);
 }
 

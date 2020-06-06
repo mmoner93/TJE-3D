@@ -13,6 +13,11 @@ class StageLVL :public Stage
 {
 public:
 
+	Texture* select1 = NULL;
+	Texture* select2 = NULL;
+	Texture* select3 = NULL;
+	Texture* uiTexture = NULL;
+	int optionSelected = 1;
 
 	StageLVL() :Stage("SelectLVL") {
 		iniciado = true;
