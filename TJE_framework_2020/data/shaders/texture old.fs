@@ -9,9 +9,21 @@ varying vec4 v_color;
 uniform vec4 u_color;
 uniform sampler2D u_texture;
 uniform float u_time;
-
+uniform float u_opacity;
 void main()
 {
+  bool prueba=false;
 	vec2 uv = v_uv;
-	gl_FragColor = u_color * texture2D( u_texture, uv );
+	vec4 color = u_color * texture2D( u_texture, uv );
+	//color=vec4(1.0,1.0,1.0,1.0);
+
+	//color.w=0.5;
+	if (color.w!=0.0){
+		color.w=color.w*u_opacity;
+
+	}
+	//color.xyz=color.xyz*0.1;
+  //if( color.w < 0.5 ) discard;
+
+	gl_FragColor =color;
 }

@@ -1,20 +1,9 @@
-﻿  StagePlay.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(41,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(387,100): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(474,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(475,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(541,121): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(541,98): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(541,87): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(541,63): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(547,19): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(744,32): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(787,27): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+﻿  Stage.cpp
 LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
-  58 of 2933 functions ( 2.0%) were compiled, the rest were copied from previous compilation.
+  1 of 2930 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    34 functions had inline decision re-evaluated but remain unchanged
+    12 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  visualstudio.vcxproj -> C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\visualstudio\VS2015\..\..\game.exe
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  visualstudio.vcxproj -> C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\visualstudio\VS2015\..\..\game.exe

@@ -423,7 +423,7 @@ void StagePlay::inicializarScena() {
 	EntityGameObject* tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
 
 	player->atachWeapon(tempWeapon);
-	uiTexture = Texture::Get("data/UI/menu ini.png");
+	uiTexture = Texture::Get("data/UI/vida.png");
 
 	gameSceneSP = new Scene(ltemp, entitySuelo, entityCielo,player);
 	gameSceneSP->LoadMap(listEntitysSP);
@@ -566,92 +566,6 @@ void StagePlay :: addPoint() {
 }
 
 
-void renderUI(int cuadrante, Texture* tex) {
-	glDisable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
-	Mesh quad;
-
-	if (cuadrante == 0) {
-		quad.vertices.push_back(Vector3(-1, 1, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(-1, -1, 0));
-		quad.uvs.push_back(Vector2(0, 0));
-		quad.vertices.push_back(Vector3(1, 1, 0));
-		quad.uvs.push_back(Vector2(1, 1));
-
-		quad.vertices.push_back(Vector3(1, 1, 0));
-		quad.uvs.push_back(Vector2(1, 1));
-		quad.vertices.push_back(Vector3(-1, -1, 0));
-		quad.uvs.push_back(Vector2(0, 0));
-		quad.vertices.push_back(Vector3(1, -1, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-
-	}
-	else if (cuadrante == 1) {
-		quad.vertices.push_back(Vector3(0, 1, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(0, 0, 0));
-		quad.uvs.push_back(Vector2(0, 0));
-		quad.vertices.push_back(Vector3(1, 0, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-
-		quad.vertices.push_back(Vector3(0, 1, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(1, 0, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(1, 1, 0));
-		quad.uvs.push_back(Vector2(1, 1));
-	}
-	else if (cuadrante == 2) {
-		quad.vertices.push_back(Vector3(-1, 1, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(-1, 0, 0));
-		quad.uvs.push_back(Vector2(0, 0));
-		quad.vertices.push_back(Vector3(0, 0, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(-1, 1, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(0, 0, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(0, 1, 0));
-		quad.uvs.push_back(Vector2(1, 1));
-	}
-	else if (cuadrante == 3) {
-		quad.vertices.push_back(Vector3(-1, 0, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(-1, -1, 0));
-		quad.uvs.push_back(Vector2(0, 0));
-		quad.vertices.push_back(Vector3(0, -1, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(-1, 0, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(0, -1, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(0, 0, 0));
-		quad.uvs.push_back(Vector2(1, 1));
-	}
-	else if (cuadrante == 4) {
-		quad.vertices.push_back(Vector3(0, 0, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(0, -1, 0));
-		quad.uvs.push_back(Vector2(0, 0));
-		quad.vertices.push_back(Vector3(1, -1, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(0, 0, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(1, -1, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(1, 0, 0));
-		quad.uvs.push_back(Vector2(1, 1));
-
-	}
-	Shader* shader = Shader::Get("data/shaders/quad.vs", "data/shaders/texture old.fs");//flat.fs");
-	shader->enable();
-	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
-	shader->setUniform("u_texture", tex, 0);
-	quad.render(GL_TRIANGLES);
-}
-
 void StagePlay::render()
 {
 
@@ -698,28 +612,10 @@ void StagePlay::render()
 
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	Mesh quad;
-	quad.vertices.push_back(Vector3(-1, 1, 0));
-	quad.uvs.push_back(Vector2(0, 1));
-	quad.vertices.push_back(Vector3(-1, -1, 0));
-	quad.uvs.push_back(Vector2(0, 0));
-	quad.vertices.push_back(Vector3(1, 1, 0));
-	quad.uvs.push_back(Vector2(1, 1));
+	
 
-	quad.vertices.push_back(Vector3(1, 1, 0));
-	quad.uvs.push_back(Vector2(1, 1));
-	quad.vertices.push_back(Vector3(-1, -1, 0));
-	quad.uvs.push_back(Vector2(0, 0));
-	quad.vertices.push_back(Vector3(1, -1, 0));
-	quad.uvs.push_back(Vector2(1, 0));
-	Shader* shader = Shader::Get("data/shaders/quad.vs", "data/shaders/texture old.fs");//flat.fs");
-	shader->enable();
-	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
-	shader->setUniform("u_texture", uiTexture, 0);
-	quad.render(GL_TRIANGLES);
-	//renderUI(1, uiTexture);
+	renderUI(0, uiTexture);
 
-	//swap between front buffer and back buffer
 	SDL_GL_SwapWindow(gameISP->window);
 }
 
