@@ -26,7 +26,9 @@ void EntityPlayer::renderAnimated(Light* light) {
 	walk->assignTime(t * walk->duration);
 	t = fmod(Game::instance->time, run->duration) / run->duration;
 	run->assignTime(t * run->duration);
-
+	// timeanim -> duration1
+	// xtime    -> duration 2
+	// x = (timeanim*duration 2)/duration1
 	float speedFactor = (vel_x + vel_y).length() *0.5;
 	if (speedFactor < 1)
 	{

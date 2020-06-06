@@ -20,6 +20,7 @@ public:
 	Camera* cameraSP;
 	Game* gameISP;
 	Material* materialSP;
+	Texture* uiTexture;
 
 	//guardo la info de que dibujar segun type
 	//guardo la info de como dibujarlo
