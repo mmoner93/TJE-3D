@@ -4,7 +4,7 @@
 #define NUM_ENTITIES 39
 #define NUM_ENEMYS 9
 #define MAX_IMPACTO_DISPAROS 35
-
+#define MAX_IMPACTO_DISPAROS_PEGAMENTO 35
 
 
 enum levels { LVL1, LVL2, LVL3 };

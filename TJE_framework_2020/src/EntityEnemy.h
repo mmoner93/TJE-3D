@@ -21,6 +21,8 @@ public:
 	
 	Mesh* disparoMesh;
 	Texture* disparoTexture;
+	Mesh* disparoMeshPegamento;
+	Texture* disparoPegamentoTexture;
 
 	estadosRobot actualState;
 	enumEnemyMove actualDirection= STOP;
@@ -28,6 +30,7 @@ public:
 	float health = 1.0;
 	bool aLive = true;
 	std::vector<Vector3> pointsSP;
+	std::vector<Vector3> pointsSPegamento;
 	std::vector<Vector3> normPointsSP;
 	Shader* shaderPuntos;
 	Matrix44 puntos;
@@ -59,7 +62,10 @@ public:
 		calculando = false;
 		disparoMesh = Mesh::Get("data/impactos/impacto.OBJ");
 		disparoTexture = Texture::Get("data/impactos/impacto.png");
-
+		disparoMeshPegamento = Mesh::Get("data/impactos/impactoPegamento.OBJ");
+		disparoPegamentoTexture = Texture::Get("data/impactos/impactogris.png");
+		Mesh* disparoMeshPegamento;
+		Texture* disparoPegamentoTexture;
 	}
 
 
@@ -69,6 +75,7 @@ public:
 	Vector3 moveEnemy(float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	bool checkTime(float seconds_elapsed);
 	void onReceveidShoot(Vector3 temp, Vector3 norm);
+	void onReceveidShootPegamento(Vector3 temp, Vector3 norm);
 	void renderPoints(Mesh* meshT);
 	void atacar();
 	bool mirarSiPlayerCerca();

@@ -34,6 +34,7 @@ public:
 		angle = 0.0;
 		vel_ang = 0.0;
 		position = pos;
+
 	}
 
 

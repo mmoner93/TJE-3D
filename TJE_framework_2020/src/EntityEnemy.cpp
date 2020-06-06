@@ -14,7 +14,7 @@ void EntityEnemy::render(Light* light) {
 		renderPoints(&points_mesh);
 	}
 
-
+	//para disparos normales
 	for (int i=0; i < pointsSP.size(); i++) {
 	
 		EntityGameObject* temp = new EntityGameObject(disparoTexture, shader, disparoMesh, NULL, "Game",1.0f);
@@ -32,6 +32,27 @@ void EntityEnemy::render(Light* light) {
 		//temp->model = *(temp->model) * normPointsSP[i];
 		temp->render(light);
 		
+	}
+
+
+	//para disparos Pegamento
+	for (int i = 0; i < pointsSPegamento.size(); i++) {
+
+		EntityGameObject* temp = new EntityGameObject(disparoPegamentoTexture, shader, disparoMeshPegamento, NULL, "Game", 1.0f);
+		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
+		Vector3 mov = model->getTranslation();
+		temp->model->setIdentity();
+		//temp->model->translate(mov.x, mov.y, mov.z);
+		//Matrix44 modelTemp = *(temp->model) * *model;
+		*(temp->model) = *model;
+		//Vector3 proe = pointsSP[i] + normPointsSP[i];
+		//Vector3 push_away = normalize(normPointsSP[i] - pointsSPegamento[i]);
+		Vector3 proe = pointsSPegamento[i];// -normalize(normPointsSP[i]) * 0.1;
+		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
+		temp->model->translate(proe.x, proe.y, proe.z);
+		//temp->model = *(temp->model) * normPointsSP[i];
+		temp->render(light);
+
 	}
 
 
@@ -498,6 +519,10 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 	normPointsSP.push_back(norm);
 }
 
+void EntityEnemy::onReceveidShootPegamento(Vector3 temp, Vector3 norm) {
+	pointsSPegamento.push_back(temp);
+
+}
 void EntityEnemy::atacar() {
 	if (mirarSiPlayerCerca()) {
 		std::cout << "ATACO"<<std::endl;

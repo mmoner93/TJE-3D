@@ -59,7 +59,7 @@ void Scene::pintarScene() {
 
 
 	pintarDisparos();
-
+	pintarDisparosPegamento();
 
 }
 
@@ -67,20 +67,43 @@ void Scene::pintarScene() {
 void Scene::pintarDisparos() {
 	for (int i = 0; i < EntitysImpactoDisparo.size(); i++) {
 		if (EntitysImpactoDisparo[i]->in_use == true) {
-			/*Vector3 proe;
-			if (normPointsSP[i].x != 0.0 && normPointsSP[i].y != 0.0 && normPointsSP[i].z != 0.0) {
-				proe = disparosPoints[i] - normalize(normPointsSP[i]) * 0.1;
-			}
-			else {
-				proe = disparosPoints[i] - normPointsSP[i] * 0.1;
-			}*/
-
-			//EntitysImpactoDisparo[i]->model->translate(proe.x, proe.y, proe.z);
-			//temp->model->translate(proe.x, proe.y, proe.z);
-			//temp->model = *(temp->model) * normPointsSP[i];
 			EntitysImpactoDisparo[i]->render(lightScene->light);
 		}
 	}
+}
+
+
+void Scene::pintarDisparosPegamento() {
+	for (int i = 0; i < EntitysImpactoPegamento.size(); i++) {
+		if (EntitysImpactoPegamento[i]->in_use == true) {
+			EntitysImpactoPegamento[i]->render(lightScene->light);
+		}
+	}
+}
+
+
+int  Scene::idMasBajoPegamento() {
+	int idmax = -1;//max id
+	int idmin = MAXINT32;
+	for (int i = 0; i < EntitysImpactoPegamento.size(); i++) {
+		if (idmax < EntitysImpactoPegamento[i]->id) {
+			idmax = EntitysImpactoPegamento[i]->id;
+		}
+		if (idmin > EntitysImpactoPegamento[i]->id) {
+			idmin = EntitysImpactoPegamento[i]->id;
+		}
+	}
+	for (int i = 0; i < EntitysImpactoPegamento.size(); i++) {
+		if (EntitysImpactoPegamento[i]->id == idmin) {
+			EntitysImpactoPegamento[i]->in_use = false;
+			break;
+		}
+	}
+
+
+
+	return idmax;
+
 }
 
 
@@ -138,6 +161,37 @@ void Scene::emplaceDisparo(Vector3 pos) {
 
 }
 
+
+
+void Scene::emplacePegamento(Vector3 pos) {
+	bool control = true;
+	for (int i = 0; i < EntitysImpactoPegamento.size(); i++) {
+		if (!EntitysImpactoPegamento[i]->in_use) {
+			EntitysImpactoPegamento[i]->in_use = true;
+			EntitysImpactoPegamento[i]->model->translateGlobal(pos.x, pos.y, pos.z);
+			control = false;
+			break;
+		}
+	}
+
+	if (control) {
+		int alto = idMasBajoPegamento();
+		alto++;
+		for (int i = 0; i < EntitysImpactoPegamento.size(); i++) {
+			if (!EntitysImpactoPegamento[i]->in_use) {
+				EntitysImpactoPegamento[i]->in_use = true;
+				EntitysImpactoPegamento[i]->id = alto;
+				EntitysImpactoPegamento[i]->model->setTranslation(pos.x, pos.y, pos.z);
+				control = false;
+				break;
+			}
+		}
+	}
+
+
+
+}
+
 void Scene::initListDisparos() {
 
 	for (int i = 0; i < MAX_IMPACTO_DISPAROS; i++) {
@@ -145,6 +199,13 @@ void Scene::initListDisparos() {
 		EntitysImpactoDisparo.push_back(temp);
 		contadorIdDisparo++;
 	}
+
+	for (int i = 0; i < MAX_IMPACTO_DISPAROS_PEGAMENTO; i++) {
+		EntityImpactoDisparo* temp = new EntityImpactoDisparo(contadorIdDisparoPegamento, disparoPegamentoTexture, ((StagePlay*)Stage::getStage("Play"))->shaderGameSP, disparoMeshPegamento, NULL, "Game", 1.0f);
+		EntitysImpactoPegamento.push_back(temp);
+		contadorIdDisparoPegamento++;
+	}
+
 }
 
 

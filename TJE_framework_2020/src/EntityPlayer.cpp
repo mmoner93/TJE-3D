@@ -269,7 +269,7 @@ void EntityPlayer::fixShoot() {
 		Mesh* mesh = en->mesh;
 
 		if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm, 99, true)) {
-			temp->gameSceneSP->Enemys[i]->onReceveidShoot(pos, collnorm);
+			temp->gameSceneSP->Enemys[i]->onReceveidShootPegamento(pos, collnorm);
 			control = false;
 			break;
 		}
@@ -286,9 +286,9 @@ void EntityPlayer::fixShoot() {
 			Mesh* mesh = en->mesh;
 
 			if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm)) {
-				temp->gameSceneSP->pointsSP.push_back(pos);
+				//temp->gameSceneSP->pointsSP.push_back(pos);
 				
-				
+				temp->gameSceneSP->emplacePegamento(pos);
 				break;
 			}
 

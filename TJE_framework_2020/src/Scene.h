@@ -29,10 +29,12 @@ public:
 	uint8* mapPARAIA;
 	Mesh* disparoMesh;
 	Texture* disparoTexture;
-
+	Mesh*  disparoMeshPegamento;
+	Texture* disparoPegamentoTexture;
 	int contadorIdDisparo = 0;
+	int contadorIdDisparoPegamento = 0;
 	std::vector<EntityImpactoDisparo*> EntitysImpactoDisparo;
-	
+	std::vector<EntityImpactoDisparo*> EntitysImpactoPegamento;
 
 
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
@@ -52,8 +54,9 @@ public:
 		generatorIA->setDiagonalMovement(true);
 		mapPARAIA = new uint8[mapGame->width * 9 * mapGame->height * 9];
 		disparoMesh = Mesh::Get("data/impactos/impacto.OBJ");
+		disparoMeshPegamento = Mesh::Get("data/impactos/impactoPegamento.OBJ");
 		disparoTexture = Texture::Get("data/impactos/impacto.png");
-
+		disparoPegamentoTexture = Texture::Get("data/impactos/impactogris.png");
 
 
 	}
@@ -75,7 +78,10 @@ public:
 
 	void pintarDisparos();
 	void emplaceDisparo(Vector3 pos);
+	void pintarDisparosPegamento();
+	void emplacePegamento(Vector3 pos);
 	int idMasBajo();
+	int idMasBajoPegamento();
 
 };
 
