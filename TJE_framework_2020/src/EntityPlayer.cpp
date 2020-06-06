@@ -144,9 +144,11 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	if (Input::wasKeyPressed(SDL_SCANCODE_1)) {
 		if (weaponUsing == PEGAMENTO) {
 			weaponUsing = WEAPON1;
+			weapon = weapons[WEAPON1];
 		}
 		else {
 			weaponUsing = PEGAMENTO;
+			weapon = weapons[PEGAMENTO];
 		}
 	}
 	if (Input::isMousePressed(SDL_BUTTON_LEFT) && !shooting) {

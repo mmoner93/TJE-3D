@@ -417,12 +417,21 @@ void StagePlay::inicializarScena() {
 	player = new EntityPlayer(texTemp, shaderAnimSP, meshTemp, materialSP, "game", Vector3(10.f, 0.f, 10.f));
 	player->loalAnim();
 
-	texTemp = Texture::Get("data/arma/uzi.png", false, true);
-	meshTemp = Mesh::Get("data/arma/uzi.obj");
+	texTemp = Texture::Get("data/arma/weaponPegamento.png", false, true);
+	meshTemp = Mesh::Get("data/arma/weaponPegamento.obj");
+	
 
 	EntityGameObject* tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
 
-	player->atachWeapon(tempWeapon);
+	player->atachWeapon(PEGAMENTO,tempWeapon);
+
+    texTemp = Texture::Get("data/arma/uzi.png", false, true);
+	meshTemp = Mesh::Get("data/arma/uzi.obj");
+	tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
+
+	player->atachWeapon(WEAPON1,tempWeapon);
+
+
 	uiTexture = Texture::Get("data/UI/vida.png");
 
 	gameSceneSP = new Scene(ltemp, entitySuelo, entityCielo,player);
