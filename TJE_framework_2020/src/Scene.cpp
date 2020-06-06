@@ -16,6 +16,9 @@ void Scene :: updateScene(float seconds_elapsed) {
 
 	}
 
+
+	towerTemp->update(seconds_elapsed);
+
 }
 void Scene::pintarScene() {
 	glDisable(GL_DEPTH_TEST);

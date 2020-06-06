@@ -18,19 +18,37 @@ void EntityTowerArreglo::render(Light* light) {
 		Vector3 proe = pointsSPegamento[i];// -normalize(normPointsSP[i]) * 0.1;
 		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
 		temp->model->translate(proe.x, proe.y, proe.z);
+		temp->model->rotate(time_Shooted*90*DEG2RAD,Vector3(1,0,1));
+		temp->model->scale(time_Shooted, time_Shooted, time_Shooted);
 		//temp->model = *(temp->model) * normPointsSP[i];
 		temp->render(light);
 
 	}
 
 }
-void EntityTowerArreglo::update(float seconds_elapsed) {
 
+void EntityTowerArreglo::changeTime(float seconds_elapsed) {
+	if (shooted) {
+		time_Shooted -= seconds_elapsed;
+		if (time_Shooted <= 0.f) {
+			shooted = false;
+			time_Shooted = 3.0f;
+			pointsSPegamento.pop_back();
+			switchLight();
+		}
+	}
+}
+
+void EntityTowerArreglo::update(float seconds_elapsed) {
+	changeTime(seconds_elapsed);
 }
 void EntityTowerArreglo::onReceveidShootPegamento(Vector3 temp, Vector3 norm) {
-	pointsSPegamento.push_back(temp);
-	switchLight();
-
+	if (!shooted) {
+		pointsSPegamento.push_back(temp);
+		
+		shooted = true;
+	}
+	
 }
 
 void EntityTowerArreglo::switchLight() {

@@ -17,7 +17,8 @@ public:
 	Texture* textureGreen;
 	Texture* textureOrange;
 	Texture* textureRed;
-
+	bool shooted = false;
+	float time_Shooted = 3.0;
 	EntityTowerArreglo( Texture* t1, Texture* t2, Texture* t3, Shader* s, Mesh* m1, Mesh* m2, Mesh* m3, Material* mat, std::string nS, float sc = 1.0, float til = 1.0) :EntityGameObject(t3, s, m3, mat, nS, sc, til) {
 		disparoMeshPegamento = Mesh::Get("data/impactos/impactoPegamento.OBJ");
 		disparoPegamentoTexture = Texture::Get("data/impactos/impactogris.png");
@@ -33,7 +34,7 @@ public:
 	 void update(float seconds_elapsed);
 	 void onReceveidShootPegamento(Vector3 temp, Vector3 norm);
 	 void switchLight();
-
+	 void changeTime(float seconds_elapsed);
 };
 
 
