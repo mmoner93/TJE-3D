@@ -8,10 +8,17 @@
 #include "Entity.h"
 #include "material.h"
 #include "Scene.h"
+#include "texture.h"
+
 class StageSaveLoad :public Stage
 {
 public:
 
+	Texture* select1 = NULL;
+	Texture* select2 = NULL;
+	Texture* select3 = NULL;
+	Texture* uiTexture = NULL;
+	int optionSelected = 1;
 
 	StageSaveLoad() :Stage("SaveLoad") {
 		iniciado = true;

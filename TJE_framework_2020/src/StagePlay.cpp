@@ -417,22 +417,14 @@ void StagePlay::inicializarScena() {
 	player = new EntityPlayer(texTemp, shaderAnimSP, meshTemp, materialSP, "game", Vector3(10.f, 0.f, 10.f));
 	player->loalAnim();
 
-	texTemp = Texture::Get("data/arma/weaponPegamento.png", false, true);
-	meshTemp = Mesh::Get("data/arma/weaponPegamento.obj");
-	
+	texTemp = Texture::Get("data/arma/uzi.png", false, true);
+	meshTemp = Mesh::Get("data/arma/uzi.obj");
 
 	EntityGameObject* tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
 
-	player->atachWeapon(PEGAMENTO,tempWeapon);
-
-    texTemp = Texture::Get("data/arma/uzi.png", false, true);
-	meshTemp = Mesh::Get("data/arma/uzi.obj");
-	tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
-
-	player->atachWeapon(WEAPON1,tempWeapon);
-
-
-	uiTexture = Texture::Get("data/UI/vida.png");
+	player->atachWeapon(tempWeapon);
+	uiTexture = Texture::Get("data/UI/items.png");
+	damage = Texture::Get("data/UI/vida.png");
 
 	gameSceneSP = new Scene(ltemp, entitySuelo, entityCielo,player);
 	gameSceneSP->LoadMap(listEntitysSP);
@@ -623,8 +615,10 @@ void StagePlay::render()
 	glEnable(GL_CULL_FACE);
 	
 
-	renderUI(0, uiTexture);
-
+	renderUI(0, uiTexture, 0.8f);
+	drawText(725, 525, "A", Vector3(1, 1, 1), 2);
+	drawText(725, 570, "G", Vector3(1, 1, 1), 2);
+	renderUI(0, damage, 0.2f);
 	SDL_GL_SwapWindow(gameISP->window);
 }
 

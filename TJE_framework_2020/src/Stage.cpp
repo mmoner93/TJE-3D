@@ -21,7 +21,7 @@ void Stage::update(double seconds_elapsed)
 
 
 
-void Stage::renderUI(int cuadrante, Texture* tex) {
+void Stage::renderUI(int cuadrante, Texture* tex, float opacity) {
 	glDisable(GL_DEPTH_TEST);
 	glDisable(GL_CULL_FACE);
 	glEnable(GL_BLEND);
@@ -107,7 +107,7 @@ void Stage::renderUI(int cuadrante, Texture* tex) {
 	shader->enable();
 	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
 	shader->setUniform("u_texture", tex, 0);
-	shader->setFloat("u_opacity", 0.1f);
+	shader->setFloat("u_opacity", opacity);
 	quad.render(GL_TRIANGLES);
 	shader->disable();
 }
