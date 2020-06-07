@@ -15,6 +15,7 @@
 #include "StageLVL.h"
 #include "StageSaveLoad.h"
 #include <cmath>
+#include <bass.h>
 
 //some globals
 Shader* shader = NULL;
@@ -29,6 +30,34 @@ bool attached_torpedo = true;
 Game* Game::instance = NULL;
 std::map<std::string, Stage*> Stage::s_stages;
 Stage* Stage::current_state = NULL;
+
+
+void PlaySoundAmbient(const char* filename) {
+
+	//El handler para un sample
+	HSAMPLE hSample;
+
+	//El handler para un canal
+	HCHANNEL hSampleChannel;
+
+	//Cargamos un sample del disco duro (memoria, filename, offset, length, max, flags)
+	//use BASS_SAMPLE_LOOP in the last param to have a looped sound
+	hSample = BASS_SampleLoad(false, filename, 0, 0, 3, 0);
+	if (hSample == 0)
+	{
+		//file not found
+	}
+
+	//Creamos un canal para el sample
+	hSampleChannel = BASS_SampleGetChannel(hSample, false);
+
+
+	//Lanzamos un sample
+	BASS_ChannelPlay(hSampleChannel, true);
+}
+
+
+
 Game::Game(int window_width, int window_height, SDL_Window* window)
 {
 	this->window_width = window_width;
@@ -72,7 +101,12 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	shader = Shader::Get("data/shaders/basic.vs", "data/shaders/texture.fs");
 
 	//torpedo_model.setTranslation(0, -5, 0);
-	
+	if (BASS_Init(-1, 44100, 0, 0, NULL) == false) //-1 significa usar el por defecto del sistema operativo
+	{
+		//error abriendo la tarjeta de sonido...
+	}
+	PlaySoundAmbient("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav");
+
 	//hide the cursor
 	SDL_ShowCursor(!mouse_locked); //hide or show the mouse
 }

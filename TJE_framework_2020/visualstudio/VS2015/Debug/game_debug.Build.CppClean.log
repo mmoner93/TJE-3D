@@ -1,6 +1,5 @@
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\vc142.pdb
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\vc142.idb
-c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\framework.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\fbo.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\textparser.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\picopng.obj
@@ -11,6 +10,7 @@ c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstu
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\coldet.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\box_bld.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\box.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitytorrearreglo.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entity.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitymesh.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\entitylight.obj
@@ -20,7 +20,6 @@ c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstu
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\camera.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\astar.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\animation.obj
-c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageplay.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stagemenuingame.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stagemenu.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stagelvl.obj
@@ -40,17 +39,20 @@ c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstu
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\impactshoot.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\gamemap.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\framework.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\utils.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\texture.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageshop.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stagesaveload.obj
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\stageplay.obj
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\tritri.obj
-c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\game_debug.exe
-c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\game_debug.pdb
-c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\..\..\game_debug.exe
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.command.1.tlog
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.read.1.tlog
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\cl.write.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link-cvtres.read.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link-cvtres.write.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link-rc.read.1.tlog
+c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link-rc.write.1.tlog
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.command.1.tlog
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.read.1.tlog
 c:\users\zombie kush\documents\projectes uni\tje-3d\tje_framework_2020\visualstudio\vs2015\debug\game.tlog\link.write.1.tlog
