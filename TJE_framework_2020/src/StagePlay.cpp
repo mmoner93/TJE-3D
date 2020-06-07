@@ -625,6 +625,7 @@ void StagePlay::render()
 	
 
 	renderUI(0, uiTexture, 0.8f);
+	gameSceneSP->myPlayer->radar();
 	//drawText(725, 525, "A", Vector3(1, 1, 1), 2);
 	//drawText(725, 570, "G", Vector3(1, 1, 1), 2);
 	//renderUI(0, damage, 0.2f, Vector3());

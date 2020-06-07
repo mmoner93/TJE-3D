@@ -104,7 +104,7 @@ void EntityPlayer::render(Light* light) {
 	weapon->model = ter;
 
 	weapon->render(light);
-	radar();
+	
 }
 
 
@@ -472,6 +472,11 @@ void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<V
 			positionPoint.y = (((positionPoint.y - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);
 			positionPoint.z = (((positionPoint.z - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);*/
 			positionPoint.y = positionPoint.y * -1;
+
+			positionPoint.y = positionPoint.y * 0.2;
+			positionPoint.x = positionPoint.x * 0.2;
+			positionPoint.y = positionPoint.y -0.685;
+			positionPoint.x = positionPoint.x - 0.76;
 			quad.vertices.push_back(positionPoint);
 			quad.uvs.push_back(Vector2(1, 1));
 		}
@@ -510,7 +515,7 @@ void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<V
 	}
 
 	shaderTEMP->enable();
-	shaderTEMP->setUniform("u_color", Vector4(1, 1, 1, 1));
+	shaderTEMP->setUniform("u_color", Vector4(1, 0, 0, 1));
 	//shader->setUniform("u_texture", tex, 0);
 	shaderTEMP->setFloat("u_opacity", opacity);
 	if (type != 5) {
@@ -558,20 +563,20 @@ void EntityPlayer::radar() {
 		
 		
 
-		float distance = objectPositio.distance(position);
+		
 		model->getRotationOnly();
 		
 
 		objectPositio = inv * objectPositio;
 
-
+		float distance = persona.distance(objectPositio);
 		//objectPositio = *model * objectPositio;
 		//objectPositio = YAW.rotateVector(objectPositio);
 		Vector3 playerPos=model->getTranslation();
-		if((persona.x+ numMirar >= objectPositio.x) && (persona.x - numMirar <= objectPositio.x)&&
+		/*if((persona.x+ numMirar >= objectPositio.x) && (persona.x - numMirar <= objectPositio.x)&&
 			(persona.y + numMirar >= objectPositio.y) && (persona.y - numMirar <= objectPositio.y)&&
-			(persona.z + numMirar >= objectPositio.z) && (persona.z - numMirar <= objectPositio.z)){
-
+			(persona.z + numMirar >= objectPositio.z) && (persona.z - numMirar <= objectPositio.z)){*/
+		if(distance<= numMirar-5){
 			//NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
 			//objectPositio = objectPositio-model->getTranslation()  ;
 			std::cout << "Vector objectPositio Antes x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
@@ -620,7 +625,7 @@ void EntityPlayer::radar() {
 	std::cout << "Vector prueba x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
 	tempVector.push_back(Prueba);*/
 
-
+	//tempVector.push_back(Vector3(-1,-1,0));
 	if (tempVector.size() > 0) {
 		renderUI(5, NULL, 1.0f, tempVector);
 	}
