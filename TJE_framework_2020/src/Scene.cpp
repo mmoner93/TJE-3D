@@ -27,7 +27,7 @@ void Scene::pintarScene() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	suelo->render(lightScene->light);
-	myPlayer->render(lightScene->light);
+	
 	lightScene->render( lightScene->light);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
@@ -64,6 +64,7 @@ void Scene::pintarScene() {
 	pintarDisparos();
 	pintarDisparosPegamento();
 	pintarTowerArreglo();
+	myPlayer->render(lightScene->light);
 }
 
 

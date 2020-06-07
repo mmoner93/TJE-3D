@@ -63,14 +63,16 @@ void EntityPlayer::renderAnimated(Light* light) {
 	
 
 	shader->disable();
-	radar();
+
 }
 
 
 
 void EntityPlayer::render(Light* light) {
 
-
+	glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 	Game* GameI = Game::instance;
 	Camera* camera = Camera::current;
 
@@ -102,7 +104,7 @@ void EntityPlayer::render(Light* light) {
 	weapon->model = ter;
 
 	weapon->render(light);
-	
+	radar();
 }
 
 
