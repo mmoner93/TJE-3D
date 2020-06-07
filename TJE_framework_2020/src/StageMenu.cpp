@@ -9,10 +9,10 @@ void StageMenu::render() {
 	drawText(20, 40, "Press S to Shop", Vector3(1, 1, 1), 2);
 	drawText(20, 60, "Press L to Load/Save", Vector3(1, 1, 1), 2);
 	if (intro){
-		renderUI(0, introTexture, 1);
+		renderUI(0, introTexture, 1, Vector3());
 	}
 	else {
-		renderUI(0, uiTexture, 1);
+		renderUI(0, uiTexture, 1, Vector3());
 	}
 	SDL_GL_SwapWindow(Game::instance->window);
 }

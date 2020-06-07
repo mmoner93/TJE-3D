@@ -7,7 +7,7 @@ void StageLVL::render() {
 
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	renderUI(0, uiTexture, 1);
+	renderUI(0, uiTexture, 1,Vector3());
 	drawText(20, 20, "Press P to return to Play", Vector3(1, 1, 1), 2);
 	drawText(20, 60, "Press M to exit to the main menu", Vector3(1, 1, 1), 2);
 

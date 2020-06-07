@@ -215,6 +215,10 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	model->setTranslation(position.x, position.y, position.z);
 
 	model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
+
+
+	retrocesoShoot(seconds_elapsed);
+
 }
 
 
@@ -363,11 +367,28 @@ void EntityPlayer::shoot() {
 
 	}
 	}
+	//retroceso , pasar segun arma. Con escopeta tambien en pitch de forma random para que lado
+	retrocesoOn = true;
+	retrocesoLeft = 5.0f;
 	/*Mesh* mesh = Mesh::Get("data/personajes/ROBOT1.obj");
 
 	if(mesh->testRayCollision(Matrix44(), origin, dir, pos, Vector3()) ){
 		points.push_back(pos);
 	}*/
 
+
+}
+
+void EntityPlayer::retrocesoShoot(float seconds_elapsed) {
+	
+	if (retrocesoOn) {
+		retrocesoLeft -= 20.0f * seconds_elapsed;
+		if (retrocesoLeft > 0.0f) {
+			pitch -= 20.0f * seconds_elapsed;
+		}
+		
+
+	}
+	
 
 }

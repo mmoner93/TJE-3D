@@ -55,10 +55,12 @@ void EntityTowerArreglo::switchLight() {
 	switch (estado) {
 	case GREEN:break;
 	case ORANGE:estado = GREEN;
-		EntityGameObject::mesh = meshGreen;
+		//EntityGameObject::mesh = meshGreen;
+		EntityGameObject::textura = textureGreen;
 		break;
 	case RED:estado = ORANGE;
-		EntityGameObject::mesh = meshOrange; break;
+		//EntityGameObject::mesh = meshOrange;
+		EntityGameObject::textura = textureOrange; break;
 	default:break;
 	}
 }

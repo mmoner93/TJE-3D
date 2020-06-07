@@ -51,7 +51,7 @@ public:
 	virtual void render();
 	virtual void update(double dt);
 	virtual void init();
-	void renderUI(int cuadrante, Texture* tex, float opacity);
+	void renderUI(int type, Texture* tex, float opacity, Vector3 positionPoint);
 };
 
 

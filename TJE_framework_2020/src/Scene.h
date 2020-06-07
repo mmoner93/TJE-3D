@@ -58,13 +58,12 @@ public:
 		disparoTexture = Texture::Get("data/impactos/impacto.png");
 		disparoPegamentoTexture = Texture::Get("data/impactos/impactogris.png");
 
-		Texture* temp1= Texture::Get("data/itemsUse/torre.png");
-		Texture* temp2 = Texture::Get("data/itemsUse/torre.png");
-		Texture* temp3 = Texture::Get("data/itemsUse/torre.png");
-		Mesh* tempa1 = Mesh::Get("data/itemsUse/torre.OBJ");
-		Mesh* tempa2 = Mesh::Get("data/itemsUse/torreOrange.OBJ");
-		Mesh* tempa3 = Mesh::Get("data/itemsUse/torreRed.OBJ");
-		towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa1, tempa2, tempa3, NULL, "Game", 1.0f);
+
+		Texture* temp1 = Texture::Get("data/itemsUse/torre_finalgreen.png");
+		Texture* temp2 = Texture::Get("data/itemsUse/torre_finalorange.png");
+		Texture* temp3 = Texture::Get("data/itemsUse/torre_final.png");
+		Mesh* tempa = Mesh::Get("data/itemsUse/torre_final.obj");
+		towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa, NULL, "Game", 1.0f);
 		towerTemp->model->translateGlobal(15, 0, 15);
 	}
 
