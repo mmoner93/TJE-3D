@@ -21,7 +21,7 @@ void Stage::update(double seconds_elapsed)
 
 
 
-void Stage::renderUI(int type, Texture* tex, float opacity,Vector3 positionPoint) {
+void Stage::renderUI(int type, Texture* tex, float opacity) {
 	glDisable(GL_DEPTH_TEST);
 	glDisable(GL_CULL_FACE);
 	glEnable(GL_BLEND);
@@ -103,12 +103,6 @@ void Stage::renderUI(int type, Texture* tex, float opacity,Vector3 positionPoint
 		quad.uvs.push_back(Vector2(1, 1));
 
 	}
-	else if (type == 5) {
-		quad.vertices.push_back(positionPoint);
-		quad.uvs.push_back(Vector2(1, 1));
-
-	}
-
 	Shader* shader;
 	if (type != 5) {
 		shader = Shader::Get("data/shaders/quad.vs", "data/shaders/texture old.fs");//flat.fs");
@@ -125,7 +119,8 @@ void Stage::renderUI(int type, Texture* tex, float opacity,Vector3 positionPoint
 		quad.render(GL_TRIANGLES);
 	}
 	else {
-		quad.render(GL_POINT);
+		glPointSize(9.0f);
+		quad.render(GL_POINTS);
 	}
 	
 	shader->disable();

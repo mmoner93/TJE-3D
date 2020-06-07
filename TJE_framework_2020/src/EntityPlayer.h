@@ -56,7 +56,8 @@ public:
 	void loalAnim();
 	void renderAnimated(Light* light);
 	void retrocesoShoot(float seconds_elapsed);
-
+	void radar(); 
+	void renderUI(int type, Texture* tex, float opacity, std::vector<Vector3> listaPoints);
 
 
 };

@@ -624,11 +624,12 @@ void StagePlay::render()
 	glEnable(GL_CULL_FACE);
 	
 
-	renderUI(0, uiTexture, 0.8f,Vector3());
-	drawText(725, 525, "A", Vector3(1, 1, 1), 2);
-	drawText(725, 570, "G", Vector3(1, 1, 1), 2);
-	renderUI(0, damage, 0.2f, Vector3());
-	//renderUI(5, damage, 1.0f, Vector3(2,0,2));
+	renderUI(0, uiTexture, 0.8f);
+	//drawText(725, 525, "A", Vector3(1, 1, 1), 2);
+	//drawText(725, 570, "G", Vector3(1, 1, 1), 2);
+	//renderUI(0, damage, 0.2f, Vector3());
+	
+	
 	SDL_GL_SwapWindow(gameISP->window);
 }
 

@@ -63,6 +63,7 @@ void EntityPlayer::renderAnimated(Light* light) {
 	
 
 	shader->disable();
+	radar();
 }
 
 
@@ -379,6 +380,247 @@ void EntityPlayer::shoot() {
 
 }
 
+void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<Vector3> listaPoints) {
+	glDisable(GL_DEPTH_TEST);
+	glDisable(GL_CULL_FACE);
+	glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
+	Mesh quad;
+
+	if (type == 0) {
+		quad.vertices.push_back(Vector3(-1, 1, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(-1, -1, 0));
+		quad.uvs.push_back(Vector2(0, 0));
+		quad.vertices.push_back(Vector3(1, 1, 0));
+		quad.uvs.push_back(Vector2(1, 1));
+
+		quad.vertices.push_back(Vector3(1, 1, 0));
+		quad.uvs.push_back(Vector2(1, 1));
+		quad.vertices.push_back(Vector3(-1, -1, 0));
+		quad.uvs.push_back(Vector2(0, 0));
+		quad.vertices.push_back(Vector3(1, -1, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+
+	}
+	else if (type == 1) {
+		quad.vertices.push_back(Vector3(0, 1, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(0, 0, 0));
+		quad.uvs.push_back(Vector2(0, 0));
+		quad.vertices.push_back(Vector3(1, 0, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+
+		quad.vertices.push_back(Vector3(0, 1, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(1, 0, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(1, 1, 0));
+		quad.uvs.push_back(Vector2(1, 1));
+	}
+	else if (type == 2) {
+		quad.vertices.push_back(Vector3(-1, 1, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(-1, 0, 0));
+		quad.uvs.push_back(Vector2(0, 0));
+		quad.vertices.push_back(Vector3(0, 0, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(-1, 1, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(0, 0, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(0, 1, 0));
+		quad.uvs.push_back(Vector2(1, 1));
+	}
+	else if (type == 3) {
+		quad.vertices.push_back(Vector3(-1, 0, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(-1, -1, 0));
+		quad.uvs.push_back(Vector2(0, 0));
+		quad.vertices.push_back(Vector3(0, -1, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(-1, 0, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(0, -1, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(0, 0, 0));
+		quad.uvs.push_back(Vector2(1, 1));
+	}
+	else if (type == 4) {
+		quad.vertices.push_back(Vector3(0, 0, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(0, -1, 0));
+		quad.uvs.push_back(Vector2(0, 0));
+		quad.vertices.push_back(Vector3(1, -1, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(0, 0, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(1, -1, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(1, 0, 0));
+		quad.uvs.push_back(Vector2(1, 1));
+
+	}
+	else if (type == 5) {
+
+		for (int i = 0; i < listaPoints.size(); i++) {
+			Vector3 positionPoint = listaPoints[i];
+			/*positionPoint.x = (((positionPoint.x - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);
+			positionPoint.y = (((positionPoint.y - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);
+			positionPoint.z = (((positionPoint.z - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);*/
+			
+			quad.vertices.push_back(positionPoint);
+			quad.uvs.push_back(Vector2(1, 1));
+		}
+		
+
+		//quad.vertices.push_back(Vector3(-0.78, -0.45, 0));
+		//quad.uvs.push_back(Vector2(1, 1));
+		//quad.vertices.push_back(Vector3(-1, -0.7, 0));
+		//quad.uvs.push_back(Vector2(1, 1));
+		//quad.vertices.push_back(Vector3(-1, 0.5, 0));
+		//quad.uvs.push_back(Vector2(1, 1));
+		//quad.vertices.push_back(Vector3(0.0, 0.5, 0));
+		//quad.uvs.push_back(Vector2(1, 1));
+		/*quad.vertices.push_back(Vector3(0, 0, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(0, -1, 0));
+		quad.uvs.push_back(Vector2(0, 0));
+		quad.vertices.push_back(Vector3(1, -1, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(0, 0, 0));
+		quad.uvs.push_back(Vector2(0, 1));
+		quad.vertices.push_back(Vector3(1, -1, 0));
+		quad.uvs.push_back(Vector2(1, 0));
+		quad.vertices.push_back(Vector3(1, 0, 0));
+		quad.uvs.push_back(Vector2(1, 1));
+		//quad.uvs.push_back(Vector2(1, 1));*/
+
+	}
+
+	Shader* shaderTEMP;
+	if (type != 5) {
+		shaderTEMP = Shader::Get("data/shaders/quad.vs", "data/shaders/texture old.fs");//flat.fs");
+	}
+	else {
+		shaderTEMP = Shader::Get("data/shaders/quad.vs", "data/shaders/flat.fs");//flat.fs");
+	}
+
+	shaderTEMP->enable();
+	shaderTEMP->setUniform("u_color", Vector4(1, 1, 1, 1));
+	//shader->setUniform("u_texture", tex, 0);
+	shaderTEMP->setFloat("u_opacity", opacity);
+	if (type != 5) {
+		quad.render(GL_TRIANGLES);
+	}
+	else {
+		glPointSize(9.0f);
+		quad.render(GL_POINTS);
+	}
+
+	shaderTEMP->disable();
+}
+
+void EntityPlayer::radar() {
+
+	Game* GameI = Game::instance;
+	Camera* camera = Camera::current;
+
+	Vector3 eye = *model * Vector3(0, 0.6, -0.2);
+	Vector3 front(0, 0, -1);
+	Matrix44 PITCH;
+	PITCH.setRotation(pitch * DEG2RAD, Vector3(1, 0, 0));
+	front = PITCH.rotateVector(front);
+	Matrix44 YAW;
+	YAW.setRotation(yaw * DEG2RAD, Vector3(0, 1, 0));
+	//std::cout << "El pitch es " << pitch << std::endl;
+	front = YAW.rotateVector(front);
+	Vector3 center = eye + front;
+	Vector3 up = Vector3(0, 1, 0);
+
+
+	Vector3 persona = model->getTranslation();
+	persona = *model * persona;
+	std::cout << "YAW " << yaw * DEG2RAD << std::endl;
+	std::vector<Vector3> tempVector;
+	float numMirar = 40.f;
+	StagePlay* temp = (StagePlay*)Stage::getStage("Play");
+	for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
+		EntityGameObject* en = temp->gameSceneSP->Enemys[i];
+		Vector3 objectPositio = en->model->getTranslation();
+		
+		
+
+		float distance = objectPositio.distance(position);
+		model->getRotationOnly();
+		objectPositio = *model * objectPositio;
+
+
+
+		Vector3 playerPos=model->getTranslation();
+		if((persona.x+ numMirar >= objectPositio.x) && (persona.x - numMirar <= objectPositio.x)&&
+			(persona.y + numMirar >= objectPositio.y) && (persona.y - numMirar <= objectPositio.y)&&
+			(persona.z + numMirar >= objectPositio.z) && (persona.z - numMirar <= objectPositio.z)){
+
+			//NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
+			//objectPositio = objectPositio-model->getTranslation()  ;
+			std::cout << "Vector objectPositio Antes x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
+			//objectPositio = *model * objectPositio;
+			//Vector3 objectPositioT = YAW.rotateVector(objectPositio);
+			//objectPositio = objectPositio-objectPositioT;
+			//objectPositio = YAW.rotateVector(objectPositio);
+
+			objectPositio.x = (((objectPositio.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
+			objectPositio.y = (((objectPositio.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y- numMirar))) + (-1.0f);
+			objectPositio.y = (((objectPositio.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
+			//objectPositio.x = objectPositio.x * -1;
+
+			
+
+			//objectPositio = *model * objectPositio;
+
+			//objectPositio.y = 0.0f;
+			//objectPositio.y = objectPositio.y / 20.0f;
+			//objectPositio.z = objectPositio.z / 20.0f;
+			//objectPositio.x = objectPositio.x / 20.0f;
+
+			std::cout << "Vector objectPositio Despues x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
+			tempVector.push_back(objectPositio);
+		}
+
+
+
+	}
+	Vector3 Prueba = model->getTranslation();
+	std::cout << "Vector prueba Antes x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
+	persona.x = (((persona.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
+	persona.y = (((persona.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y - numMirar))) + (-1.0f);
+	persona.z = (((persona.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
+	//Prueba.y = 0.0f;
+	std::cout << "Vector prueba x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
+	tempVector.push_back(persona);
+
+
+	/*Prueba = model->getTranslation();
+	std::cout << "Vector prueba Antes x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
+	Prueba.x = (((Prueba.x - (model->getTranslation().x - 20.0f)) * (1.0f - (-1.0f))) / (model->getTranslation().x + 20.0f - (model->getTranslation().x - 20.0f))) + (-1.0f);
+	Prueba.z = (((Prueba.y - (model->getTranslation().y - 20.0f)) * (1.0f - (-1.0f))) / (model->getTranslation().y + 20.0f - (model->getTranslation().y - 20.0f))) + (-1.0f);
+	Prueba.y = (((Prueba.z- (model->getTranslation().z - 20.0f)) * (1.0f - (-1.0f))) / (model->getTranslation().z + 20.0f - (model->getTranslation().z - 20.0f))) + (-1.0f);
+	Prueba.y = 0.0f;
+	std::cout << "Vector prueba x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
+	tempVector.push_back(Prueba);*/
+
+
+	if (tempVector.size() > 0) {
+		renderUI(5, NULL, 1.0f, tempVector);
+	}
+	
+
+
+
+
+}
 void EntityPlayer::retrocesoShoot(float seconds_elapsed) {
 	
 	if (retrocesoOn) {

@@ -16,7 +16,7 @@ void StageShop::render() {
 
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	renderUI(0, uiTexture, 1, Vector3());
+	renderUI(0, uiTexture, 1);
 	drawText(130, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.armaour), Vector3(1, 1, 1), 2);
 	drawText(390, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.grenades), Vector3(1, 1, 1), 2);
 	drawText(660, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer->mejoras.selectedWeapon), Vector3(1, 1, 1), 2);

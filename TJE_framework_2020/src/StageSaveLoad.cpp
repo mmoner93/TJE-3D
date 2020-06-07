@@ -32,7 +32,7 @@ void StageSaveLoad::render() {
 
 	drawText(20, 300, "M go to Menu", Vector3(1, 1, 1), 2);
 	*/
-	renderUI(0, uiTexture, 1, Vector3());
+	renderUI(0, uiTexture, 1);
 	SDL_GL_SwapWindow(Game::instance->window);
 	//print some state of the saved files
 }
