@@ -8,11 +8,11 @@ void EntityEnemy::render(Light* light) {
 	//al personaje
 	EntityGameObject::render(light);
 	
-	Mesh points_mesh;
+	/*Mesh points_mesh;
 	points_mesh.vertices = pointsSP;
 	if (pointsSP.size()) {
 		renderPoints(&points_mesh);
-	}
+	}*/
 
 	//para disparos normales
 	for (int i=0; i < pointsSP.size(); i++) {

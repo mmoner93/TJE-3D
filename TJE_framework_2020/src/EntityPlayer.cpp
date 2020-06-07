@@ -607,13 +607,13 @@ void EntityPlayer::radar() {
 
 	}
 	Vector3 Prueba = model->getTranslation();
-	std::cout << "Vector prueba Antes x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
+	/*std::cout << "Vector prueba Antes x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
 	persona.x = (((persona.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
 	persona.y = (((persona.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y - numMirar))) + (-1.0f);
 	persona.z = (((persona.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
 	//Prueba.y = 0.0f;
-	std::cout << "Vector prueba x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
-	tempVector.push_back(persona);
+	std::cout << "Vector prueba x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;*/
+	//tempVector.push_back(persona);
 
 
 	/*Prueba = model->getTranslation();
