@@ -469,7 +469,7 @@ void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<V
 			/*positionPoint.x = (((positionPoint.x - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);
 			positionPoint.y = (((positionPoint.y - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);
 			positionPoint.z = (((positionPoint.z - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);*/
-			
+			positionPoint.y = positionPoint.y * -1;
 			quad.vertices.push_back(positionPoint);
 			quad.uvs.push_back(Vector2(1, 1));
 		}
@@ -539,9 +539,13 @@ void EntityPlayer::radar() {
 	Vector3 center = eye + front;
 	Vector3 up = Vector3(0, 1, 0);
 
+	Matrix44 inv = *model;
 
+	inv.inverse();
 	Vector3 persona = model->getTranslation();
-	persona = *model * persona;
+	persona = inv * persona;
+	
+	
 	std::cout << "YAW " << yaw * DEG2RAD << std::endl;
 	std::vector<Vector3> tempVector;
 	float numMirar = 40.f;
@@ -554,10 +558,13 @@ void EntityPlayer::radar() {
 
 		float distance = objectPositio.distance(position);
 		model->getRotationOnly();
-		objectPositio = *model * objectPositio;
+		
+
+		objectPositio = inv * objectPositio;
 
 
-
+		//objectPositio = *model * objectPositio;
+		//objectPositio = YAW.rotateVector(objectPositio);
 		Vector3 playerPos=model->getTranslation();
 		if((persona.x+ numMirar >= objectPositio.x) && (persona.x - numMirar <= objectPositio.x)&&
 			(persona.y + numMirar >= objectPositio.y) && (persona.y - numMirar <= objectPositio.y)&&
@@ -570,7 +577,7 @@ void EntityPlayer::radar() {
 			//Vector3 objectPositioT = YAW.rotateVector(objectPositio);
 			//objectPositio = objectPositio-objectPositioT;
 			//objectPositio = YAW.rotateVector(objectPositio);
-
+			
 			objectPositio.x = (((objectPositio.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
 			objectPositio.y = (((objectPositio.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y- numMirar))) + (-1.0f);
 			objectPositio.y = (((objectPositio.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
@@ -578,7 +585,7 @@ void EntityPlayer::radar() {
 
 			
 
-			//objectPositio = *model * objectPositio;
+			//
 
 			//objectPositio.y = 0.0f;
 			//objectPositio.y = objectPositio.y / 20.0f;
