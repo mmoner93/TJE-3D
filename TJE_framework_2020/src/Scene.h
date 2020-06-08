@@ -36,7 +36,7 @@ public:
 	std::vector<EntityImpactoDisparo*> EntitysImpactoDisparo;
 	std::vector<EntityImpactoDisparo*> EntitysImpactoPegamento;
 	EntityTowerArreglo* towerTemp;
-
+	std::vector<EntityTowerArreglo*> TowersList;
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
 		lightScene = l;
 		suelo = s;
@@ -59,12 +59,8 @@ public:
 		disparoPegamentoTexture = Texture::Get("data/impactos/impactogris.png");
 
 
-		Texture* temp1 = Texture::Get("data/itemsUse/torre_finalgreen.png");
-		Texture* temp2 = Texture::Get("data/itemsUse/torre_finalorange.png");
-		Texture* temp3 = Texture::Get("data/itemsUse/torre_final.png");
-		Mesh* tempa = Mesh::Get("data/itemsUse/torre_final.obj");
-		towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa, NULL, "Game", 1.0f);
-		towerTemp->model->translateGlobal(15, 0, 15);
+		
+		//towerTemp->model->translateGlobal(15, 0, 15);
 	}
 
 	void addObject(EntityGameObject* temp);
@@ -89,6 +85,9 @@ public:
 	int idMasBajo();
 	int idMasBajoPegamento();
 	void pintarTowerArreglo();
+	void spawnTower();
+
+
 };
 
 

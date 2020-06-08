@@ -179,7 +179,7 @@ void EntityEnemy::calcularCaminoIA() {
 		else {
 		
 
-			EntityPlayer* player = ((StagePlay*)Stage::current_state)->gameSceneSP->myPlayer;
+			EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 
 			Vector3 director = player->model->getTranslation() - model->getTranslation();
 			director = director.normalize();
@@ -473,7 +473,7 @@ bool EntityEnemy::testCollision(Vector3 target_pos, float seconds_elapsed, std::
 
 		Vector3 objectPositio = en->model->getTranslation();
 
-		float distance = objectPositio.distance(position);
+		float distance = objectPositio.distance(objectPositio);
 
 		if (distance > 10) {
 			continue;

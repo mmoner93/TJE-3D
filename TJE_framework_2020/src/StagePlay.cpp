@@ -439,6 +439,7 @@ void StagePlay::inicializarScena() {
 	gameSceneSP->LoadMap(listEntitysSP);
 	gameSceneSP->loadEnemys(enemysMapSP);
 	gameSceneSP->initListDisparos();
+	gameSceneSP->spawnTower();
 }
 
 

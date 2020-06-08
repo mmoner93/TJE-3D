@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "Stage.h"
 #include "StagePlay.h"
+#include <time.h> 
 void Scene::addObject(EntityGameObject* temp) {
 	mapaObjects.push_back(temp);
 }
@@ -16,8 +17,13 @@ void Scene :: updateScene(float seconds_elapsed) {
 
 	}
 
+	for (int i = 0; i < TowersList.size(); i++) {
 
-	towerTemp->update(seconds_elapsed);
+
+		TowersList[i]->update(seconds_elapsed);
+
+	}
+
 
 }
 void Scene::pintarScene() {
@@ -66,6 +72,43 @@ void Scene::pintarScene() {
 	pintarTowerArreglo();
 	myPlayer->render(lightScene->light);
 }
+
+void Scene::spawnTower() {
+	Texture* temp1 = Texture::Get("data/itemsUse/torre_finalgreen.png");
+	Texture* temp2 = Texture::Get("data/itemsUse/torre_finalorange.png");
+	Texture* temp3 = Texture::Get("data/itemsUse/torre_final.png");
+	Mesh* tempa = Mesh::Get("data/itemsUse/torre_final.obj");
+
+	srand(time(NULL));
+	for (int i = 0; i < 20; ) {
+		int tempWidth = rand() % mapGame->width * 9;
+		int tempHeight = rand() % mapGame->height * 9;
+
+		if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth>=10 && tempHeight>=10 && tempHeight <= (mapGame->width * 9)-5 && tempWidth <= (mapGame->width * 9) - 5) {
+			
+			towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa, NULL, "Game", 1.0f);
+			towerTemp->model->translateGlobal(float(tempHeight), 0, float(tempWidth));
+			TowersList.push_back(towerTemp);
+			i++;
+		}
+		
+	}
+
+
+	
+	
+	/*for (int i = 0; i < mapGame->width * 9; i++) {
+	
+		for (int o = 0; o < mapGame->height * 9; o++) {
+		
+			generatorIA->detectCollision(i,o)
+		}
+	}*/
+
+
+	
+}
+
 
 
 void Scene::pintarDisparos() {
@@ -134,6 +177,8 @@ int  Scene::idMasBajo() {
 	return idmax;
 
 }
+
+
 
 
 void Scene::emplaceDisparo(Vector3 pos) {
@@ -496,8 +541,8 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 	//enemysMap.size()
-
-	for (int i = 0; i < 3; i++) {
+	srand(time(NULL));
+	for (int i = 0; i < 8; i++) {
 		EntityMesh* en;
 
 		switch (i) {
@@ -540,10 +585,27 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		}
 
 		
-		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game",Vector3(0, 0, i * 10.0f), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+		
+		
+		bool controlBucle = true;
+		EntityEnemy* temp;
+		while (controlBucle) {
+			
+			int tempWidth = rand() % (mapGame->width * 9);
+			int tempHeight = rand() % (mapGame->height * 9);
 
-		temp->model->translate((i + 1.0) + 10.0f, 0, (i+1.0) * 10.0f);
-		temp->actualState = ANDAR_TONTO;
+			if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= (mapGame->width * 9) - 5 && tempWidth <= (mapGame->width * 9) - 5) {
+				temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(tempHeight), 0, float(tempWidth)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+				temp->model->translate(float(tempHeight), 0, float(tempWidth));
+				temp->actualState = ANDAR_TONTO;
+				controlBucle = false;
+			}
+		}
+			
+
+		
+		
+		
 		addEnemy(temp);
 	}
 
@@ -607,5 +669,11 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 
 void Scene::pintarTowerArreglo() {
-	towerTemp->render(lightScene->light);
+	
+	for (int i = 0; i < TowersList.size(); i++) {
+		TowersList[i]->render(lightScene->light);
+	}
+	
+	
+	
 }

@@ -297,11 +297,20 @@ void EntityPlayer::fixShoot() {
 		}
 
 	}
-	EntityTowerArreglo* t = temp->gameSceneSP->towerTemp;
-	if (t->mesh->testRayCollision(*t->model, origin, dir, pos, collnorm, 99, true)) {
-		t->onReceveidShootPegamento(pos, collnorm);
-		control = false;
+
+
+	for (int i = 0; i < temp->gameSceneSP->TowersList.size(); i++) {
+	
+		EntityTowerArreglo* t = temp->gameSceneSP->TowersList[i];
+		if (t->mesh->testRayCollision(*t->model, origin, dir, pos, collnorm, 99, true)) {
+			t->onReceveidShootPegamento(pos, collnorm);
+			control = false;
+			break;
+		}
 	}
+
+
+	
 
 	
 
