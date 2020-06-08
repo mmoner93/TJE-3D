@@ -27,7 +27,7 @@ public:
 	estadosRobot actualState;
 	enumEnemyMove actualDirection= STOP;
 
-	float health = 1.0;
+	float health = 2.0;
 	bool aLive = true;
 	std::vector<Vector3> pointsSP;
 	std::vector<Vector3> pointsSPegamento;
@@ -47,6 +47,8 @@ public:
 	float initTimeNextCalcCaminoIa = 4.0;
 	float timeNextCalcCaminoIa = 0.0;
 
+	float timeNextAttack = 0.0;
+	float timeNextAttackMax = 5.0;
 
 	bool calculando;
 

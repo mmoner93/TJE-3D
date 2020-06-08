@@ -629,8 +629,13 @@ void StagePlay::render()
 	gameSceneSP->myPlayer->radar();
 	//drawText(725, 525, "A", Vector3(1, 1, 1), 2);
 	//drawText(725, 570, "G", Vector3(1, 1, 1), 2);
-	//renderUI(0, damage, 0.2f, Vector3());
-	
+
+//	NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
+		
+	float opacity = 1.0 - gameSceneSP->myPlayer->health * 0.1;
+	//float opacity = (((gameSceneSP->myPlayer->health - 0.0f) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin;
+	renderUI(0, damage, opacity);
+
 	
 	SDL_GL_SwapWindow(gameISP->window);
 }

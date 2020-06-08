@@ -40,7 +40,7 @@ public:
 
 
 	float time_enemy_Tower = 2.0f;
-	float time_enemy_Tower_Max=20.0f;
+	float time_enemy_Tower_Max=10.0f;
 
 
 
@@ -95,7 +95,12 @@ public:
 	void spawnTower();
 	int towerMasCerca(EntityEnemy* enem);
 	void tocaRomper(float seconds_elapsed);
-
+	int someEnemyAlive();
+	int enemyAliveRandom();
+	bool someTowerActive();
+	int TowerAliveRandom();
+	int someTowerAlive();
+	int EnemyMasCerca(EntityTowerArreglo* torre);
 };
 
 

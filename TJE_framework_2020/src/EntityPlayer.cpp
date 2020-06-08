@@ -566,80 +566,43 @@ void EntityPlayer::radar() {
 	std::vector<Vector3> tempVector;
 	float numMirar = 40.f;
 	StagePlay* temp = (StagePlay*)Stage::getStage("Play");
-	for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
-		EntityGameObject* en = temp->gameSceneSP->Enemys[i];
-		Vector3 objectPositio = en->model->getTranslation();
-		
-		
 
-		
-		model->getRotationOnly();
-		
 
-		objectPositio = inv * objectPositio;
+	if (temp->gameSceneSP->someEnemyAlive()!=-1) {
+	
+		for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
+			EntityGameObject* en = temp->gameSceneSP->Enemys[i];
+			Vector3 objectPositio = en->model->getTranslation();
 
-		float distance = persona.distance(objectPositio);
-		//objectPositio = *model * objectPositio;
-		//objectPositio = YAW.rotateVector(objectPositio);
-		Vector3 playerPos=model->getTranslation();
-		/*if((persona.x+ numMirar >= objectPositio.x) && (persona.x - numMirar <= objectPositio.x)&&
-			(persona.y + numMirar >= objectPositio.y) && (persona.y - numMirar <= objectPositio.y)&&
-			(persona.z + numMirar >= objectPositio.z) && (persona.z - numMirar <= objectPositio.z)){*/
-		if(distance<= numMirar-5){
-			//NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
-			//objectPositio = objectPositio-model->getTranslation()  ;
-			//std::cout << "Vector objectPositio Antes x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
-			//objectPositio = *model * objectPositio;
-			//Vector3 objectPositioT = YAW.rotateVector(objectPositio);
-			//objectPositio = objectPositio-objectPositioT;
-			//objectPositio = YAW.rotateVector(objectPositio);
-			
-			objectPositio.x = (((objectPositio.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
-			objectPositio.y = (((objectPositio.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y- numMirar))) + (-1.0f);
-			objectPositio.y = (((objectPositio.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
-			//objectPositio.x = objectPositio.x * -1;
+			model->getRotationOnly();
 
-			
+			objectPositio = inv * objectPositio;
 
-			//
+			if (temp->gameSceneSP->Enemys[i]->aLive) {
+				float distance = persona.distance(objectPositio);
 
-			//objectPositio.y = 0.0f;
-			//objectPositio.y = objectPositio.y / 20.0f;
-			//objectPositio.z = objectPositio.z / 20.0f;
-			//objectPositio.x = objectPositio.x / 20.0f;
+				Vector3 playerPos = model->getTranslation();
 
-			//std::cout << "Vector objectPositio Despues x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
-			tempVector.push_back(objectPositio);
+				if (distance <= numMirar - 5) {
+
+
+					objectPositio.x = (((objectPositio.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
+					objectPositio.y = (((objectPositio.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y - numMirar))) + (-1.0f);
+					objectPositio.y = (((objectPositio.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
+
+					tempVector.push_back(objectPositio);
+				}
+			}
+		}
+	
+		if (tempVector.size() > 0) {
+			renderUI(5, NULL, 1.0f, tempVector);
 		}
 
 
-
 	}
-	Vector3 Prueba = model->getTranslation();
-	/*std::cout << "Vector prueba Antes x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
-	persona.x = (((persona.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
-	persona.y = (((persona.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y - numMirar))) + (-1.0f);
-	persona.z = (((persona.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
-	//Prueba.y = 0.0f;
-	std::cout << "Vector prueba x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;*/
-	//tempVector.push_back(persona);
 
-
-	/*Prueba = model->getTranslation();
-	std::cout << "Vector prueba Antes x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
-	Prueba.x = (((Prueba.x - (model->getTranslation().x - 20.0f)) * (1.0f - (-1.0f))) / (model->getTranslation().x + 20.0f - (model->getTranslation().x - 20.0f))) + (-1.0f);
-	Prueba.z = (((Prueba.y - (model->getTranslation().y - 20.0f)) * (1.0f - (-1.0f))) / (model->getTranslation().y + 20.0f - (model->getTranslation().y - 20.0f))) + (-1.0f);
-	Prueba.y = (((Prueba.z- (model->getTranslation().z - 20.0f)) * (1.0f - (-1.0f))) / (model->getTranslation().z + 20.0f - (model->getTranslation().z - 20.0f))) + (-1.0f);
-	Prueba.y = 0.0f;
-	std::cout << "Vector prueba x " << Prueba.x << " y " << Prueba.y << " z " << Prueba.z << std::endl;
-	tempVector.push_back(Prueba);*/
-
-	//tempVector.push_back(Vector3(-1,-1,0));
-	if (tempVector.size() > 0) {
-		renderUI(5, NULL, 1.0f, tempVector);
-	}
 	
-
 
 
 

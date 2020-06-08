@@ -150,12 +150,15 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 		
 
 	}*/
+	if (aLive) {
+		queHacer(seconds_elapsed, objects);
 
-	queHacer(seconds_elapsed,objects);
-
-	timeNextCalcCaminoIa -= seconds_elapsed;
-	atacar();
-
+		timeNextCalcCaminoIa -= seconds_elapsed;
+		timeNextAttack -= seconds_elapsed;
+		atacar();
+	}
+	
+	
 	//puntos = puntos * *model;
 	
 }
@@ -358,6 +361,32 @@ void EntityEnemy::goDestroyTower() {
 
 				movs_tower.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
 			}
+		}
+		else {
+			Vector3 director = towerPos - model->getTranslation();
+			director = director.normalize();
+			//std::cout << "el vector es : x " << director.x << " y :" << director.y << "z: " << director.z << std::endl;
+
+			float distance = towerPos.distance(model->getTranslation());
+
+
+			Vector3 target_pos = model->getTranslation() + director * 0.1;
+
+
+			Vector3 push_away = normalize(target_pos - model->getTranslation());
+			push_away = model->getTranslation() - push_away * 2.0;
+			if (!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)push_away.z ,(int)push_away.x }))) {
+				auto path = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)towerPos.z ,(int)towerPos.x });
+
+				int con = 0;
+				movs.clear();
+				for (auto& coordinate : path) {
+
+					movs.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
+				}
+			}
+
+		
 		}
 	}
 	
@@ -584,6 +613,10 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 
 	pointsSP.push_back(temp);
 	normPointsSP.push_back(norm);
+	health -= 1.0;
+	if (health <= 0.0) {
+		aLive = false;
+	}
 }
 
 void EntityEnemy::onReceveidShootPegamento(Vector3 temp, Vector3 norm) {
@@ -591,9 +624,15 @@ void EntityEnemy::onReceveidShootPegamento(Vector3 temp, Vector3 norm) {
 
 }
 void EntityEnemy::atacar() {
-	if (mirarSiPlayerCerca()) {
-		std::cout << "ATACO"<<std::endl;
+	if (timeNextAttack <= 0.0) {
+		if (mirarSiPlayerCerca()) {
+			std::cout << "ATACO" << std::endl;
+			EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
+			player->health -= 1.0f;
+			timeNextAttack = timeNextAttackMax;
+		}
 	}
+	
 
 }
 

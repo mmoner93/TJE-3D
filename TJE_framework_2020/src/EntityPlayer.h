@@ -30,6 +30,9 @@ public:
 	std::map<enumWeapons, EntityGameObject*> weapons;
 	bool retrocesoOn = false;
 	float retrocesoLeft = 0.0f;
+
+	float health = 10.0;
+
 	EntityPlayer(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		
 		yaw = ya;

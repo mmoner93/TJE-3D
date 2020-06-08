@@ -457,15 +457,32 @@ void Scene::cargarWallsInIA2() {
 		fclose(fp);
 	}
 		
+}
 
-	
-	
+int Scene::EnemyMasCerca(EntityTowerArreglo* torre) {
 
+	float distanceMin = 99999999999.f;
+	int indexMin = -1;
+	for (int i = 0; i < Enemys.size(); i++) {
 
-	
+		if (Enemys[i]->aLive) {
+			float distanceTemp = Enemys[i]->model->getTranslation().distance(torre->model->getTranslation());
+			if (distanceTemp < distanceMin) {
+				distanceMin = distanceTemp;
+				indexMin = i;
+			}
+		}
 
+	}
+
+	if (distanceMin > 100) {
+		indexMin = -1;
+	}
+
+	return indexMin;
 
 }
+
 int Scene::towerMasCerca(EntityEnemy* enem) {
 
 	float distanceMin = 99999999999.f;
@@ -485,19 +502,101 @@ int Scene::towerMasCerca(EntityEnemy* enem) {
 	return indexMin;
 
 }
+bool Scene::someTowerActive() {
+	for (int i = 0; i < TowersList.size(); i++) {
+
+		if (TowersList[i]->estado == GREEN || TowersList[i]->estado == ORANGE) {
+			return true;
+			
+		}
+
+	}
+
+	return false;
+
+}
+
+int Scene::someEnemyAlive() {
+	for (int i = 0; i < Enemys.size(); i++) {
+		if (Enemys[i]->aLive) {
+			return i;
+		}
+	}
+	return -1;
+}
+int Scene::someTowerAlive() {
+	for (int i = 0; i < TowersList.size(); i++) {
+		if (TowersList[i]->estado == GREEN || TowersList[i]->estado == ORANGE) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+
+
+
+int Scene::enemyAliveRandom() {
+	bool controlT = true;
+	int numberControl = 0;
+	while (numberControl<10) {
+		int cual = rand() % Enemys.size();
+		if (Enemys[cual]->aLive) {
+			return cual;
+		}
+
+		numberControl++;
+	}
+
+
+	return someEnemyAlive();
+
+}
+
+
+
+int Scene::TowerAliveRandom() {
+	bool controlT = true;
+	int numberControl = 0;
+	while (numberControl < 10) {
+		int cual = rand() % TowersList.size();
+		if (TowersList[cual]->estado==GREEN || TowersList[cual]->estado == ORANGE) {
+			return cual;
+		}
+
+		numberControl++;
+	}
+
+
+	return someTowerAlive();
+
+}
+
 
 void Scene::tocaRomper(float seconds_elapsed) {
 
 	srand(time(NULL));
 	time_enemy_Tower -= seconds_elapsed;
-	if (time_enemy_Tower <= 0.0) {
-		int cual = rand() % Enemys.size();
-		int tower=towerMasCerca(Enemys[cual]);
-		if (tower != -1) {
-			Enemys[cual]->actualState = DESTRUIR_TORRE;
+	if (someEnemyAlive()!=-1 && someTowerActive()) {
+		
+		if (time_enemy_Tower <= 0.0) {
+			bool controlT = true;
+			//while (controlT) {
+				int cual = TowerAliveRandom() ;
+				int enemyN = EnemyMasCerca(TowersList[cual]);
+				if (enemyN != -1) {
+					Enemys[enemyN]->actualState = DESTRUIR_TORRE;
+				}
+				time_enemy_Tower = time_enemy_Tower_Max;
+				//controlT = false;
+			//}
+
 		}
+	}
+	if (time_enemy_Tower <= 0.0) {
 		time_enemy_Tower = time_enemy_Tower_Max;
 	}
+	
 
 }
 void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
@@ -573,7 +672,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 	//enemysMap.size()
 	srand(time(NULL));
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < 8; i++) {
 		EntityMesh* en;
 
 		switch (i) {
