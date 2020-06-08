@@ -16,6 +16,7 @@
 #include "StageSaveLoad.h"
 #include <cmath>
 #include <bass.h>
+#include "AudioBass.h"
 
 //some globals
 Shader* shader = NULL;
@@ -30,6 +31,8 @@ bool attached_torpedo = true;
 Game* Game::instance = NULL;
 std::map<std::string, Stage*> Stage::s_stages;
 Stage* Stage::current_state = NULL;
+
+MyAudioBass* sample = new MyAudioBass();
 
 
 void PlaySoundAmbient(const char* filename) {
@@ -105,7 +108,9 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	{
 		//error abriendo la tarjeta de sonido...
 	}
-	PlaySoundAmbient("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav");
+	sample = MyAudioBass::Get("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav");
+	sample->PlaySoundAmbient();
+	//PlaySoundAmbient("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav");
 
 	//hide the cursor
 	SDL_ShowCursor(!mouse_locked); //hide or show the mouse
