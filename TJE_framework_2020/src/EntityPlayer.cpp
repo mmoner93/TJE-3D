@@ -562,7 +562,7 @@ void EntityPlayer::radar() {
 	persona = inv * persona;
 	
 	
-	std::cout << "YAW " << yaw * DEG2RAD << std::endl;
+	//std::cout << "YAW " << yaw * DEG2RAD << std::endl;
 	std::vector<Vector3> tempVector;
 	float numMirar = 40.f;
 	StagePlay* temp = (StagePlay*)Stage::getStage("Play");
@@ -588,7 +588,7 @@ void EntityPlayer::radar() {
 		if(distance<= numMirar-5){
 			//NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
 			//objectPositio = objectPositio-model->getTranslation()  ;
-			std::cout << "Vector objectPositio Antes x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
+			//std::cout << "Vector objectPositio Antes x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
 			//objectPositio = *model * objectPositio;
 			//Vector3 objectPositioT = YAW.rotateVector(objectPositio);
 			//objectPositio = objectPositio-objectPositioT;
@@ -608,7 +608,7 @@ void EntityPlayer::radar() {
 			//objectPositio.z = objectPositio.z / 20.0f;
 			//objectPositio.x = objectPositio.x / 20.0f;
 
-			std::cout << "Vector objectPositio Despues x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
+			//std::cout << "Vector objectPositio Despues x " << objectPositio.x << " y " << objectPositio.y << " z " << objectPositio.z << std::endl;
 			tempVector.push_back(objectPositio);
 		}
 

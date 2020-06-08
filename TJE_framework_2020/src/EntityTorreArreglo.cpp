@@ -64,3 +64,9 @@ void EntityTowerArreglo::switchLight() {
 	default:break;
 	}
 }
+
+void EntityTowerArreglo::breakTower() {
+
+	estado = RED;
+	EntityGameObject::textura = textureRed;
+}

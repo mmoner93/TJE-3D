@@ -37,6 +37,13 @@ public:
 	std::vector<EntityImpactoDisparo*> EntitysImpactoPegamento;
 	EntityTowerArreglo* towerTemp;
 	std::vector<EntityTowerArreglo*> TowersList;
+
+
+	float time_enemy_Tower = 2.0f;
+	float time_enemy_Tower_Max=20.0f;
+
+
+
 	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
 		lightScene = l;
 		suelo = s;
@@ -86,7 +93,8 @@ public:
 	int idMasBajoPegamento();
 	void pintarTowerArreglo();
 	void spawnTower();
-
+	int towerMasCerca(EntityEnemy* enem);
+	void tocaRomper(float seconds_elapsed);
 
 };
 

@@ -160,6 +160,15 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 	
 }
 
+
+
+
+
+
+
+
+
+
 void EntityEnemy::calcularCaminoIA() {
 	EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 	Vector3 yo = model->getTranslation();
@@ -302,11 +311,69 @@ void EntityEnemy :: queHacer(float seconds_elapsed, std::vector<EntityGameObject
 			raroIA();
 		}
 		break;
+	case DESTRUIR_TORRE:
+		if (checkTime(seconds_elapsed)) {
+			goDestroyTower();
+		}
+		break;
 	default:std::cout << "Estado de robot no localizado" << std::endl; break;
 	}
 
 
 }
+
+
+
+
+void EntityEnemy::goDestroyTower() {
+	Scene* temp = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP;
+
+	int torre=temp->towerMasCerca(this);
+	
+
+	Vector3 towerPos=temp->TowersList[torre]->model->getTranslation();
+	Vector3 yo = model->getTranslation();
+
+	
+	
+
+	if (movs_tower.size() == 0) {
+	
+		if (!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)towerPos.z ,(int)towerPos.x })) &&
+			!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)yo.z ,(int)yo.x }))) {
+
+			auto path = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)towerPos.z ,(int)towerPos.x });
+			movs_tower.clear();
+			for (auto& coordinate : path) {
+
+				movs_tower.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
+			}
+
+		}
+		else if (!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)towerPos.z ,(int)towerPos.x })) &&
+			!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)yo.z-1 ,(int)yo.x-1 }))) {
+			auto path = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->findPath({ (int)yo.z-1 ,(int)yo.x-1 }, { (int)towerPos.z ,(int)towerPos.x });
+			movs_tower.clear();
+			for (auto& coordinate : path) {
+
+				movs_tower.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
+			}
+		}
+	}
+	
+			
+	if (movs_tower.size() > 0) {
+		Vector3 movimiento = movs_tower.front();
+		model->setTranslation(movimiento.x, movimiento.y, movimiento.z);
+		movs_tower.pop_front();
+		if (movs_tower.size() == 0) {
+			temp->TowersList[torre]->breakTower();
+			actualState = ANDAR_TONTO;
+		}
+	}
+
+}
+
 
 Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 	float speed = (float)seconds_elapsed * (float)200;

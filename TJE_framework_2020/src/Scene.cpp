@@ -23,7 +23,7 @@ void Scene :: updateScene(float seconds_elapsed) {
 		TowersList[i]->update(seconds_elapsed);
 
 	}
-
+	tocaRomper(seconds_elapsed);
 
 }
 void Scene::pintarScene() {
@@ -84,7 +84,7 @@ void Scene::spawnTower() {
 		int tempWidth = rand() % mapGame->width * 9;
 		int tempHeight = rand() % mapGame->height * 9;
 
-		if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth>=10 && tempHeight>=10 && tempHeight <= (mapGame->width * 9)-5 && tempWidth <= (mapGame->width * 9) - 5) {
+		if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth>=10 && tempHeight>=10 && tempHeight <= ((mapGame->width * 9)-10) && tempWidth <= ((mapGame->width * 9) - 10)) {
 			
 			towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa, NULL, "Game", 1.0f);
 			towerTemp->model->translateGlobal(float(tempHeight), 0, float(tempWidth));
@@ -466,9 +466,40 @@ void Scene::cargarWallsInIA2() {
 
 
 }
+int Scene::towerMasCerca(EntityEnemy* enem) {
 
+	float distanceMin = 99999999999.f;
+	int indexMin = -1;
+	for (int i = 0; i < TowersList.size(); i++) {
+	
+		if (TowersList[i]->estado == GREEN || TowersList[i]->estado == ORANGE) {
+			float distanceTemp = TowersList[i]->model->getTranslation().distance(enem->model->getTranslation());
+			if (distanceTemp < distanceMin) {
+				distanceMin = distanceTemp;
+				indexMin = i;
+			}
+		}
+		
+	}
 
+	return indexMin;
 
+}
+
+void Scene::tocaRomper(float seconds_elapsed) {
+
+	srand(time(NULL));
+	time_enemy_Tower -= seconds_elapsed;
+	if (time_enemy_Tower <= 0.0) {
+		int cual = rand() % Enemys.size();
+		int tower=towerMasCerca(Enemys[cual]);
+		if (tower != -1) {
+			Enemys[cual]->actualState = DESTRUIR_TORRE;
+		}
+		time_enemy_Tower = time_enemy_Tower_Max;
+	}
+
+}
 void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 	for (int x = 0; x < mapGame->width; ++x){
 		for (int y = 0; y < mapGame->height; ++y)
@@ -542,7 +573,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 	//enemysMap.size()
 	srand(time(NULL));
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < 1; i++) {
 		EntityMesh* en;
 
 		switch (i) {
@@ -594,7 +625,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 			int tempWidth = rand() % (mapGame->width * 9);
 			int tempHeight = rand() % (mapGame->height * 9);
 
-			if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= (mapGame->width * 9) - 5 && tempWidth <= (mapGame->width * 9) - 5) {
+			if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= ((mapGame->width * 9) - 10) && tempWidth <= ((mapGame->width * 9) - 10)) {
 				temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(tempHeight), 0, float(tempWidth)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 				temp->model->translate(float(tempHeight), 0, float(tempWidth));
 				temp->actualState = ANDAR_TONTO;

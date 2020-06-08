@@ -29,6 +29,7 @@ public:
 	 void onReceveidShootPegamento(Vector3 temp, Vector3 norm);
 	 void switchLight();
 	 void changeTime(float seconds_elapsed);
+	 void breakTower();
 };
 
 

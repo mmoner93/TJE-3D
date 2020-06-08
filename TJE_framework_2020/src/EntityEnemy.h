@@ -39,6 +39,7 @@ public:
 	int contadorMovimientos = 0;
 	int contadorCollisions = 0;
 	std::list<Vector3> movs;
+	std::list<Vector3>movs_tower;
 
 	//time ----------------
 	float timeTopNextMove = 0.05;
@@ -86,6 +87,7 @@ public:
 	void calcularCaminoIA();
 	void queHacer(float seconds_elapsed, std::vector<EntityGameObject*> objects);
 
+	void goDestroyTower();
 
 	bool estoyEnUsoIACalc();
 
