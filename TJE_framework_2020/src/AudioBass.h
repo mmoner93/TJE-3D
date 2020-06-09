@@ -23,6 +23,7 @@ public:
 
 	bool load(const char* filename);
 	static MyAudioBass* Get(const char* filename);
+	static void initBass();
 	void setName(const char* filename) { sAudiosLoaded[filename] = this; }
 	void PlaySoundAmbient(); 
 };

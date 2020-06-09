@@ -104,10 +104,11 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	shader = Shader::Get("data/shaders/basic.vs", "data/shaders/texture.fs");
 
 	//torpedo_model.setTranslation(0, -5, 0);
-	if (BASS_Init(-1, 44100, 0, 0, NULL) == false) //-1 significa usar el por defecto del sistema operativo
-	{
-		//error abriendo la tarjeta de sonido...
-	}
+	//if (BASS_Init(-1, 44100, 0, 0, NULL) == false) //-1 significa usar el por defecto del sistema operativo
+	//{
+	//	//error abriendo la tarjeta de sonido...
+	//}
+	MyAudioBass::initBass();
 	sample = MyAudioBass::Get("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav");
 	sample->PlaySoundAmbient();
 	//PlaySoundAmbient("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav");

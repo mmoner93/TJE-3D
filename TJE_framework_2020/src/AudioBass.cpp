@@ -11,6 +11,13 @@ MyAudioBass::~MyAudioBass() {
 
 }
 
+void MyAudioBass::initBass() {
+	if (BASS_Init(-1, 44100, 0, 0, NULL) == false) //-1 significa usar el por defecto del sistema operativo
+	{
+		//error abriendo la tarjeta de sonido...
+	}
+}
+
 bool MyAudioBass::load(const char* filename)
 {
 	std::string str = filename;
@@ -63,6 +70,8 @@ void MyAudioBass::PlaySoundAmbient() {
 	//Cargamos un sample del disco duro (memoria, filename, offset, length, max, flags)
 	//use BASS_SAMPLE_LOOP in the last param to have a looped sound
 	
+
+
 	if (hSample == 0){
 		std::cout << "file not found" << std::endl;
 		//file not found
