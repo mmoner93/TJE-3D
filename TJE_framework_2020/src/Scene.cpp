@@ -80,7 +80,7 @@ void Scene::spawnTower() {
 	Mesh* tempa = Mesh::Get("data/itemsUse/torre_final.obj");
 
 	srand(time(NULL));
-	for (int i = 0; i < 20; ) {
+	for (int i = 0; i < numTowers; ) {
 		int tempWidth = rand() % mapGame->width * 9;
 		int tempHeight = rand() % mapGame->height * 9;
 
@@ -210,6 +210,20 @@ void Scene::emplaceDisparo(Vector3 pos) {
 
 }
 
+void Scene::restartLvl(std::map<std::string, Entity*> enemysMapSP) {
+
+	Enemys.clear();
+	TowersList.clear();
+	EntitysImpactoDisparo.clear();
+	EntitysImpactoPegamento.clear();
+	loadEnemys(enemysMapSP);
+	initListDisparos();
+	spawnTower();
+
+}
+
+
+
 
 
 void Scene::emplacePegamento(Vector3 pos) {
@@ -327,7 +341,10 @@ std::vector<std::string> split_istringstream(std::string str) {
 
 
 bool Scene::loadWalls() {
-	FILE* fp = fopen("mapaIAConfig.txt", "rb");
+
+	std::string name = "mapaIA"+ std::to_string(numLvl) + "Config.txt";
+	
+	FILE* fp = fopen(name.c_str(), "rb");
 	if (fp == NULL) {
 		std::cout << "No se encuentra archivo apaIAConfig.txt "  << std::endl;
 		return false;
@@ -376,7 +393,9 @@ bool Scene::loadWalls() {
 
 void Scene::writeWalls() {
 	AStar::CoordinateList temp;
-	FILE* fp = fopen("mapaIAConfig.txt", "wb");
+	std::string name = "mapaIA" + std::to_string(numLvl) + "Config.txt";
+
+	FILE* fp = fopen(name.c_str(), "wb");
 	for (int i = 0; i < generatorIA->walls.size();i++) {
 		//temp.push_back(generatorIA->walls[i]);
 
@@ -666,18 +685,41 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 }
 
+bool Scene::checkEndLvl() {
+
+	int contadorTowers = 0;
+	for (int i = 0; i < TowersList.size(); i++) {
+	
+		if (TowersList[i]->estado == GREEN) {
+			contadorTowers++;
+		}
+	
+	}
+
+	if (contadorTowers == TowersList.size()) {
+		return true;
+	}
+
+	return false;
+
+}
 
 
 void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 	//enemysMap.size()
 	srand(time(NULL));
-	for (int i = 1; i < 2; i++) {
-		EntityMesh* en;
 
-		switch (i) {
+
+	int i = 0;
+	EntityMesh* en;
+	while (i < numEnemys) {
+	
+		int cual = rand()%6;
+
+		switch (cual) {
 		case 0:
-			en = (EntityMesh*)enemysMap["Arachnoid"];
+			en = (EntityMesh*)enemysMap["MechaGolem"];
 
 			break;
 		case 1:
@@ -689,38 +731,23 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 			en = (EntityMesh*)enemysMap["Companion"];
 			break;
 		case 3:
-
-			en = (EntityMesh*)enemysMap["MobileStorageBot"];
+			en = (EntityMesh*)enemysMap["MechaTrooper"];
 			break;
 		case 4:
 
-			en = (EntityMesh*)enemysMap["MechaTrooper"];
-			break;
-		case 5:
-
 			en = (EntityMesh*)enemysMap["FieldFighter"];
 			break;
-		case 6:
-
-			en = (EntityMesh*)enemysMap["QuadrupedTank"];
-			break;
-		case 7:
-
-			en = (EntityMesh*)enemysMap["MechaGolem"];
-			break;
-		case 8:
+		case 5:
 
 			en = (EntityMesh*)enemysMap["Mecha01"];
 			break;
 		}
 
-		
-		
-		
+
 		bool controlBucle = true;
 		EntityEnemy* temp;
 		/*while (controlBucle) {
-			
+
 			int tempWidth = rand() % (mapGame->width * 9);
 			int tempHeight = rand() % (mapGame->height * 9);
 
@@ -731,69 +758,28 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 				controlBucle = false;
 			}
 		}*/
-			
+
 
 		temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 		temp->model->translate(float(10), 0, float(10));
 		temp->actualState = ANDAR_TONTO;
-		
-		
+
+
 		addEnemy(temp);
+		
+
+		i++;
 	}
 
-	/*int o = enemysMap.size();
 
-	for (int i = 0; i < enemysMap.size(); i++) {
-		EntityMesh* en;
-
-		switch (i) {
-		case 0:
-			en = (EntityMesh*)enemysMap["Arachnoid"];
-
-			break;
-		case 1:
-
-			en = (EntityMesh*)enemysMap["ReconBot"];
-			break;
-		case 2:
-
-			en = (EntityMesh*)enemysMap["Companion"];
-			break;
-		case 3:
-
-			en = (EntityMesh*)enemysMap["MobileStorageBot"];
-			break;
-		case 4:
-
-			en = (EntityMesh*)enemysMap["MechaTrooper"];
-			break;
-		case 5:
-
-			en = (EntityMesh*)enemysMap["FieldFighter"];
-			break;
-		case 6:
-
-			en = (EntityMesh*)enemysMap["QuadrupedTank"];
-			break;
-		case 7:
-
-			en = (EntityMesh*)enemysMap["MechaGolem"];
-			break;
-		case 8:
-
-			en = (EntityMesh*)enemysMap["Mecha01"];
-			break;
-		}
-
-
-		EntityEnemy* temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(0, 0, i * 10.0f), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 
 		
-		temp->model->translate((o + 1.0) * 10.0f, 0, (o + 1.0) * 10.0f);
-		temp->actualState = ANDAR_TONTO;
-		addEnemy(temp);
-		o++;
-	}*/
+		
+		
+		
+	
+
+	
 
 
 

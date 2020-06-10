@@ -8,10 +8,10 @@
 #include "Entity.h"
 #include "material.h"
 #include "Scene.h"
-
 class StagePlay :public Stage
 {
 public:
+
 	Shader* shaderBasicSP;
 	Shader* shaderFlatSP;
 	Shader* shaderPhongSP;
@@ -29,8 +29,7 @@ public:
 	std::map<std::string, Entity*> enemysMapSP;
 	Scene* gameSceneSP;
 	std::vector<Vector3> pointsSP;
-
-
+	std::map<int, Scene*> Lvls;
 	StagePlay() :Stage("Play") {
 		iniciado = true;
 	};

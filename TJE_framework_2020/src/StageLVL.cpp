@@ -1,5 +1,5 @@
 #include "StageLVL.h"
-
+#include "StagePlay.h"
 int lvlOnScreen = 0;
 int lvls[3] = { LVL1, LVL2, LVL3 };
 
@@ -37,10 +37,17 @@ void StageLVL::update(double dt) {
 		uiTexture = select3;
 	}
 	if (Input::wasKeyPressed(SDL_SCANCODE_P)) {
+		StagePlay* temp = ((StagePlay*)(Stage::getStage("Play")));
+		
 		if (optionSelected == 1) {
+			
+			temp->gameSceneSP = temp->Lvls[0];
+			temp->gameSceneSP->restartLvl(temp->enemysMapSP);
 			Stage::changeState("Play");
 		}
 		else if (optionSelected == 2) {
+			temp->gameSceneSP = temp->Lvls[1];
+			temp->gameSceneSP->restartLvl(temp->enemysMapSP);
 			Stage::changeState("Play");
 		}
 		else if (optionSelected == 3) {

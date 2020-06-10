@@ -435,11 +435,24 @@ void StagePlay::inicializarScena() {
 	uiTexture = Texture::Get("data/UI/items.png");
 	damage = Texture::Get("data/UI/vida.png");
 
-	gameSceneSP = new Scene(ltemp, entitySuelo, entityCielo,player);
-	gameSceneSP->LoadMap(listEntitysSP);
-	gameSceneSP->loadEnemys(enemysMapSP);
-	gameSceneSP->initListDisparos();
-	gameSceneSP->spawnTower();
+	
+	Lvls[0]= new Scene(0, ltemp, entitySuelo, entityCielo, player);
+
+	Lvls[0]->LoadMap(listEntitysSP);
+	Lvls[0]->loadEnemys(enemysMapSP);
+	Lvls[0]->initListDisparos();
+	Lvls[0]->spawnTower();
+
+	Lvls[1] = new Scene(1, ltemp, entitySuelo, entityCielo, player);
+
+	Lvls[1]->LoadMap(listEntitysSP);
+	Lvls[1]->loadEnemys(enemysMapSP);
+	Lvls[1]->initListDisparos();
+	Lvls[1]->spawnTower();
+
+	//gameSceneSP = Lvls[0];
+
+
 }
 
 
@@ -707,6 +720,10 @@ void StagePlay::update(double seconds_elapsed)
 	SDL_ShowCursor(false);
 	if (Input::wasKeyPressed(SDL_SCANCODE_M))
 	{
+		Stage::changeState("MenuInGame");
+	}
+
+	if (gameSceneSP->checkEndLvl()) {
 		Stage::changeState("MenuInGame");
 	}
 

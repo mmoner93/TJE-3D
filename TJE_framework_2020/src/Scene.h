@@ -43,15 +43,43 @@ public:
 	float time_enemy_Tower_Max=10.0f;
 
 
+	/*Para controlar lvl*/
+	int numLvl;
+	int numEnemys;
+	int numTowers;
+	Vector3 initPosPlayer;
 
-	Scene(EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
+
+
+	Scene(int num,EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
+		numLvl = num;
 		lightScene = l;
 		suelo = s;
 		cielo = ci;
 		myPlayer = pl;
 
 		mapGame = new GameMap(256, 256);
-		mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+
+		switch (numLvl) {
+		case 0:
+			numEnemys = 0;
+			numTowers = 2;
+			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+			break;
+		case 1:
+			numEnemys = 1;
+			numTowers = 2;
+			mapGame->loadMapWithMap("data/myMaps/mymap3.map");
+			break;
+		case 2:
+			numEnemys = 8;
+			numTowers = 20;
+			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+
+			break;
+		}
+
+		
 		generatorIA = new AStar::Generator();
 		//pongo *9 por que es como lo he escalado de momento .
 		generatorIA->setWorldSize({mapGame->width * 9, mapGame->height * 9 });
@@ -101,6 +129,11 @@ public:
 	int TowerAliveRandom();
 	int someTowerAlive();
 	int EnemyMasCerca(EntityTowerArreglo* torre);
+
+
+	bool checkEndLvl();
+	void restartLvl(std::map<std::string, Entity*>);
+
 };
 
 
