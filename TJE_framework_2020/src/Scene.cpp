@@ -672,7 +672,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 	//enemysMap.size()
 	srand(time(NULL));
-	for (int i = 0; i < 8; i++) {
+	for (int i = 1; i < 2; i++) {
 		EntityMesh* en;
 
 		switch (i) {
@@ -719,7 +719,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		
 		bool controlBucle = true;
 		EntityEnemy* temp;
-		while (controlBucle) {
+		/*while (controlBucle) {
 			
 			int tempWidth = rand() % (mapGame->width * 9);
 			int tempHeight = rand() % (mapGame->height * 9);
@@ -730,10 +730,12 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 				temp->actualState = ANDAR_TONTO;
 				controlBucle = false;
 			}
-		}
+		}*/
 			
 
-		
+		temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+		temp->model->translate(float(10), 0, float(10));
+		temp->actualState = ANDAR_TONTO;
 		
 		
 		addEnemy(temp);

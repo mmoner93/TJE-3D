@@ -6,6 +6,7 @@
 void EntityEnemy::render(Light* light) {
 
 	//al personaje
+	
 	EntityGameObject::render(light);
 	
 	/*Mesh points_mesh;
@@ -288,14 +289,45 @@ void EntityEnemy::raroIA() {
 }
 
 
+
+
+
+
 void EntityEnemy :: queHacer(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 
+	EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 
+	Vector3 playPos = player->model->getTranslation();
+	Matrix44 inv = *player->model;
+	Matrix44 invEnem = *model;
+	inv.inverse();
+	invEnem.inverse();
+	playPos = invEnem * playPos;
+
+	Vector3 enPos = model->getTranslation();
+
+
+	enPos = invEnem * enPos;
+
+
+	Vector3 director = playPos - enPos;
+
+
+	//if (director.x != 0 && director.y != 0 && director.z != 0)
+		//director = director.normalize();
+	//std::cout << "el vector es : x " << director.x << " y :" << director.y << "z: " << director.z << std::endl;
+	float target_angle = atan2(director.z, director.x);
+	
+	
 	switch (actualState) {
 	case STOP_R:
 		break;
 	case ANDAR_TONTO:
+		
+		
+
 		if (checkTime(seconds_elapsed)) {
+			model->rotate(target_angle * RAD2DEG * DEG2RAD, Vector3(0, 1, 0));
 			Vector3 target_pos = moveEnemy(seconds_elapsed, objects);
 			//TRS
 
@@ -305,9 +337,35 @@ void EntityEnemy :: queHacer(float seconds_elapsed, std::vector<EntityGameObject
 			//player.model.setIdentity();
 
 			model->setTranslation(position.x, position.y, position.z);
+			
+			
 
-			//model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
+			//para rotar y que te mire---------------
+			playPos = player->model->getTranslation();
+			 inv = *player->model;
+			 invEnem = *model;
+			inv.inverse();
+			invEnem.inverse();
+			playPos = invEnem * playPos;
+
+			 enPos = model->getTranslation();
+
+
+			enPos = invEnem * enPos;
+
+
+		  Vector3 director = playPos - enPos;
+		  target_angle = atan2(director.z, director.x);
+
+			model->rotate(target_angle * RAD2DEG * DEG2RAD, Vector3(0, 1, 0));
+
+			//para rotar y que te mire--------------- END
 		}
+		//if (0.0 != target_angle) {
+		//	angle = target_angle;
+		//	model->rotate(angle * RAD2DEG * DEG2RAD, Vector3(0, 1, 0));
+		//}
+		
 		break;
 	case ANDAR_LISTO:
 		if (checkTime(seconds_elapsed)) {
@@ -416,20 +474,37 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 
 	EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 
-	Vector3 director = player->model->getTranslation() - model->getTranslation();
+	Vector3 playPos = player->model->getTranslation();
+	Matrix44 inv = *player->model;
+	Matrix44 invEnem = *model;
+	inv.inverse();
+	invEnem.inverse();
+	//playPos = invEnem * playPos;
+
+	Vector3 enPos = model->getTranslation();
+	
+	
+	//enPos = invEnem * enPos;
+
+
+	Vector3 director = playPos - enPos;
+
+	
+	if(director.x!=0 && director.y != 0 && director.z != 0 )
 	director = director.normalize();
 	//std::cout << "el vector es : x " << director.x << " y :" << director.y << "z: " << director.z << std::endl;
-
+	
 	float distance = player->model->getTranslation().distance(model->getTranslation());
-
+	
 
 	target_pos = model->getTranslation() + director*0.1;
-
+	
 
 	if (distance < 30.0 && contadorCollisions < 5 ) {
 		if (testCollision(target_pos, seconds_elapsed, objects)) {
-			
+			//return Vector3(10.0, 0, 10.0);
 			return target_pos;
+
 		}
 		else {
 
@@ -520,8 +595,8 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 	
 		contadorCollisions = 0;
 		contadorMovimientos = 0;
-	return target_pos;
-
+	    return target_pos;
+		
 
 }
 //de momento lo dejo aqui. Se puede transladar cuando haga mecanica pensada de "pegamento" para reparar.

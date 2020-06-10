@@ -477,9 +477,7 @@ void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<V
 
 		for (int i = 0; i < listaPoints.size(); i++) {
 			Vector3 positionPoint = listaPoints[i];
-			/*positionPoint.x = (((positionPoint.x - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);
-			positionPoint.y = (((positionPoint.y - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);
-			positionPoint.z = (((positionPoint.z - (-1.0f)) * (1.0f - (-1.0f))) / (20.0f - 0.0f)) + (-1.0f);*/
+
 			positionPoint.y = positionPoint.y * -1;
 
 			positionPoint.y = positionPoint.y * 0.2;
@@ -490,28 +488,6 @@ void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<V
 			quad.uvs.push_back(Vector2(1, 1));
 		}
 		
-
-		//quad.vertices.push_back(Vector3(-0.78, -0.45, 0));
-		//quad.uvs.push_back(Vector2(1, 1));
-		//quad.vertices.push_back(Vector3(-1, -0.7, 0));
-		//quad.uvs.push_back(Vector2(1, 1));
-		//quad.vertices.push_back(Vector3(-1, 0.5, 0));
-		//quad.uvs.push_back(Vector2(1, 1));
-		//quad.vertices.push_back(Vector3(0.0, 0.5, 0));
-		//quad.uvs.push_back(Vector2(1, 1));
-		/*quad.vertices.push_back(Vector3(0, 0, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(0, -1, 0));
-		quad.uvs.push_back(Vector2(0, 0));
-		quad.vertices.push_back(Vector3(1, -1, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(0, 0, 0));
-		quad.uvs.push_back(Vector2(0, 1));
-		quad.vertices.push_back(Vector3(1, -1, 0));
-		quad.uvs.push_back(Vector2(1, 0));
-		quad.vertices.push_back(Vector3(1, 0, 0));
-		quad.uvs.push_back(Vector2(1, 1));
-		//quad.uvs.push_back(Vector2(1, 1));*/
 
 	}
 
@@ -539,21 +515,6 @@ void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<V
 }
 
 void EntityPlayer::radar() {
-
-	Game* GameI = Game::instance;
-	Camera* camera = Camera::current;
-
-	Vector3 eye = *model * Vector3(0, 0.6, -0.2);
-	Vector3 front(0, 0, -1);
-	Matrix44 PITCH;
-	PITCH.setRotation(pitch * DEG2RAD, Vector3(1, 0, 0));
-	front = PITCH.rotateVector(front);
-	Matrix44 YAW;
-	YAW.setRotation(yaw * DEG2RAD, Vector3(0, 1, 0));
-	//std::cout << "El pitch es " << pitch << std::endl;
-	front = YAW.rotateVector(front);
-	Vector3 center = eye + front;
-	Vector3 up = Vector3(0, 1, 0);
 
 	Matrix44 inv = *model;
 
