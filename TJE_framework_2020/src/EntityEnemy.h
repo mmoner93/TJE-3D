@@ -6,6 +6,7 @@
 #include "input.h"
 #include "game.h"
 #include "enumStructs.h"
+#include "animation.h"
 #include <list>
 class EntityEnemy :public EntityGameObject
 {
@@ -23,6 +24,11 @@ public:
 	Texture* disparoTexture;
 	Mesh* disparoMeshPegamento;
 	Texture* disparoPegamentoTexture;
+
+	Animation* idle;
+	Animation* run;
+	Animation* walk;
+	Skeleton* blendWalkRun;
 
 	estadosRobot actualState;
 	enumEnemyMove actualDirection= STOP;
@@ -84,7 +90,8 @@ public:
 	void contadorCollUp();
 	void raroIA();
 	
-
+	void loalAnim(int enemy);
+	void renderAnimated(Light* light);
 
 	void calcularCaminoIA();
 	void queHacer(float seconds_elapsed, std::vector<EntityGameObject*> objects);

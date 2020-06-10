@@ -3,11 +3,85 @@
 #include "StagePlay.h"
 #include "AStar.hpp"
 #include "pathfinders.h"
+
+
+void EntityEnemy::loalAnim(int enemy) {
+	if (enemy == 1) {
+		idle = Animation::Get("data/animations/mechatrooper/animations_idle.skanim");
+		walk = Animation::Get("data/animations/mechatrooper/animations_mutant_walking.skanim");
+		run = Animation::Get("data/animations/mechatrooper/animations_running.skanim");
+	}
+	if (enemy == 2) {
+		idle = Animation::Get("data/animations/mechatrooper/animations_idle.skanim");
+		walk = Animation::Get("data/animations/mechatrooper/animations_mutant_walking.skanim");
+		run = Animation::Get("data/animations/mechatrooper/animations_running.skanim");
+	}
+	blendWalkRun = new Skeleton();
+
+}
+
+
+
+void EntityEnemy::renderAnimated(Light* light) {
+
+	Camera* camera = Camera::current;
+	Vector3 ambientLight(0.3, 0.3, 0.3);
+	Matrix44 m = *model;
+
+	//animations
+	float t = fmod(Game::instance->time, idle->duration) / idle->duration;
+	idle->assignTime(Game::instance->time);
+	t = fmod(Game::instance->time, walk->duration) / walk->duration;
+	walk->assignTime(t * walk->duration);
+	t = fmod(Game::instance->time, run->duration) / run->duration;
+	run->assignTime(t * run->duration);
+	// timeanim -> duration1
+	// xtime    -> duration 2
+	// x = (timeanim*duration 2)/duration1
+	float speedFactor = 0.5; // (vel_x + vel_y).length() * 0.5;
+	if (speedFactor < 1)
+	{
+		blendSkeleton(&idle->skeleton, &walk->skeleton, 0.5, blendWalkRun);
+	}
+	else
+	{
+		blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+	}
+
+
+
+	//enable shader
+	shader->enable();
+
+	//m.scale(scale, scale, scale);
+	//upload uniforms
+	shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+	shader->setUniform("u_viewprojection", camera->viewprojection_matrix);
+	shader->setUniform("u_texture", textura, 0);
+	shader->setUniform("u_model", m);
+	shader->setUniform("u_time", Game::instance->time);
+	Vector3 light_direction = light->position - model->getTranslation();
+	shader->setUniform("u_light_direction", light_direction);
+	shader->setUniform("u_camera_position", camera->eye);
+	shader->setFloat("u_tilling", tilling);
+
+
+	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+	mesh->renderAnimated(GL_TRIANGLES, blendWalkRun);
+
+
+
+	shader->disable();
+
+}
+
+
 void EntityEnemy::render(Light* light) {
 
 	//al personaje
 	
-	EntityGameObject::render(light);
+	//EntityGameObject::render(light);
+	renderAnimated(light);
 	
 	/*Mesh points_mesh;
 	points_mesh.vertices = pointsSP;

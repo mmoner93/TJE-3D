@@ -66,8 +66,9 @@ void StagePlay::rellenarEnemys() {
 		case 4:
 			textureTemp = Texture::Get("data/personajes/MechaTrooper.png", false, false);
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/personajes/MechaTrooper.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
+			//MeshTemp = Mesh::Get("data/personajes/MechaTrooper.obj");
+			MeshTemp = Mesh::Get("data/animations/mechatrooper/MechaTrooper.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["MechaTrooper"] = temp;
 			break;
 		case 5:
@@ -464,6 +465,7 @@ void StagePlay::init() {
 	shaderFlatSP= Shader::Get("data/shaders/basic.vs", "data/shaders/flat.fs");
 	shaderGameSP= Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs");
 	shaderAnimSP = Shader::Get("data/shaders/skinningnew.vs", "data/shaders/Game.fs");
+	
 	materialSP = new Material();
 
 	

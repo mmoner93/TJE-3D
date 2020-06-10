@@ -672,7 +672,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 	//enemysMap.size()
 	srand(time(NULL));
-	for (int i = 1; i < 2; i++) {
+	for (int i = 4; i < 5; i++) {
 		EntityMesh* en;
 
 		switch (i) {
@@ -734,6 +734,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 			
 
 		temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+		temp->loalAnim(1);
 		temp->model->translate(float(10), 0, float(10));
 		temp->actualState = ANDAR_TONTO;
 		
