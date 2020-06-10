@@ -40,7 +40,7 @@ public:
 
 
 	float time_enemy_Tower = 2.0f;
-	float time_enemy_Tower_Max=10.0f;
+	
 
 
 	/*Para controlar lvl*/
@@ -48,7 +48,7 @@ public:
 	int numEnemys;
 	int numTowers;
 	Vector3 initPosPlayer = Vector3(10, 0, 10);
-
+	float time_enemy_Tower_Max = 10.0f;
 
 
 	Scene(int num,EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
@@ -66,17 +66,20 @@ public:
 			numTowers = 2;
 			initPosPlayer = Vector3(10,0,10);
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 1:
 			numEnemys = 1;
 			numTowers = 2;
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/mymap3.map");
+			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 2:
 			numEnemys = 8;
 			numTowers = 20;
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+			time_enemy_Tower_Max = 10.0f;
 
 			break;
 		}
