@@ -47,7 +47,7 @@ public:
 	int numLvl;
 	int numEnemys;
 	int numTowers;
-	Vector3 initPosPlayer;
+	Vector3 initPosPlayer = Vector3(10, 0, 10);
 
 
 
@@ -64,11 +64,13 @@ public:
 		case 0:
 			numEnemys = 0;
 			numTowers = 2;
+			initPosPlayer = Vector3(10,0,10);
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
 			break;
 		case 1:
 			numEnemys = 1;
 			numTowers = 2;
+			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/mymap3.map");
 			break;
 		case 2:

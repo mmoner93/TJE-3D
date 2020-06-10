@@ -220,6 +220,7 @@ void Scene::restartLvl(std::map<std::string, Entity*> enemysMapSP) {
 	initListDisparos();
 	spawnTower();
 
+	myPlayer->position=initPosPlayer;
 }
 
 
