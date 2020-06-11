@@ -725,7 +725,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 	int i = 0;
 	EntityMesh* en;
-	while (i < numEnemys < 1) {
+	while (i < 9) {
 
 		//int cual = rand() % 5;
 
