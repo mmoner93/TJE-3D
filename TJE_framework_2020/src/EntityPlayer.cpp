@@ -390,6 +390,7 @@ void EntityPlayer::shoot() {
 	temp->gameSceneSP->disparo->in_use = true;
 	temp->gameSceneSP->disparo->dir = dir;
 
+	temp->gameSceneSP->disparo->time_passed = 0.0f;
 
 
 

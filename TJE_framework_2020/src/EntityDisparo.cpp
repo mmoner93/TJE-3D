@@ -8,8 +8,19 @@ void EntityDisparo::render(Light* light) {
 
 }
 void EntityDisparo::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
+	time_passed +=Game::instance->elapsed_time;
+	Vector3 targe_pos;
+	if (tipo == T_NORMAL) {
+		targe_pos = position + dir * vel;
+	}
+	else if (tipo == T_PEGAMENTO) {
+		targe_pos = position + Vector3(dir.x,dir.y,dir.z) * vel;
+	}
 	
-	Vector3 targe_pos = position + dir* vel;
+	//Vector3 directorGravity = Vector3(model->getTranslation().x,-9999, model->getTranslation().z)-targe_pos;
+	//directorGravity.normalize();
+	targe_pos = targe_pos-Vector3(0,1,0) * time_passed*0.1;
+	std::cout << "Soy time * " << time_passed * 1.3 <<" Soy sin * "<< time_passed << std::endl;
 	targe_pos = testCollision(targe_pos, seconds_elapsed, objects);
 	model->setTranslation(targe_pos.x, targe_pos.y, targe_pos.z);
 	model->setFrontAndOrthonormalize(dir);

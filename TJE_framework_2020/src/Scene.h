@@ -44,7 +44,7 @@ public:
 	float time_enemy_Tower = 2.0f;
 	
 	//std::vector<EntityImpactoDisparo*> EntitysDisparo;
-
+	std::vector<EntityDisparo*> disparosMove;
 	EntityDisparo* disparo;
 
 	/*Para controlar lvl*/
@@ -105,7 +105,7 @@ public:
 
 
 
-		disparo = new EntityDisparo(disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"),disparoMesh,NULL,"game",Vector3(0,0,0),T_NORMAL);
+		disparo = new EntityDisparo(disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"),disparoMesh,NULL,"game",Vector3(0,0,0),T_PEGAMENTO);
 		
 		//towerTemp->model->translateGlobal(15, 0, 15);
 	}
