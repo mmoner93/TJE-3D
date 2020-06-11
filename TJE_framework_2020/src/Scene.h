@@ -34,6 +34,8 @@ public:
 	Texture* disparoPegamentoTexture;
 	int contadorIdDisparo = 0;
 	int contadorIdDisparoPegamento = 0;
+	int contadorIdDisparoPegamentoMovimiento = 0;
+	int contadorIdDisparoMovimiento = 0;
 	std::vector<EntityImpactoDisparo*> EntitysImpactoDisparo;
 	std::vector<EntityImpactoDisparo*> EntitysImpactoPegamento;
 	EntityTowerArreglo* towerTemp;
@@ -45,6 +47,7 @@ public:
 	
 	//std::vector<EntityImpactoDisparo*> EntitysDisparo;
 	std::vector<EntityDisparo*> disparosMove;
+	std::vector<EntityDisparo*> disparosPegamentoMove;
 	EntityDisparo* disparo;
 
 	/*Para controlar lvl*/
@@ -105,7 +108,7 @@ public:
 
 
 
-		disparo = new EntityDisparo(disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"),disparoMesh,NULL,"game",Vector3(0,0,0),T_PEGAMENTO);
+		//disparo = new EntityDisparo(disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"),disparoMesh,NULL,"game",Vector3(0,0,0),T_PEGAMENTO);
 		
 		//towerTemp->model->translateGlobal(15, 0, 15);
 	}
@@ -127,10 +130,15 @@ public:
 
 	void pintarDisparos();
 	void emplaceDisparo(Vector3 pos);
-	void pintarDisparosPegamento();
 	void emplacePegamento(Vector3 pos);
 	int idMasBajo();
 	int idMasBajoPegamento();
+	int idMasBajoPegamentoMovimiento();
+	int idMasBajoMovimiento();
+
+	void activateDisparo(Vector3 origin,Vector3 dir);
+	void activateDisparoPegamento(Vector3 origin, Vector3 dir);
+
 	void pintarTowerArreglo();
 	void spawnTower();
 	int towerMasCerca(EntityEnemy* enem);

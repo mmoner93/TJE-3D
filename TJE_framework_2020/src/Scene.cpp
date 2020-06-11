@@ -24,9 +24,20 @@ void Scene :: updateScene(float seconds_elapsed) {
 
 	}
 	tocaRomper(seconds_elapsed);
-	if (disparo->in_use) {
-		disparo->update(seconds_elapsed, mapaObjects);
+
+	for (int i = 0; i < disparosMove.size(); i++) {
+		if (disparosMove[i]->in_use == true) {
+			disparosMove[i]->update(seconds_elapsed, mapaObjects);
+		}
 	}
+
+	for (int i = 0; i < disparosPegamentoMove.size(); i++) {
+		if (disparosPegamentoMove[i]->in_use == true) {
+			disparosPegamentoMove[i]->update(seconds_elapsed, mapaObjects);
+		}
+	}
+
+	
 
 }
 void Scene::pintarScene() {
@@ -71,7 +82,6 @@ void Scene::pintarScene() {
 
 
 	pintarDisparos();
-	pintarDisparosPegamento();
 	pintarTowerArreglo();
 	myPlayer->render(lightScene->light);
 }
@@ -121,22 +131,79 @@ void Scene::pintarDisparos() {
 		}
 	}
 
-	if (disparo->in_use) {
-		disparo->render(lightScene->light);
-	}
 
-
-
-}
-
-
-void Scene::pintarDisparosPegamento() {
 	for (int i = 0; i < EntitysImpactoPegamento.size(); i++) {
 		if (EntitysImpactoPegamento[i]->in_use == true) {
 			EntitysImpactoPegamento[i]->render(lightScene->light);
 		}
 	}
+
+	for (int i = 0; i < disparosMove.size(); i++) {
+		if (disparosMove[i]->in_use == true) {
+			disparosMove[i]->render(lightScene->light);
+		}
+	}
+
+	for (int i = 0; i < disparosPegamentoMove.size(); i++) {
+		if (disparosPegamentoMove[i]->in_use == true) {
+			disparosPegamentoMove[i]->render(lightScene->light);
+		}
+	}
+
+
 }
+
+
+
+
+int  Scene::idMasBajoPegamentoMovimiento() {
+	int idmax = -1;//max id
+	int idmin = MAXINT32;
+	for (int i = 0; i < disparosPegamentoMove.size(); i++) {
+		if (idmax < disparosPegamentoMove[i]->id) {
+			idmax = disparosPegamentoMove[i]->id;
+		}
+		if (idmin > disparosPegamentoMove[i]->id) {
+			idmin = disparosPegamentoMove[i]->id;
+		}
+	}
+	for (int i = 0; i < disparosPegamentoMove.size(); i++) {
+		if (disparosPegamentoMove[i]->id == idmin) {
+			disparosPegamentoMove[i]->in_use = false;
+			break;
+		}
+	}
+
+
+
+	return idmax;
+
+}
+
+int  Scene::idMasBajoMovimiento() {
+	int idmax = -1;//max id
+	int idmin = MAXINT32;
+	for (int i = 0; i < disparosMove.size(); i++) {
+		if (idmax < disparosMove[i]->id) {
+			idmax = disparosMove[i]->id;
+		}
+		if (idmin > disparosMove[i]->id) {
+			idmin = disparosMove[i]->id;
+		}
+	}
+	for (int i = 0; i < disparosMove.size(); i++) {
+		if (disparosMove[i]->id == idmin) {
+			disparosMove[i]->in_use = false;
+			break;
+		}
+	}
+
+
+
+	return idmax;
+
+}
+
 
 
 int  Scene::idMasBajoPegamento() {
@@ -189,6 +256,80 @@ int  Scene::idMasBajo() {
 }
 
 
+void Scene::activateDisparo(Vector3 origin, Vector3 dir) {
+	bool control = true;
+	for (int i = 0; i < disparosMove.size(); i++) {
+		if (!disparosMove[i]->in_use) {
+			disparosMove[i]->position = origin;
+			disparosMove[i]->init_pos = origin;
+			disparosMove[i]->model->setTranslation(origin.x, origin.y, origin.z);
+
+			disparosMove[i]->in_use = true;
+			disparosMove[i]->dir = dir;
+
+			disparosMove[i]->time_passed = 0.0f;
+			control = false;
+			break;
+		}
+	}
+
+	if (control) {
+		int alto = idMasBajoMovimiento();
+		alto++;
+		for (int i = 0; i < disparosMove.size(); i++) {
+			if (!disparosMove[i]->in_use) {
+				disparosMove[i]->position = origin;
+				disparosMove[i]->init_pos = origin;
+				disparosMove[i]->model->setTranslation(origin.x, origin.y, origin.z);
+				disparosMove[i]->id = alto;
+				disparosMove[i]->in_use = true;
+				disparosMove[i]->dir = dir;
+
+				disparosMove[i]->time_passed = 0.0f;
+				control = false;
+				break;
+			}
+		}
+	}
+
+}
+
+void Scene::activateDisparoPegamento(Vector3 origin, Vector3 dir) {
+	bool control = true;
+	for (int i = 0; i < disparosPegamentoMove.size(); i++) {
+		if (!disparosPegamentoMove[i]->in_use) {
+			disparosPegamentoMove[i]->position = origin;
+			disparosPegamentoMove[i]->init_pos = origin;
+			disparosPegamentoMove[i]->model->setTranslation(origin.x, origin.y, origin.z);
+
+			disparosPegamentoMove[i]->in_use = true;
+			disparosPegamentoMove[i]->dir = dir;
+
+			disparosPegamentoMove[i]->time_passed = 0.0f;
+			control = false;
+			break;
+		}
+	}
+
+	if (control) {
+		int alto = idMasBajoPegamento();
+		alto++;
+		for (int i = 0; i < disparosPegamentoMove.size(); i++) {
+			if (!disparosPegamentoMove[i]->in_use) {
+				disparosPegamentoMove[i]->position = origin;
+				disparosPegamentoMove[i]->init_pos = origin;
+				disparosPegamentoMove[i]->model->setTranslation(origin.x, origin.y, origin.z);
+				disparosPegamentoMove[i]->id = alto;
+				disparosPegamentoMove[i]->in_use = true;
+				disparosPegamentoMove[i]->dir = dir;
+
+				disparosPegamentoMove[i]->time_passed = 0.0f;
+				control = false;
+				break;
+			}
+		}
+	}
+}
 
 
 void Scene::emplaceDisparo(Vector3 pos) {
@@ -279,7 +420,18 @@ void Scene::initListDisparos() {
 		EntitysImpactoPegamento.push_back(temp);
 		contadorIdDisparoPegamento++;
 	}
+	
 
+	for (int i = 0; i < MAX_IMPACTO_DISPAROS_MOVIMIENTO; i++) {
+		EntityDisparo* temp = new EntityDisparo(contadorIdDisparoMovimiento,disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), disparoMesh, NULL, "game", Vector3(0, 0, 0), T_NORMAL);
+		disparosMove.push_back(temp);
+		contadorIdDisparoMovimiento++;
+	}
+	for (int i = 0; i < MAX_IMPACTO_DISPAROS_MOVIMIENTO; i++) {
+		EntityDisparo* temp = new EntityDisparo(contadorIdDisparoPegamentoMovimiento, disparoPegamentoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), disparoMeshPegamento, NULL, "game", Vector3(0, 0, 0), T_PEGAMENTO);
+		disparosPegamentoMove.push_back(temp);
+		contadorIdDisparoPegamentoMovimiento++;
+	}
 }
 
 

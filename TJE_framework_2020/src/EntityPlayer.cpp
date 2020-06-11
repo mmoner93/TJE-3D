@@ -284,7 +284,7 @@ void EntityPlayer::fixShoot() {
 	StagePlay* temp = (StagePlay*)Stage::current_state;
 	bool control = true;
 	Vector3 collnorm;
-
+	/*
 	for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
 		EntityGameObject* en = temp->gameSceneSP->Enemys[i];
 
@@ -331,7 +331,12 @@ void EntityPlayer::fixShoot() {
 			}
 
 		}
-	}
+	}*/
+
+	Vector3 posa = origin;
+	posa.y -= 0.2;
+	temp->gameSceneSP->activateDisparoPegamento(posa, dir);
+
 }
 
 void EntityPlayer::shoot() {
@@ -383,23 +388,7 @@ void EntityPlayer::shoot() {
 
 	Vector3 posa = origin;
 	posa.y -= 0.2;
-	temp->gameSceneSP->disparo->position= posa;
-	temp->gameSceneSP->disparo->init_pos = posa;
-	temp->gameSceneSP->disparo->model->setTranslation(posa.x, posa.y, posa.z);
-
-	temp->gameSceneSP->disparo->in_use = true;
-	temp->gameSceneSP->disparo->dir = dir;
-
-	temp->gameSceneSP->disparo->time_passed = 0.0f;
-
-
-
-
-
-
-
-
-
+	temp->gameSceneSP->activateDisparo(posa, dir);
 
 
 	//retroceso , pasar segun arma. Con escopeta tambien en pitch de forma random para que lado

@@ -19,7 +19,9 @@ public:
 	Vector3 dir;
 	Vector3 init_pos;
 	float time_passed=0.0f;
-	EntityDisparo(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, enumTipoDisparo tip, float sc = 1.0, float til = 1.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
+	int id;
+	EntityDisparo(int ida,Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, enumTipoDisparo tip, float sc = 1.0, float til = 1.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
+		id = ida;
 		tipo = tip;
 		angle = 0.0;
 		vel = 0.1;
