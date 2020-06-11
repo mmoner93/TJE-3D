@@ -22,7 +22,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 	float distanceMin = 50.0f;
 	Vector3 collMin;
 
-	StagePlay* temp = (StagePlay*)Stage::current_state;
+	StagePlay* temp = (StagePlay*)Stage::getStage("Play");
 	
 	for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
 	
@@ -45,13 +45,16 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 			}
 
 			//comprobamos si colisiona el objeto con la esfera (radio 3)
-			if (mesh->testSphereCollision(*(en->model), target_pos, 0.05, coll, collnorm,true) == false) {
+			if (mesh->testSphereCollision(*(en->model), target_pos, 0.05, coll, collnorm,false) == false) {
 				continue; //si no colisiona, pasamos al siguiente objeto
 			}
 			has_collision = true;
 			if (distance <= distanceMin) {
 				distanceMin = distance;
 				collMin = coll;
+				Matrix44 inv = *en->model;
+				inv.inverse();
+				collMin = inv * collMin;
 				en->onReceveidShoot(collMin,collnorm);
 				in_use = false;
 				break;

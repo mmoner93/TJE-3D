@@ -603,7 +603,7 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 
 	if (distance < 30.0 && contadorCollisions < 5 ) {
 		if (testCollision(target_pos, seconds_elapsed, objects)) {
-			//return Vector3(10.0, 0, 10.0);
+			return Vector3(10.0, 0, 10.0);
 			return target_pos;
 
 		}
