@@ -29,7 +29,7 @@ void EntityEnemy::render(Light* light) {
 		Vector3 push_away = normalize(normPointsSP[i] - pointsSP[i]);
 		Vector3 proe = pointsSP[i] - normalize(normPointsSP[i])*0.1;
 		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
-		temp->model->translate(proe.x, proe.y, proe.z);
+		temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
 		//temp->model = *(temp->model) * normPointsSP[i];
 		temp->render(light);
 		
@@ -502,7 +502,7 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 
 	if (distance < 30.0 && contadorCollisions < 5 ) {
 		if (testCollision(target_pos, seconds_elapsed, objects)) {
-			//return Vector3(10.0, 0, 10.0);
+			return Vector3(10.0, 0, 10.0);
 			return target_pos;
 
 		}

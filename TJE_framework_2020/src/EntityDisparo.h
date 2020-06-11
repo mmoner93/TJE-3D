@@ -17,7 +17,7 @@ public:
 	enumTipoDisparo tipo = T_NONE;
 	bool in_use;
 	Vector3 dir;
-
+	Vector3 init_pos;
 	EntityDisparo(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, enumTipoDisparo tip, float sc = 1.0, float til = 1.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		tipo = tip;
 		angle = 0.0;

@@ -650,7 +650,7 @@ bool Mesh::testRayCollision(Matrix44 model, Vector3 start, Vector3 front, Vector
 	return true;
 }
 
-bool Mesh::testSphereCollision(Matrix44 model, Vector3 center, float radius, Vector3& collision, Vector3& normal)
+bool Mesh::testSphereCollision(Matrix44 model, Vector3 center, float radius, Vector3& collision, Vector3& normal,bool in_object_space)
 {
 	if (!this->collision_model)
 		if (!createCollisionModel())
@@ -663,10 +663,10 @@ bool Mesh::testSphereCollision(Matrix44 model, Vector3 center, float radius, Vec
 	if (collision_model->sphereCollision(center.v, radius) == false)
 		return false;
 
-	collision_model->getCollisionPoint(collision.v, false);
+	collision_model->getCollisionPoint(collision.v, in_object_space);
 
 	float t1[9], t2[9];
-	collision_model->getCollidingTriangles(t1, t2, false);
+	collision_model->getCollidingTriangles(t1, t2, in_object_space);
 
 	Vector3 v1;
 	Vector3 v2;

@@ -384,7 +384,9 @@ void EntityPlayer::shoot() {
 	Vector3 posa = origin;
 	posa.y -= 0.2;
 	temp->gameSceneSP->disparo->position= posa;
+	temp->gameSceneSP->disparo->init_pos = posa;
 	temp->gameSceneSP->disparo->model->setTranslation(posa.x, posa.y, posa.z);
+
 	temp->gameSceneSP->disparo->in_use = true;
 	temp->gameSceneSP->disparo->dir = dir;
 
