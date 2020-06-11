@@ -110,6 +110,8 @@ void EntityEnemy::render(Light* light) {
 		EntityGameObject::render(light);
 	}
 	
+	//EntityGameObject::render(light);
+
 	/*Mesh points_mesh;
 	points_mesh.vertices = pointsSP;
 	if (pointsSP.size()) {
@@ -119,19 +121,20 @@ void EntityEnemy::render(Light* light) {
 	//para disparos normales
 	for (int i=0; i < pointsSP.size(); i++) {
 	
-		EntityGameObject* temp = new EntityGameObject(disparoTexture, shader, disparoMesh, NULL, "Game",1.0f);
-		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
+		EntityGameObject* temp = new EntityGameObject(disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), disparoMesh, NULL, "Game",1.0f);
+		
 		Vector3 mov = model->getTranslation();
-		temp->model->setIdentity();
-		//temp->model->translate(mov.x, mov.y, mov.z);
-		//Matrix44 modelTemp = *(temp->model) * *model;
+		//temp->model->setIdentity();
+		
+		
 		*(temp->model) = *model;
-		//Vector3 proe = pointsSP[i] + normPointsSP[i];
+	
 		Vector3 push_away = normalize(normPointsSP[i] - pointsSP[i]);
 		Vector3 proe = pointsSP[i] - normalize(normPointsSP[i])*0.1;
-		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
+
 		temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
-		//temp->model = *(temp->model) * normPointsSP[i];
+		temp->model->scale(0.5f, 0.5f,0.5f);
+		std::cout << "estoy en x" << temp->model->getTranslation().x << " y " << temp->model->getTranslation().y << " z " << temp->model->getTranslation().z << std::endl;
 		temp->render(light);
 		
 	}
@@ -603,7 +606,6 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 
 	if (distance < 30.0 && contadorCollisions < 5 ) {
 		if (testCollision(target_pos, seconds_elapsed, objects)) {
-			return Vector3(10.0, 0, 10.0);
 			return target_pos;
 
 		}
@@ -789,7 +791,7 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 
 	pointsSP.push_back(temp);
 	normPointsSP.push_back(norm);
-	health -= 1.0;
+	//health -= 1.0;
 	if (health <= 0.0) {
 		aLive = false;
 	}

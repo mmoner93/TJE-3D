@@ -63,11 +63,11 @@ void Scene::pintarScene() {
 
 	}
 
-	Mesh points_mesh;
+/*	Mesh points_mesh;
 	points_mesh.vertices = pointsSP;
 	if (pointsSP.size()) {
 		((StagePlay*)Stage::getStage("Play"))->renderPoints(Matrix44(), &points_mesh, 0);
-	}
+	}*/
 
 
 	pintarDisparos();
@@ -723,16 +723,16 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 
 
-	int i = 0;
+	int i = 1;
 	EntityMesh* en;
 	while (i < numEnemys) {
 
-		int cual = rand() % 5;
+		//int cual = rand() % 5;
 
-		switch (cual) {
+		switch (i) {
 		case 0:
 			en = (EntityMesh*)enemysMap["Companion"];
-			enemy = 2;
+			enemy = 0;
 			break;
 		case 1:
 			en = (EntityMesh*)enemysMap["MechaTrooper"];
@@ -771,11 +771,12 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		}*/
 
 
+		//temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 		temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 		if (enemy != 0) {
 			temp->loalAnim(enemy);
 		}
-		temp->model->translate(float(10), 0, float(10));
+		temp->model->setTranslation(float(10*(i+1)), 0, float(10* (i + 1)));
 		temp->actualState = ANDAR_TONTO;
 
 

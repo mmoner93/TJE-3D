@@ -45,21 +45,28 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 			}
 
 			//comprobamos si colisiona el objeto con la esfera (radio 3)
-			if (mesh->testSphereCollision(*(en->model), target_pos, 0.05, coll, collnorm,false) == false) {
+			if (mesh->testSphereCollision(*(en->model), target_pos, 0.05, coll, collnorm,true) == false) {
 				continue; //si no colisiona, pasamos al siguiente objeto
 			}
+
+
+
+
+			std::cout << "Soy pos enemy x " << en->model->getTranslation().x << " y " << en->model->getTranslation().y << "z " << en->model->getTranslation().z << std::endl;
+		
+
 			has_collision = true;
-			if (distance <= distanceMin) {
+	
 				distanceMin = distance;
 				collMin = coll;
 				Matrix44 inv = *en->model;
-				inv.inverse();
-				collMin = inv * collMin;
+				//inv.inverse();
+				//collMin = inv * collMin;
 				en->onReceveidShoot(collMin,collnorm);
 				in_use = false;
 				break;
 
-			}
+			
 			std::cout << "He colisionao" << std::endl;
 			//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 			//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
@@ -71,7 +78,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 
 
 
-	for (int i = 0; i < objects.size(); i++)
+	for (int i = 0; i < objects.size() && has_collision==false; i++)
 	{
 
 		EntityGameObject* en = objects[i];
@@ -97,11 +104,13 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 		/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
 			continue;*/
 		has_collision = true;
-		if (distance <= distanceMin) {
+		
 			distanceMin = distance;
 			collMin = coll;
+			temp->gameSceneSP->emplaceDisparo(collMin);
+			in_use = false;
 			break;
-		}
+			
 		std::cout << "He colisionao" << std::endl;
 		//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 		//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
@@ -113,11 +122,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 
 	}
 
-	if (has_collision && distanceMin!=50.0f) {
-		
-		temp->gameSceneSP->emplaceDisparo(collMin);
-		in_use = false;
-	}
+	
 
 
 	return target_pos;
