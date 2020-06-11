@@ -36,6 +36,36 @@ void EntityEnemy::loalAnim(int enemy) {
 		run = Animation::Get("data/animations/mecha01/animations_running.skanim");
 		animated = true;
 	}
+	if (enemy == 9) {
+		idle = Animation::Get("data/animations/companion/animations_idle_big.skanim");
+		walk = Animation::Get("data/animations/companion/animations_walking_big.skanim");
+		run = Animation::Get("data/animations/companion/animations_running_big.skanim");
+		animated = true;
+	}
+	if (enemy == 10) {
+		idle = Animation::Get("data/animations/mechatrooper/animations_idle big.skanim");
+		walk = Animation::Get("data/animations/mechatrooper/animations_walking big.skanim");
+		run = Animation::Get("data/animations/mechatrooper/animations_running big.skanim");
+		animated = true;
+	}
+	if (enemy == 11) {
+		idle = Animation::Get("data/animations/fieldfighter/animations_idle_big.skanim");
+		walk = Animation::Get("data/animations/fieldfighter/animations_walking_big.skanim");
+		run = Animation::Get("data/animations/fieldfighter/animations_running_big.skanim");
+		animated = true;
+	}
+	if (enemy == 12) {
+		idle = Animation::Get("data/animations/mechagolem/animations_idle_big.skanim");
+		walk = Animation::Get("data/animations/mechagolem/animations_walking_big.skanim");
+		run = Animation::Get("data/animations/mechagolem/animations_running_big.skanim");
+		animated = true;
+	}
+	if (enemy == 13) {
+		idle = Animation::Get("data/animations/mecha01/animations_idle_big.skanim");
+		walk = Animation::Get("data/animations/mecha01/animations_walking_big.skanim");
+		run = Animation::Get("data/animations/mecha01/animations_running_big.skanim");
+		animated = true;
+	}
 	blendWalkRun = new Skeleton();
 
 }

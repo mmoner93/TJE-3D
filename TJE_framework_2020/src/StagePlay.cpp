@@ -99,6 +99,42 @@ void StagePlay::rellenarEnemys() {
 			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["Mecha01"] = temp;
 			break;
+		case 9:
+			textureTemp = Texture::Get("data/personajes/Companion-bot.png", false, false);
+			shaderTemp = shaderGameSP;
+			MeshTemp = Mesh::Get("data/animations/companion/companion big.mesh");
+			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
+			enemysMapSP["CompanionBig"] = temp;
+			break;
+		case 10:
+			textureTemp = Texture::Get("data/personajes/MechaTrooper.png", false, false);
+			shaderTemp = shaderGameSP;
+			//MeshTemp = Mesh::Get("data/personajes/MechaTrooper.obj");
+			MeshTemp = Mesh::Get("data/animations/mechatrooper/mechatrooper big.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
+			enemysMapSP["MechaTrooperBig"] = temp;
+			break;
+		case 11:
+			textureTemp = Texture::Get("data/personajes/FieldFighter.png", false, false);
+			shaderTemp = shaderGameSP;
+			MeshTemp = Mesh::Get("data/animations/fieldfighter/fieldfighter_big.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
+			enemysMapSP["FieldFighterBig"] = temp;
+			break;
+		case 12:
+			textureTemp = Texture::Get("data/personajes/MechaGolem.png", false, false);
+			shaderTemp = shaderGameSP;
+			MeshTemp = Mesh::Get("data/animations/mechagolem/mechagolem big.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
+			enemysMapSP["MechaGolemBig"] = temp;
+			break;
+		case 13:
+			textureTemp = Texture::Get("data/personajes/Mecha01.png", false, false);
+			shaderTemp = shaderGameSP;
+			MeshTemp = Mesh::Get("data/animations/mecha01/mecha01 big.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
+			enemysMapSP["Mecha01Big"] = temp;
+			break;
 		}
 
 

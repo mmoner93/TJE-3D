@@ -723,9 +723,9 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 
 
-	int i = 1;
+	int i = 0;
 	EntityMesh* en;
-	while (i < numEnemys) {
+	while (i < numEnemys < 1) {
 
 		//int cual = rand() % 5;
 
@@ -741,7 +741,6 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		case 2:
 			en = (EntityMesh*)enemysMap["FieldFighter"];
 			enemy = 5;
-	
 			break;
 		case 3:
 			en = (EntityMesh*)enemysMap["MechaGolem"];
@@ -751,6 +750,27 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 			en = (EntityMesh*)enemysMap["Mecha01"];
 			enemy = 8;
 	
+			break;
+		case 5:
+			en = (EntityMesh*)enemysMap["CompanionBig"];
+			enemy = 9;
+			break;
+		case 6:
+			en = (EntityMesh*)enemysMap["MechaTrooperBig"];
+			enemy = 10;
+			break;
+		case 7:
+			en = (EntityMesh*)enemysMap["FieldFighterBig"];
+			enemy = 11;
+
+			break;
+		case 8:
+			en = (EntityMesh*)enemysMap["MechaGolemBig"];
+			enemy = 12;
+			break;
+		case 9:
+			en = (EntityMesh*)enemysMap["Mecha01Big"];
+			enemy = 13;
 			break;
 		}
 
