@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "Stage.h"
 #include "StagePlay.h"
-#include <time.h> 
+#include <time.h>
 void Scene::addObject(EntityGameObject* temp) {
 	mapaObjects.push_back(temp);
 }
@@ -27,7 +27,7 @@ void Scene :: updateScene(float seconds_elapsed) {
 	if (disparo->in_use) {
 		disparo->update(seconds_elapsed, mapaObjects);
 	}
-	
+
 }
 void Scene::pintarScene() {
 	glDisable(GL_DEPTH_TEST);
@@ -36,7 +36,7 @@ void Scene::pintarScene() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	suelo->render(lightScene->light);
-	
+
 	lightScene->render( lightScene->light);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
@@ -59,7 +59,7 @@ void Scene::pintarScene() {
 		if (Enemys[i]->aLive) {
 			Enemys[i]->render(lightScene->light);
 		}
-		
+
 
 	}
 
@@ -88,28 +88,28 @@ void Scene::spawnTower() {
 		int tempHeight = rand() % mapGame->height * 9;
 
 		if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth>=10 && tempHeight>=10 && tempHeight <= ((mapGame->width * 9)-10) && tempWidth <= ((mapGame->width * 9) - 10)) {
-			
+
 			towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa, NULL, "Game", 1.0f);
 			towerTemp->model->translateGlobal(float(tempHeight), 0, float(tempWidth));
 			TowersList.push_back(towerTemp);
 			i++;
 		}
-		
+
 	}
 
 
-	
-	
+
+
 	/*for (int i = 0; i < mapGame->width * 9; i++) {
-	
+
 		for (int o = 0; o < mapGame->height * 9; o++) {
-		
+
 			generatorIA->detectCollision(i,o)
 		}
 	}*/
 
 
-	
+
 }
 
 
@@ -125,7 +125,7 @@ void Scene::pintarDisparos() {
 		disparo->render(lightScene->light);
 	}
 
-	
+
 
 }
 
@@ -215,7 +215,7 @@ void Scene::emplaceDisparo(Vector3 pos) {
 				}
 			}
 		}
-		
+
 
 
 }
@@ -286,7 +286,7 @@ void Scene::initListDisparos() {
 
 void Scene::cargarWallsInIA() {
 
-	
+
 	if (!loadWalls()) {
 
 	for (int x = 0; x < mapGame->width*9; ++x){
@@ -294,7 +294,7 @@ void Scene::cargarWallsInIA() {
 		{
 
 			Vector3 target_pos=Vector3((float)y,0, (float)x);
-			//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
+			//calculamos el centro de la esfera de colisiï¿½n del player elevandola hasta la cintura
 			Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
 			bool has_collision = false;
 
@@ -329,7 +329,7 @@ void Scene::cargarWallsInIA() {
 
 
 	writeWalls();
-	
+
 
 
 	}
@@ -354,14 +354,14 @@ std::vector<std::string> split_istringstream(std::string str) {
 bool Scene::loadWalls() {
 
 	std::string name = "mapaIA"+ std::to_string(numLvl) + "Config.txt";
-	
+
 	FILE* fp = fopen(name.c_str(), "rb");
 	if (fp == NULL) {
 		std::cout << "No se encuentra archivo apaIAConfig.txt "  << std::endl;
 		return false;
 	}
 	else {
-	
+
 		char mystring[10];
 
 		int l = 0;
@@ -385,11 +385,11 @@ bool Scene::loadWalls() {
 				}
 
 				generatorIA->addCollision({ atoi(stringx) , atoi(stringy) });
-				
+
 				//std::cout << "En walls x " << generatorIA->walls[l].x << " y " << generatorIA->walls[l].y << std::endl;
 				l++;
 			}
-	
+
 		}
 
 		std::cout << "Size de lectura de walls : " << generatorIA->walls.size() << std::endl;
@@ -411,7 +411,7 @@ void Scene::writeWalls() {
 		//temp.push_back(generatorIA->walls[i]);
 
 		int o;
-		
+
 		std::string meter = std::to_string(generatorIA->walls[i].x )+","+ std::to_string(generatorIA->walls[i].y)+"\n";
 		//std::string meter2 = ",";
 		//std::string meter3 = meter+meter;
@@ -430,13 +430,13 @@ void Scene::cargarWallsInIA2() {
 
 	FILE* fp = fopen("mapaIAConfig.bin", "rb");
 	if (fp == NULL) {
-	
+
 		for (int x = 0; x < mapGame->width * 9; ++x) {
 			for (int y = 0; y < mapGame->height * 9; ++y)
 			{
 
 				Vector3 target_pos = Vector3((float)y, 0, (float)x);
-				//calculamos el centro de la esfera de colisión del player elevandola hasta la cintura
+				//calculamos el centro de la esfera de colisiï¿½n del player elevandola hasta la cintura
 				Vector3 character_center = target_pos + Vector3(0, 0.65, 0);
 				bool has_collision = false;
 
@@ -486,7 +486,7 @@ void Scene::cargarWallsInIA2() {
 
 		fclose(fp);
 	}
-		
+
 }
 
 int Scene::EnemyMasCerca(EntityTowerArreglo* torre) {
@@ -518,7 +518,7 @@ int Scene::towerMasCerca(EntityEnemy* enem) {
 	float distanceMin = 99999999999.f;
 	int indexMin = -1;
 	for (int i = 0; i < TowersList.size(); i++) {
-	
+
 		if (TowersList[i]->estado == GREEN || TowersList[i]->estado == ORANGE) {
 			float distanceTemp = TowersList[i]->model->getTranslation().distance(enem->model->getTranslation());
 			if (distanceTemp < distanceMin) {
@@ -526,7 +526,7 @@ int Scene::towerMasCerca(EntityEnemy* enem) {
 				indexMin = i;
 			}
 		}
-		
+
 	}
 
 	return indexMin;
@@ -537,7 +537,7 @@ bool Scene::someTowerActive() {
 
 		if (TowersList[i]->estado == GREEN || TowersList[i]->estado == ORANGE) {
 			return true;
-			
+
 		}
 
 	}
@@ -608,7 +608,7 @@ void Scene::tocaRomper(float seconds_elapsed) {
 	srand(time(NULL));
 	time_enemy_Tower -= seconds_elapsed;
 	if (someEnemyAlive()!=-1 && someTowerActive()) {
-		
+
 		if (time_enemy_Tower <= 0.0) {
 			bool controlT = true;
 			//while (controlT) {
@@ -626,7 +626,7 @@ void Scene::tocaRomper(float seconds_elapsed) {
 	if (time_enemy_Tower <= 0.0) {
 		time_enemy_Tower = time_enemy_Tower_Max;
 	}
-	
+
 
 }
 void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
@@ -650,9 +650,9 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 				else {
 					temp->model->translate((float)((x + 1) * 3.0), 0.0f, (float)((y + 1) * 3.0));
 				}
-				
 
-				//podria hacer una función para indicar estas cosas. Roto las figuras para que cuadren en escenario (esquinas , paredes)
+
+				//podria hacer una funciï¿½n para indicar estas cosas. Roto las figuras para que cuadren en escenario (esquinas , paredes)
 				if (cell.type == CORNER_IZQUIERDA_SUP) {
 					temp->model->rotate(PI, Vector3(0, 1, 0));
 				}
@@ -679,7 +679,7 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 				}
 
 
-				
+
 
 
 				addObject(temp);
@@ -700,11 +700,11 @@ bool Scene::checkEndLvl() {
 
 	int contadorTowers = 0;
 	for (int i = 0; i < TowersList.size(); i++) {
-	
+
 		if (TowersList[i]->estado == GREEN) {
 			contadorTowers++;
 		}
-	
+
 	}
 
 	if (contadorTowers == TowersList.size()) {
@@ -717,40 +717,63 @@ bool Scene::checkEndLvl() {
 
 
 void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
-
+	int enemy = 0;
 	//enemysMap.size()
 	srand(time(NULL));
+	for (int i = 0; i < 8; i++) {
+		EntityMesh* en;
 
 
 	int i = 0;
 	EntityMesh* en;
 	while (i < numEnemys) {
-	
+
 		int cual = rand()%6;
 
 		switch (cual) {
 		case 0:
-			en = (EntityMesh*)enemysMap["MechaGolem"];
-
+			en = (EntityMesh*)enemysMap["Arachnoid"];
+			enemy = 0;
 			break;
 		case 1:
 
 			en = (EntityMesh*)enemysMap["ReconBot"];
+			enemy = 0;
 			break;
 		case 2:
 
 			en = (EntityMesh*)enemysMap["Companion"];
+			enemy = 2;
 			break;
 		case 3:
+
+			en = (EntityMesh*)enemysMap["MobileStorageBot"];
+			enemy = 0;
+			break;
+		case 4:
+
 			en = (EntityMesh*)enemysMap["MechaTrooper"];
+			enemy = 4;
 			break;
 		case 4:
 
 			en = (EntityMesh*)enemysMap["FieldFighter"];
+			enemy = 5;
 			break;
-		case 5:
+		case 6:
+
+			en = (EntityMesh*)enemysMap["QuadrupedTank"];
+			enemy = 0;
+			break;
+		case 7:
+
+			en = (EntityMesh*)enemysMap["MechaGolem"];
+			enemy = 7;
+			break;
+		case 8:
 
 			en = (EntityMesh*)enemysMap["Mecha01"];
+			enemy = 8;
 			break;
 		}
 
@@ -772,25 +795,28 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 
 		temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+		if (enemy != 0) {
+			temp->loalAnim(enemy);
+		}
 		temp->model->translate(float(10), 0, float(10));
 		temp->actualState = ANDAR_TONTO;
 
 
 		addEnemy(temp);
-		
+
 
 		i++;
 	}
 
 
 
-		
-		
-		
-		
-	
 
-	
+
+
+		
+
+
+
 
 
 
@@ -798,11 +824,11 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 
 void Scene::pintarTowerArreglo() {
-	
+
 	for (int i = 0; i < TowersList.size(); i++) {
 		TowersList[i]->render(lightScene->light);
 	}
-	
-	
-	
+
+
+
 }
