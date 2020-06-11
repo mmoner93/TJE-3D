@@ -669,48 +669,56 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 
 void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
-
+	int enemy = 0;
 	//enemysMap.size()
 	srand(time(NULL));
-	for (int i = 4; i < 5; i++) {
+	for (int i = 0; i < 8; i++) {
 		EntityMesh* en;
 
 		switch (i) {
 		case 0:
 			en = (EntityMesh*)enemysMap["Arachnoid"];
-
+			enemy = 0;
 			break;
 		case 1:
 
 			en = (EntityMesh*)enemysMap["ReconBot"];
+			enemy = 0;
 			break;
 		case 2:
 
 			en = (EntityMesh*)enemysMap["Companion"];
+			enemy = 2;
 			break;
 		case 3:
 
 			en = (EntityMesh*)enemysMap["MobileStorageBot"];
+			enemy = 0;
 			break;
 		case 4:
 
 			en = (EntityMesh*)enemysMap["MechaTrooper"];
+			enemy = 4;
 			break;
 		case 5:
 
 			en = (EntityMesh*)enemysMap["FieldFighter"];
+			enemy = 5;
 			break;
 		case 6:
 
 			en = (EntityMesh*)enemysMap["QuadrupedTank"];
+			enemy = 0;
 			break;
 		case 7:
 
 			en = (EntityMesh*)enemysMap["MechaGolem"];
+			enemy = 7;
 			break;
 		case 8:
 
 			en = (EntityMesh*)enemysMap["Mecha01"];
+			enemy = 8;
 			break;
 		}
 
@@ -734,7 +742,9 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 			
 
 		temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
-		temp->loalAnim(1);
+		if (enemy != 0) {
+			temp->loalAnim(enemy);
+		}
 		temp->model->translate(float(10), 0, float(10));
 		temp->actualState = ANDAR_TONTO;
 		

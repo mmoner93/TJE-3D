@@ -6,15 +6,35 @@
 
 
 void EntityEnemy::loalAnim(int enemy) {
-	if (enemy == 1) {
-		idle = Animation::Get("data/animations/mechatrooper/animations_idle.skanim");
-		walk = Animation::Get("data/animations/mechatrooper/animations_mutant_walking.skanim");
-		run = Animation::Get("data/animations/mechatrooper/animations_running.skanim");
-	}
 	if (enemy == 2) {
+		idle = Animation::Get("data/animations/companion/animations_idle.skanim");
+		walk = Animation::Get("data/animations/companion/animations_walking.skanim");
+		run = Animation::Get("data/animations/companion/animations_running.skanim");
+		animated = true;
+	}
+	if (enemy == 4) {
 		idle = Animation::Get("data/animations/mechatrooper/animations_idle.skanim");
 		walk = Animation::Get("data/animations/mechatrooper/animations_mutant_walking.skanim");
 		run = Animation::Get("data/animations/mechatrooper/animations_running.skanim");
+		animated = true;
+	}
+	if (enemy == 5) {
+		idle = Animation::Get("data/animations/fieldfighter/animations_idle.skanim");
+		walk = Animation::Get("data/animations/fieldfighter/animations_walking.skanim");
+		run = Animation::Get("data/animations/fieldfighter/animations_running.skanim");
+		animated = true;
+	}
+	if (enemy == 7) {
+		idle = Animation::Get("data/animations/mechagolem/animations_idle.skanim");
+		walk = Animation::Get("data/animations/mechagolem/animations_walking.skanim");
+		run = Animation::Get("data/animations/mechagolem/animations_running.skanim");
+		animated = true;
+	}
+	if (enemy == 8) {
+		idle = Animation::Get("data/animations/mecha01/animations_idle.skanim");
+		walk = Animation::Get("data/animations/mecha01/animations_walking.skanim");
+		run = Animation::Get("data/animations/mecha01/animations_running.skanim");
+		animated = true;
 	}
 	blendWalkRun = new Skeleton();
 
@@ -80,8 +100,15 @@ void EntityEnemy::render(Light* light) {
 
 	//al personaje
 	
-	//EntityGameObject::render(light);
-	renderAnimated(light);
+
+	if (animated == true)
+	{
+		renderAnimated(light);
+	}
+	else
+	{
+		EntityGameObject::render(light);
+	}
 	
 	/*Mesh points_mesh;
 	points_mesh.vertices = pointsSP;

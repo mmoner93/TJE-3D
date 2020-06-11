@@ -29,6 +29,7 @@ public:
 	Animation* run;
 	Animation* walk;
 	Skeleton* blendWalkRun;
+	bool animated = false;
 
 	estadosRobot actualState;
 	enumEnemyMove actualDirection= STOP;

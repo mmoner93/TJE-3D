@@ -52,8 +52,8 @@ void StagePlay::rellenarEnemys() {
 		case 2:
 			textureTemp = Texture::Get("data/personajes/Companion-bot.png", false, false);
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/personajes/Companion-bot.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
+			MeshTemp = Mesh::Get("data/animations/companion/companion.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["Companion"] = temp;
 			break;
 		case 3:
@@ -74,8 +74,8 @@ void StagePlay::rellenarEnemys() {
 		case 5:
 			textureTemp = Texture::Get("data/personajes/FieldFighter.png", false, false);
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/personajes/FieldFighter.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
+			MeshTemp = Mesh::Get("data/animations/fieldfighter/fieldfighter.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["FieldFighter"] = temp;
 			break;
 		case 6:
@@ -88,15 +88,15 @@ void StagePlay::rellenarEnemys() {
 		case 7:
 			textureTemp = Texture::Get("data/personajes/MechaGolem.png", false, false);
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/personajes/MechaGolem.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
+			MeshTemp = Mesh::Get("data/animations/mechagolem/mechagolem.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["MechaGolem"] = temp;
 			break;
 		case 8:
 			textureTemp = Texture::Get("data/personajes/Mecha01.png", false, false);
 			shaderTemp = shaderGameSP;
-			MeshTemp = Mesh::Get("data/personajes/Mecha01.obj");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
+			MeshTemp = Mesh::Get("data/animations/mecha01/mecha01.mesh");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["Mecha01"] = temp;
 			break;
 		}
