@@ -11,6 +11,7 @@
 #include "AStar.hpp"
 #include "EntityImpactoDisparo.h"
 #include "EntityTorreArreglo.h"
+#include "EntityDisparo.h"
 class Scene
 {
 public:
@@ -39,9 +40,12 @@ public:
 	std::vector<EntityTowerArreglo*> TowersList;
 
 
+
 	float time_enemy_Tower = 2.0f;
 	
+	//std::vector<EntityImpactoDisparo*> EntitysDisparo;
 
+	EntityDisparo* disparo;
 
 	/*Para controlar lvl*/
 	int numLvl;
@@ -99,6 +103,9 @@ public:
 		disparoPegamentoTexture = Texture::Get("data/impactos/impactogris.png");
 
 
+
+
+		disparo = new EntityDisparo(disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"),disparoMesh,NULL,"game",Vector3(0,0,0),T_NORMAL);
 		
 		//towerTemp->model->translateGlobal(15, 0, 15);
 	}

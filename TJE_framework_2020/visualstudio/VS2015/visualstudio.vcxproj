@@ -129,6 +129,7 @@
     <ClCompile Include="..\..\src\animation.cpp" />
     <ClCompile Include="..\..\src\AStar.cpp" />
     <ClCompile Include="..\..\src\camera.cpp" />
+    <ClCompile Include="..\..\src\EntityDisparo.cpp" />
     <ClCompile Include="..\..\src\EntityEnemy.cpp" />
     <ClCompile Include="..\..\src\EntityGameObject.cpp" />
     <ClCompile Include="..\..\src\EntityImpactoDisparo.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="..\..\src\AStar.hpp" />
     <ClInclude Include="..\..\src\camera.h" />
     <ClInclude Include="..\..\src\Entity.h" />
+    <ClInclude Include="..\..\src\EntityDisparo.h" />
     <ClInclude Include="..\..\src\EntityEnemy.h" />
     <ClInclude Include="..\..\src\EntityGameObject.h" />
     <ClInclude Include="..\..\src\EntityImpactoDisparo.h" />

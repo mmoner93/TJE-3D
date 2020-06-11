@@ -7,7 +7,7 @@
 #define MAX_IMPACTO_DISPAROS_PEGAMENTO 35
 
 enum enumEstadosTower {GREEN,ORANGE,RED};
-
+enum enumTipoDisparo {T_NONE,T_PEGAMENTO,T_NORMAL};
 enum levels { LVL1, LVL2, LVL3 };
 
 enum enumWeapons {

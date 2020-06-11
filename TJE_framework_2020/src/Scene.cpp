@@ -24,7 +24,10 @@ void Scene :: updateScene(float seconds_elapsed) {
 
 	}
 	tocaRomper(seconds_elapsed);
-
+	if (disparo->in_use) {
+		disparo->update(seconds_elapsed, mapaObjects);
+	}
+	
 }
 void Scene::pintarScene() {
 	glDisable(GL_DEPTH_TEST);
@@ -117,6 +120,13 @@ void Scene::pintarDisparos() {
 			EntitysImpactoDisparo[i]->render(lightScene->light);
 		}
 	}
+
+	if (disparo->in_use) {
+		disparo->render(lightScene->light);
+	}
+
+	
+
 }
 
 

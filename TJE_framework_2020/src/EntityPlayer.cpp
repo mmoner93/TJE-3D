@@ -348,7 +348,7 @@ void EntityPlayer::shoot() {
 	bool control = true;
 	Vector3 collnorm;
 
-	for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
+	/*for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
 		EntityGameObject* en = temp->gameSceneSP->Enemys[i];
 
 		Mesh* mesh = en->mesh;
@@ -378,7 +378,27 @@ void EntityPlayer::shoot() {
 		}
 
 	}
-	}
+	}*/
+
+
+	Vector3 posa = origin;
+	posa.y -= 0.2;
+	temp->gameSceneSP->disparo->position= posa;
+	temp->gameSceneSP->disparo->model->setTranslation(posa.x, posa.y, posa.z);
+	temp->gameSceneSP->disparo->in_use = true;
+	temp->gameSceneSP->disparo->dir = dir;
+
+
+
+
+
+
+
+
+
+
+
+
 	//retroceso , pasar segun arma. Con escopeta tambien en pitch de forma random para que lado
 	retrocesoOn = true;
 	retrocesoLeft = 5.0f;
