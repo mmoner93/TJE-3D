@@ -8,7 +8,7 @@ void EntityDisparo::render(Light* light) {
 
 }
 void EntityDisparo::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
-	time_passed +=Game::instance->elapsed_time;
+	time_passed += Game::instance->elapsed_time;
 	Vector3 targe_pos;
 	if (tipo == T_NORMAL) {
 		targe_pos = position + dir * vel;
@@ -86,8 +86,15 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 				collMin = coll;
 				Matrix44 inv = *en->model;
 				//inv.inverse();
-				//collMin = inv * collMin;
-				en->onReceveidShoot(collMin,collnorm);
+				//collMin = inv * collMin
+				if (tipo == T_NORMAL) {
+
+					en->onReceveidShoot(collMin, collnorm);
+				}
+				else if (tipo == T_PEGAMENTO) {
+					en->onReceveidShootPegamento(collMin, collnorm);
+				}
+				
 				in_use = false;
 				break;
 

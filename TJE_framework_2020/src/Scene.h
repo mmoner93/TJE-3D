@@ -76,7 +76,7 @@ public:
 			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 1:
-			numEnemys = 2;
+			numEnemys = 10;
 			numTowers = 2;
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/mymap3.map");

@@ -34,7 +34,7 @@ public:
 	estadosRobot actualState;
 	enumEnemyMove actualDirection= STOP;
 
-	float health = 2.0;
+	float health = 4.0;
 	bool aLive = true;
 	std::vector<Vector3> pointsSP;
 	std::vector<Vector3> pointsSPegamento;

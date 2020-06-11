@@ -134,7 +134,7 @@ void EntityEnemy::render(Light* light) {
 
 		temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
 		temp->model->scale(0.5f, 0.5f,0.5f);
-		std::cout << "estoy en x" << temp->model->getTranslation().x << " y " << temp->model->getTranslation().y << " z " << temp->model->getTranslation().z << std::endl;
+		
 		temp->render(light);
 		
 	}
@@ -143,7 +143,7 @@ void EntityEnemy::render(Light* light) {
 	//para disparos Pegamento
 	for (int i = 0; i < pointsSPegamento.size(); i++) {
 
-		EntityGameObject* temp = new EntityGameObject(disparoPegamentoTexture, shader, disparoMeshPegamento, NULL, "Game", 1.0f);
+		EntityGameObject* temp = new EntityGameObject(disparoPegamentoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), disparoMeshPegamento, NULL, "Game", 1.0f);
 		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
 		Vector3 mov = model->getTranslation();
 		temp->model->setIdentity();
@@ -791,7 +791,7 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 
 	pointsSP.push_back(temp);
 	normPointsSP.push_back(norm);
-	//health -= 1.0;
+	health -= 1.0;
 	if (health <= 0.0) {
 		aLive = false;
 	}
