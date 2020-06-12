@@ -727,9 +727,9 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 	EntityMesh* en;
 	while (i < 9) {
 
-		//int cual = rand() % 5;
+		int cual = rand() % 5;
 
-		switch (i) {
+		switch (cual) {
 		case 0:
 			en = (EntityMesh*)enemysMap["Companion"];
 			enemy = 0;
@@ -777,7 +777,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 		bool controlBucle = true;
 		EntityEnemy* temp;
-		/*while (controlBucle) {
+		while (controlBucle) {
 
 			int tempWidth = rand() % (mapGame->width * 9);
 			int tempHeight = rand() % (mapGame->height * 9);
@@ -785,19 +785,22 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 			if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= ((mapGame->width * 9) - 10) && tempWidth <= ((mapGame->width * 9) - 10)) {
 				temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(tempHeight), 0, float(tempWidth)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
 				temp->model->translate(float(tempHeight), 0, float(tempWidth));
+				if (enemy != 0) {
+						temp->loalAnim(enemy);
+				}
 				temp->actualState = ANDAR_TONTO;
 				controlBucle = false;
 			}
-		}*/
+		}
 
 
 		//temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
-		temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
-		if (enemy != 0) {
-			temp->loalAnim(enemy);
-		}
-		temp->model->setTranslation(float(10*(i+1)), 0, float(10* (i + 1)));
-		temp->actualState = ANDAR_TONTO;
+		//temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+		//if (enemy != 0) {
+		//	temp->loalAnim(enemy);
+		//}
+		//temp->model->setTranslation(float(10*(i+1)), 0, float(10* (i + 1)));
+		//temp->actualState = ANDAR_TONTO;
 
 
 		addEnemy(temp);

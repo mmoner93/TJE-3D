@@ -1,330 +1,62 @@
-﻿  animation.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\animation.cpp(275,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\animation.cpp(316,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\animation.cpp(374,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  AStar.cpp
-  camera.cpp
-  EntityDisparo.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(20,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(27,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(48,7): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(81,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(101,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  EntityEnemy.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(78,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(152,18): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(163,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(174,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(323,58): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(323,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(338,65): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(350,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(350,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(366,18): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(464,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(494,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(544,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(544,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(554,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(554,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(565,65): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(577,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(577,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(634,53): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(764,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(767,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(787,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  EntityGameObject.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityGameObject.cpp(6,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityGameObject.cpp(22,61): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityGameObject.cpp(32,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityGameObject.cpp(60,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  EntityImpactoDisparo.cpp
-  EntityLight.cpp
-  EntityMesh.cpp
-  Entity.cpp
-  EntityTorreArreglo.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityTorreArreglo.cpp(7,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityTorreArreglo.cpp(21,38): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  box.cpp
-  box_bld.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\extra\coldet\box_bld.cpp(134,21): warning C4018: '<': no coinciden signed/unsigned
-  coldet.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\extra\coldet\coldet.cpp(374,10): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  coldet_bld.cpp
-  math3d.cpp
-  mytritri.cpp
-  sysdep.cpp
-  picopng.cpp
-  textparser.cpp
-  Compilando...
-  fbo.cpp
-  framework.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\framework.cpp(46,4): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\framework.cpp(160,4): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\framework.cpp(1213,32): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  game.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-  GameMap.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(7,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(71,60): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(71,35): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(72,66): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(72,36): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(73,63): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(73,37): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(74,69): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\GameMap.cpp(74,38): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-  impactShoot.cpp
-  input.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\input.cpp(138,24): warning C4244: '=': conversión de 'float' a 'char'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\input.cpp(146,19): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  Inventario.cpp
-  light.cpp
-  main.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\main.cpp(118,46): warning C4244: '=': conversión de 'Sint32' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\main.cpp(152,24): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  material.cpp
-  mesh.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(731,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(851,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1143,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1147,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1157,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1056,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1258,27): warning C4244: 'argumento': conversión de 'double' a 'const unsigned int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1259,23): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1207,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1395,40): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1395,25): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1397,44): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1397,31): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1398,31): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1405,44): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1405,31): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1407,43): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1420,30): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1443,30): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1472,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\mesh.cpp(1481,21): warning C4018: '<': no coinciden signed/unsigned
-  EntityPlayer.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(19,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(32,20): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(79,45): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(82,26): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(85,22): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(101,43): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(101,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(102,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(103,21): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(122,20): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(176,35): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(178,37): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(180,15): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(183,16): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(192,18): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(195,30): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(198,30): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(201,20): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(220,20): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(232,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(235,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(255,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(263,61): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(281,116): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(281,95): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(281,86): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(281,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(288,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(302,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(321,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(343,116): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(343,95): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(343,86): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(343,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(385,15): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(500,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(505,38): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(506,38): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(507,38): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(508,38): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(556,21): warning C4018: '<': no coinciden signed/unsigned
-  pathfinders.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\pathfinders.cpp(237,27): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\pathfinders.cpp(275,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\pathfinders.cpp(312,23): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\pathfinders.cpp(363,27): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\pathfinders.cpp(403,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\pathfinders.cpp(442,23): warning C4018: '<': no coinciden signed/unsigned
-  rendertotexture.cpp
-  Scene.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(13,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(20,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(41,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(57,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(85,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(118,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(134,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(145,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(153,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(170,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(178,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(196,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(208,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(242,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(254,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(298,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(301,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(358,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(377,17): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(379,17): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(380,17): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(410,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(409,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(413,7): warning C4101: 'o': variable local sin referencia
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(440,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(443,23): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(456,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(431,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(478,14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(496,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(520,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(536,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(550,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(558,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(608,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(657,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(661,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(665,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(670,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(674,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(678,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(702,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(722,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\Scene.cpp(826,20): warning C4018: '<': no coinciden signed/unsigned
-  shader.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\shader.cpp(177,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\shader.cpp(216,20): warning C4018: '<': no coinciden signed/unsigned
-  Stage.cpp
-  StageEditor.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(44,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(45,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(123,25): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  StageLVL.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-  StageMenu.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-  Compilando...
-  StageMenuInGame.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-  StagePlay.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(430,100): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(542,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(543,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(609,121): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(609,98): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(609,87): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(609,63): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(615,19): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(692,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(718,32): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(761,27): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-  StageSaveLoad.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StageSaveLoad.cpp(109,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\StageSaveLoad.cpp(121,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  StageShop.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
-  texture.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(15,51): warning C4244: 'argumento': conversión de 'unsigned int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(15,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(16,56): warning C4244: 'argumento': conversión de 'unsigned int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(16,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(21,15): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(22,15): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(29,55): warning C4244: 'argumento': conversión de 'unsigned int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(29,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(30,57): warning C4244: 'argumento': conversión de 'unsigned int' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(30,9): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(35,15): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(36,15): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(365,18): warning C4244: '=': conversión de 'float' a 'unsigned int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(366,19): warning C4244: '=': conversión de 'float' a 'unsigned int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(383,19): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\texture.cpp(496,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  utils.cpp
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(83,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(138,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(139,26): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(287,51): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(288,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(313,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(323,16): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(345,11): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(347,17): warning C4244: 'argumento': conversión de 'float' a 'const unsigned int'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(360,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(369,14): warning C4018: '>=': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(409,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(410,59): warning C4244: 'argumento': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
-          with
-          [
-              _Ty=float
-          ]
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(410,44): warning C4244: 'argumento': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
-          with
-          [
-              _Ty=float
-          ]
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(410,29): warning C4244: 'argumento': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
-          with
-          [
-              _Ty=float
-          ]
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(420,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(421,74): warning C4244: 'argumento': conversión de '_Ty' a 'uint8'; posible pérdida de datos
-          with
-          [
-              _Ty=float
-          ]
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(421,59): warning C4244: 'argumento': conversión de '_Ty' a 'uint8'; posible pérdida de datos
-          with
-          [
-              _Ty=float
-          ]
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(421,44): warning C4244: 'argumento': conversión de '_Ty' a 'uint8'; posible pérdida de datos
-          with
-          [
-              _Ty=float
-          ]
-C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\src\utils.cpp(421,29): warning C4244: 'argumento': conversión de '_Ty' a 'uint8'; posible pérdida de datos
-          with
-          [
-              _Ty=float
-          ]
-  tritri.c
+﻿  Scene.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(13,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(20,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(41,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(57,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(85,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(118,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(134,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(145,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(153,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(170,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(178,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(196,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(208,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(242,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(254,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(298,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(301,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(358,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(377,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(379,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(380,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(410,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(409,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(413,7): warning C4101: 'o': variable local sin referencia
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(440,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(443,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(456,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(431,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(478,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(496,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(520,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(536,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(550,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(558,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(608,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(657,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(661,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(665,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(670,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(674,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(678,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(702,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(722,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(829,20): warning C4018: '<': no coinciden signed/unsigned
 LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
-  0 of 3198 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  3 of 3194 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    38 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
-glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  visualstudio.vcxproj -> C:\Users\zombie kush\Documents\Projectes Uni\TJE-3D\TJE_framework_2020\visualstudio\VS2015\..\..\game.exe
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  visualstudio.vcxproj -> C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\visualstudio\VS2015\..\..\game.exe
