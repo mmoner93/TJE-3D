@@ -52,7 +52,8 @@ public:
 
 	/*Para controlar lvl*/
 	int numLvl;
-	int numEnemys;
+	int numEnemysNode;
+	int numEnemysByNode;
 	int numTowers;
 	Vector3 initPosPlayer = Vector3(10, 0, 10);
 	float time_enemy_Tower_Max = 10.0f;
@@ -69,22 +70,24 @@ public:
 
 		switch (numLvl) {
 		case 0:
-			numEnemys = 0;
+			numEnemysNode = 0;
+			numEnemysByNode = 0;
 			numTowers = 2;
 			initPosPlayer = Vector3(10,0,10);
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
 			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 1:
-			numEnemys = 10;
+			numEnemysNode = 2;
+			numEnemysByNode = 3;
 			numTowers = 2;
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/mymap3.map");
 			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 2:
-			numEnemys = 8;
-			numTowers = 20;
+			numEnemysNode = 3;
+			numTowers = 4;
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
 			time_enemy_Tower_Max = 10.0f;
 

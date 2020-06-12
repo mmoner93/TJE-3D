@@ -109,7 +109,7 @@ void StagePlay::rellenarEnemys() {
 			textureTemp = Texture::Get("data/personajes/Companion-bot.png", false, false);
 			shaderTemp = shaderGameSP;
 			MeshTemp = Mesh::Get("data/animations/companion/companion big.mesh");
-			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
+			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["CompanionBig"] = temp;
 			break;
 		case 10:

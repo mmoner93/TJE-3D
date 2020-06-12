@@ -59,6 +59,11 @@ public:
 
 	bool calculando;
 
+
+	bool is_node=true;
+	int num_pegamento_in=0;
+
+
 	EntityEnemy(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, Shader* shaderP, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 
 		yaw = ya;

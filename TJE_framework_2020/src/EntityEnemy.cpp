@@ -97,7 +97,7 @@ void EntityEnemy::renderAnimated(Light* light) {
 	{
 		blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
 	}
-
+	
 
 
 	//enable shader
@@ -117,7 +117,13 @@ void EntityEnemy::renderAnimated(Light* light) {
 
 
 	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
-	mesh->renderAnimated(GL_TRIANGLES, blendWalkRun);
+	if (actualState == E_REPAIR) {
+		mesh->renderAnimated(GL_TRIANGLES, &idle->skeleton);
+	}
+	else {
+		mesh->renderAnimated(GL_TRIANGLES, blendWalkRun); 
+	}
+	
 
 
 
@@ -511,6 +517,8 @@ void EntityEnemy :: queHacer(float seconds_elapsed, std::vector<EntityGameObject
 			goDestroyTower();
 		}
 		break;
+	case E_REPAIR:
+		break;
 	default:std::cout << "Estado de robot no localizado" << std::endl; break;
 	}
 
@@ -829,6 +837,12 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 
 void EntityEnemy::onReceveidShootPegamento(Vector3 temp, Vector3 norm) {
 	pointsSPegamento.push_back(temp);
+	if (is_node) {
+		num_pegamento_in++;
+		if (num_pegamento_in >= 3) {
+			actualState = E_REPAIR;
+		}
+	}
 
 }
 void EntityEnemy::atacar() {
