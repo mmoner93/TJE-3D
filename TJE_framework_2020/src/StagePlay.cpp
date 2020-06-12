@@ -35,7 +35,7 @@ void StagePlay::rellenarEnemys() {
 	for (int i = 0; i < NUM_ENEMYS; i++) {
 		switch (i) {
 		
-		/*case 0:
+		case 0:
 			textureTemp = Texture::Get("data/personajes/Arachnoid.png", false, false);
 			shaderTemp = shaderGameSP;
 			MeshTemp = Mesh::Get("data/personajes/Arachnoid.obj");
@@ -50,7 +50,7 @@ void StagePlay::rellenarEnemys() {
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
 			enemysMapSP["ReconBot"] = temp;
 			break;
-			*/
+			
 		case 2:
 			textureTemp = Texture::Get("data/personajes/Companion-bot.png", false, false);
 			shaderTemp = shaderGameSP;
@@ -58,7 +58,7 @@ void StagePlay::rellenarEnemys() {
 			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["Companion"] = temp;
 			break;
-			/*
+			
 		case 3:
 			textureTemp = Texture::Get("data/personajes/MobileStorageBot.png", false, false);
 			shaderTemp = shaderGameSP;
@@ -66,7 +66,7 @@ void StagePlay::rellenarEnemys() {
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
 			enemysMapSP["MobileStorageBot"] = temp;
 			break;
-			*/
+			
 		case 4:
 			textureTemp = Texture::Get("data/personajes/MechaTrooper.png", false, false);
 			shaderTemp = shaderGameSP;
@@ -82,7 +82,7 @@ void StagePlay::rellenarEnemys() {
 			temp = new EntityMesh(textureTemp, shaderAnimSP, MeshTemp, materialSP, "game");
 			enemysMapSP["FieldFighter"] = temp;
 			break;
-			/*
+			
 		case 6:
 			textureTemp = Texture::Get("data/personajes/QuadrupedTank.png", false, false);
 			shaderTemp = shaderGameSP;
@@ -90,7 +90,7 @@ void StagePlay::rellenarEnemys() {
 			temp = new EntityMesh(textureTemp, shaderTemp, MeshTemp, materialSP, "game");
 			enemysMapSP["QuadrupedTank"] = temp;
 			break;
-			*/
+			
 		case 7:
 			textureTemp = Texture::Get("data/personajes/MechaGolem.png", false, false);
 			shaderTemp = shaderGameSP;

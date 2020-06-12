@@ -1,5 +1,4 @@
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\vc142.pdb
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\fbo.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\textparser.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\picopng.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\sysdep.obj
@@ -16,10 +15,10 @@ c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\v
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\entityimpactodisparo.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\entitygameobject.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\entityenemy.obj
+c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\entitydisparo.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\camera.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\astar.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\animation.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\stagemenuingame.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\stagemenu.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\stagelvl.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\stageeditor.obj
@@ -39,13 +38,14 @@ c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\v
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\gamemap.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\game.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\framework.obj
+c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\fbo.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\utils.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\texture.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\stageshop.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\stagesaveload.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\stageplay.obj
+c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\stagemenuingame.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\tritri.obj
-c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\visualstudio\vs2015\release\entitydisparo.obj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\game.ipdb
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\game.iobj
 c:\users\batch_nps7xwz\documents\github\tje-3d\tje_framework_2020\game.exe

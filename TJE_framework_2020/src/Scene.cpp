@@ -881,7 +881,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 		int cual = rand() % 5;
 
-		switch (cual) {
+		switch (i) {
 		case 0:
 			en = (EntityMesh*)enemysMap["Companion"];
 			enemy = 2;
