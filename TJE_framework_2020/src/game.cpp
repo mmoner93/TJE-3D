@@ -14,6 +14,7 @@
 #include "StageShop.h"
 #include "StageLVL.h"
 #include "StageSaveLoad.h"
+#include "StageEndLVL.h"
 #include <cmath>
 
 //some globals
@@ -42,21 +43,29 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	time = 0.0f;
 	elapsed_time = 0.0f;
 	mouse_locked = false;
-	
+
+
+
 	new StageMenu();
-	((StagePlay*)Stage::getStage("Menu"))->init();
+	((StageMenu*)Stage::getStage("Menu"))->init();
 	new StageShop();
-	((StagePlay*)Stage::getStage("Shop"))->init();
+	((StageShop*)Stage::getStage("Shop"))->init();
 	new StageSaveLoad();
-	((StagePlay*)Stage::getStage("SaveLoad"))->init();
+	((StageSaveLoad*)Stage::getStage("SaveLoad"))->init();
 	new StageMenuInGame();
 	new StageLVL();
-	((StagePlay*)Stage::getStage("SelectLVL"))->init();
+	((StageLVL*)Stage::getStage("SelectLVL"))->init();
+
+
 	new StagePlay();
 	new StageEditor();
 
 	//para evitar luego cargas y errores
 	((StagePlay*)Stage::getStage("Play"))->init();
+	
+	new StageEndLVL();
+	((StageEndLVL*)Stage::getStage("EndLVL"))->init();
+
 
 	/*
 	//OpenGL flags

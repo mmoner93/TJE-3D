@@ -768,7 +768,7 @@ void StagePlay::update(double seconds_elapsed)
 	}
 
 	if (gameSceneSP->checkEndLvl()) {
-		Stage::changeState("MenuInGame");
+		Stage::changeState("EndLVL");
 	}
 
 }
