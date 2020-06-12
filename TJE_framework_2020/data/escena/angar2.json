@@ -1,0 +1,244 @@
+{
+ "name": "angar2",
+ "camera": [
+  [
+   -4.422893524169922,
+   3.2353358268737793,
+   -8.413515090942383
+  ],
+  [
+   0,
+   0,
+   0
+  ]
+ ],
+ "scene": {
+  "ref": 0,
+  "layers": 3,
+  "flags": {
+   "visible": true,
+   "collides": true,
+   "no_transform": true
+  },
+  "children": [
+   {
+    "position": [
+     1.9877612590789795,
+     0,
+     -1.9781765937805176
+    ],
+    "scaling": [
+     0.39723947644233704,
+     0.2522984445095062,
+     0.39608344435691833
+    ],
+    "id": "node24304.93000000024::0.27323114469766696",
+    "ref": 1,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 2,
+      "mesh": "data/meshes/space/buildingOpen.obj",
+      "submesh": 0,
+      "color": [
+       0.886274516582489,
+       0.4000000059604645,
+       0.2705881893634796,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 3,
+      "mesh": "data/meshes/space/buildingOpen.obj",
+      "submesh": 1,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 4,
+      "mesh": "data/meshes/space/buildingOpen.obj",
+      "submesh": 2,
+      "color": [
+       0.9450979828834534,
+       0.9490196108818054,
+       0.9647058844566345,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 5,
+      "mesh": "data/meshes/space/buildingOpen.obj",
+      "submesh": 3,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     0.04924595355987549,
+     0.47325748205184937,
+     0.3218398094177246
+    ],
+    "scaling": [
+     0.12243005633354187,
+     0.16434042155742645,
+     0.13723140954971313
+    ],
+    "id": "node207403.79500000016::0.5401967607491711",
+    "ref": 6,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 7,
+      "mesh": "data/meshes/space/spaceCraft4.obj",
+      "submesh": 0,
+      "material": "metal",
+      "color": [
+       0.886274516582489,
+       0.4000000059604645,
+       0.2705881893634796,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 8,
+      "mesh": "data/meshes/space/spaceCraft4.obj",
+      "submesh": 1,
+      "material": "pipe",
+      "color": [
+       0.615686297416687,
+       0.6784313917160034,
+       0.729411780834198,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 9,
+      "mesh": "data/meshes/space/spaceCraft4.obj",
+      "submesh": 2,
+      "material": "_defaultMat",
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 10,
+      "mesh": "data/meshes/space/spaceCraft4.obj",
+      "submesh": 3,
+      "material": "glass",
+      "color": [
+       0.2666667103767395,
+       0.2666667103767395,
+       0.2666667103767395,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "editor": {
+  "group": false,
+  "targets": [
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ }
+}
