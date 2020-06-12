@@ -117,7 +117,7 @@ void EntityEnemy::renderAnimated(Light* light) {
 
 
 	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
-	if (actualState == E_REPAIR) {
+	if (actualState == E_REPAIR  || actualState ==STUNNED) {
 		mesh->renderAnimated(GL_TRIANGLES, &idle->skeleton);
 	}
 	else {
@@ -296,7 +296,17 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 
 		timeNextCalcCaminoIa -= seconds_elapsed;
 		timeNextAttack -= seconds_elapsed;
-		atacar();
+		if (timeStuned > 0.0) {
+			timeStuned -= seconds_elapsed;
+		}
+		if (timeStuned <= 0.0 && actualState==STUNNED) {
+			pointsSPegamento.clear();
+			actualState = ANDAR_TONTO;
+		}
+		if (actualState != STUNNED && actualState != E_REPAIR) {
+			atacar();
+		}
+			
 	}
 	
 	
@@ -519,6 +529,8 @@ void EntityEnemy :: queHacer(float seconds_elapsed, std::vector<EntityGameObject
 		break;
 	case E_REPAIR:
 		break;
+	case STUNNED:
+		break;
 	default:std::cout << "Estado de robot no localizado" << std::endl; break;
 	}
 
@@ -639,7 +651,7 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 	float distance = player->model->getTranslation().distance(model->getTranslation());
 	
 
-	target_pos = model->getTranslation() + director*0.1;
+	target_pos = model->getTranslation() + director*0.018;
 	
 
 	if (distance < 30.0 && contadorCollisions < 5 ) {
@@ -688,10 +700,6 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 			}
 
 		}
-
-
-
-
 
 
 		while (!goodMove) {
@@ -841,7 +849,12 @@ void EntityEnemy::onReceveidShootPegamento(Vector3 temp, Vector3 norm) {
 		num_pegamento_in++;
 		if (num_pegamento_in >= 3) {
 			actualState = E_REPAIR;
+			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->turnAllMiniosOff(id_principal);
 		}
+	}
+	else {
+		actualState = STUNNED;
+		timeStuned = timeStunedMax;
 	}
 
 }

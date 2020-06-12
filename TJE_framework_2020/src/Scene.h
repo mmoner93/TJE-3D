@@ -71,7 +71,7 @@ public:
 		switch (numLvl) {
 		case 0:
 			numEnemysNode = 1;
-			numEnemysByNode = 0;
+			numEnemysByNode = 1;
 			numTowers = 1;
 			initPosPlayer = Vector3(10,0,10);
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
@@ -87,6 +87,7 @@ public:
 			break;
 		case 2:
 			numEnemysNode = 3;
+			numEnemysByNode = 6;
 			numTowers = 4;
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
 			time_enemy_Tower_Max = 10.0f;
@@ -153,6 +154,7 @@ public:
 	int someTowerAlive();
 	int EnemyMasCerca(EntityTowerArreglo* torre);
 
+	void turnAllMiniosOff(int id_padre);
 
 	bool checkEndLvl();
 	void restartLvl(std::map<std::string, Entity*>);

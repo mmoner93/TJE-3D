@@ -57,12 +57,18 @@ public:
 	float timeNextAttack = 0.0;
 	float timeNextAttackMax = 5.0;
 
+	float timeStuned = 0.0;
+	float timeStunedMax = 3.0;
+
 	bool calculando;
 
 
 	bool is_node=true;
 	int num_pegamento_in=0;
 
+
+	int id_principal=-1;
+	int id_padre=-1;
 
 	EntityEnemy(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, Shader* shaderP, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 

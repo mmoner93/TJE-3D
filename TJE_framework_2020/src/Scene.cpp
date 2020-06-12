@@ -649,7 +649,7 @@ int Scene::EnemyMasCerca(EntityTowerArreglo* torre) {
 	int indexMin = -1;
 	for (int i = 0; i < Enemys.size(); i++) {
 
-		if (Enemys[i]->aLive && Enemys[i]->actualState!=E_REPAIR) {
+		if (Enemys[i]->aLive && Enemys[i]->actualState!=E_REPAIR && Enemys[i]->actualState != STUNNED) {
 			float distanceTemp = Enemys[i]->model->getTranslation().distance(torre->model->getTranslation());
 			if (distanceTemp < distanceMin) {
 				distanceMin = distanceTemp;
@@ -700,9 +700,23 @@ bool Scene::someTowerActive() {
 
 }
 
+void Scene::turnAllMiniosOff(int id_padre) {
+
+	for (int i = 0; i < Enemys.size(); i++) {
+		if (Enemys[i]->aLive && Enemys[i]->id_padre==id_padre) {
+			Enemys[i]->actualState = E_REPAIR;
+		}
+	}
+	
+
+
+}
+
+
+
 int Scene::someEnemyAlive() {
 	for (int i = 0; i < Enemys.size(); i++) {
-		if (Enemys[i]->aLive && Enemys[i]->actualState!=E_REPAIR) {
+		if (Enemys[i]->aLive && Enemys[i]->actualState!=E_REPAIR && Enemys[i]->actualState != STUNNED) {
 			return i;
 		}
 	}
@@ -947,6 +961,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 				}
 				temp->is_node = true;
 				temp->actualState = ANDAR_TONTO;
+				temp->id_principal = cual;
 				controlBucle = false;
 			}
 		}
@@ -1016,6 +1031,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 					}
 					temp->is_node = false;
 					temp->actualState = ANDAR_TONTO;
+					temp->id_padre = nodosRobot[i];
 					controlBucle = false;
 				}
 			}
