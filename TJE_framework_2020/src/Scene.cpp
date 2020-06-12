@@ -367,6 +367,8 @@ void Scene::restartLvl(std::map<std::string, Entity*> enemysMapSP) {
 	TowersList.clear();
 	EntitysImpactoDisparo.clear();
 	EntitysImpactoPegamento.clear();
+	disparosMove.clear();
+	disparosPegamentoMove.clear();
 	loadEnemys(enemysMapSP);
 	initListDisparos();
 	spawnTower();
@@ -850,6 +852,8 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 bool Scene::checkEndLvl() {
 
+	int control = 0;
+
 	int contadorTowers = 0;
 	for (int i = 0; i < TowersList.size(); i++) {
 
@@ -860,6 +864,28 @@ bool Scene::checkEndLvl() {
 	}
 
 	if (contadorTowers == TowersList.size()) {
+		//return true;
+		control++;
+	}
+
+
+	int contadorEnemys = 0;
+	for (int i = 0; i < Enemys.size(); i++) {
+
+		if (Enemys[i]->is_node && (Enemys[i]->actualState==E_REPAIR || !Enemys[i]->aLive)) {
+			contadorEnemys++;
+		}
+
+	}
+
+	if (contadorEnemys == numEnemysNode) {
+		//return true;
+		control++;
+	}
+
+
+	if (control >= 2) {
+	
 		return true;
 	}
 

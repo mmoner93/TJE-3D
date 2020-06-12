@@ -70,9 +70,9 @@ public:
 
 		switch (numLvl) {
 		case 0:
-			numEnemysNode = 0;
+			numEnemysNode = 1;
 			numEnemysByNode = 0;
-			numTowers = 2;
+			numTowers = 1;
 			initPosPlayer = Vector3(10,0,10);
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
 			time_enemy_Tower_Max = 10.0f;
