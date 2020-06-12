@@ -306,7 +306,7 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 		if (actualState != STUNNED && actualState != E_REPAIR) {
 			atacar();
 		}
-			
+		mirarSiPisoPegamento();
 	}
 	
 	
@@ -890,6 +890,28 @@ bool EntityEnemy::mirarSiPlayerCerca() {
 
 }
 
+void EntityEnemy::mirarSiPisoPegamento() {
+	Scene* tempScene = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP;
+	
+	for (int i = 0; i < tempScene->EntitysImpactoPegamento.size(); i++) {
+
+		if (tempScene->EntitysImpactoPegamento[i]->in_use ) {
+			float distance = model->getTranslation().distance(tempScene->EntitysImpactoPegamento[i]->model->getTranslation());
+			if (distance <= 2.0) {
+				Vector3 coll;
+				Vector3 collnorm;
+				if (mesh->testSphereCollision(*(model), tempScene->EntitysImpactoPegamento[i]->model->getTranslation(), 0.05, coll, collnorm,true) == false) {
+					continue; //si no colisiona, pasamos al siguiente objeto
+				}
+
+				onReceveidShootPegamento(coll, collnorm);
+				tempScene->EntitysImpactoPegamento[i]->in_use = false;
+			}
+		}
+		
+	
+	}
+}
 
 void EntityEnemy::contadorMovUp() {
 

@@ -111,6 +111,7 @@ public:
 	void goDestroyTower();
 
 	bool estoyEnUsoIACalc();
+	void mirarSiPisoPegamento();
 
 };
 
