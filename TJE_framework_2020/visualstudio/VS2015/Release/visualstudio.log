@@ -1,0 +1,134 @@
+﻿  Scene.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(52,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+<<<<<<< HEAD
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(13,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(20,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(28,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(34,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(52,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(68,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(95,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(128,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(135,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(141,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(147,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(162,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(170,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(186,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(194,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(212,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(220,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(237,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(245,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(261,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(279,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(299,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(317,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(337,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(349,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(383,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(395,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(450,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(453,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(510,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(529,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(531,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(532,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(562,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(561,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(565,7): warning C4101: 'o': variable local sin referencia
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(592,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(595,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(608,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(583,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(630,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(648,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(672,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(688,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(702,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(710,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(760,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(809,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(813,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(817,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(822,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(826,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(830,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(854,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(874,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(961,20): warning C4018: '<': no coinciden signed/unsigned
+LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+  Generando código
+  3 of 3231 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    18 functions had inline decision re-evaluated but remain unchanged
+=======
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(24,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(13,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(20,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(41,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(57,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(85,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(118,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(134,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(145,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(153,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(170,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(178,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(196,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(208,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(242,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(254,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(298,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(301,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(358,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(377,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(379,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(380,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(410,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(409,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(413,7): warning C4101: 'o': variable local sin referencia
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(440,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(443,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(456,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(431,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(478,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(496,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(520,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(536,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(550,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(558,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(608,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(657,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(661,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(665,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(670,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(674,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(678,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(702,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(722,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(829,20): warning C4018: '<': no coinciden signed/unsigned
+LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+  Generando código
+  3 of 3194 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    38 functions had inline decision re-evaluated but remain unchanged
+>>>>>>> animations-enemies-big
+  Generación de código finalizada
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  visualstudio.vcxproj -> C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\visualstudio\VS2015\..\..\game.exe
