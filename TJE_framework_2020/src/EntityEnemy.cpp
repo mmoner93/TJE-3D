@@ -294,7 +294,10 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 	if (aLive) {
 		queHacer(seconds_elapsed, objects);
 
-		timeNextCalcCaminoIa -= seconds_elapsed;
+		if (timeNextCalcCaminoIa >0.0) {
+			timeNextCalcCaminoIa -= seconds_elapsed;
+		}
+			
 		timeNextAttack -= seconds_elapsed;
 		if (timeStuned > 0.0) {
 			timeStuned -= seconds_elapsed;
@@ -416,21 +419,16 @@ void EntityEnemy::raroIA() {
 		//	calculando = true;
 			
 		//}
-			
-		calcularCaminoIA();
+		if (movs.size() == 0) {
+			calcularCaminoIA();
+		}
+		
 		timeNextCalcCaminoIa = initTimeNextCalcCaminoIa;
 	}
 
+	moveWithIaList();
 
-
-		if (movs.size() > 0) {
-			Vector3 movimiento = movs.front();
-			model->setTranslation(movimiento.x, movimiento.y, movimiento.z);
-			movs.pop_front();
-		}
-		else {
-			actualState = ANDAR_TONTO;
-		}
+		
     
 
 	}
@@ -613,6 +611,42 @@ void EntityEnemy::goDestroyTower() {
 		}
 	}
 
+}
+
+void EntityEnemy::moveWithIaList() {
+
+	if (movs.size() > 0) {
+
+
+		nextMovelist = movs.front();
+
+		Vector3 director = nextMovelist - model->getTranslation();
+		if (director.x != 0 && director.y != 0 && director.z != 0)
+			director = director.normalize();
+		if (director.x>=0.04 || director.y >= 0.04 || director.z >= 0.04) {
+			Vector3 target_pos = model->getTranslation() + director*0.25 ;
+			Vector3 director = nextMovelist - model->getTranslation();
+			model->setTranslation(target_pos.x, target_pos.y, target_pos.z);
+
+			float target_angle = atan2(director.z, director.x);
+
+			model->rotate(target_angle * RAD2DEG * DEG2RAD, Vector3(0, 1, 0));
+		}
+		else {
+			Vector3 movimiento = movs.front();
+			Vector3 director = nextMovelist - model->getTranslation();
+			model->setTranslation(movimiento.x, movimiento.y, movimiento.z);
+			
+			float target_angle = atan2(director.z, director.x);
+
+			model->rotate(target_angle * RAD2DEG * DEG2RAD, Vector3(0, 1, 0));
+			movs.pop_front();
+		}
+
+	}
+	else {
+		actualState = ANDAR_TONTO;
+	}
 }
 
 
