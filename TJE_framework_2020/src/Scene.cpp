@@ -363,7 +363,10 @@ void Scene::activateDisparoPegamento(Vector3 origin, Vector3 dir) {
 
 	if (control) {
 		int alto = idMasBajoPegamento();
+		if (alto == -1)
+			std::cout << "Ha salido -1";
 		alto++;
+
 		for (int i = 0; i < disparosPegamentoMove.size(); i++) {
 			if (!disparosPegamentoMove[i]->in_use) {
 				disparosPegamentoMove[i]->position = origin;

@@ -37,16 +37,25 @@ void EntityGranade::update(float seconds_elapsed, std::vector<EntityGameObject*>
 void EntityGranade::explosion(Vector3 posT) {
 
 
-	for (int i = 0; i < 10; i++) {
-		float x = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin;
-		float y = ;
-		float z = ;
-		NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
+	for (int i = 0; i < 75; i++) {
+		float x = (((random() - 0.0f) * (1.0f - (-1.0f))) / (1.0f - 0.0f)) + (-1.0f);
+		float y = (((random() - 0.0f) * (1.0f - (-1.0f))) / (1.0f - 0.0f)) + (-1.0f);
+		float z = (((random() - 0.0f) * (1.0f - (-1.0f)))/ (1.0f - 0.0f)) + (-1.0f);
+		
+		if (y < 0.0) {
+			y = y * (-1);
+		}
 
-		Vector3 dir = Vector3(random(), random(), random());
+		//x = x * 0.5f;
+		//y = y * 0.5f;
+		//z = z * 0.5f;
+		Vector3 dir = Vector3(x, y, z).normalize();
+		dir.x = dir.x * 0.4f;
+		dir.y = dir.y * 0.8f;
+		dir.z = dir.z * 0.4f;
 		//dir.normalize();
 		((StagePlay*)Stage::getStage("Play"))->gameSceneSP->activateDisparoPegamento(posT, dir);
-	
+
 	
 	
 	}
