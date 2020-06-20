@@ -21,6 +21,7 @@ public:
 	Game* gameISP;
 	Material* materialSP;
 	Texture* uiTexture;
+	Texture* uiTextureAmmo;
 	Texture* damage;
 
 	//guardo la info de que dibujar segun type

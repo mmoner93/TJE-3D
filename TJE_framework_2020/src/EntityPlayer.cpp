@@ -107,6 +107,36 @@ void EntityPlayer::render(Light* light) {
 	
 }
 
+void EntityPlayer::chargePegamento(float seconds_elapsed) {
+	time_next_pegamento_up -= seconds_elapsed;
+	if(time_next_pegamento_up<=0.0f){
+		if (mejoras.actualAmmo == T_PEGAMENTO) {
+			mejoras.ammoSaved[mejoras.actualAmmo]++;
+			if (mejoras.ammoSaved[mejoras.actualAmmo] >= mejoras.maxPegamento) {
+				mejoras.ammoSaved[mejoras.actualAmmo] = mejoras.maxPegamento;
+			}
+		}
+		
+		time_next_pegamento_up = time_next_pegamento_up_max;
+	}
+	
+
+}
+
+void EntityPlayer::changeWeapon() {
+	if (weaponUsing == PEGAMENTO) {
+		weaponUsing = WEAPON1;
+		weapon = weapons[WEAPON1];
+		mejoras.actualAmmo = T_NORMAL;
+	}
+	else {
+		weaponUsing = PEGAMENTO;
+		weapon = weapons[PEGAMENTO];
+		mejoras.actualAmmo = T_PEGAMENTO;
+	}
+
+}
+
 
 
 void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
@@ -144,30 +174,35 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
 		fixShoot();
 	}
-	if (Input::isKeyPressed(SDL_SCANCODE_Q)) {
-		shootGranade();
+	if (Input::wasKeyPressed(SDL_SCANCODE_Q)) {
+		if (mejoras.granadeSaved[mejoras.actualGranade] > 0) {
+			shootGranade();
+			mejoras.granadeSaved[mejoras.actualGranade]--;
+		}
+		
 	}
 	
 
 
 
 	if (Input::wasKeyPressed(SDL_SCANCODE_1)) {
-		if (weaponUsing == PEGAMENTO) {
-			weaponUsing = WEAPON1;
-			weapon = weapons[WEAPON1];
-		}
-		else {
-			weaponUsing = PEGAMENTO;
-			weapon = weapons[PEGAMENTO];
-		}
+		changeWeapon();
 	}
 	if (Input::isMousePressed(SDL_BUTTON_LEFT) && !shooting) {
 		shooting = true;
 		if (weaponUsing == PEGAMENTO) {
-			fixShoot();
+			if (mejoras.ammoSaved[mejoras.actualAmmo] > 0) {
+				fixShoot();
+				mejoras.ammoSaved[mejoras.actualAmmo]--;
+			}
+			
 		}
 		else {
-			shoot();
+			if (mejoras.ammoSaved[mejoras.actualAmmo] > 0) {
+				shoot();
+				mejoras.ammoSaved[mejoras.actualAmmo]--;
+			}
+			
 		}
 		
 
@@ -228,10 +263,19 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 
 
 	retrocesoShoot(seconds_elapsed);
-
+	chargePegamento(seconds_elapsed);
 }
 
+bool EntityPlayer::playerAlive() {
 
+	if (health <= 0.0f) {
+	
+		return false;
+	}
+
+
+	return true;
+}
 
 Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 
@@ -291,54 +335,7 @@ void EntityPlayer::fixShoot() {
 	StagePlay* temp = (StagePlay*)Stage::current_state;
 	bool control = true;
 	Vector3 collnorm;
-	/*
-	for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
-		EntityGameObject* en = temp->gameSceneSP->Enemys[i];
 
-		Mesh* mesh = en->mesh;
-
-		if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm, 99, true)) {
-			temp->gameSceneSP->Enemys[i]->onReceveidShootPegamento(pos, collnorm);
-			control = false;
-			break;
-		}
-
-	}
-
-
-	for (int i = 0; i < temp->gameSceneSP->TowersList.size(); i++) {
-	
-		EntityTowerArreglo* t = temp->gameSceneSP->TowersList[i];
-		if (t->mesh->testRayCollision(*t->model, origin, dir, pos, collnorm, 99, true)) {
-			t->onReceveidShootPegamento(pos, collnorm);
-			control = false;
-			break;
-		}
-	}
-
-
-	
-
-	
-
-
-	if (control) {
-
-
-		for (int i = 0; i < temp->gameSceneSP->mapaObjects.size(); i++) {
-			EntityGameObject* en = temp->gameSceneSP->mapaObjects[i];
-
-			Mesh* mesh = en->mesh;
-
-			if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm)) {
-				//temp->gameSceneSP->pointsSP.push_back(pos);
-				
-				temp->gameSceneSP->emplacePegamento(pos);
-				break;
-			}
-
-		}
-	}*/
 
 	Vector3 posa = origin;
 	posa.y -= 0.2;
@@ -379,37 +376,7 @@ void EntityPlayer::shoot() {
 	bool control = true;
 	Vector3 collnorm;
 
-	/*for (int i = 0; i < temp->gameSceneSP->Enemys.size(); i++) {
-		EntityGameObject* en = temp->gameSceneSP->Enemys[i];
 
-		Mesh* mesh = en->mesh;
-
-		if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm,99,true)) {
-			temp->gameSceneSP->Enemys[i]->onReceveidShoot(pos,collnorm);
-			control = false;
-			break;
-		}
-
-	}
-
-
-	if (control) {
-	
-	
-	for (int i = 0; i < temp->gameSceneSP->mapaObjects.size(); i++) {
-		EntityGameObject* en = temp->gameSceneSP->mapaObjects[i];
-
-		Mesh* mesh = en->mesh;
-
-		if (mesh->testRayCollision(*en->model, origin, dir, pos, collnorm)) {
-			//temp->gameSceneSP->disparosPoints.push_back(pos);
-			//temp->gameSceneSP->normPointsSP.push_back(collnorm);
-			temp->gameSceneSP->emplaceDisparo(pos);
-			break;
-		}
-
-	}
-	}*/
 
 
 	Vector3 posa = origin;

@@ -952,10 +952,18 @@ bool Scene::checkEndLvl() {
 	}
 
 
-	if (control >= 2) {
+	if (!myPlayer->playerAlive()) {
+		return true;
+	}
+
+
+	if (control >= 2 ) {
 	
 		return true;
 	}
+
+	
+
 
 	return false;
 

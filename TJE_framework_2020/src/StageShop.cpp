@@ -19,11 +19,11 @@ void StageShop::render() {
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	renderUI(0, uiTexture, 1);
-	drawText(130, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.armaour), Vector3(1, 1, 1), 2);
+	/*drawText(130, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.armaour), Vector3(1, 1, 1), 2);
 	drawText(390, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.grenades), Vector3(1, 1, 1), 2);
 	drawText(660, 200, std::to_string(((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.selectedWeapon), Vector3(1, 1, 1), 2);
 	drawText(130, 420, std::to_string(((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.velociti), Vector3(1, 1, 1), 2);
-	drawText(660, 420, std::to_string(((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.stuntTime), Vector3(1, 1, 1), 2);
+	drawText(660, 420, std::to_string(((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.stuntTime), Vector3(1, 1, 1), 2);*/
 
 	drawText(395, 570, std::to_string(weaponOnScreen), Vector3(1, 1, 1), 2);
 
@@ -64,8 +64,8 @@ void StageShop::update(double dt) {
 	}
 	if (Input::wasKeyPressed(SDL_SCANCODE_G)) {
 		if (coins > 50) {
-			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.grenades += 1;
-			std::cout << ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.grenades << std::endl;
+		//	((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.grenades += 1;
+		//	std::cout << ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.grenades << std::endl;
 			//Granadas equipadas ++
 		}
 	}
