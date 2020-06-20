@@ -148,10 +148,12 @@ void Scene::pintarDisparos() {
 	}
 	
 	if (disparosMoveM.size() > 0) {
-
-		disparosMove[0]->mesh->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());
-
-			
+		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
+		shader->enable();
+		shader->setUniform("u_viewprojection", Camera::current->viewprojection_matrix);//camera->viewprojection_matrix);
+		shader->setUniform("u_texture", disparoTexture, 0);
+		disparosMove[0]->mesh->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());	
+		shader->disable();
 	}
 
 
