@@ -46,6 +46,7 @@ public:
 	float time_enemy_Tower = 2.0f;
 	
 	//std::vector<EntityImpactoDisparo*> EntitysDisparo;
+	std::vector<Matrix44*> disparosMoveM;
 	std::vector<EntityDisparo*> disparosMove;
 	std::vector<EntityDisparo*> disparosPegamentoMove;
 	EntityDisparo* disparo;

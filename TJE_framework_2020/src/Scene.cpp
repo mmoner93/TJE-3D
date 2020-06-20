@@ -140,9 +140,13 @@ void Scene::pintarDisparos() {
 
 	for (int i = 0; i < disparosMove.size(); i++) {
 		if (disparosMove[i]->in_use == true) {
-			disparosMove[i]->render(lightScene->light);
+			//disparosMove[i]->render(lightScene->light);
+			disparosMoveM.push_back(disparosMove[i]->model);
 		}
 	}
+	//disparosMove[0]->mesh->renderInstanced(GL_TRIANGLES, &disparosMoveM[0], disparosMoveM.size());
+	Mesh* dispa = Mesh::Get("data/kjdsnf");
+	dispa->renderInstanced(GL_TRIANGLES, &disparosMoveM[0], disparosMoveM.size());
 
 	for (int i = 0; i < disparosPegamentoMove.size(); i++) {
 		if (disparosPegamentoMove[i]->in_use == true) {
