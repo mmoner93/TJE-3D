@@ -600,8 +600,11 @@ void EntityEnemy::goDestroyTower() {
 		}
 	}
 	
-			
-	if (movs_tower.size() > 0) {
+	
+
+	moveWithIaListTower();
+
+	/*if (movs_tower.size() > 0) {
 		Vector3 movimiento = movs_tower.front();
 		model->setTranslation(movimiento.x, movimiento.y, movimiento.z);
 		movs_tower.pop_front();
@@ -609,8 +612,11 @@ void EntityEnemy::goDestroyTower() {
 			temp->TowersList[torre]->breakTower();
 			actualState = ANDAR_TONTO;
 		}
+	}*/
+	if (movs_tower.size() == 0) {
+		temp->TowersList[torre]->breakTower();
+		actualState = ANDAR_TONTO;
 	}
-
 }
 
 void EntityEnemy::moveWithIaList() {
@@ -623,7 +629,7 @@ void EntityEnemy::moveWithIaList() {
 		Vector3 director = nextMovelist - model->getTranslation();
 		if (director.x != 0 && director.y != 0 && director.z != 0)
 			director = director.normalize();
-		if (director.x>=0.04 || director.y >= 0.04 || director.z >= 0.04) {
+		if (abs(director.x)>=0.04 || abs(director.y) >= 0.04 || abs(director.z) >= 0.04) {
 			Vector3 target_pos = model->getTranslation() + director*0.25 ;
 			Vector3 director = nextMovelist - model->getTranslation();
 			model->setTranslation(target_pos.x, target_pos.y, target_pos.z);
@@ -649,6 +655,44 @@ void EntityEnemy::moveWithIaList() {
 	}
 }
 
+
+
+
+void EntityEnemy::moveWithIaListTower() {
+
+	if (movs_tower.size() > 0) {
+
+
+		nextMovelist = movs_tower.front();
+
+		Vector3 director = nextMovelist - model->getTranslation();
+		if (director.x != 0 && director.y != 0 && director.z != 0)
+			director = director.normalize();
+		if (abs(director.x) >= 0.04 || abs(director.y) >= 0.04 || abs(director.z) >= 0.04) {
+			Vector3 target_pos = model->getTranslation() + director * 0.25;
+			Vector3 director = nextMovelist - model->getTranslation();
+			model->setTranslation(target_pos.x, target_pos.y, target_pos.z);
+
+			float target_angle = atan2(director.z, director.x);
+
+			model->rotate(target_angle * RAD2DEG * DEG2RAD, Vector3(0, 1, 0));
+		}
+		else {
+			Vector3 movimiento = movs_tower.front();
+			Vector3 director = nextMovelist - model->getTranslation();
+			model->setTranslation(movimiento.x, movimiento.y, movimiento.z);
+
+			float target_angle = atan2(director.z, director.x);
+
+			model->rotate(target_angle * RAD2DEG * DEG2RAD, Vector3(0, 1, 0));
+			movs_tower.pop_front();
+		}
+
+	}
+	else {
+		actualState = ANDAR_TONTO;
+	}
+}
 
 Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
 	float speed = (float)seconds_elapsed * (float)200;

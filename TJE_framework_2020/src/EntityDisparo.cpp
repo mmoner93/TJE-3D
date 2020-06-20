@@ -8,7 +8,7 @@ void EntityDisparo::render(Light* light) {
 
 }
 void EntityDisparo::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
-	time_passed += Game::instance->elapsed_time;
+	time_passed += seconds_elapsed;
 	Vector3 targe_pos;
 	if (tipo == T_NORMAL) {
 		targe_pos = position + dir * vel;

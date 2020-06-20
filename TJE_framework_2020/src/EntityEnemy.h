@@ -105,6 +105,7 @@ public:
 	void raroIA();
 	
 	void moveWithIaList();
+	void moveWithIaListTower();
 
 	void loalAnim(int enemy);
 	void renderAnimated(Light* light);
