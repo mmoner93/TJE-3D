@@ -37,7 +37,16 @@ void Scene :: updateScene(float seconds_elapsed) {
 		}
 	}
 
+	for (int i = 0; i < cajasLoot.size(); i++) {
+		if (cajasLoot[i]->in_use == true) {
+			cajasLoot[i]->update(seconds_elapsed, mapaObjects);
+		}
+	}
 
+
+	if (granadesMove->in_use) {
+		granadesMove->update(seconds_elapsed, mapaObjects);
+	}
 
 }
 void Scene::pintarScene() {
@@ -83,6 +92,8 @@ void Scene::pintarScene() {
 
 	pintarDisparos();
 	pintarTowerArreglo();
+	pintarCajasLoot();
+	pintarGranades();
 	myPlayer->render(lightScene->light);
 }
 
@@ -121,6 +132,34 @@ void Scene::spawnTower() {
 
 
 }
+
+
+void Scene::spawnCajasLoot() {
+
+	srand(time(NULL));
+
+	EntityCajaLoot* temporal;
+
+	for (int i = 0; i < numCajasLoot; ) {
+		int tempWidth = rand() % mapGame->width * 9;
+		int tempHeight = rand() % mapGame->height * 9;
+
+		if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= ((mapGame->width * 9) - 10) && tempWidth <= ((mapGame->width * 9) - 10)) {
+
+			temporal = new EntityCajaLoot(cajaLootTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), cajaLootMesh, NULL, "Game", Vector3(float(tempHeight), 0, float(tempWidth)));
+			temporal->model->translateGlobal(float(tempHeight), 0, float(tempWidth));
+			cajasLoot.push_back(temporal);
+			i++;
+		}
+
+	}
+
+
+
+
+
+}
+
 
 
 
@@ -255,6 +294,17 @@ int  Scene::idMasBajo() {
 
 }
 
+void Scene::activateGranade(Vector3 origin, Vector3 dir) {
+	granadesMove->position = origin;
+	granadesMove->init_pos = origin;
+	granadesMove->model->setTranslation(origin.x, origin.y, origin.z);
+
+	granadesMove->in_use = true;
+	granadesMove->dir = dir;
+
+	granadesMove->time_passed = 0.0f;
+}
+
 
 void Scene::activateDisparo(Vector3 origin, Vector3 dir) {
 	bool control = true;
@@ -369,10 +419,11 @@ void Scene::restartLvl(std::map<std::string, Entity*> enemysMapSP) {
 	EntitysImpactoPegamento.clear();
 	disparosMove.clear();
 	disparosPegamentoMove.clear();
+	cajasLoot.clear();
 	loadEnemys(enemysMapSP);
 	initListDisparos();
 	spawnTower();
-
+	spawnCajasLoot();
 	myPlayer->position=initPosPlayer;
 }
 
@@ -1066,6 +1117,20 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 }
 
+void Scene::pintarCajasLoot() {
+
+	for (int i = 0; i < cajasLoot.size(); i++) {
+		if (cajasLoot[i]->in_use) {
+			cajasLoot[i]->render(lightScene->light);
+		}
+		
+	}
+
+
+
+}
+
+
 
 void Scene::pintarTowerArreglo() {
 
@@ -1074,5 +1139,13 @@ void Scene::pintarTowerArreglo() {
 	}
 
 
+
+}
+
+
+void Scene::pintarGranades() {
+	if (granadesMove->in_use) {
+	granadesMove->render(lightScene->light);
+	}
 
 }

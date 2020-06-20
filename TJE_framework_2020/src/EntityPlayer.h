@@ -56,6 +56,7 @@ public:
 	}
 	void shoot();
 	void fixShoot();
+	void shootGranade();
 	void loalAnim();
 	void renderAnimated(Light* light);
 	void retrocesoShoot(float seconds_elapsed);

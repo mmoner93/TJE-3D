@@ -129,9 +129,11 @@
     <ClCompile Include="..\..\src\animation.cpp" />
     <ClCompile Include="..\..\src\AStar.cpp" />
     <ClCompile Include="..\..\src\camera.cpp" />
+    <ClCompile Include="..\..\src\EntityCajasLoot.cpp" />
     <ClCompile Include="..\..\src\EntityDisparo.cpp" />
     <ClCompile Include="..\..\src\EntityEnemy.cpp" />
     <ClCompile Include="..\..\src\EntityGameObject.cpp" />
+    <ClCompile Include="..\..\src\EntityGranade.cpp" />
     <ClCompile Include="..\..\src\EntityImpactoDisparo.cpp" />
     <ClCompile Include="..\..\src\EntityLight.cpp" />
     <ClCompile Include="..\..\src\EntityMesh.cpp" />
@@ -180,9 +182,11 @@
     <ClInclude Include="..\..\src\AStar.hpp" />
     <ClInclude Include="..\..\src\camera.h" />
     <ClInclude Include="..\..\src\Entity.h" />
+    <ClInclude Include="..\..\src\EntityCajasLoot.h" />
     <ClInclude Include="..\..\src\EntityDisparo.h" />
     <ClInclude Include="..\..\src\EntityEnemy.h" />
     <ClInclude Include="..\..\src\EntityGameObject.h" />
+    <ClInclude Include="..\..\src\EntityGranade.h" />
     <ClInclude Include="..\..\src\EntityImpactoDisparo.h" />
     <ClInclude Include="..\..\src\EntityLight.h" />
     <ClInclude Include="..\..\src\EntityMesh.h" />

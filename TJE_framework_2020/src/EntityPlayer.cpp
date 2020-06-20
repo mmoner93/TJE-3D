@@ -144,6 +144,13 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	if (Input::isKeyPressed(SDL_SCANCODE_C)) {
 		fixShoot();
 	}
+	if (Input::isKeyPressed(SDL_SCANCODE_Q)) {
+		shootGranade();
+	}
+	
+
+
+
 	if (Input::wasKeyPressed(SDL_SCANCODE_1)) {
 		if (weaponUsing == PEGAMENTO) {
 			weaponUsing = WEAPON1;
@@ -338,6 +345,25 @@ void EntityPlayer::fixShoot() {
 	temp->gameSceneSP->activateDisparoPegamento(posa, dir);
 
 }
+
+
+void EntityPlayer::shootGranade() {
+	Game* GameI = Game::instance;
+	Camera* camera = Camera::current;
+	Vector3 pos = camera->center;
+	pos.y = 0;
+	Vector3 origin = camera->center;
+	Vector3 dir = camera->getRayDirection(Input::mouse_position.x, Input::mouse_position.y, GameI->window_width, GameI->window_height);
+	//para poner algo en el suelo
+	//pos = RayPlaneCollision(Vector3(),Vector3(0,1,0),origin,dir);
+	StagePlay* temp = (StagePlay*)Stage::current_state;
+	bool control = true;
+	Vector3 collnorm;
+	Vector3 posa = origin;
+	posa.y -= 0.2;
+	temp->gameSceneSP->activateGranade(posa, dir);
+}
+
 
 void EntityPlayer::shoot() {
 	Game* GameI = Game::instance;

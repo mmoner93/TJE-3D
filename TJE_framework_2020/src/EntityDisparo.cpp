@@ -25,6 +25,8 @@ void EntityDisparo::update(float seconds_elapsed, std::vector<EntityGameObject*>
 	targe_pos = testCollision(targe_pos, seconds_elapsed, objects);
 	model->setTranslation(targe_pos.x, targe_pos.y, targe_pos.z);
 	model->setFrontAndOrthonormalize(dir);
+
+	//si toca suelo
 	if (targe_pos.y <= 0.0f) {
 		targe_pos.y = 0.0f;
 		if (tipo == T_NORMAL) {

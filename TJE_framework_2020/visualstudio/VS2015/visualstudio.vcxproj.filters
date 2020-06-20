@@ -137,6 +137,12 @@
     <ClCompile Include="..\..\src\StageEndLVL.cpp">
       <Filter>Stages</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\EntityCajasLoot.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EntityGranade.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -271,6 +277,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\StageEndLVL.h">
       <Filter>Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EntityCajasLoot.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EntityGranade.h">
+      <Filter>Entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
