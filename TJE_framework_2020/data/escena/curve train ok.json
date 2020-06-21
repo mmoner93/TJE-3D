@@ -1,0 +1,287 @@
+{
+ "name": "curve train ok",
+ "camera": [
+  [
+   -0.018543202430009842,
+   0.4746711254119873,
+   0.7414498925209045
+  ],
+  [
+   0,
+   0,
+   0
+  ]
+ ],
+ "scene": {
+  "ref": 0,
+  "layers": 3,
+  "flags": {
+   "visible": true,
+   "collides": true,
+   "no_transform": true
+  },
+  "children": [
+   {
+    "position": [
+     0.39528489112854004,
+     0,
+     -0.601913571357727
+    ],
+    "scaling": [
+     0.10000000149011612,
+     0.10000000149011612,
+     0.10000000149011612
+    ],
+    "id": "node12247.75999999838::0.9295374898354329",
+    "ref": 1,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 2,
+      "mesh": "data/meshes/space/monorailTrack_cornerSmall_exclusive.obj",
+      "submesh": 0,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 3,
+      "mesh": "data/meshes/space/monorailTrack_cornerSmall_exclusive.obj",
+      "submesh": 1,
+      "color": [
+       0.615686297416687,
+       0.6784313917160034,
+       0.729411780834198,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 4,
+      "mesh": "data/meshes/space/monorailTrack_cornerSmall_exclusive.obj",
+      "submesh": 2,
+      "color": [
+       0.2666667103767395,
+       0.2666667103767395,
+       0.2666667103767395,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     0.3947264552116394,
+     0,
+     -1.9950898885726929
+    ],
+    "scaling": [
+     0.10000000149011612,
+     0.10000000149011612,
+     0.14033369719982147
+    ],
+    "id": "node36388.599999998405::0.4206432659106982",
+    "ref": 5,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 6,
+      "mesh": "data/meshes/space/monorailTrack_straight_exclusive.obj",
+      "submesh": 0,
+      "color": [
+       0.615686297416687,
+       0.6784313917160034,
+       0.729411780834198,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 7,
+      "mesh": "data/meshes/space/monorailTrack_straight_exclusive.obj",
+      "submesh": 1,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 8,
+      "mesh": "data/meshes/space/monorailTrack_straight_exclusive.obj",
+      "submesh": 2,
+      "color": [
+       0.2666667103767395,
+       0.2666667103767395,
+       0.2666667103767395,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     -1.993420124053955,
+     0,
+     -0.6021262407302856
+    ],
+    "rotation": [
+     0,
+     0.7071067690849304,
+     0,
+     0.7071067690849304
+    ],
+    "scaling": [
+     0.10000000149011612,
+     0.10000000149011612,
+     0.13998565077781677
+    ],
+    "id": "node146977.83999999956::0.9607183279741491",
+    "ref": 9,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 10,
+      "mesh": "data/meshes/space/monorailTrack_straight_exclusive.obj",
+      "submesh": 0,
+      "material": "pipe",
+      "color": [
+       0.615686297416687,
+       0.6784313917160034,
+       0.729411780834198,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 11,
+      "mesh": "data/meshes/space/monorailTrack_straight_exclusive.obj",
+      "submesh": 1,
+      "material": "_defaultMat",
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 12,
+      "mesh": "data/meshes/space/monorailTrack_straight_exclusive.obj",
+      "submesh": 2,
+      "material": "glass",
+      "color": [
+       0.2666667103767395,
+       0.2666667103767395,
+       0.2666667103767395,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "editor": {
+  "targets": null
+ }
+}

@@ -1,0 +1,583 @@
+{
+ "name": "mining",
+ "camera": [
+  [
+   2.7430813312530518,
+   2.238553524017334,
+   1.9966870546340942
+  ],
+  [
+   0,
+   0,
+   0
+  ]
+ ],
+ "scene": {
+  "ref": 0,
+  "layers": 3,
+  "flags": {
+   "visible": true,
+   "collides": true,
+   "no_transform": true
+  },
+  "children": [
+   {
+    "position": [
+     0.032113492488861084,
+     0,
+     -1.468743085861206
+    ],
+    "scaling": [
+     0.17807458341121674,
+     0.17752423882484436,
+     0.1751263290643692
+    ],
+    "id": "node1208277.4150000005::0.47481941549960816",
+    "ref": 1,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 2,
+      "mesh": "data/meshes/space/rocksOre.obj",
+      "submesh": 0,
+      "color": [
+       0.3803921937942505,
+       0.8274509906768799,
+       0.5764706134796143,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 3,
+      "mesh": "data/meshes/space/rocksOre.obj",
+      "submesh": 1,
+      "color": [
+       0.7372549176216125,
+       0.4823529124259949,
+       0.3215686082839966,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 4,
+      "mesh": "data/meshes/space/rocksOre.obj",
+      "submesh": 2,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     -0.6200985908508301,
+     0,
+     0.09922933578491211
+    ],
+    "scaling": [
+     0.10000000149011612,
+     0.10000000149011612,
+     0.10000000149011612
+    ],
+    "id": "node1223406.6500000008::0.7458157219865964",
+    "ref": 5,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 6,
+      "mesh": "data/meshes/space/rocksSmallOre.obj",
+      "submesh": 0,
+      "color": [
+       0.7372549176216125,
+       0.4823529124259949,
+       0.3215686082839966,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 7,
+      "mesh": "data/meshes/space/rocksSmallOre.obj",
+      "submesh": 1,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 8,
+      "mesh": "data/meshes/space/rocksSmallOre.obj",
+      "submesh": 2,
+      "color": [
+       0.3803921937942505,
+       0.8274509906768799,
+       0.5764706134796143,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     0.18109121918678284,
+     0,
+     -0.6495366096496582
+    ],
+    "scaling": [
+     0.10000000149011612,
+     0.10000000149011612,
+     0.10000000149011612
+    ],
+    "id": "node1226377.9950000008::0.7959197818436299",
+    "ref": 9,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 10,
+      "mesh": "data/meshes/space/rocksTallOre.obj",
+      "submesh": 0,
+      "color": [
+       0.7372549176216125,
+       0.4823529124259949,
+       0.3215686082839966,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 11,
+      "mesh": "data/meshes/space/rocksTallOre.obj",
+      "submesh": 1,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 12,
+      "mesh": "data/meshes/space/rocksTallOre.obj",
+      "submesh": 2,
+      "color": [
+       0.3803921937942505,
+       0.8274509906768799,
+       0.5764706134796143,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     -0.6969267725944519,
+     0,
+     -1.5367498397827148
+    ],
+    "rotation": [
+     0,
+     0.7107186317443848,
+     0,
+     0.7034763693809509
+    ],
+    "scaling": [
+     0.09999999403953552,
+     0.10000000149011612,
+     0.09999999403953552
+    ],
+    "id": "node1234686.0100000002::0.532656787633941",
+    "ref": 13,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 14,
+      "mesh": "data/meshes/space/rocksTallOre.obj",
+      "submesh": 0,
+      "color": [
+       0.7372549176216125,
+       0.4823529124259949,
+       0.3215686082839966,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 15,
+      "mesh": "data/meshes/space/rocksTallOre.obj",
+      "submesh": 1,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 16,
+      "mesh": "data/meshes/space/rocksTallOre.obj",
+      "submesh": 2,
+      "color": [
+       0.3803921937942505,
+       0.8274509906768799,
+       0.5764706134796143,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     -0.37550994753837585,
+     -0.010553345084190369,
+     -1.8382508754730225
+    ],
+    "scaling": [
+     0.1641673594713211,
+     0.22590026259422302,
+     0.1734417974948883
+    ],
+    "id": "node1269525.4700000004::0.15717463737006798",
+    "ref": 17,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 18,
+      "mesh": "data/meshes/space/rocksSmallOre.obj",
+      "submesh": 0,
+      "color": [
+       0.7372549176216125,
+       0.4823529124259949,
+       0.3215686082839966,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 19,
+      "mesh": "data/meshes/space/rocksSmallOre.obj",
+      "submesh": 1,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 20,
+      "mesh": "data/meshes/space/rocksSmallOre.obj",
+      "submesh": 2,
+      "color": [
+       0.3803921937942505,
+       0.8274509906768799,
+       0.5764706134796143,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     -1.1456849575042725,
+     0,
+     1.443830966949463
+    ],
+    "scaling": [
+     0.17837195098400116,
+     0.30934470891952515,
+     0.182669997215271
+    ],
+    "id": "node1324668.6850000005::0.1565386692274302",
+    "ref": 21,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 22,
+      "mesh": "data/meshes/space/barrel.obj",
+      "submesh": 0,
+      "color": [
+       0.886274516582489,
+       0.4000000059604645,
+       0.2705881893634796,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 23,
+      "mesh": "data/meshes/space/barrel.obj",
+      "submesh": 1,
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   },
+   {
+    "position": [
+     1.485844612121582,
+     0,
+     0.706674337387085
+    ],
+    "scaling": [
+     0.10000000149011612,
+     0.10000000149011612,
+     0.10000000149011612
+    ],
+    "id": "node1371637.485::0.07431046458197832",
+    "ref": 24,
+    "layers": 1,
+    "flags": {
+     "visible": true,
+     "collides": true,
+     "base_object": true,
+     "was_rendered": true
+    },
+    "children": [
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 25,
+      "mesh": "data/meshes/space/pipeStand.obj",
+      "submesh": 0,
+      "color": [
+       0.886274516582489,
+       0.4000000059604645,
+       0.2705881893634796,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     },
+     {
+      "position": [
+       0,
+       0,
+       0
+      ],
+      "ref": 26,
+      "mesh": "data/meshes/space/pipeStand.obj",
+      "submesh": 1,
+      "color": [
+       0.615686297416687,
+       0.6784313917160034,
+       0.729411780834198,
+       1
+      ],
+      "layers": 1,
+      "flags": {
+       "visible": true,
+       "collides": true,
+       "was_rendered": true
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "editor": {
+  "targets": [
+   1,
+   2,
+   3,
+   4
+  ]
+ }
+}
