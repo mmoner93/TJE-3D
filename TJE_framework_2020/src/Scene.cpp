@@ -164,18 +164,40 @@ void Scene::spawnCajasLoot() {
 
 
 void Scene::pintarDisparos() {
-	for (int i = 0; i < EntitysImpactoDisparo.size(); i++) {
-		if (EntitysImpactoDisparo[i]->in_use == true) {
-			EntitysImpactoDisparo[i]->render(lightScene->light);
-		}
-	}
 
 
+	disparosMoveM.clear();
 	for (int i = 0; i < EntitysImpactoPegamento.size(); i++) {
 		if (EntitysImpactoPegamento[i]->in_use == true) {
-			EntitysImpactoPegamento[i]->render(lightScene->light);
+			//EntitysImpactoPegamento[i]->render(lightScene->light);
+			disparosMoveM.push_back(*(EntitysImpactoPegamento[i]->model));
 		}
 	}
+	for (int i = 0; i < disparosPegamentoMove.size(); i++) {
+		if (disparosPegamentoMove[i]->in_use == true) {
+			//disparosPegamentoMove[i]->render(lightScene->light);
+			disparosMoveM.push_back(*(disparosPegamentoMove[i]->model));
+		}
+	}
+
+
+
+
+
+
+	if (disparosMoveM.size() > 0) {
+		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
+		shader->enable();
+		shader->setUniform("u_viewprojection", Camera::current->viewprojection_matrix);//camera->viewprojection_matrix);
+		shader->setUniform("u_texture", disparoPegamentoTexture, 0);
+		shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+		shader->setFloat("u_tilling", 1.0);
+		EntitysImpactoPegamento[0]->mesh->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());
+		shader->disable();
+	}
+
+
+
 
 	disparosMoveM.clear();
 	for (int i = 0; i < disparosMove.size(); i++) {
@@ -186,11 +208,21 @@ void Scene::pintarDisparos() {
 		}
 	}
 	
+	for (int i = 0; i < EntitysImpactoDisparo.size(); i++) {
+		if (EntitysImpactoDisparo[i]->in_use == true) {
+			//EntitysImpactoDisparo[i]->render(lightScene->light);
+			disparosMoveM.push_back(*(EntitysImpactoDisparo[i]->model));
+		}
+	}
+
+
 	if (disparosMoveM.size() > 0) {
 		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
 		shader->enable();
 		shader->setUniform("u_viewprojection", Camera::current->viewprojection_matrix);//camera->viewprojection_matrix);
 		shader->setUniform("u_texture", disparoTexture, 0);
+		shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+		shader->setFloat("u_tilling", 1.0);
 		disparosMove[0]->mesh->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());	
 		shader->disable();
 	}
@@ -201,11 +233,7 @@ void Scene::pintarDisparos() {
 	//Mesh* dispa = Mesh::Get("data/kjdsnf");
 	//dispa->renderInstanced(GL_TRIANGLES, &disparosMoveM[0], disparosMoveM.size());
 
-	for (int i = 0; i < disparosPegamentoMove.size(); i++) {
-		if (disparosPegamentoMove[i]->in_use == true) {
-			disparosPegamentoMove[i]->render(lightScene->light);
-		}
-	}
+	
 
 
 }

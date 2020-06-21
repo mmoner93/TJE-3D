@@ -464,7 +464,7 @@ void StagePlay::inicializarScena() {
 
 	player->mejoras.actualAmmo = T_PEGAMENTO;
 	player->mejoras.ammoSaved[T_PEGAMENTO] = 5;
-	player->mejoras.ammoSaved[T_NORMAL] = 40;
+	player->mejoras.ammoSaved[T_NORMAL] = 1000;
 	
 	player->mejoras.actualGranade = "pegamento";
 	player->mejoras.granadeSaved["pegamento"] = 5;

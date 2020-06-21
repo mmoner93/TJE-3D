@@ -94,7 +94,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 					en->onReceveidShoot(collMin, collnorm);
 					in_use = false;
 				}
-				else if (tipo == T_PEGAMENTO) {
+				else if (tipo == T_PEGAMENTO &&en->is_node) {
 					if (en->shield > 0.0f) {
 						dir.x = dir.x * (-1);
 						dir.z = dir.z * (-1);
@@ -105,6 +105,10 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 					}
 
 					
+				}
+				else if (tipo == T_PEGAMENTO && !en->is_node) {
+					en->onReceveidShootPegamento(collMin, collnorm);
+					in_use = false;
 				}
 				
 				

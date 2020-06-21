@@ -136,6 +136,7 @@ void EntityEnemy::render(Light* light) {
 
 	//al personaje
 	
+	std::vector<Matrix44>disparosMoveM;
 
 	if (animated == true)
 	{
@@ -171,11 +172,31 @@ void EntityEnemy::render(Light* light) {
 		temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
 		temp->model->scale(0.5f, 0.5f,0.5f);
 		
-		temp->render(light);
+
+		disparosMoveM.push_back(*temp->model);
+
+		//temp->render(light);
 		
 	}
 
 
+
+
+
+	if (disparosMoveM.size() > 0) {
+		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
+		shader->enable();
+		shader->setUniform("u_viewprojection", Camera::current->viewprojection_matrix);//camera->viewprojection_matrix);
+		shader->setUniform("u_texture", disparoTexture, 0);
+		shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+		shader->setFloat("u_tilling", 1.0);
+		disparoMesh->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());
+		shader->disable();
+	}
+
+
+
+	disparosMoveM.clear();
 	//para disparos Pegamento
 	for (int i = 0; i < pointsSPegamento.size(); i++) {
 
@@ -192,9 +213,26 @@ void EntityEnemy::render(Light* light) {
 		//temp->model->translate(pointsSP[i].x, pointsSP[i].y, pointsSP[i].z);
 		temp->model->translate(proe.x, proe.y, proe.z);
 		//temp->model = *(temp->model) * normPointsSP[i];
-		temp->render(light);
+		//temp->render(light);
+		disparosMoveM.push_back(*temp->model);
 
 	}
+
+
+	if (disparosMoveM.size() > 0) {
+		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
+		shader->enable();
+		shader->setUniform("u_viewprojection", Camera::current->viewprojection_matrix);//camera->viewprojection_matrix);
+		shader->setUniform("u_texture", disparoPegamentoTexture, 0);
+		shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+		shader->setFloat("u_tilling", 1.0);
+		disparoMeshPegamento->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());
+		shader->disable();
+	}
+
+
+
+
 
 	if (shield > 0.0f && is_node) {
 		EntityGameObject* temp = new EntityGameObject(shieldTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), shieldMesh, NULL, "Game", 1.0f);

@@ -12,5 +12,6 @@ uniform float u_tilling;
 void main()
 {
 	vec2 uv = v_uv;
-	gl_FragColor = u_color * texture2D( u_texture, uv * u_tilling );
+
+	gl_FragColor =u_color *  texture2D( u_texture, uv * u_tilling );
 }
