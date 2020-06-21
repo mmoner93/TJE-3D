@@ -92,12 +92,22 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 				if (tipo == T_NORMAL) {
 
 					en->onReceveidShoot(collMin, collnorm);
+					in_use = false;
 				}
 				else if (tipo == T_PEGAMENTO) {
-					en->onReceveidShootPegamento(collMin, collnorm);
+					if (en->shield > 0.0f) {
+						dir.x = dir.x * (-1);
+						dir.z = dir.z * (-1);
+					}
+					else {
+						en->onReceveidShootPegamento(collMin, collnorm);
+						in_use = false;
+					}
+
+					
 				}
 				
-				in_use = false;
+				
 				break;
 
 			

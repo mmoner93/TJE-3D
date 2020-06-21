@@ -93,8 +93,8 @@ public:
 			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 1:
-			numEnemysNode = 2;
-			numEnemysByNode = 3;
+			numEnemysNode = 20;
+			numEnemysByNode = 0;
 			numTowers = 2;
 			numCajasLoot = 20;
 			initPosPlayer = Vector3(10, 0, 10);

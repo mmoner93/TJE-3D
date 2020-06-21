@@ -36,6 +36,14 @@ public:
 
 	float health = 4.0;
 	bool aLive = true;
+
+	float shield = 4.0;
+	Mesh* shieldMesh;
+	Texture* shieldTexture;
+	float time_shield_rotate;
+
+
+
 	std::vector<Vector3> pointsSP;
 	std::vector<Vector3> pointsSPegamento;
 	std::vector<Vector3> normPointsSP;
@@ -56,7 +64,8 @@ public:
 
 	float timeNextAttack = 0.0;
 	float timeNextAttackMax = 5.0;
-
+	float timeNextShield = 4.0f;
+	float timeNextShieldMax = 4.0f;
 	float timeStuned = 0.0;
 	float timeStunedMax = 3.0;
 
@@ -87,6 +96,8 @@ public:
 		disparoTexture = Texture::Get("data/impactos/impacto.png");
 		disparoMeshPegamento = Mesh::Get("data/impactos/impactoPegamento.OBJ");
 		disparoPegamentoTexture = Texture::Get("data/impactos/impactogris.png");
+		shieldMesh = Mesh::Get("data/itemsUse/shield_ene.obj");
+		shieldTexture = Texture::Get("data/itemsUse/shield_ene.png");
 	}
 
 

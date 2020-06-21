@@ -983,7 +983,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 		int cual = rand() % 5;
 		nodosRobot.push_back(cual);
-		switch (i) {
+		switch (cual) {
 		case 0:
 			en = (EntityMesh*)enemysMap["CompanionBig"];
 			enemy = 9;
@@ -1053,7 +1053,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 		while (o< numEnemysByNode) {
 			int cual = nodosRobot[i];
 
-			switch (i) {
+			switch (cual) {
 			case 0:
 				en = (EntityMesh*)enemysMap["Companion"];
 				enemy = 2;

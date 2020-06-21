@@ -464,7 +464,7 @@ void StagePlay::inicializarScena() {
 
 	player->mejoras.actualAmmo = T_PEGAMENTO;
 	player->mejoras.ammoSaved[T_PEGAMENTO] = 5;
-	player->mejoras.ammoSaved[T_NORMAL] = 5;
+	player->mejoras.ammoSaved[T_NORMAL] = 40;
 	
 	player->mejoras.actualGranade = "pegamento";
 	player->mejoras.granadeSaved["pegamento"] = 5;
@@ -490,6 +490,13 @@ void StagePlay::inicializarScena() {
 	tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
 
 	player->atachWeapon(WEAPON1, tempWeapon);
+
+	texTemp = Texture::Get("data/arma/metralleta.png", false, true);
+	meshTemp = Mesh::Get("data/arma/metralleta.OBJ");
+	tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
+
+	player->atachWeapon(WEAPON2, tempWeapon);
+
 
 	uiTexture = Texture::Get("data/UI/items.png");
 	uiTextureAmmo = Texture::Get("data/UI/items2.png");

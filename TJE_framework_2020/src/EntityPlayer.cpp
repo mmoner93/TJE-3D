@@ -129,6 +129,11 @@ void EntityPlayer::changeWeapon() {
 		weapon = weapons[WEAPON1];
 		mejoras.actualAmmo = T_NORMAL;
 	}
+	else if(weaponUsing == WEAPON1){
+		weaponUsing = WEAPON2;
+		weapon = weapons[WEAPON2];
+		mejoras.actualAmmo = T_NORMAL;
+	}
 	else {
 		weaponUsing = PEGAMENTO;
 		weapon = weapons[PEGAMENTO];
@@ -185,10 +190,28 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 
 
 
-	if (Input::wasKeyPressed(SDL_SCANCODE_1)) {
+	if (Input::wasKeyPressed(SDL_SCANCODE_E)) {
 		changeWeapon();
 	}
-	if (Input::isMousePressed(SDL_BUTTON_LEFT) && !shooting) {
+
+
+	if (Input::isMousePressed(SDL_BUTTON_LEFT) && weaponUsing==WEAPON2) {
+		time_next_shoot_weapon2 -= seconds_elapsed;
+		if (time_next_shoot_weapon2 <= 0.0f) {
+			time_next_shoot_weapon2 = time_next_shoot_weapon2MAX;
+			if (mejoras.ammoSaved[mejoras.actualAmmo] > 0) {
+				shoot();
+				mejoras.ammoSaved[mejoras.actualAmmo]--;
+			}
+		}
+
+		
+
+	}
+
+
+
+	if (Input::isMousePressed(SDL_BUTTON_LEFT) && !shooting && weaponUsing != WEAPON2) {
 		shooting = true;
 		if (weaponUsing == PEGAMENTO) {
 			if (mejoras.ammoSaved[mejoras.actualAmmo] > 0) {
@@ -209,7 +232,7 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	}
 
 
-	if (!Input::isMousePressed(SDL_BUTTON_LEFT) && shooting) {
+	if (!Input::isMousePressed(SDL_BUTTON_LEFT) && shooting && weaponUsing != WEAPON2) {
 		shooting = false;
 
 	}

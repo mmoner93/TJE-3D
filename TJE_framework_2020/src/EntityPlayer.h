@@ -37,6 +37,9 @@ public:
 	float time_next_pegamento_up=0.0f;
 	float time_next_pegamento_up_max=5.0f;
 
+	float time_next_shoot_weapon2 = 0.0f;
+	float time_next_shoot_weapon2MAX = 0.2f;
+
 	EntityPlayer(Texture* t, Shader* s, Mesh* m, Material* mat, std::string nS, Vector3 pos, float sc = 1.0, float til = 1.0, float ya = 0.0, float pi = 0.0) :EntityGameObject(t, s, m, mat, nS, sc, til) {
 		
 		yaw = ya;
