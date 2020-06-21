@@ -50,8 +50,8 @@ C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnem
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(816,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(935,22): warning C4018: '<': no coinciden signed/unsigned
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(942,10): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(952,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(959,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(953,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(960,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   EntityGranade.cpp
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(60,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'

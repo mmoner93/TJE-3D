@@ -943,6 +943,7 @@ void EntityEnemy::mirarSiPisoPegamento() {
 							continue; //si no colisiona, pasamos al siguiente objeto
 						}
 						tempScene->EntitysImpactoPegamento[i]->in_use = false;
+						onReceveidShootPegamento(coll, collnorm);
 					}
 				}
 			}
@@ -961,6 +962,7 @@ void EntityEnemy::mirarSiPisoPegamento() {
 					}
 
 					tempScene->EntitysImpactoPegamento[i]->in_use = false;
+					onReceveidShootPegamento(coll, collnorm);
 				}
 			}
 

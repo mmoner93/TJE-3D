@@ -31,19 +31,35 @@ Vector3 EntityCajaLoot::testCollision( float seconds_elapsed) {
     float distanceToPlayer = temp->gameSceneSP->myPlayer->model->getTranslation().distance(model->getTranslation());
 
 	if (distanceToPlayer < 1.0f) {
+		int cual;
+		if (temp->gameSceneSP->myPlayer->health < 3.0f) {
+			cual = rand() % 5;
+			if (cual > 2) {
+				cual = 2;
+			}
+		}
+		else  {
+			cual = rand() % 3;
+			if (cual == 2) {
+				cual = 0;
+			}
+		}
 
-		int cual = rand() % 3;
+		 
 
 		switch (cual)
 		{
 		case 0://balas
-			//temp->gameSceneSP->myPlayer->mejoras.ammo += 5;
+			temp->gameSceneSP->myPlayer->mejoras.ammoSaved[T_NORMAL] += 5;
 			break;
 		case 1://granada
-			//temp->gameSceneSP->myPlayer->mejoras.grenades += 1;
+			temp->gameSceneSP->myPlayer->mejoras.granadeSaved["pegamento"] += 1;
 			break;
 		case 2://vida
-			//temp->gameSceneSP->myPlayer->health += 5.0f;
+			temp->gameSceneSP->myPlayer->health += 5.0f;
+			if (temp->gameSceneSP->myPlayer->health > temp->gameSceneSP->myPlayer->mejoras.maxHealth) {
+				temp->gameSceneSP->myPlayer->health = temp->gameSceneSP->myPlayer->mejoras.maxHealth;
+			}
 			break;
 		default:
 			break;
