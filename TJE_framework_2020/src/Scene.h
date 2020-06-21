@@ -101,7 +101,7 @@ public:
 			numTowers = 2;
 			numCajasLoot = 20;
 			initPosPlayer = Vector3(10, 0, 10);
-			mapGame->loadMapWithMap("data/myMaps/mina.map");
+			mapGame->loadMapWithMap("data/myMaps/naves3.map");
 			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 2:
