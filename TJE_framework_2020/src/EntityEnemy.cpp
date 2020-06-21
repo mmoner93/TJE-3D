@@ -196,101 +196,27 @@ void EntityEnemy::render(Light* light) {
 
 	}
 
+	if (shield > 0.0f && is_node) {
+		EntityGameObject* temp = new EntityGameObject(shieldTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), shieldMesh, NULL, "Game", 1.0f);
+		Vector3 mov = model->getTranslation();
+		temp->model->setIdentity();
+	   * (temp->model) = *model;
+	    temp->model->translate(0, 2.5, 0);
+		
+		temp->model->rotate(45* time_shield_rotate * DEG2RAD, Vector3(0, 1, 0));
+		temp->model->scale(0.5f, 0.5f, 0.5f);
+		temp->render(light);
+	}
+
+
+
 
 }
 
 
 
 void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
-	float speed = (float)seconds_elapsed * (float)10; //the speed is defined by the seconds_elapsed so it goes constant
-	
-	Vector3 target_pos = position;
-   /*Matrix44 R;
-
-	R.setRotation(yaw * DEG2RAD, Vector3(0, 1, 0));
-	Vector3 front = R.rotateVector(Vector3(0, 0, -1));
-	Vector3 right = R.rotateVector(Vector3(1, 0, 0));
-	
-	Vector3 delta;*/
-
-	/*if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 10; //move faster with left shift
-	if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) target_pos = position + front * 10 * speed * seconds_elapsed;
-	if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) target_pos = position - front * 10 * speed * seconds_elapsed;
-	if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT))  target_pos = position - right * 10 * speed * seconds_elapsed;
-	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) target_pos = position + right * 10 * speed * seconds_elapsed;*/
-	//if (Input::isKeyPressed(SDL_SCANCODE_Q)) plane_model.rotate(40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
-	//if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
-
-
-	/*if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 2; //move faster with left shift
-	if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) {
-		delta = delta + Vector3(1, 0, 0);
-	}
-	if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) delta = delta + Vector3(-1, 0, 0);
-	if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT))  delta = delta + Vector3(0, 0, -1);
-	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) delta = delta + Vector3(0, 0, 1);
-
-
-	delta = delta * speed;
-	yaw -= Input::mouse_delta.x * 0.1;
-
-	pitch -= Input::mouse_delta.y * 0.1;
-	if (pitch >= 90) {
-		pitch = 89.9;
-	}
-	if (pitch <= -90) {
-		pitch = -89.9;
-	}
-
-
-	//para particulas
-
-	Vector3 front1 = Vector3(0, 0, -1);
-	//Vector3 right1 = R.rotateVector(Vector3(1, 0, 0));
-	Matrix44 R1;
-	R1.rotate(angle * DEG2RAD, Vector3(0, 1, 0));
-	front1 = R * front;
-	vel_x = vel_x + delta.x * front;
-	vel_x = vel_x - vel_x * 0.04;
-
-	vel_y = vel_y + delta.z * right;
-	vel_y = vel_y - vel_y * 0.04;
-
-	vel_ang += yaw * seconds_elapsed;
-	vel_ang = vel_ang - vel_ang * 0.02;
-	position = position + vel_x * seconds_elapsed;
-	position = position + vel_y * seconds_elapsed;
-	angle = angle + vel_ang;*/
-
-
-
-	//arget_pos = testCollision(target_pos, seconds_elapsed, objects);
-	/*if (checkTime(seconds_elapsed)) {
-		target_pos = moveEnemy(seconds_elapsed, objects);
-		//TRS
-
-		//if (!has_collision) 
-		position = target_pos;
-
-		//player.model.setIdentity();
-
-		model->setTranslation(position.x, position.y, position.z);
-
-		//model->rotate(yaw * DEG2RAD, Vector3(0, 1, 0));
-	}*/
-
-	/*if (checkTime(seconds_elapsed)) {
-
-		//if (movs.size() < 1) {
-			raroIA();
-		//}
-		//else {
-		//
-
-		//}
-		
-
-	}*/
+   
 	if (aLive) {
 		queHacer(seconds_elapsed, objects);
 
@@ -310,10 +236,19 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 			atacar();
 		}
 		mirarSiPisoPegamento();
+		time_shield_rotate += seconds_elapsed;
+
+
+		if (shield <= 0.0f & is_node && actualState!= E_REPAIR) {
+			timeNextShield -= seconds_elapsed;
+			if (timeNextShield <= 0.0f) {
+				timeNextShield = timeNextShieldMax;
+				shield = 4.0f;
+			}
+			
+		}
+
 	}
-	
-	
-	//puntos = puntos * *model;
 	
 }
 
@@ -915,20 +850,42 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 
 	pointsSP.push_back(temp);
 	normPointsSP.push_back(norm);
-	health -= 1.0;
-	if (health <= 0.0) {
-		aLive = false;
+
+	if (is_node) {
+	
+		if (shield <= 0.0f) {
+			health -= 1.0;
+			if (health <= 0.0) {
+				aLive = false;
+			}
+		}
+		else {
+			shield -= 1.0f;
+		}
 	}
+	else {
+		health -= 1.0;
+		if (health <= 0.0) {
+			aLive = false;
+		}
+	}
+
+	
 }
 
 void EntityEnemy::onReceveidShootPegamento(Vector3 temp, Vector3 norm) {
 	pointsSPegamento.push_back(temp);
 	if (is_node) {
-		num_pegamento_in++;
-		if (num_pegamento_in >= 3) {
-			actualState = E_REPAIR;
-			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->turnAllMiniosOff(id_principal);
+
+		if (shield <= 0.0f) {
+			num_pegamento_in++;
+			if (num_pegamento_in >= 3) {
+				actualState = E_REPAIR;
+				((StagePlay*)Stage::getStage("Play"))->gameSceneSP->turnAllMiniosOff(id_principal);
+			}
 		}
+
+		
 	}
 	else {
 		actualState = STUNNED;
@@ -971,24 +928,50 @@ bool EntityEnemy::mirarSiPlayerCerca() {
 void EntityEnemy::mirarSiPisoPegamento() {
 	Scene* tempScene = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP;
 	
-	for (int i = 0; i < tempScene->EntitysImpactoPegamento.size(); i++) {
 
-		if (tempScene->EntitysImpactoPegamento[i]->in_use ) {
-			float distance = model->getTranslation().distance(tempScene->EntitysImpactoPegamento[i]->model->getTranslation());
-			if (distance <= 2.0) {
-				Vector3 coll;
-				Vector3 collnorm;
-				if (mesh->testSphereCollision(*(model), tempScene->EntitysImpactoPegamento[i]->model->getTranslation(), 0.05, coll, collnorm,true) == false) {
-					continue; //si no colisiona, pasamos al siguiente objeto
+
+	if (is_node) {
+		if (shield <= 0.0f) {
+			for (int i = 0; i < tempScene->EntitysImpactoPegamento.size(); i++) {
+
+				if (tempScene->EntitysImpactoPegamento[i]->in_use) {
+					float distance = model->getTranslation().distance(tempScene->EntitysImpactoPegamento[i]->model->getTranslation());
+					if (distance <= 2.0) {
+						Vector3 coll;
+						Vector3 collnorm;
+						if (mesh->testSphereCollision(*(model), tempScene->EntitysImpactoPegamento[i]->model->getTranslation(), 0.05, coll, collnorm, true) == false) {
+							continue; //si no colisiona, pasamos al siguiente objeto
+						}
+						tempScene->EntitysImpactoPegamento[i]->in_use = false;
+						onReceveidShootPegamento(coll, collnorm);
+					}
 				}
-
-				onReceveidShootPegamento(coll, collnorm);
-				tempScene->EntitysImpactoPegamento[i]->in_use = false;
 			}
 		}
-		
-	
 	}
+	else {
+		for (int i = 0; i < tempScene->EntitysImpactoPegamento.size(); i++) {
+
+			if (tempScene->EntitysImpactoPegamento[i]->in_use) {
+				float distance = model->getTranslation().distance(tempScene->EntitysImpactoPegamento[i]->model->getTranslation());
+				if (distance <= 2.0) {
+					Vector3 coll;
+					Vector3 collnorm;
+					if (mesh->testSphereCollision(*(model), tempScene->EntitysImpactoPegamento[i]->model->getTranslation(), 0.05, coll, collnorm, true) == false) {
+						continue; //si no colisiona, pasamos al siguiente objeto
+					}
+
+					tempScene->EntitysImpactoPegamento[i]->in_use = false;
+					onReceveidShootPegamento(coll, collnorm);
+				}
+			}
+
+
+		}
+	}
+
+
+	
 }
 
 void EntityEnemy::contadorMovUp() {

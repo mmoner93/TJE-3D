@@ -459,7 +459,23 @@ void StagePlay::inicializarScena() {
 	EntityPlayer* player;
 	player = new EntityPlayer(texTemp, shaderAnimSP, meshTemp, materialSP, "game", Vector3(10.f, 0.f, 10.f));
 	player->loalAnim();
+	
+	//rellenar el apartado mejoras
 
+	player->mejoras.actualAmmo = T_PEGAMENTO;
+	player->mejoras.ammoSaved[T_PEGAMENTO] = 5;
+	player->mejoras.ammoSaved[T_NORMAL] = 40;
+	
+	player->mejoras.actualGranade = "pegamento";
+	player->mejoras.granadeSaved["pegamento"] = 5;
+
+	
+
+
+
+	//falta todo lo demas de weapons y granadas
+
+	//
 
 	texTemp = Texture::Get("data/arma/weaponPegamento.png", false, true);
 	meshTemp = Mesh::Get("data/arma/weaponPegamento.obj");
@@ -475,7 +491,15 @@ void StagePlay::inicializarScena() {
 
 	player->atachWeapon(WEAPON1, tempWeapon);
 
+	texTemp = Texture::Get("data/arma/metralleta.png", false, true);
+	meshTemp = Mesh::Get("data/arma/metralleta.OBJ");
+	tempWeapon = new EntityGameObject(texTemp, shaderGameSP, meshTemp, materialSP, "game");
+
+	player->atachWeapon(WEAPON2, tempWeapon);
+
+
 	uiTexture = Texture::Get("data/UI/items.png");
+	uiTextureAmmo = Texture::Get("data/UI/items2.png");
 	damage = Texture::Get("data/UI/vida.png");
 
 	
@@ -682,9 +706,15 @@ void StagePlay::render()
 	glEnable(GL_CULL_FACE);
 	
 
-	renderUI(0, uiTexture, 0.8f);
+	if (gameSceneSP->myPlayer->mejoras.actualAmmo == T_PEGAMENTO) {
+		renderUI(0, uiTexture, 0.8f);
+	}
+	else {
+		renderUI(0, uiTextureAmmo, 0.8f);
+	}
+	
 	gameSceneSP->myPlayer->radar();
-	//drawText(725, 525, "A", Vector3(1, 1, 1), 2);
+	
 	//drawText(725, 570, "G", Vector3(1, 1, 1), 2);
 
 //	NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
@@ -692,6 +722,16 @@ void StagePlay::render()
 	float opacity = 1.0 - gameSceneSP->myPlayer->health * 0.1;
 	//float opacity = (((gameSceneSP->myPlayer->health - 0.0f) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin;
 	renderUI(0, damage, opacity);
+
+
+	//que hay
+
+	std::string Ammo =std::to_string(gameSceneSP->myPlayer->mejoras.ammoSaved[gameSceneSP->myPlayer->mejoras.actualAmmo]);
+	std::string AmmoGranade = std::to_string(gameSceneSP->myPlayer->mejoras.granadeSaved[gameSceneSP->myPlayer->mejoras.actualGranade]);
+
+	 drawText(725, 525, Ammo, Vector3(1, 1, 1), 2);
+	 drawText(725, 570, AmmoGranade, Vector3(1, 1, 1), 2);
+
 
 	
 	SDL_GL_SwapWindow(gameISP->window);
