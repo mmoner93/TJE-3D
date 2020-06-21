@@ -68,7 +68,7 @@ public:
 	void renderAnimated(Light* light);
 	void retrocesoShoot(float seconds_elapsed);
 	void radar(); 
-	void renderUI(int type, Texture* tex, float opacity, std::vector<Vector3> listaPoints);
+	void renderUI(int type, Texture* tex, float opacity, std::vector<Vector3> listaPoints, Vector4 color);
 	void chargePegamento(float seconds_elapsed);;
 	bool playerAlive();
 	void shootGranade();

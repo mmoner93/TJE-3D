@@ -110,12 +110,12 @@ void EntityPlayer::render(Light* light) {
 void EntityPlayer::chargePegamento(float seconds_elapsed) {
 	time_next_pegamento_up -= seconds_elapsed;
 	if(time_next_pegamento_up<=0.0f){
-		if (mejoras.actualAmmo == T_PEGAMENTO) {
-			mejoras.ammoSaved[mejoras.actualAmmo]++;
-			if (mejoras.ammoSaved[mejoras.actualAmmo] >= mejoras.maxPegamento) {
-				mejoras.ammoSaved[mejoras.actualAmmo] = mejoras.maxPegamento;
+		
+			mejoras.ammoSaved[T_PEGAMENTO]++;
+			if (mejoras.ammoSaved[T_PEGAMENTO] >= mejoras.maxPegamento) {
+				mejoras.ammoSaved[T_PEGAMENTO] = mejoras.maxPegamento;
 			}
-		}
+		
 		
 		time_next_pegamento_up = time_next_pegamento_up_max;
 	}
@@ -419,7 +419,7 @@ void EntityPlayer::shoot() {
 
 }
 
-void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<Vector3> listaPoints) {
+void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<Vector3> listaPoints,Vector4 color) {
 	glDisable(GL_DEPTH_TEST);
 	glDisable(GL_CULL_FACE);
 	glEnable(GL_BLEND);
@@ -528,7 +528,7 @@ void EntityPlayer::renderUI(int type, Texture* tex, float opacity, std::vector<V
 	}
 
 	shaderTEMP->enable();
-	shaderTEMP->setUniform("u_color", Vector4(1, 0, 0, 1));
+	shaderTEMP->setUniform("u_color", color);
 	//shader->setUniform("u_texture", tex, 0);
 	shaderTEMP->setFloat("u_opacity", opacity);
 	if (type != 5) {
@@ -585,9 +585,41 @@ void EntityPlayer::radar() {
 		}
 	
 		if (tempVector.size() > 0) {
-			renderUI(5, NULL, 1.0f, tempVector);
+			renderUI(5, NULL, 1.0f, tempVector, Vector4(1, 0, 0, 1));
 		}
 
+
+		tempVector.clear();
+
+
+		for (int i = 0; i < temp->gameSceneSP->TowersList.size(); i++) {
+			EntityGameObject* en = temp->gameSceneSP->TowersList[i];
+			Vector3 objectPositio = en->model->getTranslation();
+
+			model->getRotationOnly();
+
+			objectPositio = inv * objectPositio;
+
+			
+				float distance = persona.distance(objectPositio);
+
+				Vector3 playerPos = model->getTranslation();
+
+				if (distance <= numMirar - 5) {
+
+
+					objectPositio.x = (((objectPositio.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
+					objectPositio.y = (((objectPositio.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y - numMirar))) + (-1.0f);
+					objectPositio.y = (((objectPositio.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
+
+					tempVector.push_back(objectPositio);
+				}
+			
+		}
+
+		if (tempVector.size() > 0) {
+			renderUI(5, NULL, 1.0f, tempVector, Vector4(0, 1, 0, 1));
+		}
 
 	}
 

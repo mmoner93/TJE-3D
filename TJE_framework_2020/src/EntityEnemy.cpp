@@ -331,10 +331,11 @@ void EntityEnemy::calcularCaminoIA() {
 
 
 			Vector3 push_away = normalize(target_pos - model->getTranslation());
-			push_away = model->getTranslation() - push_away*2.0;
-			if (!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)push_away.z ,(int)push_away.x }))) {
-				auto path = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+			push_away = model->getTranslation() - push_away;
 
+			if (!(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)push_away.z ,(int)push_away.x })) && !(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->detectCollision({ (int)playerTe.z ,(int)playerTe.x }))) {
+				auto path = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->generatorIA->findPath({ (int)yo.z ,(int)yo.x }, { (int)playerTe.z ,(int)playerTe.x });
+				model->setTranslation(push_away.x, push_away.y, push_away.z);
 				int con = 0;
 				movs.clear();
 				for (auto& coordinate : path) {
@@ -342,9 +343,15 @@ void EntityEnemy::calcularCaminoIA() {
 					movs.push_front(Vector3(coordinate.y, 0.0, coordinate.x));
 				}
 			}
+			else {
+				actualState = ANDAR_TONTO;
+			}
 		}
 
 		
+	}
+	else {
+		actualState = ANDAR_TONTO;
 	}
 	//calculando = false;
 
@@ -752,8 +759,8 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 
 		}
 
-
-		while (!goodMove) {
+		int contadorTemp=0;
+		while (!goodMove && contadorTemp<10) {
 			whatToMake = rand() % 4;
 			switch (whatToMake) {
 			case 0:
@@ -780,7 +787,7 @@ Vector3  EntityEnemy::moveEnemy(float seconds_elapsed, std::vector<EntityGameObj
 			}
 
 			goodMove = testCollision(target_pos, seconds_elapsed, objects);
-
+			contadorTemp++;
 
 
 		}

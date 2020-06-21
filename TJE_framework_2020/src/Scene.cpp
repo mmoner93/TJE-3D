@@ -43,10 +43,14 @@ void Scene :: updateScene(float seconds_elapsed) {
 		}
 	}
 
-
-	if (granadesMove->in_use) {
-		granadesMove->update(seconds_elapsed, mapaObjects);
+	for (int i = 0; i < granadesMove.size(); i++) {
+		if (granadesMove[i]->in_use == true) {
+			granadesMove[i]->update(seconds_elapsed, mapaObjects);
+		}
 	}
+
+
+	
 
 }
 void Scene::pintarScene() {
@@ -233,6 +237,7 @@ void Scene::pintarDisparos() {
 	//Mesh* dispa = Mesh::Get("data/kjdsnf");
 	//dispa->renderInstanced(GL_TRIANGLES, &disparosMoveM[0], disparosMoveM.size());
 
+
 	
 
 
@@ -266,6 +271,30 @@ int  Scene::idMasBajoPegamentoMovimiento() {
 }
 
 int  Scene::idMasBajoMovimiento() {
+	int idmax = -1;//max id
+	int idmin = MAXINT32;
+	for (int i = 0; i < disparosMove.size(); i++) {
+		if (idmax < disparosMove[i]->id) {
+			idmax = disparosMove[i]->id;
+		}
+		if (idmin > disparosMove[i]->id) {
+			idmin = disparosMove[i]->id;
+		}
+	}
+	for (int i = 0; i < disparosMove.size(); i++) {
+		if (disparosMove[i]->id == idmin) {
+			disparosMove[i]->in_use = false;
+			break;
+		}
+	}
+
+
+
+	return idmax;
+
+}
+
+int  Scene::idMasBajoMovimientoGranade() {
 	int idmax = -1;//max id
 	int idmin = MAXINT32;
 	for (int i = 0; i < disparosMove.size(); i++) {
@@ -341,14 +370,47 @@ int  Scene::idMasBajo() {
 }
 
 void Scene::activateGranade(Vector3 origin, Vector3 dir) {
-	granadesMove->position = origin;
-	granadesMove->init_pos = origin;
-	granadesMove->model->setTranslation(origin.x, origin.y, origin.z);
 
-	granadesMove->in_use = true;
-	granadesMove->dir = dir;
 
-	granadesMove->time_passed = 0.0f;
+
+	bool control = true;
+	for (int i = 0; i < granadesMove.size(); i++) {
+		if (!granadesMove[i]->in_use) {
+			granadesMove[i]->position = origin;
+			granadesMove[i]->init_pos = origin;
+			granadesMove[i]->model->setTranslation(origin.x, origin.y, origin.z);
+
+			granadesMove[i]->in_use = true;
+			granadesMove[i]->dir = dir;
+
+			granadesMove[i]->time_passed = 0.0f;
+			control = false;
+			break;
+		}
+	}
+
+	if (control) {
+		int alto = idMasBajoMovimientoGranade();
+		alto++;
+		for (int i = 0; i < disparosMove.size(); i++) {
+			if (!granadesMove[i]->in_use) {
+				granadesMove[i]->position = origin;
+				granadesMove[i]->init_pos = origin;
+				granadesMove[i]->model->setTranslation(origin.x, origin.y, origin.z);
+				granadesMove[i]->id = alto;
+				granadesMove[i]->in_use = true;
+				granadesMove[i]->dir = dir;
+
+				granadesMove[i]->time_passed = 0.0f;
+				control = false;
+				break;
+			}
+		}
+	}
+
+
+
+
 }
 
 
@@ -534,6 +596,15 @@ void Scene::initListDisparos() {
 		disparosPegamentoMove.push_back(temp);
 		contadorIdDisparoPegamentoMovimiento++;
 	}
+
+
+	for (int i = 0; i < MAX_GRANADE_IN_MOVE; i++) {
+		EntityGranade* temp = new EntityGranade(0, granadetTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), granadeMesh, NULL, "game", Vector3(0, 0, 0));
+		granadesMove.push_back(temp);
+		contadorIdGranadeMovimiento++;
+	}
+
+
 }
 
 
@@ -1201,8 +1272,29 @@ void Scene::pintarTowerArreglo() {
 
 
 void Scene::pintarGranades() {
-	if (granadesMove->in_use) {
-	granadesMove->render(lightScene->light);
+
+	disparosMoveM.clear();
+	for (int i = 0; i < granadesMove.size(); i++) {
+
+		if (granadesMove[i]->in_use == true) {
+			//disparosMove[i]->render(lightScene->light);
+			disparosMoveM.push_back(*(granadesMove[i]->model));
+		}
 	}
+
+
+
+	if (disparosMoveM.size() > 0) {
+		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
+		shader->enable();
+		shader->setUniform("u_viewprojection", Camera::current->viewprojection_matrix);//camera->viewprojection_matrix);
+		shader->setUniform("u_texture", granadetTexture, 0);
+		shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+		shader->setFloat("u_tilling", 1.0);
+		granadeMesh->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());
+		shader->disable();
+	}
+
+
 
 }

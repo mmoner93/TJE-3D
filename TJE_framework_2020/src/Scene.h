@@ -46,6 +46,7 @@ public:
 	int contadorIdDisparoPegamento = 0;
 	int contadorIdDisparoPegamentoMovimiento = 0;
 	int contadorIdDisparoMovimiento = 0;
+	int contadorIdGranadeMovimiento = 0;
 	std::vector<EntityImpactoDisparo*> EntitysImpactoDisparo;
 	std::vector<EntityImpactoDisparo*> EntitysImpactoPegamento;
 	EntityTowerArreglo* towerTemp;
@@ -62,8 +63,9 @@ public:
 	EntityDisparo* disparo;
 
 	std::vector<EntityCajaLoot*> cajasLoot;
-	EntityGranade* granadesMove;
 
+	std::vector<EntityGranade*> granadesMove;
+	//EntityGranade* granadesMove;
 
 	/*Para controlar lvl*/
 	int numLvl;
@@ -99,7 +101,7 @@ public:
 			numTowers = 2;
 			numCajasLoot = 20;
 			initPosPlayer = Vector3(10, 0, 10);
-			mapGame->loadMapWithMap("data/myMaps/mymap3.map");
+			mapGame->loadMapWithMap("data/myMaps/mina.map");
 			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 2:
@@ -134,7 +136,7 @@ public:
 		granadetTexture= Texture::Get("data/itemsUse/granade.png");
 		
 
-		granadesMove = new EntityGranade(0,granadetTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), granadeMesh, NULL, "game", Vector3(0, 0, 0));
+		//granadesMove = new EntityGranade(0,granadetTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), granadeMesh, NULL, "game", Vector3(0, 0, 0));
 
 		//disparo = new EntityDisparo(disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"),disparoMesh,NULL,"game",Vector3(0,0,0),T_PEGAMENTO);
 		
@@ -185,7 +187,7 @@ public:
 
 	bool checkEndLvl();
 	void restartLvl(std::map<std::string, Entity*>);
-
+	int  idMasBajoMovimientoGranade();
 };
 
 

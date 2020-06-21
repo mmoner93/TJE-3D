@@ -16,8 +16,11 @@ public:
 	std::map<std::string, int> granadeSaved;
 	std::string actualGranade;
 
+	
+
+
 	int maxPegamento=5;
-	int maxGranade = 2;
+	int maxGranade = 10;
 	float maxHealth = 10.0f;
 
 	float velociti = 0;
