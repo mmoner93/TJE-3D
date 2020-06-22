@@ -362,6 +362,7 @@ void EntityPlayer::fixShoot() {
 
 	Vector3 posa = origin;
 	posa.y -= 0.2;
+	dir.normalize();
 	temp->gameSceneSP->activateDisparoPegamento(posa, dir);
 
 }
@@ -404,6 +405,7 @@ void EntityPlayer::shoot() {
 
 	Vector3 posa = origin;
 	posa.y -= 0.2;
+	dir.normalize();
 	temp->gameSceneSP->activateDisparo(posa, dir);
 
 

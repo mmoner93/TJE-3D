@@ -11,11 +11,11 @@ void EntityDisparo::update(float seconds_elapsed, std::vector<EntityGameObject*>
 	time_passed += seconds_elapsed;
 	Vector3 targe_pos;
 	if (tipo == T_NORMAL) {
-		targe_pos = position + dir * vel;
+		targe_pos = position + dir * seconds_elapsed*25.0;
 	}
 	else if (tipo == T_PEGAMENTO) {
-		targe_pos = position + Vector3(dir.x,dir.y,dir.z) * vel;
-		targe_pos = targe_pos - Vector3(0, 1, 0) * time_passed * 0.1;
+		targe_pos = position + dir * seconds_elapsed * 15.0;
+		targe_pos = targe_pos - Vector3(0, 1, 0) * time_passed * seconds_elapsed*14.0;
 		
 	}
 	

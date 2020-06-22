@@ -87,12 +87,12 @@ void StageLVL::update(double dt) {
 				Stage::changeState("Play");
 			}
 			else if (optionSelectedFila == 2) {
-				temp->gameSceneSP = temp->Lvls[1];
+				temp->gameSceneSP = temp->Lvls[3];
 				temp->gameSceneSP->restartLvl(temp->enemysMapSP);
 				Stage::changeState("Play");
 			}
 			else {
-				temp->gameSceneSP = temp->Lvls[2];
+				temp->gameSceneSP = temp->Lvls[6];
 				temp->gameSceneSP->restartLvl(temp->enemysMapSP);
 				Stage::changeState("Play");
 			}
@@ -100,7 +100,7 @@ void StageLVL::update(double dt) {
 		}
 		else if (optionSelected == 2) {
 			if (optionSelectedFila == 1) {
-				temp->gameSceneSP = temp->Lvls[3];
+				temp->gameSceneSP = temp->Lvls[1];
 				temp->gameSceneSP->restartLvl(temp->enemysMapSP);
 				Stage::changeState("Play");
 			}
@@ -110,19 +110,19 @@ void StageLVL::update(double dt) {
 				Stage::changeState("Play");
 			}
 			else {
-				temp->gameSceneSP = temp->Lvls[5];
+				temp->gameSceneSP = temp->Lvls[7];
 				temp->gameSceneSP->restartLvl(temp->enemysMapSP);
 				Stage::changeState("Play");
 			}
 		}
 		else if (optionSelected == 3) {
 			if (optionSelectedFila == 1) {
-				temp->gameSceneSP = temp->Lvls[6];
+				temp->gameSceneSP = temp->Lvls[2];
 				temp->gameSceneSP->restartLvl(temp->enemysMapSP);
 				Stage::changeState("Play");
 			}
 			else if (optionSelectedFila == 2) {
-				temp->gameSceneSP = temp->Lvls[7];
+				temp->gameSceneSP = temp->Lvls[5];
 				temp->gameSceneSP->restartLvl(temp->enemysMapSP);
 				Stage::changeState("Play");
 			}
@@ -136,20 +136,6 @@ void StageLVL::update(double dt) {
 
 
 
-		if (optionSelected == 1) {
-			
-			temp->gameSceneSP = temp->Lvls[0];
-			temp->gameSceneSP->restartLvl(temp->enemysMapSP);
-			Stage::changeState("Play");
-		}
-		else if (optionSelected == 2) {
-			temp->gameSceneSP = temp->Lvls[1];
-			temp->gameSceneSP->restartLvl(temp->enemysMapSP);
-			Stage::changeState("Play");
-		}
-		else if (optionSelected == 3) {
-			Stage::changeState("Play");
-		}
 
 
 

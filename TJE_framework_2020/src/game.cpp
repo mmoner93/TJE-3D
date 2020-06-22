@@ -44,7 +44,7 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	elapsed_time = 0.0f;
 	mouse_locked = false;
 
-
+	
 
 	new StageMenu();
 	((StageMenu*)Stage::getStage("Menu"))->init();
