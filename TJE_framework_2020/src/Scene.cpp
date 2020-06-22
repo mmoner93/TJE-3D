@@ -414,6 +414,29 @@ void Scene::activateGranade(Vector3 origin, Vector3 dir) {
 }
 
 
+int Scene::enemeysLeft() {
+	int contador = 0;
+	for (int i = 0; i < Enemys.size(); i++) {
+		if (!Enemys[i]->aLive) {
+			contador++;
+		}
+	}
+
+	return contador;
+
+}
+int Scene::towersLeft() {
+	int contador = 0;
+	for (int i = 0; i < TowersList.size(); i++) {
+		if (!TowersList[i]->estado==GREEN) {
+			contador++;
+		}
+	}
+
+	return contador;
+}
+
+
 void Scene::activateDisparo(Vector3 origin, Vector3 dir) {
 	bool control = true;
 	for (int i = 0; i < disparosMove.size(); i++) {

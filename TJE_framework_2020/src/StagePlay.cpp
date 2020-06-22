@@ -746,7 +746,7 @@ void StagePlay::render()
 
 	//render the FPS, Draw Calls, etc
 	drawText(2, 2, getGPUStats(), Vector3(1, 1, 1), 2);
-
+	//drawText(2, 4, "Torres "+gameSceneSP->Enemys, Vector3(1, 1, 1), 2);
 	drawText(400, 295, "X", Vector3(1, 1, 1), 2);
 
 	glDisable(GL_DEPTH_TEST);

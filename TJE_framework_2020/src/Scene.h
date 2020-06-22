@@ -242,6 +242,10 @@ public:
 	bool checkEndLvl();
 	void restartLvl(std::map<std::string, Entity*>);
 	int  idMasBajoMovimientoGranade();
+
+	int enemeysLeft();
+	int towersLeft();
+
 };
 
 
