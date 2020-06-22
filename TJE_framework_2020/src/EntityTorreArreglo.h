@@ -24,7 +24,7 @@ public:
 		textureRed = t3;
 	}
 
-	 void render(Light* light);
+	 void render(Light* light, Vector3 fog);
 	 void update(float seconds_elapsed);
 	 void onReceveidShootPegamento(Vector3 temp, Vector3 norm);
 	 void switchLight();

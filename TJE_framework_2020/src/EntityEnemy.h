@@ -109,7 +109,7 @@ public:
 	}
 
 
-	void render(Light* light);
+	void render(Light* light,Vector3 fog);
 	void update(float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	bool testCollision(Vector3 target_pos, float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	Vector3 moveEnemy(float seconds_elapsed, std::vector<EntityGameObject*> objects);
@@ -127,7 +127,7 @@ public:
 	void moveWithIaListTower();
 
 	void loalAnim(int enemy);
-	void renderAnimated(Light* light);
+	void renderAnimated(Light* light, Vector3 fog);
 
 	void calcularCaminoIA();
 	void queHacer(float seconds_elapsed, std::vector<EntityGameObject*> objects);

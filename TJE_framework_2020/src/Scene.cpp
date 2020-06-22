@@ -59,9 +59,9 @@ void Scene::pintarScene() {
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	suelo->render(lightScene->light);
+	suelo->render(lightScene->light,fog_color);
 
-	lightScene->render( lightScene->light);
+	lightScene->render( lightScene->light,fog_color);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
 	/*	if (mapaObjects[i]->nameShader == "basic") {
@@ -73,7 +73,7 @@ void Scene::pintarScene() {
 		else if (mapaObjects[i]->nameShader == "game") {
 			mapaObjects[i]->renderEspecial(lightScene->light);
 		}*/
-		mapaObjects[i]->render(lightScene->light);
+		mapaObjects[i]->render(lightScene->light,fog_color);
 
 	}
 
@@ -83,7 +83,7 @@ void Scene::pintarScene() {
 		//if (Enemys[i]->aLive) {
 		//	Enemys[i]->render(lightScene->light);
 		//}
-		Enemys[i]->render(lightScene->light);
+		Enemys[i]->render(lightScene->light, fog_color);
 
 	}
 
@@ -98,7 +98,7 @@ void Scene::pintarScene() {
 	pintarTowerArreglo();
 	pintarCajasLoot();
 	pintarGranades();
-	myPlayer->render(lightScene->light);
+	myPlayer->render(lightScene->light,fog_color);
 }
 
 void Scene::spawnTower() {
@@ -417,7 +417,7 @@ void Scene::activateGranade(Vector3 origin, Vector3 dir) {
 int Scene::enemeysLeft() {
 	int contador = 0;
 	for (int i = 0; i < Enemys.size(); i++) {
-		if (!Enemys[i]->aLive) {
+		if (!Enemys[i]->aLive && Enemys[i]->is_node) {
 			contador++;
 		}
 	}
@@ -428,7 +428,7 @@ int Scene::enemeysLeft() {
 int Scene::towersLeft() {
 	int contador = 0;
 	for (int i = 0; i < TowersList.size(); i++) {
-		if (!TowersList[i]->estado==GREEN) {
+		if (TowersList[i]->estado==GREEN) {
 			contador++;
 		}
 	}
@@ -1272,7 +1272,7 @@ void Scene::pintarCajasLoot() {
 
 	for (int i = 0; i < cajasLoot.size(); i++) {
 		if (cajasLoot[i]->in_use) {
-			cajasLoot[i]->render(lightScene->light);
+			cajasLoot[i]->render(lightScene->light,fog_color);
 		}
 		
 	}
@@ -1286,7 +1286,7 @@ void Scene::pintarCajasLoot() {
 void Scene::pintarTowerArreglo() {
 
 	for (int i = 0; i < TowersList.size(); i++) {
-		TowersList[i]->render(lightScene->light);
+		TowersList[i]->render(lightScene->light,fog_color);
 	}
 
 

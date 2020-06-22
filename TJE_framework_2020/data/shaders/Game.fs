@@ -12,6 +12,7 @@ uniform float u_tilling;
 uniform vec3 u_light_direction;
 uniform vec3 u_camera_position;
 uniform vec3 u_ambient_light;
+uniform vec3 u_fog_color;
 void main()
 {
 vec2 uv = v_uv;
@@ -31,7 +32,7 @@ color.xyz*=light;
 float dist=length(v_world_position-u_camera_position);
 //normalmente la division es entre el camera.far
 dist=clamp(dist/128.0,0.0,1.0);
-vec3 fog_color= vec3(0.60,0.75,0.78);
+vec3 fog_color= u_fog_color;
 color.xyz=mix(color.xyz,fog_color,dist);
 
 gl_FragColor =color;

@@ -1,7 +1,7 @@
 #include "EntityGameObject.h"
 
 
-void EntityGameObject::render(Light* light) {
+void EntityGameObject::render(Light* light, Vector3 fog) {
 	Camera* camera = Camera::current;
 	Vector3 ambientLight(0.3, 0.3, 0.3);
 	Matrix44 m = *model;
@@ -21,7 +21,7 @@ void EntityGameObject::render(Light* light) {
 	shader->setFloat("u_tilling", tilling);
 	shader->setUniform("u_ambient_light", Vector3(0.2, 0.2, 0.2));
 	mesh->render(GL_TRIANGLES, -1);
-
+	shader->setUniform3("u_fog_color", fog);
 	shader->disable();
 }
 
@@ -45,6 +45,7 @@ void EntityGameObject::renderConPhong( Light* light ) {
 	shader->setFloat("u_tilling", tilling);
 	shader->setUniform3("positionCamera", camera->eye);
 	shader->setUniform3("lightAmbient", ambientLight);
+	
 	light->uploadToShader(shader);
 	material->uploadToShader(shader);
 	mesh->render(GL_TRIANGLES, -1);

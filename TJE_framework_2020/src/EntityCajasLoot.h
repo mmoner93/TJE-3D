@@ -20,7 +20,7 @@ public:
 	}
 
 
-	void render(Light* light);
+	void render(Light* light, Vector3 fog);
 	void update(float seconds_elapsed, std::vector<EntityGameObject*> objects);
 	Vector3 testCollision( float seconds_elapsed);
 

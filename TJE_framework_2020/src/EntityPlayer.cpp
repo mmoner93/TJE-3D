@@ -68,7 +68,7 @@ void EntityPlayer::renderAnimated(Light* light) {
 
 
 
-void EntityPlayer::render(Light* light) {
+void EntityPlayer::render(Light* light, Vector3 fog) {
 
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
@@ -103,7 +103,7 @@ void EntityPlayer::render(Light* light) {
 	ter->rotate(-pitch * DEG2RAD, Vector3(1, 0, 0));
 	weapon->model = ter;
 
-	weapon->render(light);
+	weapon->render(light,fog);
 	
 }
 

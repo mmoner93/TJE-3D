@@ -2,11 +2,11 @@
 #include "Stage.h"
 #include "StagePlay.h"
 
-void EntityCajaLoot::render(Light* light) {
+void EntityCajaLoot::render(Light* light,Vector3 fog) {
 	model->setTranslation(position.x, position.y, position.z);
 	model->rotate(45 * time_passed * DEG2RAD, Vector3(0, 1, 0));
 	model->scale(0.5f, 0.5f, 0.5f);
-	EntityGameObject::render(light);
+	EntityGameObject::render(light,fog);
 
 }
 void EntityCajaLoot::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {

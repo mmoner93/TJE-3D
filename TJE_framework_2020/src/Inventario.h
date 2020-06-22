@@ -16,7 +16,11 @@ public:
 	std::map<std::string, int> granadeSaved;
 	std::string actualGranade;
 
-	
+	bool mejora_Mapa = false;
+	int coins = 0;
+	bool arma2Comprada=false;
+
+
 
 
 	int maxPegamento=5;

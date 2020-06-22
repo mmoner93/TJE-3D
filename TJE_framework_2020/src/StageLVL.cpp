@@ -147,18 +147,6 @@ void StageLVL::update(double dt) {
 		//Stage::current_state->init();
 	}
 	
-	if (Input::wasKeyPressed(SDL_SCANCODE_A)) {
-		lvlOnScreen -= 1;
-		if (lvlOnScreen < 0) {
-			lvlOnScreen = 3;
-		}
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_D)) {
-		lvlOnScreen += 1;
-		if (lvlOnScreen > 3) {
-			lvlOnScreen = 0;
-		}
-	}
 
 }
 void StageLVL::init() {

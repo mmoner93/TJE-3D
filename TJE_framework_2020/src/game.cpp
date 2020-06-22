@@ -53,6 +53,7 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	new StageSaveLoad();
 	((StageSaveLoad*)Stage::getStage("SaveLoad"))->init();
 	new StageMenuInGame();
+	((StageMenuInGame*)Stage::getStage("MenuInGame"))->init();
 	new StageLVL();
 	((StageLVL*)Stage::getStage("SelectLVL"))->init();
 

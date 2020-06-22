@@ -11,8 +11,11 @@
 class StageMenuInGame :public Stage
 {
 public:
-
-
+	Texture* select1 = NULL;
+	Texture* select2 = NULL;
+	Texture* select3 = NULL;
+	Texture* uiTexture = NULL;
+	int optionSelected = 1;
 	StageMenuInGame() :Stage("MenuInGame") {
 		iniciado = true;
 	};

@@ -2,9 +2,9 @@
 #include "Stage.h"
 #include "StagePlay.h"
 
-void EntityDisparo::render(Light* light) {
+void EntityDisparo::render(Light* light, Vector3 fog) {
 
-	EntityGameObject::render(light);
+	EntityGameObject::render(light,fog);
 
 }
 void EntityDisparo::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {

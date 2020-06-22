@@ -430,12 +430,7 @@ void StagePlay::inicializarScena() {
 	EntityLight* ltemp = new EntityLight(light, texture, shaderGameSP, mesh, materialSP, "game", 0.01);
 
 	//suelo
-	mesh = new Mesh();
-
-	mesh->createPlane(1000);
-
-	Texture* xs = Texture::Get("data/terra_lila2.png");
-	EntityGameObject* entitySuelo= new EntityGameObject(xs, shaderGameSP, mesh, materialSP,"game",1.0f,1000.f);
+	
 	
 
 
@@ -444,10 +439,7 @@ void StagePlay::inicializarScena() {
 	//mesh = Mesh::Get("data/space_cubemap.ASE"); cielo.ASE
 
 	//xs = Texture::Get("data/hell_cubemap.tga");
-	mesh = Mesh::Get("data/cielo.ASE");
-	xs = Texture::Get("data/cielo.png");
-
-	EntityGameObject* entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f,1.0f);
+	
 
 
 	//player
@@ -468,7 +460,7 @@ void StagePlay::inicializarScena() {
 	
 	player->mejoras.actualGranade = "pegamento";
 	player->mejoras.granadeSaved["pegamento"] = 5;
-
+	Texture* xs;
 	
 
 
@@ -502,7 +494,17 @@ void StagePlay::inicializarScena() {
 	uiTextureAmmo = Texture::Get("data/UI/items2.png");
 	damage = Texture::Get("data/UI/vida.png");
 
-	
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo.png");
+
+	EntityGameObject* entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	 xs= Texture::Get("data/terra_lila2.png");
+	EntityGameObject* entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
+
 	Lvls[0]= new Scene(0, ltemp, entitySuelo, entityCielo, player);
 
 	Lvls[0]->LoadMap(listEntitysSP);
@@ -510,55 +512,168 @@ void StagePlay::inicializarScena() {
 	Lvls[0]->initListDisparos();
 	Lvls[0]->spawnTower();
 
-	Lvls[1] = new Scene(1, ltemp, entitySuelo, entityCielo, player);
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo2.png");
+	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
 
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	 xs = Texture::Get("data/terra.png");
+	 entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
+
+	
+
+	Lvls[1] = new Scene(1, ltemp, entitySuelo, entityCielo, player);
+	Lvls[1]->fog_color = Vector3(0.95,0.8,0.4);
 	Lvls[1]->LoadMap(listEntitysSP);
 	Lvls[1]->loadEnemys(enemysMapSP);
 	Lvls[1]->initListDisparos();
 	Lvls[1]->spawnTower();
 
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo3.png");
+
+	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
+
+
+
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	xs = Texture::Get("data/terra-3.png");
+	entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
 
 	Lvls[2] = new Scene(2, ltemp, entitySuelo, entityCielo, player);
+	Lvls[2]->fog_color = Vector3(0.65, 0.55, 0.2);
 	Lvls[2]->LoadMap(listEntitysSP);
 	Lvls[2]->loadEnemys(enemysMapSP);
 	Lvls[2]->initListDisparos();
 	Lvls[2]->spawnTower();
 
+
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo4.png");
+
+	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
+
+
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	xs = Texture::Get("data/terra_lila2.png");
+	entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
+
+
 	Lvls[3] = new Scene(3, ltemp, entitySuelo, entityCielo, player);
+	Lvls[3]->fog_color = Vector3(0.6, 0.5, 0.8);
 	Lvls[3]->LoadMap(listEntitysSP);
 	Lvls[3]->loadEnemys(enemysMapSP);
 	Lvls[3]->initListDisparos();
 	Lvls[3]->spawnTower();
 
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo5.png");
+
+	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
+
+
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	xs = Texture::Get("data/terra-4.png");
+	entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
+
 
 	Lvls[4] = new Scene(4, ltemp, entitySuelo, entityCielo, player);
+	Lvls[4]->fog_color = Vector3(0.7, 0.3, 0.4);
 	Lvls[4]->LoadMap(listEntitysSP);
 	Lvls[4]->loadEnemys(enemysMapSP);
 	Lvls[4]->initListDisparos();
 	Lvls[4]->spawnTower();
 
 
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo6.png");
+
+	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
+
+
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	xs = Texture::Get("data/terra-3.png");
+	entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
+
+
 	Lvls[5] = new Scene(5, ltemp, entitySuelo, entityCielo, player);
+	Lvls[5]->fog_color = Vector3(0.4, 0.3, 0.2);
 	Lvls[5]->LoadMap(listEntitysSP);
 	Lvls[5]->loadEnemys(enemysMapSP);
 	Lvls[5]->initListDisparos();
 	Lvls[5]->spawnTower();
 
+
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo3.png");
+
+	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
+
+
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	xs = Texture::Get("data/terra-4.png");
+	entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
+
+
 	Lvls[6] = new Scene(6, ltemp, entitySuelo, entityCielo, player);
+	Lvls[6]->fog_color = Vector3(0.85, 0.6, 0.1);
 	Lvls[6]->LoadMap(listEntitysSP);
 	Lvls[6]->loadEnemys(enemysMapSP);
 	Lvls[6]->initListDisparos();
 	Lvls[6]->spawnTower();
 
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo2.png");
+
+	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
+
+
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	xs = Texture::Get("data/terra-2.png");
+	entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
 
 	Lvls[7] = new Scene(7, ltemp, entitySuelo, entityCielo, player);
+	Lvls[7]->fog_color = Vector3(0.8, 0.8, 0.55);
 	Lvls[7]->LoadMap(listEntitysSP);
 	Lvls[7]->loadEnemys(enemysMapSP);
 	Lvls[7]->initListDisparos();
 	Lvls[7]->spawnTower();
 
+	mesh = Mesh::Get("data/cielo.ASE");
+	xs = Texture::Get("data/cielo5.png");
+
+	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
+	mesh = new Mesh();
+
+	mesh->createPlane(1000);
+
+	xs = Texture::Get("data/terra-4.png");
+	entitySuelo = new EntityGameObject(xs, shaderGameSP, mesh, materialSP, "game", 1.0f, 1000.f);
+
 
 	Lvls[8] = new Scene(8, ltemp, entitySuelo, entityCielo, player);
+	Lvls[8]->fog_color = Vector3(0.6, 0.3, 0.35);
 	Lvls[8]->LoadMap(listEntitysSP);
 	Lvls[8]->loadEnemys(enemysMapSP);
 	Lvls[8]->initListDisparos();
@@ -746,7 +861,8 @@ void StagePlay::render()
 
 	//render the FPS, Draw Calls, etc
 	drawText(2, 2, getGPUStats(), Vector3(1, 1, 1), 2);
-	//drawText(2, 4, "Torres "+gameSceneSP->Enemys, Vector3(1, 1, 1), 2);
+	drawText(2, 18, "Enemys "+ std::to_string(gameSceneSP->enemeysLeft()) + "/"+ std::to_string(gameSceneSP->Enemys.size()), Vector3(1, 1, 1), 2);
+	drawText(2, 34, "Towers " + std::to_string(gameSceneSP->towersLeft()) + "/" + std::to_string(gameSceneSP->TowersList.size()), Vector3(1, 1, 1), 2);
 	drawText(400, 295, "X", Vector3(1, 1, 1), 2);
 
 	glDisable(GL_DEPTH_TEST);

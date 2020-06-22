@@ -18,40 +18,7 @@ void StageEndLVL::render() {
 }
 void StageEndLVL::update(double dt) {
 	if (dead == false) {
-		/*if (Input::wasKeyPressed(SDL_SCANCODE_W)) {
-			optionSelected -= 1;
-			if (optionSelected < 1) {
-				optionSelected = 3;
-			}
-		}
-		else if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
-			optionSelected += 1;
-			if (optionSelected > 3) {
-				optionSelected = 1;
-			}
-		}
 		
-		if (optionSelected == 1) {
-			uiTexture = three;
-		}
-		else if (optionSelected == 2) {
-			uiTexture = two;
-		}
-		else if (optionSelected == 3) {
-			uiTexture = three;
-		}
-		if (Input::wasKeyPressed(SDL_SCANCODE_P)) {
-			if (optionSelected == 1) {
-				Stage::changeState("SaveLoad");
-			}
-			else if (optionSelected == 2) {
-				Stage::changeState("Shop");
-			}
-			else if (optionSelected == 3) {
-				Stage::changeState("SelectLVL");
-			}
-			*/
-			//Stage::current_state->init();
 		
 		if (Input::wasKeyPressed(SDL_SCANCODE_M)) {
 			Stage::changeState("Menu");

@@ -72,6 +72,7 @@ public:
 	int numEnemysNode;
 	int numEnemysByNode;
 	int numTowers;
+	Vector3 fog_color;
 	Vector3 initPosPlayer = Vector3(10, 0, 10);
 	float time_enemy_Tower_Max = 10.0f;
 	int numCajasLoot;
@@ -92,6 +93,7 @@ public:
 			numTowers = 1;
 			numCajasLoot = 1;
 			initPosPlayer = Vector3(10,0,10);
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			mapGame->loadMapWithMap("data/myMaps/tutorial.map");
 			time_enemy_Tower_Max = 10.0f;
 			break;
@@ -100,6 +102,7 @@ public:
 			numEnemysByNode = 2;
 			numTowers = 2;
 			numCajasLoot = 3;
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
 			time_enemy_Tower_Max = 10.0f;
@@ -109,6 +112,7 @@ public:
 			numEnemysByNode = 3;
 			numTowers = 2;
 			numCajasLoot = 3;
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
 			time_enemy_Tower_Max = 10.0f;
@@ -118,6 +122,7 @@ public:
 			numEnemysByNode = 4;
 			numTowers = 3;
 			numCajasLoot = 4;
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/mina.map");
 			time_enemy_Tower_Max = 10.0f;
@@ -127,6 +132,7 @@ public:
 			numEnemysByNode = 3;
 			numTowers = 3;
 			numCajasLoot = 4;
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/mina.map");
 			time_enemy_Tower_Max = 10.0f;
@@ -136,6 +142,7 @@ public:
 			numEnemysByNode = 5;
 			numTowers = 3;
 			numCajasLoot = 5;
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/mina.map");
 			time_enemy_Tower_Max = 10.0f;
@@ -145,6 +152,7 @@ public:
 			numEnemysByNode = 5;
 			numTowers = 3;
 			numCajasLoot = 7;
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/naves3.map");
 			time_enemy_Tower_Max = 10.0f;
@@ -154,6 +162,7 @@ public:
 			numEnemysByNode = 6;
 			numTowers = 3;
 			numCajasLoot = 8;
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/naves3.map");
 			time_enemy_Tower_Max = 10.0f;
@@ -163,6 +172,7 @@ public:
 			numEnemysByNode = 5;
 			numTowers = 3;
 			numCajasLoot = 10;
+			fog_color = Vector3(0.60, 0.75, 0.78);
 			mapGame->loadMapWithMap("data/myMaps/naves3.map");
 			time_enemy_Tower_Max = 10.0f;
 

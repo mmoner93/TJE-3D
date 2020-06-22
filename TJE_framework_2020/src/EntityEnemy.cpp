@@ -102,7 +102,7 @@ void EntityEnemy::loalAnim(int enemy) {
 
 
 
-void EntityEnemy::renderAnimated(Light* light) {
+void EntityEnemy::renderAnimated(Light* light,Vector3 fog) {
 
 	Camera* camera = Camera::current;
 	Vector3 ambientLight(0.3, 0.3, 0.3);
@@ -184,7 +184,7 @@ void EntityEnemy::renderAnimated(Light* light) {
 	shader->setUniform("u_light_direction", light_direction);
 	shader->setUniform("u_camera_position", camera->eye);
 	shader->setFloat("u_tilling", tilling);
-
+	shader->setUniform3("u_fog_color", fog);
 
 	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
 	if ((actualState == E_REPAIR  || actualState ==STUNNED)&& aLive) {
@@ -202,7 +202,7 @@ void EntityEnemy::renderAnimated(Light* light) {
 }
 
 
-void EntityEnemy::render(Light* light) {
+void EntityEnemy::render(Light* light, Vector3 fog) {
 
 	//al personaje
 	
@@ -210,11 +210,11 @@ void EntityEnemy::render(Light* light) {
 
 	if (animated == true)
 	{
-		renderAnimated(light);
+		renderAnimated(light,fog);
 	}
 	else
 	{
-		EntityGameObject::render(light);
+		EntityGameObject::render(light, fog);
 	}
 	
 	//EntityGameObject::render(light);
@@ -313,7 +313,7 @@ void EntityEnemy::render(Light* light) {
 		
 		temp->model->rotate(45* time_shield_rotate * DEG2RAD, Vector3(0, 1, 0));
 		temp->model->scale(0.5f, 0.5f, 0.5f);
-		temp->render(light);
+		temp->render(light, fog);
 	}
 
 

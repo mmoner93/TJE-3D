@@ -1,7 +1,7 @@
 #include "EntityTorreArreglo.h"
 
-void EntityTowerArreglo::render(Light* light) {
-	EntityGameObject::render(light);
+void EntityTowerArreglo::render(Light* light, Vector3 fog) {
+	EntityGameObject::render(light,fog);
 
 	//para disparos Pegamento
 	for (int i = 0; i < pointsSPegamento.size(); i++) {
@@ -21,7 +21,7 @@ void EntityTowerArreglo::render(Light* light) {
 		temp->model->rotate(time_Shooted*90*DEG2RAD,Vector3(1,0,1));
 		temp->model->scale(time_Shooted, time_Shooted, time_Shooted);
 		//temp->model = *(temp->model) * normPointsSP[i];
-		temp->render(light);
+		temp->render(light,fog);
 
 	}
 

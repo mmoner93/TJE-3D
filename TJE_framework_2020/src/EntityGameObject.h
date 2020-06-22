@@ -29,7 +29,7 @@ public:
 	}
 
 
-	 void render(Light* light);
+	 void render(Light* light, Vector3 fog);
 	 void renderConPhong( Light* light);
 	 void renderTilling();
 	 void update(float seconds_elapsed);
