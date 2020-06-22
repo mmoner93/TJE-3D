@@ -151,7 +151,7 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 		loadanim = true;
 	}
 	
-	float speed = (float)seconds_elapsed * (float)10; //the speed is defined by the seconds_elapsed so it goes constant
+	float speed = (float)0.2; //the speed is defined by the seconds_elapsed so it goes constant
 	Matrix44 R;
 
 	R.setRotation(yaw * DEG2RAD, Vector3(0, 1, 0));
@@ -169,7 +169,7 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	//if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
 
 
-	if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 8; //move faster with left shift
+	if (Input::isKeyPressed(SDL_SCANCODE_LSHIFT)) speed *= 4; //move faster with left shift
 	if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) {
 		delta = delta+Vector3(1, 0, 0);
 	} 
