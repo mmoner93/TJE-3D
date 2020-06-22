@@ -87,29 +87,83 @@ public:
 
 		switch (numLvl) {
 		case 0:
-			numEnemysNode = 10;
+			numEnemysNode = 1;
 			numEnemysByNode = 1;
 			numTowers = 1;
-			numCajasLoot = 20;
+			numCajasLoot = 1;
 			initPosPlayer = Vector3(10,0,10);
-			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+			mapGame->loadMapWithMap("data/myMaps/tutorial.map");
 			time_enemy_Tower_Max = 10.0f;
 			break;
 		case 1:
-			numEnemysNode = 20;
-			numEnemysByNode = 0;
+			numEnemysNode = 3;
+			numEnemysByNode = 2;
 			numTowers = 2;
-			numCajasLoot = 20;
+			numCajasLoot = 3;
+			initPosPlayer = Vector3(10, 0, 10);
+			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+			time_enemy_Tower_Max = 10.0f;
+			break;
+		case 2:
+			numEnemysNode = 4;
+			numEnemysByNode = 3;
+			numTowers = 2;
+			numCajasLoot = 3;
+			initPosPlayer = Vector3(10, 0, 10);
+			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+			time_enemy_Tower_Max = 10.0f;
+			break;
+		case 3:
+			numEnemysNode = 4;
+			numEnemysByNode = 4;
+			numTowers = 3;
+			numCajasLoot = 4;
+			initPosPlayer = Vector3(10, 0, 10);
+			mapGame->loadMapWithMap("data/myMaps/mina.map");
+			time_enemy_Tower_Max = 10.0f;
+			break;
+		case 4:
+			numEnemysNode = 5;
+			numEnemysByNode = 3;
+			numTowers = 3;
+			numCajasLoot = 4;
+			initPosPlayer = Vector3(10, 0, 10);
+			mapGame->loadMapWithMap("data/myMaps/mina.map");
+			time_enemy_Tower_Max = 10.0f;
+			break;
+		case 5:
+			numEnemysNode = 5;
+			numEnemysByNode = 5;
+			numTowers = 3;
+			numCajasLoot = 5;
+			initPosPlayer = Vector3(10, 0, 10);
+			mapGame->loadMapWithMap("data/myMaps/mina.map");
+			time_enemy_Tower_Max = 10.0f;
+			break;
+		case 6:
+			numEnemysNode = 6;
+			numEnemysByNode = 5;
+			numTowers = 3;
+			numCajasLoot = 7;
 			initPosPlayer = Vector3(10, 0, 10);
 			mapGame->loadMapWithMap("data/myMaps/naves3.map");
 			time_enemy_Tower_Max = 10.0f;
 			break;
-		case 2:
-			numEnemysNode = 3;
+		case 7:
+			numEnemysNode = 6;
 			numEnemysByNode = 6;
-			numTowers = 4;
-			numCajasLoot = 20;
-			mapGame->loadMapWithMap("data/myMaps/escenaEntregar.map");
+			numTowers = 3;
+			numCajasLoot = 8;
+			initPosPlayer = Vector3(10, 0, 10);
+			mapGame->loadMapWithMap("data/myMaps/naves3.map");
+			time_enemy_Tower_Max = 10.0f;
+			break;
+		case 8:
+			numEnemysNode = 7;
+			numEnemysByNode = 5;
+			numTowers = 3;
+			numCajasLoot = 10;
+			mapGame->loadMapWithMap("data/myMaps/naves3.map");
 			time_enemy_Tower_Max = 10.0f;
 
 			break;

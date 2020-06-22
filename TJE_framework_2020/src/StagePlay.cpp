@@ -517,6 +517,53 @@ void StagePlay::inicializarScena() {
 	Lvls[1]->initListDisparos();
 	Lvls[1]->spawnTower();
 
+
+	Lvls[2] = new Scene(2, ltemp, entitySuelo, entityCielo, player);
+	Lvls[2]->LoadMap(listEntitysSP);
+	Lvls[2]->loadEnemys(enemysMapSP);
+	Lvls[2]->initListDisparos();
+	Lvls[2]->spawnTower();
+
+	Lvls[3] = new Scene(3, ltemp, entitySuelo, entityCielo, player);
+	Lvls[3]->LoadMap(listEntitysSP);
+	Lvls[3]->loadEnemys(enemysMapSP);
+	Lvls[3]->initListDisparos();
+	Lvls[3]->spawnTower();
+
+
+	Lvls[4] = new Scene(4, ltemp, entitySuelo, entityCielo, player);
+	Lvls[4]->LoadMap(listEntitysSP);
+	Lvls[4]->loadEnemys(enemysMapSP);
+	Lvls[4]->initListDisparos();
+	Lvls[4]->spawnTower();
+
+
+	Lvls[5] = new Scene(5, ltemp, entitySuelo, entityCielo, player);
+	Lvls[5]->LoadMap(listEntitysSP);
+	Lvls[5]->loadEnemys(enemysMapSP);
+	Lvls[5]->initListDisparos();
+	Lvls[5]->spawnTower();
+
+	Lvls[6] = new Scene(6, ltemp, entitySuelo, entityCielo, player);
+	Lvls[6]->LoadMap(listEntitysSP);
+	Lvls[6]->loadEnemys(enemysMapSP);
+	Lvls[6]->initListDisparos();
+	Lvls[6]->spawnTower();
+
+
+	Lvls[7] = new Scene(7, ltemp, entitySuelo, entityCielo, player);
+	Lvls[7]->LoadMap(listEntitysSP);
+	Lvls[7]->loadEnemys(enemysMapSP);
+	Lvls[7]->initListDisparos();
+	Lvls[7]->spawnTower();
+
+
+	Lvls[8] = new Scene(8, ltemp, entitySuelo, entityCielo, player);
+	Lvls[8]->LoadMap(listEntitysSP);
+	Lvls[8]->loadEnemys(enemysMapSP);
+	Lvls[8]->initListDisparos();
+	Lvls[8]->spawnTower();
+
 	//gameSceneSP = Lvls[0];
 
 

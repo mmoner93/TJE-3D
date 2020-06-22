@@ -10,7 +10,7 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/companion/animations_idle.skanim");
 		walk = Animation::Get("data/animations/companion/animations_walking.skanim");
 		run = Animation::Get("data/animations/companion/animations_running.skanim");
-		dying = Animation::Get("data/animations/companion/animations_mutant_dying.skanim");
+		dying = *(Animation::Get("data/animations/companion/animations_mutant_dying.skanim"));
 		mele1 = Animation::Get("data/animations/companion/animations_standing_melee_attack_360_high.skanim");
 		mele2 = Animation::Get("data/animations/companion/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
@@ -19,7 +19,7 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/mechatrooper/animations_idle.skanim");
 		walk = Animation::Get("data/animations/mechatrooper/animations_mutant_walking.skanim");
 		run = Animation::Get("data/animations/mechatrooper/animations_running.skanim");
-		dying = Animation::Get("data/animations/mechatrooper/animations_mutant_dying.skanim");
+		dying = *(Animation::Get("data/animations/mechatrooper/animations_mutant_dying.skanim"));
 		mele1 = Animation::Get("data/animations/mechatrooper/animations_standing_melee_attack_360_high.skanim");
 		mele2 = Animation::Get("data/animations/mechatrooper/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
@@ -28,7 +28,7 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/fieldfighter/animations_idle.skanim");
 		walk = Animation::Get("data/animations/fieldfighter/animations_walking.skanim");
 		run = Animation::Get("data/animations/fieldfighter/animations_running.skanim");
-		dying = Animation::Get("data/animations/fieldfighter/animations_mutant_dying.skanim");
+		dying = *(Animation::Get("data/animations/fieldfighter/animations_mutant_dying.skanim"));
 		mele1 = Animation::Get("data/animations/fieldfighter/animations_standing_melee_attack_360_high.skanim");
 		mele2 = Animation::Get("data/animations/fieldfighter/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
@@ -37,7 +37,7 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/mechagolem/animations_idle.skanim");
 		walk = Animation::Get("data/animations/mechagolem/animations_walking.skanim");
 		run = Animation::Get("data/animations/mechagolem/animations_running.skanim");
-		dying = Animation::Get("data/animations/mechagolem/animations_mutant_dying.skanim");
+		dying = *(Animation::Get("data/animations/mechagolem/animations_mutant_dying.skanim"));
 		mele1 = Animation::Get("data/animations/mechagolem/animations_standing_melee_attack_360_high.skanim");
 		mele2 = Animation::Get("data/animations/mechagolem/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
@@ -46,16 +46,16 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/mecha01/animations_idle.skanim");
 		walk = Animation::Get("data/animations/mecha01/animations_walking.skanim");
 		run = Animation::Get("data/animations/mecha01/animations_running.skanim");
-		dying = Animation::Get("data/animations/mecha01/animations_mutant_dying.skanim");
-		mele1 = Animation::Get("data/animations/mecha01/animations_standing_melee_attack_360_high.skanim");
-		mele2 = Animation::Get("data/animations/mecha01/animations_standing_melee_combo_attack_ver.skanim");
+		dying = *(Animation::Get("data/animations/mecha01/animations_mutant_dying_2.skanim"));
+		mele1 = Animation::Get("data/animations/mecha01/animations_standing_melee_combo_attack_ver_1.skanim");
+		mele2 = Animation::Get("data/animations/mecha01/animations_standing_melee_combo_attack_ver_2.skanim");
 		animated = true;
 	}
 	if (enemy == 9) {
 		idle = Animation::Get("data/animations/companion/animations_idle_big.skanim");
 		walk = Animation::Get("data/animations/companion/animations_walking_big.skanim");
 		run = Animation::Get("data/animations/companion/animations_running_big.skanim");
-		dying = Animation::Get("data/animations/companion/animations_mutant_dying_big.skanim");
+		dying = *(Animation::Get("data/animations/companion/animations_mutant_dying_big.skanim"));
 		mele1 = Animation::Get("data/animations/companion/animations_standing_melee_attack_360_high_big.skanim");
 		mele2 = Animation::Get("data/animations/companion/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
@@ -64,7 +64,7 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/mechatrooper/animations_idle big.skanim");
 		walk = Animation::Get("data/animations/mechatrooper/animations_walking big.skanim");
 		run = Animation::Get("data/animations/mechatrooper/animations_running big.skanim");
-		dying = Animation::Get("data/animations/mechatrooper/animations_mutant_dying_big.skanim");
+		dying = *(Animation::Get("data/animations/mechatrooper/animations_mutant_dying_big.skanim"));
 		mele1 = Animation::Get("data/animations/mechatrooper/animations_standing_melee_attack_360_high_big.skanim");
 		mele2 = Animation::Get("data/animations/mechatrooper/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
@@ -73,7 +73,7 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/fieldfighter/animations_idle_big.skanim");
 		walk = Animation::Get("data/animations/fieldfighter/animations_walking_big.skanim");
 		run = Animation::Get("data/animations/fieldfighter/animations_running_big.skanim");
-		dying = Animation::Get("data/animations/fieldfighter/animations_mutant_dying_big.skanim");
+		dying = *(Animation::Get("data/animations/fieldfighter/animations_mutant_dying_big.skanim"));
 		mele1 = Animation::Get("data/animations/fieldfighter/animations_standing_melee_attack_360_high_big.skanim");
 		mele2 = Animation::Get("data/animations/fieldfighter/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
@@ -82,7 +82,7 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/mechagolem/animations_idle_big.skanim");
 		walk = Animation::Get("data/animations/mechagolem/animations_walking_big.skanim");
 		run = Animation::Get("data/animations/mechagolem/animations_running_big.skanim");
-		dying = Animation::Get("data/animations/mechagolem/animations_mutant_dying_big.skanim");
+		dying = *(Animation::Get("data/animations/mechagolem/animations_mutant_dying_big.skanim"));
 		mele1 = Animation::Get("data/animations/mechagolem/animations_standing_melee_attack_360_high_big.skanim");
 		mele2 = Animation::Get("data/animations/mechagolem/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
@@ -91,7 +91,7 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/mecha01/animations_idle_big.skanim");
 		walk = Animation::Get("data/animations/mecha01/animations_walking_big.skanim");
 		run = Animation::Get("data/animations/mecha01/animations_running_big.skanim");
-		dying = Animation::Get("data/animations/mecha01/animations_mutant_dying_big.skanim");
+		dying = *(Animation::Get("data/animations/mecha01/animations_mutant_dying_big.skanim"));
 		mele1 = Animation::Get("data/animations/mecha01/animations_standing_melee_attack_360_high_big.skanim");
 		mele2 = Animation::Get("data/animations/mecha01/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
@@ -156,11 +156,11 @@ void EntityEnemy::renderAnimated(Light* light) {
 	}
 	else {
 	
-		if (time_dead < dying->duration-0.2) {
+		if (time_dead < dying.duration-0.2) {
 			//t = fmod(time_dead, dying->duration) / dying->duration;
-			dying->assignTime(time_dead,false);
+			dying.assignTime(time_dead,false);
 			//blendSkeleton(&walk->skeleton, &mele1->skeleton, 0.9, blendWalkRun);
-			blendWalkRun = &dying->skeleton;
+			blendWalkRun = &dying.skeleton;
 
 		}
 		
@@ -187,7 +187,7 @@ void EntityEnemy::renderAnimated(Light* light) {
 
 
 	//blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
-	if (actualState == E_REPAIR  || actualState ==STUNNED) {
+	if ((actualState == E_REPAIR  || actualState ==STUNNED)&& aLive) {
 		mesh->renderAnimated(GL_TRIANGLES, &idle->skeleton);
 	}
 	else {
@@ -365,7 +365,7 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 
 	}
 	else {
-		time_dead += seconds_elapsed;
+		if (time_dead < dying.duration) { time_dead += seconds_elapsed; }
 	}
 	
 }

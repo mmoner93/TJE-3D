@@ -28,7 +28,7 @@ public:
 	Animation* idle;
 	Animation* run;
 	Animation* walk;
-	Animation* dying;
+	Animation dying;
 	Animation* mele1;
 	Animation* mele2;
 	Skeleton* blendWalkRun;
