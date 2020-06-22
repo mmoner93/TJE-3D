@@ -87,7 +87,7 @@ public:
 
 		switch (numLvl) {
 		case 0:
-			numEnemysNode = 1;
+			numEnemysNode = 10;
 			numEnemysByNode = 1;
 			numTowers = 1;
 			numCajasLoot = 20;

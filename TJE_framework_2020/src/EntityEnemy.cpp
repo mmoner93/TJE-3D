@@ -10,60 +10,90 @@ void EntityEnemy::loalAnim(int enemy) {
 		idle = Animation::Get("data/animations/companion/animations_idle.skanim");
 		walk = Animation::Get("data/animations/companion/animations_walking.skanim");
 		run = Animation::Get("data/animations/companion/animations_running.skanim");
+		dying = Animation::Get("data/animations/companion/animations_mutant_dying.skanim");
+		mele1 = Animation::Get("data/animations/companion/animations_standing_melee_attack_360_high.skanim");
+		mele2 = Animation::Get("data/animations/companion/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
 	}
 	if (enemy == 4) {
 		idle = Animation::Get("data/animations/mechatrooper/animations_idle.skanim");
 		walk = Animation::Get("data/animations/mechatrooper/animations_mutant_walking.skanim");
 		run = Animation::Get("data/animations/mechatrooper/animations_running.skanim");
+		dying = Animation::Get("data/animations/mechatrooper/animations_mutant_dying.skanim");
+		mele1 = Animation::Get("data/animations/mechatrooper/animations_standing_melee_attack_360_high.skanim");
+		mele2 = Animation::Get("data/animations/mechatrooper/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
 	}
 	if (enemy == 5) {
 		idle = Animation::Get("data/animations/fieldfighter/animations_idle.skanim");
 		walk = Animation::Get("data/animations/fieldfighter/animations_walking.skanim");
 		run = Animation::Get("data/animations/fieldfighter/animations_running.skanim");
+		dying = Animation::Get("data/animations/fieldfighter/animations_mutant_dying.skanim");
+		mele1 = Animation::Get("data/animations/fieldfighter/animations_standing_melee_attack_360_high.skanim");
+		mele2 = Animation::Get("data/animations/fieldfighter/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
 	}
 	if (enemy == 7) {
 		idle = Animation::Get("data/animations/mechagolem/animations_idle.skanim");
 		walk = Animation::Get("data/animations/mechagolem/animations_walking.skanim");
 		run = Animation::Get("data/animations/mechagolem/animations_running.skanim");
+		dying = Animation::Get("data/animations/mechagolem/animations_mutant_dying.skanim");
+		mele1 = Animation::Get("data/animations/mechagolem/animations_standing_melee_attack_360_high.skanim");
+		mele2 = Animation::Get("data/animations/mechagolem/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
 	}
 	if (enemy == 8) {
 		idle = Animation::Get("data/animations/mecha01/animations_idle.skanim");
 		walk = Animation::Get("data/animations/mecha01/animations_walking.skanim");
 		run = Animation::Get("data/animations/mecha01/animations_running.skanim");
+		dying = Animation::Get("data/animations/mecha01/animations_mutant_dying.skanim");
+		mele1 = Animation::Get("data/animations/mecha01/animations_standing_melee_attack_360_high.skanim");
+		mele2 = Animation::Get("data/animations/mecha01/animations_standing_melee_combo_attack_ver.skanim");
 		animated = true;
 	}
 	if (enemy == 9) {
 		idle = Animation::Get("data/animations/companion/animations_idle_big.skanim");
 		walk = Animation::Get("data/animations/companion/animations_walking_big.skanim");
 		run = Animation::Get("data/animations/companion/animations_running_big.skanim");
+		dying = Animation::Get("data/animations/companion/animations_mutant_dying_big.skanim");
+		mele1 = Animation::Get("data/animations/companion/animations_standing_melee_attack_360_high_big.skanim");
+		mele2 = Animation::Get("data/animations/companion/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
 	}
 	if (enemy == 10) {
 		idle = Animation::Get("data/animations/mechatrooper/animations_idle big.skanim");
 		walk = Animation::Get("data/animations/mechatrooper/animations_walking big.skanim");
 		run = Animation::Get("data/animations/mechatrooper/animations_running big.skanim");
+		dying = Animation::Get("data/animations/mechatrooper/animations_mutant_dying_big.skanim");
+		mele1 = Animation::Get("data/animations/mechatrooper/animations_standing_melee_attack_360_high_big.skanim");
+		mele2 = Animation::Get("data/animations/mechatrooper/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
 	}
 	if (enemy == 11) {
 		idle = Animation::Get("data/animations/fieldfighter/animations_idle_big.skanim");
 		walk = Animation::Get("data/animations/fieldfighter/animations_walking_big.skanim");
 		run = Animation::Get("data/animations/fieldfighter/animations_running_big.skanim");
+		dying = Animation::Get("data/animations/fieldfighter/animations_mutant_dying_big.skanim");
+		mele1 = Animation::Get("data/animations/fieldfighter/animations_standing_melee_attack_360_high_big.skanim");
+		mele2 = Animation::Get("data/animations/fieldfighter/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
 	}
 	if (enemy == 12) {
 		idle = Animation::Get("data/animations/mechagolem/animations_idle_big.skanim");
 		walk = Animation::Get("data/animations/mechagolem/animations_walking_big.skanim");
 		run = Animation::Get("data/animations/mechagolem/animations_running_big.skanim");
+		dying = Animation::Get("data/animations/mechagolem/animations_mutant_dying_big.skanim");
+		mele1 = Animation::Get("data/animations/mechagolem/animations_standing_melee_attack_360_high_big.skanim");
+		mele2 = Animation::Get("data/animations/mechagolem/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
 	}
 	if (enemy == 13) {
 		idle = Animation::Get("data/animations/mecha01/animations_idle_big.skanim");
 		walk = Animation::Get("data/animations/mecha01/animations_walking_big.skanim");
 		run = Animation::Get("data/animations/mecha01/animations_running_big.skanim");
+		dying = Animation::Get("data/animations/mecha01/animations_mutant_dying_big.skanim");
+		mele1 = Animation::Get("data/animations/mecha01/animations_standing_melee_attack_360_high_big.skanim");
+		mele2 = Animation::Get("data/animations/mecha01/animations_standing_melee_combo_attack_ver_big.skanim");
 		animated = true;
 	}
 	blendWalkRun = new Skeleton();
@@ -85,18 +115,58 @@ void EntityEnemy::renderAnimated(Light* light) {
 	walk->assignTime(t * walk->duration);
 	t = fmod(Game::instance->time, run->duration) / run->duration;
 	run->assignTime(t * run->duration);
+	
+	
+
 	// timeanim -> duration1
 	// xtime    -> duration 2
 	// x = (timeanim*duration 2)/duration1
-	float speedFactor = 0.5; // (vel_x + vel_y).length() * 0.5;
-	if (speedFactor < 1)
-	{
-		blendSkeleton(&idle->skeleton, &walk->skeleton, 0.5, blendWalkRun);
+
+	if (aLive) {
+	
+		if (attacking_time > 0.0f) {
+			t = fmod(Game::instance->time, mele1->duration) / mele1->duration;
+			mele1->assignTime(t * mele1->duration);
+			t = fmod(Game::instance->time, mele2->duration) / mele2->duration;
+			mele2->assignTime(t * mele2->duration);
+			//blendSkeleton(&walk->skeleton, &mele1->skeleton, 0.9, blendWalkRun);
+			if (attacking_which == 0) {
+				blendWalkRun = &mele1->skeleton;
+			}
+			else {
+				blendWalkRun = &mele2->skeleton;
+			}
+			
+		}
+		else {
+			float speedFactor = 0.5; // (vel_x + vel_y).length() * 0.5;
+
+			if (speedFactor < 1)
+			{
+				blendSkeleton(&idle->skeleton, &walk->skeleton, 0.5, blendWalkRun);
+			}
+			else
+			{
+				blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+			}
+		}
+
+
+		
 	}
-	else
-	{
-		blendSkeleton(&walk->skeleton, &run->skeleton, 0.5, blendWalkRun);
+	else {
+	
+		if (time_dead < dying->duration-0.2) {
+			//t = fmod(time_dead, dying->duration) / dying->duration;
+			dying->assignTime(time_dead,false);
+			//blendSkeleton(&walk->skeleton, &mele1->skeleton, 0.9, blendWalkRun);
+			blendWalkRun = &dying->skeleton;
+
+		}
+		
+
 	}
+	
 	
 
 
@@ -256,6 +326,13 @@ void EntityEnemy::render(Light* light) {
 void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> objects) {
    
 	if (aLive) {
+
+		if (attacking_time > 0.0f) {
+			attacking_time -= seconds_elapsed;
+		}
+		
+
+
 		queHacer(seconds_elapsed, objects);
 
 		if (timeNextCalcCaminoIa >0.0) {
@@ -286,6 +363,9 @@ void EntityEnemy::update(float seconds_elapsed, std::vector<EntityGameObject*> o
 			
 		}
 
+	}
+	else {
+		time_dead += seconds_elapsed;
 	}
 	
 }
@@ -584,15 +664,7 @@ void EntityEnemy::goDestroyTower() {
 
 	moveWithIaListTower();
 
-	/*if (movs_tower.size() > 0) {
-		Vector3 movimiento = movs_tower.front();
-		model->setTranslation(movimiento.x, movimiento.y, movimiento.z);
-		movs_tower.pop_front();
-		if (movs_tower.size() == 0) {
-			temp->TowersList[torre]->breakTower();
-			actualState = ANDAR_TONTO;
-		}
-	}*/
+
 	if (movs_tower.size() == 0) {
 		temp->TowersList[torre]->breakTower();
 		actualState = ANDAR_TONTO;
@@ -902,6 +974,9 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 			health -= 1.0;
 			if (health <= 0.0) {
 				aLive = false;
+				pointsSP.clear();
+				pointsSPegamento.clear();
+				time_dead = 0.0f;
 			}
 		}
 		else {
@@ -912,6 +987,9 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 		health -= 1.0;
 		if (health <= 0.0) {
 			aLive = false;
+			pointsSP.clear();
+			pointsSPegamento.clear();
+			time_dead = 0.0f;
 		}
 	}
 
@@ -942,6 +1020,14 @@ void EntityEnemy::atacar() {
 	if (timeNextAttack <= 0.0) {
 		if (mirarSiPlayerCerca()) {
 			std::cout << "ATACO" << std::endl;
+			attacking_which = rand()%2;
+			if (attacking_which == 0) {
+				attacking_time = mele1->duration;
+			}
+			else {
+				attacking_time = mele2->duration;
+			}
+			
 			EntityPlayer* player = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->myPlayer;
 			player->health -= 1.0f;
 			timeNextAttack = timeNextAttackMax;
@@ -961,7 +1047,7 @@ bool EntityEnemy::mirarSiPlayerCerca() {
 
 	//std::cout << "Distancia del player " << distance << std::endl;
 
-	if (distance <= 2.0) {
+	if (distance <= 2.5) {
 		return true;
 	}
 	else {

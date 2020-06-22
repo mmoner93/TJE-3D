@@ -80,10 +80,10 @@ void Scene::pintarScene() {
 
 	for (int i = 0; i < Enemys.size(); i++) {
 
-		if (Enemys[i]->aLive) {
-			Enemys[i]->render(lightScene->light);
-		}
-
+		//if (Enemys[i]->aLive) {
+		//	Enemys[i]->render(lightScene->light);
+		//}
+		Enemys[i]->render(lightScene->light);
 
 	}
 

@@ -28,14 +28,22 @@ public:
 	Animation* idle;
 	Animation* run;
 	Animation* walk;
+	Animation* dying;
+	Animation* mele1;
+	Animation* mele2;
 	Skeleton* blendWalkRun;
 	bool animated = false;
+	int attacking_which = 0;
+	float attacking_time = 0.0f;
+
 
 	estadosRobot actualState;
 	enumEnemyMove actualDirection= STOP;
 
 	float health = 4.0;
 	bool aLive = true;
+	float time_dead = 0.0;
+
 
 	float shield = 4.0;
 	Mesh* shieldMesh;
