@@ -124,21 +124,45 @@ void EntityPlayer::chargePegamento(float seconds_elapsed) {
 }
 
 void EntityPlayer::changeWeapon() {
-	if (weaponUsing == PEGAMENTO) {
-		weaponUsing = WEAPON1;
-		weapon = weapons[WEAPON1];
-		mejoras.actualAmmo = T_NORMAL;
-	}
-	else if(weaponUsing == WEAPON1){
-		weaponUsing = WEAPON2;
-		weapon = weapons[WEAPON2];
-		mejoras.actualAmmo = T_NORMAL;
+
+
+
+	if (mejoras.arma2Comprada) {
+
+
+		if (weaponUsing == PEGAMENTO) {
+			weaponUsing = WEAPON1;
+			weapon = weapons[WEAPON1];
+			mejoras.actualAmmo = T_NORMAL;
+		}
+		else if (weaponUsing == WEAPON1) {
+			weaponUsing = WEAPON2;
+			weapon = weapons[WEAPON2];
+			mejoras.actualAmmo = T_NORMAL;
+		}
+		else {
+			weaponUsing = PEGAMENTO;
+			weapon = weapons[PEGAMENTO];
+			mejoras.actualAmmo = T_PEGAMENTO;
+		}
 	}
 	else {
-		weaponUsing = PEGAMENTO;
-		weapon = weapons[PEGAMENTO];
-		mejoras.actualAmmo = T_PEGAMENTO;
+
+		if (weaponUsing == PEGAMENTO) {
+			weaponUsing = WEAPON1;
+			weapon = weapons[WEAPON1];
+			mejoras.actualAmmo = T_NORMAL;
+		}
+		else if (weaponUsing == WEAPON1) {
+			weaponUsing = PEGAMENTO;
+			weapon = weapons[PEGAMENTO];
+			mejoras.actualAmmo = T_PEGAMENTO;
+		}
+	
 	}
+
+
+
 
 }
 
@@ -591,8 +615,13 @@ void EntityPlayer::radar() {
 		}
 
 
-		tempVector.clear();
+		
 
+	}
+
+	tempVector.clear();
+
+	if (mejoras.mejora_Mapa) {
 
 		for (int i = 0; i < temp->gameSceneSP->TowersList.size(); i++) {
 			EntityGameObject* en = temp->gameSceneSP->TowersList[i];
@@ -602,21 +631,21 @@ void EntityPlayer::radar() {
 
 			objectPositio = inv * objectPositio;
 
-			
-				float distance = persona.distance(objectPositio);
 
-				Vector3 playerPos = model->getTranslation();
+			float distance = persona.distance(objectPositio);
 
-				if (distance <= numMirar - 5) {
+			Vector3 playerPos = model->getTranslation();
+
+			if (distance <= numMirar - 5) {
 
 
-					objectPositio.x = (((objectPositio.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
-					objectPositio.y = (((objectPositio.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y - numMirar))) + (-1.0f);
-					objectPositio.y = (((objectPositio.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
+				objectPositio.x = (((objectPositio.x - (persona.x - numMirar)) * (1.0f - (-1.0f))) / ((persona.x + numMirar) - (persona.x - numMirar))) + (-1.0f);
+				objectPositio.y = (((objectPositio.y - (persona.y - numMirar)) * (1.0f - (-1.0f))) / ((persona.y + numMirar) - (persona.y - numMirar))) + (-1.0f);
+				objectPositio.y = (((objectPositio.z - (persona.z - numMirar)) * (1.0f - (-1.0f))) / ((persona.z + numMirar) - (persona.z - numMirar))) + (-1.0f);
 
-					tempVector.push_back(objectPositio);
-				}
-			
+				tempVector.push_back(objectPositio);
+			}
+
 		}
 
 		if (tempVector.size() > 0) {
@@ -625,7 +654,7 @@ void EntityPlayer::radar() {
 
 	}
 
-	
+
 
 
 
