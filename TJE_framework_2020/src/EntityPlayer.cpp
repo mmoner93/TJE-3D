@@ -621,7 +621,7 @@ void EntityPlayer::radar() {
 
 	tempVector.clear();
 
-	if (mejoras.mejora_Mapa) {
+	if (mejoras.mejora_Mapa ==2) {
 
 		for (int i = 0; i < temp->gameSceneSP->TowersList.size(); i++) {
 			EntityGameObject* en = temp->gameSceneSP->TowersList[i];

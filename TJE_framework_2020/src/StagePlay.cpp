@@ -8,6 +8,7 @@
 #include "Scene.h"
 #include "EntityLight.h"
 #include "EntityPlayer.h"
+#include "StageEndLVL.h"
 using namespace std;
 
 
@@ -861,7 +862,7 @@ void StagePlay::render()
 
 	//render the FPS, Draw Calls, etc
 	drawText(2, 2, getGPUStats(), Vector3(1, 1, 1), 2);
-	drawText(2, 18, "Enemys "+ std::to_string(gameSceneSP->enemeysLeft()) + "/"+ std::to_string(gameSceneSP->Enemys.size()), Vector3(1, 1, 1), 2);
+	drawText(2, 18, "Enemys "+ std::to_string(gameSceneSP->enemeysLeft()) + "/"+ std::to_string(gameSceneSP->numEnemysNode), Vector3(1, 1, 1), 2);
 	drawText(2, 34, "Towers " + std::to_string(gameSceneSP->towersLeft()) + "/" + std::to_string(gameSceneSP->TowersList.size()), Vector3(1, 1, 1), 2);
 	drawText(400, 295, "X", Vector3(1, 1, 1), 2);
 
@@ -876,13 +877,19 @@ void StagePlay::render()
 		renderUI(0, uiTextureAmmo, 0.8f);
 	}
 	
-	gameSceneSP->myPlayer->radar();
+	if (gameSceneSP->myPlayer->mejoras.mejora_Mapa > 0) {
+		gameSceneSP->myPlayer->radar();
+	}
+	
 	
 	//drawText(725, 570, "G", Vector3(1, 1, 1), 2);
 
 //	NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
 		
-	float opacity = 1.0 - gameSceneSP->myPlayer->health * 0.1;
+
+	float value = (((gameSceneSP->myPlayer->health - 0.0f) * ( 1.0f- 0.0f) / (gameSceneSP->myPlayer->mejoras.maxHealth - 0.0f))) + 0.0f;
+	std::cout << "VALUE " << value << std::endl;
+	float opacity = 1.0 - value;
 	//float opacity = (((gameSceneSP->myPlayer->health - 0.0f) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin;
 	renderUI(0, damage, opacity);
 
@@ -971,6 +978,15 @@ void StagePlay::update(double seconds_elapsed)
 	}
 
 	if (gameSceneSP->checkEndLvl()) {
+		if (gameSceneSP->myPlayer->health <= 0.0) {
+			((StageEndLVL*)Stage::getStage("EndLVL"))->dead = true;
+			
+		}
+		else {
+			((StageEndLVL*)Stage::getStage("EndLVL"))->dead = false;
+		}
+		((StageEndLVL*)Stage::getStage("EndLVL"))->tiempoPartida = gameSceneSP->time_In_Game;
+		((StageEndLVL*)Stage::getStage("EndLVL"))->restart();
 		Stage::changeState("EndLVL");
 	}
 

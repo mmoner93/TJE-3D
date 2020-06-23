@@ -50,7 +50,7 @@ void Scene :: updateScene(float seconds_elapsed) {
 	}
 
 
-	
+	time_In_Game += seconds_elapsed;
 
 }
 void Scene::pintarScene() {
@@ -417,7 +417,7 @@ void Scene::activateGranade(Vector3 origin, Vector3 dir) {
 int Scene::enemeysLeft() {
 	int contador = 0;
 	for (int i = 0; i < Enemys.size(); i++) {
-		if (!Enemys[i]->aLive && Enemys[i]->is_node) {
+		if ((!Enemys[i]->aLive && Enemys[i]->is_node)||(Enemys[i]->actualState==E_REPAIR && Enemys[i]->is_node)) {
 			contador++;
 		}
 	}
@@ -425,6 +425,11 @@ int Scene::enemeysLeft() {
 	return contador;
 
 }
+
+
+
+
+
 int Scene::towersLeft() {
 	int contador = 0;
 	for (int i = 0; i < TowersList.size(); i++) {
@@ -558,6 +563,8 @@ void Scene::restartLvl(std::map<std::string, Entity*> enemysMapSP) {
 	initListDisparos();
 	spawnTower();
 	spawnCajasLoot();
+	time_In_Game = 0.0f;
+	myPlayer->health = myPlayer->mejoras.maxHealth;
 	myPlayer->position=initPosPlayer;
 }
 

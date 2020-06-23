@@ -76,7 +76,7 @@ public:
 	Vector3 initPosPlayer = Vector3(10, 0, 10);
 	float time_enemy_Tower_Max = 10.0f;
 	int numCajasLoot;
-
+	float time_In_Game = 0.0;
 	Scene(int num,EntityLight* l, EntityGameObject* s, EntityGameObject* ci, EntityPlayer* pl) {
 		numLvl = num;
 		lightScene = l;

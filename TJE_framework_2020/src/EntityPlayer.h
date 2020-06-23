@@ -31,7 +31,7 @@ public:
 	bool retrocesoOn = false;
 	float retrocesoLeft = 0.0f;
 
-	float health = 10.0;
+	float health = 10.0f;
 
 
 

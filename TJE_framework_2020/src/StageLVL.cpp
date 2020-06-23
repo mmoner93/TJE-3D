@@ -11,7 +11,18 @@ void StageLVL::render() {
 	drawText(20, 20, "Press P to return to Play", Vector3(1, 1, 1), 2);
 	drawText(20, 60, "Press M to exit to the main menu", Vector3(1, 1, 1), 2);
 
-	drawText(298, 80, std::to_string(lvlOnScreen), Vector3(1, 1, 1), 2);
+	StagePlay* temp = ((StagePlay*)(Stage::getStage("Play")));
+	
+	drawText(60, 220, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion0), Vector3(1, 1, 1), 2);
+	drawText(300, 220, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion1), Vector3(1, 1, 1), 2);
+	drawText(580, 220, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion2), Vector3(1, 1, 1), 2);
+	drawText(60 , 370, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion3), Vector3(1, 1, 1), 2);
+	drawText(300, 370, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion4), Vector3(1, 1, 1), 2);
+	drawText(580, 370, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion5), Vector3(1, 1, 1), 2);
+	drawText(60, 520, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion6), Vector3(1, 1, 1), 2);
+	drawText(300, 520, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion7), Vector3(1, 1, 1), 2);
+	drawText(580, 520, std::to_string(temp->Lvls[0]->myPlayer->mejoras.bestPuntuacion8), Vector3(1, 1, 1), 2);
+
 	SDL_GL_SwapWindow(Game::instance->window);
 }
 void StageLVL::update(double dt) {

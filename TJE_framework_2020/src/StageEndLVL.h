@@ -22,6 +22,8 @@ public:
 
 	int optionSelected = 3;
 	bool dead = false;
+	float tiempoPartida = 0.0;
+	int puntuacion = 0;
 
 	StageEndLVL() :Stage("EndLVL") {
 		iniciado = true;
@@ -30,7 +32,7 @@ public:
 	void render();
 	void update(double dt);
 	void init();
-
+	void restart();
 
 };
 

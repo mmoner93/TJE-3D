@@ -17,25 +17,63 @@ void StageShop::render() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	renderUI(0, uiTexture, 1);
 	EntityPlayer* tempP = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer;
-	drawText(60, 200, "Actual "+std::to_string((int)(tempP->mejoras.maxHealth))+"/20 coins lvlup", Vector3(1, 1, 1), 1);
 
-	drawText(280, 200, "Balas " + std::to_string((int)(tempP->mejoras.ammoSaved[T_NORMAL])) , Vector3(1, 1, 1), 1);
+	int coste = tempP->mejoras.maxHealth - 9.0;
+	if (tempP->mejoras.maxHealth < MAX_PLAYER_LIFE_SHOP) {
+		drawText(60, 200, "(Actual " + std::to_string((int)(tempP->mejoras.maxHealth)) + "/20) "+ std::to_string(coste*5) +" coins to lvlup", Vector3(1, 1, 1), 1);
+	}
+	else {
+		drawText(60, 200, "MAX", Vector3(1, 1, 1), 1);
+	}
+
 	
-	if (tempP->mejoras.mejora_Mapa) {
+	if ((int)(tempP->mejoras.ammoSaved[T_NORMAL]) < MAX_PLAYER_BALAS_SHOP) {
+		drawText(280, 200, "Balas " + std::to_string((int)(tempP->mejoras.ammoSaved[T_NORMAL])) + " /1 gold", Vector3(1, 1, 1), 1);
+	}
+	else {
+		drawText(280, 200, "MAX ", Vector3(1, 1, 1), 1);
+	}
+	
+
+
+	
+	if (tempP->mejoras.mejora_Mapa ==2) {
 		drawText(430, 200, "Mejora radar comprada", Vector3(1, 1, 1), 1);
+	}
+	else if (tempP->mejoras.mejora_Mapa == 1) {
+		drawText(430, 200, "Mejora radar 400 coins", Vector3(1, 1, 1), 1);
 	}
 	else {
 		drawText(430,200, "Mejora radar 200 coins", Vector3(1, 1, 1), 1);
 	}
 	
+	if (tempP->mejoras.maxPegamento < MAX_PLAYER_GRANADE_SHOP) {
+		drawText(630, 200, "Granadas " + std::to_string((int)(tempP->mejoras.granadeSaved["pegamento"])), Vector3(1, 1, 1), 1);
+	}
+	else {
+		drawText(630, 200, "MAX " , Vector3(1, 1, 1), 1);
 
-	drawText(630, 200, "Granadas " + std::to_string((int)(tempP->mejoras.granadeSaved["pegamento"])), Vector3(1, 1, 1), 1);
+	}
+
+	
 
 
-	drawText(630, 430, "Max pegamento " + std::to_string((int)(tempP->mejoras.maxPegamento)), Vector3(1, 1, 1), 1);
+	 coste = tempP->mejoras.maxPegamento - 4.0;
+	if (tempP->mejoras.maxPegamento < MAX_PLAYER_PEGAMENTO_SHOP) {
+		drawText(630, 430, "(Actual " + std::to_string((int)(tempP->mejoras.maxPegamento))+ "/10) " + std::to_string(coste * 10) + " coins to lvlup", Vector3(1, 1, 1), 1);
+	}
+	else {
+		drawText(630, 430, "MAX" , Vector3(1, 1, 1), 1);
+	
+	}
 
-	drawText(90, 430, "Velocidad " + std::to_string((int)(tempP->mejoras.velociti)), Vector3(1, 1, 1), 1);
-
+	coste = tempP->mejoras.velociti+1;
+	if (tempP->mejoras.velociti < MAX_PLAYER_VEL_SHOP) {
+		drawText(90, 430, "(Actual " + std::to_string((int)(tempP->mejoras.velociti)) + "/5) " + std::to_string(coste * 10) + " coins to lvlup", Vector3(1, 1, 1), 1);
+	}
+	else {
+		drawText(90, 430, "MAX", Vector3(1, 1, 1), 1);
+	}
 
 
 	drawText(360, 300, "Monedas " + std::to_string((int)(tempP->mejoras.coins)), Vector3(1, 1, 1), 1);
@@ -142,19 +180,33 @@ void StageShop::update(double dt) {
 
 		if (optionSelected == 1) {
 			if (optionSelectedFila == 1) {
-				tempP->mejoras.coins--;
-				tempP->mejoras.maxHealth += 1;
+				int coste = tempP->mejoras.maxHealth - 9.0;
+
+				if (tempP->mejoras.coins >= (5*coste) && tempP->mejoras.maxHealth < MAX_PLAYER_LIFE_SHOP) {
+					tempP->mejoras.coins -= (5 * coste);
+					tempP->mejoras.maxHealth += 1;
+				}
+				
 			}
 			else if (optionSelectedFila == 2) {
-				tempP->mejoras.coins--;
-				tempP->mejoras.velociti += 1;
+
+				int coste = tempP->mejoras.velociti+1;
+				if (tempP->mejoras.coins >= (10 * coste) && tempP->mejoras.velociti < MAX_PLAYER_VEL_SHOP) {
+					tempP->mejoras.coins -= (10 * coste);
+					tempP->mejoras.velociti += 1;
+				}
+
+				
 			}
 
 		}
 		else if (optionSelected == 2) {
 			if (optionSelectedFila == 1) {
-				tempP->mejoras.coins--;
-				tempP->mejoras.ammoSaved[T_NORMAL] += 1;
+				if (tempP->mejoras.coins >= 1 && tempP->mejoras.ammoSaved[T_NORMAL] < MAX_PLAYER_BALAS_SHOP) {
+					tempP->mejoras.coins--;
+					tempP->mejoras.ammoSaved[T_NORMAL] += 1;
+				}
+				
 			}
 			else if (optionSelectedFila == 2) {
 				
@@ -163,22 +215,40 @@ void StageShop::update(double dt) {
 		}
 		else if (optionSelected == 3) {
 			if (optionSelectedFila == 1) {
-				tempP->mejoras.coins -= 200;
-				tempP->mejoras.mejora_Mapa = true;
+
+				if (tempP->mejoras.mejora_Mapa == 0 && tempP->mejoras.coins >= 200) {
+					tempP->mejoras.coins -= 200;
+					tempP->mejoras.mejora_Mapa = 1;
+				}else if (tempP->mejoras.mejora_Mapa == 1 && tempP->mejoras.coins >= 400) {
+					tempP->mejoras.coins -= 400;
+					tempP->mejoras.mejora_Mapa = 2;
+				}
+
+				
 			}
 			else if (optionSelectedFila == 2) {
-				tempP->mejoras.coins -= 400;
-				tempP->mejoras.arma2Comprada = true;
+				if (tempP->mejoras.coins >= 400 && tempP->mejoras.arma2Comprada == false) {
+					tempP->mejoras.coins -= 400;
+					tempP->mejoras.arma2Comprada = true;
+				}
 			}
 		}
 		else if (optionSelected == 4) {
 			if (optionSelectedFila == 1) {
-				tempP->mejoras.coins--;
-				tempP->mejoras.granadeSaved["pegamento"] += 1;
+				
+				if (tempP->mejoras.coins >= 5 && tempP->mejoras.granadeSaved["pegamento"] < MAX_PLAYER_GRANADE_SHOP) {
+					tempP->mejoras.coins -= 5;
+					tempP->mejoras.granadeSaved["pegamento"] += 1;
+				}
+				
 			}
 			else if (optionSelectedFila == 2) {
-				tempP->mejoras.coins--;
-				tempP->mejoras.maxPegamento += 1;
+				int coste = tempP->mejoras.maxPegamento - 4;
+
+				if (tempP->mejoras.coins >= (10 * coste) && tempP->mejoras.maxPegamento < MAX_PLAYER_PEGAMENTO_SHOP) {
+					tempP->mejoras.coins -= (10 * coste);
+					tempP->mejoras.maxPegamento += 1;
+				}
 			}
 
 		}
@@ -188,61 +258,6 @@ void StageShop::update(double dt) {
 
 
 
-
-		/*
-
-	if (Input::isKeyPressed(SDL_SCANCODE_M)) {
-		Stage::changeState("Menu");
-		//Stage::current_state->init();
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
-		if (coins > 50) {
-			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.velociti += 1;
-			//speed ++
-			std::cout << ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.velociti << std::endl;
-		}
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_L)) {
-		if (coins > 50) {
-			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.armaour += 1;
-			std::cout << ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.armaour << std::endl;
-			//Armour ++
-		}
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_T)) {
-		if (coins > 50) {
-			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.stuntTime += 1;
-			std::cout << ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.stuntTime << std::endl;
-			//Stunt Time ++
-		}
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_G)) {
-		if (coins > 50) {
-		//	((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.grenades += 1;
-		//	std::cout << ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.grenades << std::endl;
-			//Granadas equipadas ++
-		}
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_SPACE)) {
-		if (coins > 50) {
-			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.selectedWeapon = weaponOnScreen;
-			std::cout << ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.selectedWeapon << std::endl;
-			//new weapon ++
-		}
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_A)) {
-		weaponOnScreen -= 1;
-		if (weaponOnScreen < 0) {
-			weaponOnScreen = 8;
-		}
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_D)) {
-		weaponOnScreen += 1;
-		if (weaponOnScreen > 8) {
-			weaponOnScreen = 0;
-		}
-	}
-	*/
 }
 void StageShop::init() {
 
