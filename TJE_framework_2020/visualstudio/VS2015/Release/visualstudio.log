@@ -1,4 +1,389 @@
-﻿  StageLVL.cpp
+﻿  EntityCajasLoot.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityCajasLoot.cpp(7,33): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  EntityDisparo.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(47,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(54,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(75,7): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(128,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(149,7): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(185,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.cpp(205,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  EntityEnemy.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(108,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(229,18): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(240,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(271,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(314,46): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(357,6): warning C4554: "&": compruebe la prioridad de operador para posibles errores; utilice paréntesis para indicar la prioridad
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(395,58): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(395,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(410,65): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(423,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(423,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(445,18): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(538,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(568,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(622,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(622,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(632,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(632,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(643,65): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(655,59): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(655,40): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(691,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(700,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(730,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(739,41): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(784,55): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(910,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(913,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(933,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(1066,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(1073,10): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(1084,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.cpp(1091,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  EntityGranade.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.cpp(70,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.cpp(77,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.cpp(98,7): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.cpp(131,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.cpp(152,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.cpp(188,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.cpp(208,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  EntityPlayer.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(19,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(32,20): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(79,45): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(82,26): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(85,22): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(101,43): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(101,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(102,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(103,21): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(181,20): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(265,35): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(267,37): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(269,15): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(272,16): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(281,18): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(284,30): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(287,30): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(290,20): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(309,20): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(330,60): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(333,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(353,6): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(361,61): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(379,116): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(379,95): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(379,86): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(379,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(388,15): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(401,116): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(401,95): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(401,86): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(401,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(408,15): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(419,116): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(419,95): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(419,86): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(419,61): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(431,15): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(532,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(537,38): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(538,38): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(539,38): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(540,38): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(588,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityPlayer.cpp(626,21): warning C4018: '<': no coinciden signed/unsigned
+  Inventario.cpp
+  Scene.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(13,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(20,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(28,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(34,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(40,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(46,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(65,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(81,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(110,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(143,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(174,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(180,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(207,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(215,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(252,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(260,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(276,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(284,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(300,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(308,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(326,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(334,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(351,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(359,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(377,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(395,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(419,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(435,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(447,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(465,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(485,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(506,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(526,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(538,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(577,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(589,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(653,62): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(656,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(713,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(732,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(734,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(735,1): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(440): message : vea la declaración de 'strtok'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(765,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(764,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(768,7): warning C4101: 'o': variable local sin referencia
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(795,63): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(798,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(811,9): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(786,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(833,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(851,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(875,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(891,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(906,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(919,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(927,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(977,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1026,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1030,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1034,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1039,50): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1043,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1047,51): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1073,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1088,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1123,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1198,11): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1280,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1295,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.cpp(1307,20): warning C4018: '<': no coinciden signed/unsigned
+  StageEditor.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(44,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(45,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageEditor.cpp(123,25): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  StageEndLVL.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageEndLVL.cpp(42,20): warning C4018: '<': no coinciden signed/unsigned
+  StageLVL.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  StageMenu.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  StageMenuInGame.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  StagePlay.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(431,100): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(530,43): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(551,46): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(573,44): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(594,44): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(616,44): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(638,45): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(658,45): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(677,45): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(729,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(730,48): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(796,121): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(796,98): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(796,87): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(796,63): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(802,19): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(892,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(928,32): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StagePlay.cpp(971,27): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  StageSaveLoad.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageSaveLoad.cpp(109,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageSaveLoad.cpp(121,1): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : vea la declaración de 'fopen'
+  StageShop.cpp
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(96,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(105,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(115,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(125,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(135,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(145,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(155,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(165,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageShop.cpp(21,12): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageShop.cpp(61,39): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageShop.cpp(70,33): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageShop.cpp(183,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\StageShop.cpp(193,15): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  game.cpp
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityEnemy.h(68,30): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityDisparo.h(27,1): warning C4305: '=': truncamiento de 'double' a 'float'
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\EntityGranade.h(26,1): warning C4305: '=': truncamiento de 'double' a 'float'
@@ -13,7 +398,7 @@ C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(16
 C:\Users\batch_nps7xwz\Documents\GitHub\TJE-3D\TJE_framework_2020\src\Scene.h(175,1): warning C4305: 'argumento': truncamiento de 'double' a 'float'
 LINK : warning LNK4098: la biblioteca predeterminada'LIBCMT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
-  1 of 3530 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  6 of 3530 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     21 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
