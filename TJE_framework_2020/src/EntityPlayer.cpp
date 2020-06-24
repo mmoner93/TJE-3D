@@ -261,7 +261,7 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 
 	}
 	
-	delta = delta * (speed + mejoras.velociti);
+	delta = delta * (speed + mejoras.velociti*seconds_elapsed);
 	yaw -= Input::mouse_delta.x * 0.1;
 
 	pitch -= Input::mouse_delta.y * 0.1;

@@ -30,6 +30,7 @@ void EntityDisparo::update(float seconds_elapsed, std::vector<EntityGameObject*>
 	if (targe_pos.y <= 0.0f) {
 		targe_pos.y = 0.0f;
 		if (tipo == T_NORMAL) {
+			Game::instance->samplesAudio["impactoShoot"]->PlaySoundAmbient();
 			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->emplaceDisparo(targe_pos);
 		}
 		else if (tipo == T_PEGAMENTO) {
@@ -91,7 +92,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 				//inv.inverse();
 				//collMin = inv * collMin
 				if (tipo == T_NORMAL) {
-
+					Game::instance->samplesAudio["impactoShoot"]->PlaySoundAmbient();
 					en->onReceveidShoot(collMin, collnorm);
 					in_use = false;
 				}
@@ -217,6 +218,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 			distanceMin = distance;
 			collMin = coll;
 			if (tipo == T_NORMAL) {
+				Game::instance->samplesAudio["impactoShoot"]->PlaySoundAmbient();
 				temp->gameSceneSP->emplaceDisparo(collMin);
 			}
 			else {
