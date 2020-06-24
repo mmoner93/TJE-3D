@@ -84,17 +84,17 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 
 	//torpedo_model.setTranslation(0, -5, 0);
 	MyAudioBass::initBass();
-	samplesAudio["ambiente"] = MyAudioBass::Get("data/sounds/ambiente.wav",true);
-	samplesAudio["deadRobot"] = MyAudioBass::Get("data/sounds/deadRobot.wav",false);
-	samplesAudio["repairRobot"] = MyAudioBass::Get("data/sounds/repairRobot.wav", false);
-	samplesAudio["weapon"] = MyAudioBass::Get("data/sounds/weapon.wav", false);
-	samplesAudio["pegamento"] = MyAudioBass::Get("data/sounds/pegamento.wav", false);
-	samplesAudio["granada"] = MyAudioBass::Get("data/sounds/granada.wav", false);
-	samplesAudio["rebotePegamento"] = MyAudioBass::Get("data/sounds/rebotePegamento.wav", false);
-	samplesAudio["impactoPegamento"] = MyAudioBass::Get("data/sounds/impactoPegamento.wav", false);
-	samplesAudio["impactoShoot"] = MyAudioBass::Get("data/sounds/impactoShoot.wav", false);
-	samplesAudio["TutorialJefe"] = MyAudioBass::Get("data/sounds/TutorialJefe.wav", false);
-	samplesAudio["cofre"] = MyAudioBass::Get("data/sounds/cofre.wav", false);
+	samplesAudio["ambiente"] = MyAudioBass::Get("data/sounds/ambiente.mp3",true);
+	samplesAudio["deadRobot"] = MyAudioBass::Get("data/sounds/deadRobot.mp3",false);
+	samplesAudio["repairRobot"] = MyAudioBass::Get("data/sounds/repairRobot.mp3", false);
+	samplesAudio["weapon"] = MyAudioBass::Get("data/sounds/weapon.mp3", false);
+	samplesAudio["pegamento"] = MyAudioBass::Get("data/sounds/pegamento.mp3", false);
+	samplesAudio["granada"] = MyAudioBass::Get("data/sounds/granada.mp3", false);
+	samplesAudio["rebotePegamento"] = MyAudioBass::Get("data/sounds/rebotePegamento.mp3", false);
+	samplesAudio["impactoPegamento"] = MyAudioBass::Get("data/sounds/impactoPegamento.mp3", false);
+	samplesAudio["impactoShoot"] = MyAudioBass::Get("data/sounds/impactoShoot.mp3", false);
+	samplesAudio["TutorialJefe"] = MyAudioBass::Get("data/sounds/TutorialJefe.mp3", false);
+	samplesAudio["cofre"] = MyAudioBass::Get("data/sounds/cofre.mp3", false);
 	samplesAudio["ambiente"]->PlaySoundAmbient();
 	//sample2->PlaySoundAmbient();
 	
