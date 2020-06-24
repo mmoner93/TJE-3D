@@ -16,7 +16,7 @@ public:
 	//std::map<std::string, int> granadeSaved;
 	std::string actualGranade;
 
-
+	int estoyGuardadoEn = 0;
 
 	int ammoPegamento;
 	int ammoDisparo;

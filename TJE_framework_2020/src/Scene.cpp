@@ -1296,7 +1296,7 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 			else
 			{
 				temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(40), 0, float(40)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
-				temp->model->translate(float(40), 0, float(40));
+				temp->model->translate(float(40), 0, float(70));
 				if (enemy != 0) {
 					temp->loalAnim(enemy);
 				}

@@ -32,118 +32,275 @@ void StageSaveLoad::render() {
 
 	drawText(20, 300, "M go to Menu", Vector3(1, 1, 1), 2);
 	*/
-	renderUI(0, uiTexture, 1);
+
+
+
+	if (cargado) {
+		drawText(20, 20, "Game loaded", Vector3(1, 1, 1), 2);
+		drawText(20, 50, "Press E to continue", Vector3(1, 1, 1), 2);
+	}
+	else if (sobreEscribir) {
+		drawText(20, 20, "Want you to override the previous saved game?", Vector3(1, 1, 1), 2);
+		drawText(20, 50, "Press Y [yes]     N [no]", Vector3(1, 1, 1), 2);
+	}
+	else {
+
+		checkPartidas();
+		renderUI(0, uiTexture, 1);
+		drawText(100, 150, slot1S, Vector3(1, 1, 1), 2);
+		drawText(100, 300, slot2S, Vector3(1, 1, 1), 2);
+		drawText(100, 450, slot3S, Vector3(1, 1, 1), 2);
+	}
+
+	
 	SDL_GL_SwapWindow(Game::instance->window);
 	//print some state of the saved files
 }
 void StageSaveLoad::update(double dt) {
-	if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
-		saveGameInfo();
-	}
-	else if (Input::wasKeyPressed(SDL_SCANCODE_L))
-	{
-		loadGameInfo();
-	}
-	/*if (Input::wasKeyPressed(SDL_SCANCODE_W)) {
-		optionSelected -= 1;
-		if (optionSelected < 1) {
-			optionSelected = 3;
+	
+	if (cargado) {
+		if (Input::wasKeyPressed(SDL_SCANCODE_E)) {
+			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.estoyGuardadoEn = optionSelected;
+			cargado = false;
 		}
-	}
-	else if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
-		optionSelected += 1;
-		if (optionSelected > 3) {
-			optionSelected = 1;
+
+	}else if (sobreEscribir) { 
+		if (Input::wasKeyPressed(SDL_SCANCODE_N)) {
+			sobreEscribir = false;
 		}
+
+		if (Input::wasKeyPressed(SDL_SCANCODE_Y)) {
+			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.estoyGuardadoEn = optionSelected;
+			saveGameInfo(optionSelected);
+			sobreEscribir = false;
+		}
+	
 	}
-	if (optionSelected == 1) {
-		uiTexture = select1;
-	}
-	else if (optionSelected == 2) {
-		uiTexture = select2;
-	}
-	else if (optionSelected == 3) {
-		uiTexture = select3;
-	}
-	if (Input::wasKeyPressed(SDL_SCANCODE_P)) {
+	else {
+	
+		if (Input::wasKeyPressed(SDL_SCANCODE_N)) {
+			if (optionSelected == 1 && slot1S.compare("Empty")==0) {
+				((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.estoyGuardadoEn = 1;
+				saveGameInfo(optionSelected);
+			}else if (optionSelected == 2 && slot2S.compare("Empty") == 0) {
+				((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.estoyGuardadoEn = 2;
+				saveGameInfo(optionSelected);
+			}else if (optionSelected == 3 && slot3S.compare("Empty") == 0) {
+				((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras.estoyGuardadoEn = 3;
+				saveGameInfo(optionSelected);
+			}
+			else {
+				sobreEscribir = true;
+			}
+
+
+
+
+		}
+		else if (Input::wasKeyPressed(SDL_SCANCODE_L))
+		{
+
+			if (loadGameInfo(optionSelected)) {
+				cargado = true;
+			}
+			
+		}
+		if (Input::wasKeyPressed(SDL_SCANCODE_W)) {
+			optionSelected -= 1;
+			if (optionSelected < 1) {
+				optionSelected = 3;
+			}
+		}
+		else if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
+			optionSelected += 1;
+			if (optionSelected > 3) {
+				optionSelected = 1;
+			}
+		}
+
+
 		if (optionSelected == 1) {
-			Stage::changeState("SaveLoad");
+			uiTexture = select1;
 		}
 		else if (optionSelected == 2) {
-			Stage::changeState("Shop");
+			uiTexture = select2;
 		}
 		else if (optionSelected == 3) {
-			Stage::changeState("SelectLVL");
+			uiTexture = select3;
 		}
+	
+
+		if (Input::wasKeyPressed(SDL_SCANCODE_M))
+		{
+			Stage::changeState("Menu");
+		}
+	}
 
 
 
-		//Stage::current_state->init();
-	}*/
-	/*
-	if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
-		saveGameInfo();
-	}
-	else if (Input::wasKeyPressed(SDL_SCANCODE_L))
-	{
-		loadGameInfo();
-	}
-	*/
-	if (Input::wasKeyPressed(SDL_SCANCODE_M))
-	{
-		Stage::changeState("Menu");
-	}
+	
 
 
 
 }
 void StageSaveLoad::init() {
-	//partidas[0].lastlvl = 12;
-	//partidas[1].lastlvl = 55;
-	//partidas[2].lastlvl = 32;
+
 	select1 = Texture::Get("data/UI/saveload/selected1.png");
 	select2 = Texture::Get("data/UI/saveload/selected2.png");
 	select3 = Texture::Get("data/UI/saveload/selected3.png");
 	uiTexture = select1;
+	
+
+
 }
 
-void StageSaveLoad::saveGameInfo()
+
+void StageSaveLoad::checkPartidas() {
+	FILE* fp;
+	for (int i = 1; i < 4; i++) {
+	
+		switch (i) {
+		case 1:
+			fp = fopen("savegame1.bin", "rb");
+			if (fp == NULL) {
+				slot1S = "Empty";
+			}
+			else {
+				slot1S = "Saved";
+				fclose(fp);
+			}
+
+			break;
+		case 2:
+			fp = fopen("savegame2.bin", "rb");
+			if (fp == NULL) {
+				
+				slot2S = "Empty";
+			}
+			else {
+				slot2S = "Saved";
+				fclose(fp);
+			}
+
+			break;
+		case 3:
+			fp = fopen("savegame3.bin", "rb");
+			if (fp == NULL) {
+				
+				slot3S = "Empty";
+			}
+			else {
+				slot3S = "Saved";
+				fclose(fp);
+			}
+
+			break;
+
+		}
+	}
+
+	
+}
+
+
+void StageSaveLoad::saveGameInfo(int option)
 {
 	init();
 	//fill here game_info with all game data
 	//...
 	//save to file
-	slot1.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
-	slot2.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
-	slot3.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
+	FILE* fp;
+	switch (option) {
+	case 1:
+		 fp = fopen("savegame1.bin", "wb");
+		if (fp == NULL) {
+			std::cout << "No puedo escribir savegame1" << std::endl;
+		}
+		else {
+			slot1.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
+			fwrite(&slot1, sizeof(sGameInfo), 1, fp);
+			fclose(fp);
+			break;
+		}
+		
+	case 2:
+		 fp = fopen("savegame2.bin", "wb");
+		if (fp == NULL) {
+			std::cout << "No puedo escribir savegame2" << std::endl;
+		}
+		else {
+			slot2.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
+			fwrite(&slot2, sizeof(sGameInfo), 1, fp);
+			fclose(fp);
+		}
+		
+		break;
+	case 3:
+		 fp = fopen("savegame3.bin", "wb");
+		if (fp == NULL) {
+			std::cout << "No puedo escribir savegame3" << std::endl;
+		}
+		else {
+			slot3.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
+			fwrite(&slot3, sizeof(sGameInfo), 1, fp);
+			fclose(fp);
+		}
+		
+		break;
 
+	}
+	
 
-	FILE* fp = fopen("savegame.bin", "wb");
-	fwrite(&slot1, sizeof(sGameInfo), 1, fp);
-	fwrite(&slot2, sizeof(sGameInfo), 1, fp);
-	fwrite(&slot3, sizeof(sGameInfo), 1, fp);
-
-	fclose(fp);
+	
 }
 
-bool StageSaveLoad::loadGameInfo()
+bool StageSaveLoad::loadGameInfo(int option)
 {
+	FILE* fp;
 
-	//load file
-	FILE* fp = fopen("savegame.bin", "rb");
-	if (fp == NULL) //no savegame found
-		return false;
+	switch (option) {
+	case 1:
+		 fp = fopen("savegame1.bin", "rb");
+		if (fp == NULL) {
+			std::cout << "No puedo leer savegame1" << std::endl;
+			return false;
+		}
+		else {
+			fread(&slot1, sizeof(sGameInfo), 1, fp);
+			fclose(fp);
+			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras = slot1.p1;
+		}
+		
+		break;
+	case 2:
+		 fp = fopen("savegame2.bin", "rb");
+		if (fp == NULL) {
+			std::cout << "No puedo leer savegame2" << std::endl;
+			return false;
+		}
+		else {
+			fread(&slot2, sizeof(sGameInfo), 1, fp);
+			fclose(fp);
+			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras = slot2.p1;
+		}
+		
+		break;
+	case 3:
+		 fp = fopen("savegame3.bin", "rb");
+		if (fp == NULL) {
+			std::cout << "No puedo leer savegame3" << std::endl;
+			return false;
+		}
+		else {
+			fread(&slot3, sizeof(sGameInfo), 1, fp);
+			fclose(fp);
+			((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras = slot3.p1;
+		}
+		
+		break;
 
-	fread(&slot1, sizeof(sGameInfo), 1, fp);
-	fread(&slot2, sizeof(sGameInfo), 1, fp);
-	fread(&slot3, sizeof(sGameInfo), 1, fp);
-	fclose(fp);
+	}
 
-	((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras = slot1.p1;
-
-
-	//transfer data from game_info to Game
-//…
 
 	return true;
 }

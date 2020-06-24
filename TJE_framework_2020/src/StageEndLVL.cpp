@@ -1,5 +1,6 @@
 #include "StageEndLVL.h"
 #include "StagePlay.h"
+#include "StageSaveLoad.h"
 #include "Scene.h"
 void StageEndLVL::render() {
 
@@ -149,6 +150,11 @@ void StageEndLVL::update(double dt) {
 		
 		
 		if (Input::wasKeyPressed(SDL_SCANCODE_M)) {
+			Scene* temp = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP;
+			if (temp->myPlayer->mejoras.estoyGuardadoEn != 0) {
+				((StageSaveLoad*)Stage::getStage("SaveLoad"))->saveGameInfo(temp->myPlayer->mejoras.estoyGuardadoEn);
+			}
+			
 			Stage::changeState("Menu");
 		}
 		if (Input::wasKeyPressed(SDL_SCANCODE_S)) {

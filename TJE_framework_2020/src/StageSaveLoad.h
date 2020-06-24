@@ -20,6 +20,13 @@ public:
 	Texture* uiTexture = NULL;
 	int optionSelected = 1;
 
+
+	std::string slot1S;
+	std::string slot2S;
+	std::string slot3S;
+
+	bool sobreEscribir = false;
+	bool cargado = false;
 	StageSaveLoad() :Stage("SaveLoad") {
 		iniciado = true;
 	};
@@ -27,8 +34,9 @@ public:
 	void render();
 	void update(double dt);
 	void init();
-	void saveGameInfo();
-	bool loadGameInfo();
+	void saveGameInfo(int option);
+	bool loadGameInfo(int option);
+	void checkPartidas();
 };
 
 
