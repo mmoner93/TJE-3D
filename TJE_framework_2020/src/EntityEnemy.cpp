@@ -977,6 +977,7 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 				pointsSP.clear();
 				pointsSPegamento.clear();
 				time_dead = 0.0f;
+				Game::instance->samplesAudio["deadRobot"]->PlaySoundAmbient();
 			}
 		}
 		else {
@@ -990,6 +991,7 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 			pointsSP.clear();
 			pointsSPegamento.clear();
 			time_dead = 0.0f;
+			Game::instance->samplesAudio["deadRobot"]->PlaySoundAmbient();
 		}
 	}
 
@@ -1004,6 +1006,7 @@ void EntityEnemy::onReceveidShootPegamento(Vector3 temp, Vector3 norm) {
 			num_pegamento_in++;
 			if (num_pegamento_in >= 3) {
 				actualState = E_REPAIR;
+				Game::instance->samplesAudio["repairRobot"]->PlaySoundAmbient();
 				((StagePlay*)Stage::getStage("Play"))->gameSceneSP->turnAllMiniosOff(id_principal);
 			}
 		}

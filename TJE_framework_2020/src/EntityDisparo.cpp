@@ -33,6 +33,7 @@ void EntityDisparo::update(float seconds_elapsed, std::vector<EntityGameObject*>
 			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->emplaceDisparo(targe_pos);
 		}
 		else if (tipo == T_PEGAMENTO) {
+			Game::instance->samplesAudio["impactoPegamento"]->PlaySoundAmbient();
 			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->emplacePegamento(targe_pos);
 		}
 	
@@ -98,8 +99,10 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 					if (en->shield > 0.0f) {
 						dir.x = dir.x * (-1);
 						dir.z = dir.z * (-1);
+						Game::instance->samplesAudio["rebotePegamento"]->PlaySoundAmbient();
 					}
 					else {
+						Game::instance->samplesAudio["impactoPegamento"]->PlaySoundAmbient();
 						en->onReceveidShootPegamento(collMin, collnorm);
 						in_use = false;
 					}
@@ -107,6 +110,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 					
 				}
 				else if (tipo == T_PEGAMENTO && !en->is_node) {
+					Game::instance->samplesAudio["impactoPegamento"]->PlaySoundAmbient();
 					en->onReceveidShootPegamento(collMin, collnorm);
 					in_use = false;
 				}
@@ -165,10 +169,11 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 			//collMin = inv * collMin;
 			en->onReceveidShootPegamento(coll, collnorm);
 			in_use = false;
+			Game::instance->samplesAudio["impactoPegamento"]->PlaySoundAmbient();
 			break;
 
 
-			std::cout << "He colisionao" << std::endl;
+			//std::cout << "He colisionao" << std::endl;
 			//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 			//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
 			//target_pos.y = 0;
@@ -215,6 +220,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 				temp->gameSceneSP->emplaceDisparo(collMin);
 			}
 			else {
+				Game::instance->samplesAudio["impactoPegamento"]->PlaySoundAmbient();
 				temp->gameSceneSP->emplacePegamento(collMin);
 			}
 			

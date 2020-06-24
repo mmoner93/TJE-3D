@@ -388,7 +388,7 @@ void EntityPlayer::fixShoot() {
 	posa.y -= 0.2;
 	dir.normalize();
 	temp->gameSceneSP->activateDisparoPegamento(posa, dir);
-
+	Game::instance->samplesAudio["pegamento"]->PlaySoundAmbient();
 }
 
 
@@ -436,6 +436,9 @@ void EntityPlayer::shoot() {
 	//retroceso , pasar segun arma. Con escopeta tambien en pitch de forma random para que lado
 	retrocesoOn = true;
 	retrocesoLeft = 5.0f;
+
+	Game::instance->samplesAudio["weapon"]->PlaySoundAmbient();
+
 	/*Mesh* mesh = Mesh::Get("data/personajes/ROBOT1.obj");
 
 	if(mesh->testRayCollision(Matrix44(), origin, dir, pos, Vector3()) ){

@@ -888,7 +888,7 @@ void StagePlay::render()
 		
 
 	float value = (((gameSceneSP->myPlayer->health - 0.0f) * ( 1.0f- 0.0f) / (gameSceneSP->myPlayer->mejoras.maxHealth - 0.0f))) + 0.0f;
-	std::cout << "VALUE " << value << std::endl;
+	//std::cout << "VALUE " << value << std::endl;
 	float opacity = 1.0 - value;
 	//float opacity = (((gameSceneSP->myPlayer->health - 0.0f) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin;
 	renderUI(0, damage, opacity);

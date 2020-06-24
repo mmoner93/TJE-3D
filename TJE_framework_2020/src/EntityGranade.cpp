@@ -28,7 +28,7 @@ void EntityGranade::update(float seconds_elapsed, std::vector<EntityGameObject*>
 		targe_pos.y = 0.0f;
 		explosion(targe_pos);
 
-
+		Game::instance->samplesAudio["granada"]->PlaySoundAmbient();
 		in_use = false;
 	}
 	position = targe_pos;
