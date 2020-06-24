@@ -68,7 +68,7 @@ MyAudioBass* MyAudioBass::Get(const char* filename,bool loop)
 
 
 
-void MyAudioBass::PlaySoundAmbient() {
+HCHANNEL MyAudioBass::PlaySoundAmbient() {
 
 	//El handler para un sample
 	
@@ -86,7 +86,51 @@ void MyAudioBass::PlaySoundAmbient() {
 	//Creamos un canal para el sample
 	hSampleChannel = BASS_SampleGetChannel(hSample, false);
 
-
+	
 	//Lanzamos un sample
 	BASS_ChannelPlay(hSampleChannel, true);
+
+	return hSampleChannel;
 }
+
+
+
+void MyAudioBass::PauseMusic(HCHANNEL hSampleChannel) {
+
+	if (hSample == 0) {
+		std::cout << "file not found" << std::endl;
+		//file not found
+	}
+
+	//hSampleChannel = BASS_SampleGetChannel(hSample, false);
+
+	//Creamos un canal para el sample
+	bool resp = BASS_ChannelPause(hSampleChannel);
+
+}
+
+void MyAudioBass::UnPauseMusic(HCHANNEL hSampleChannel) {
+
+	if (hSample == 0) {
+		std::cout << "file not found" << std::endl;
+		//file not found
+	}
+
+	//hSampleChannel = BASS_SampleGetChannel(hSample, false);
+
+	//Creamos un canal para el sample
+	bool resp = BASS_ChannelPlay(hSampleChannel,false);
+}
+
+
+void MyAudioBass::stopMusic() {
+
+	if (hSample == 0) {
+		std::cout << "file not found" << std::endl;
+		//file not found
+	}
+
+	//Creamos un canal para el sample
+	bool resp = BASS_SampleStop(hSample);
+}
+

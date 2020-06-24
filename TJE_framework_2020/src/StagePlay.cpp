@@ -985,6 +985,7 @@ void StagePlay::update(double seconds_elapsed)
 	if (Input::wasKeyPressed(SDL_SCANCODE_M))
 	{
 		Stage::changeState("MenuInGame");
+		Game::instance->samplesAudio["TutorialJefe"]->PauseMusic(gameSceneSP->tutorialChannel);
 	}
 
 	if (gameSceneSP->checkEndLvl()) {
@@ -995,6 +996,7 @@ void StagePlay::update(double seconds_elapsed)
 		else {
 			((StageEndLVL*)Stage::getStage("EndLVL"))->dead = false;
 		}
+		Game::instance->samplesAudio["TutorialJefe"]->stopMusic();
 		((StageEndLVL*)Stage::getStage("EndLVL"))->tiempoPartida = gameSceneSP->time_In_Game;
 		((StageEndLVL*)Stage::getStage("EndLVL"))->restart();
 		Stage::changeState("EndLVL");

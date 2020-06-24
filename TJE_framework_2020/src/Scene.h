@@ -66,7 +66,7 @@ public:
 
 	std::vector<EntityGranade*> granadesMove;
 	//EntityGranade* granadesMove;
-
+	HCHANNEL tutorialChannel;
 	/*Para controlar lvl*/
 	int numLvl;
 	int numEnemysNode;

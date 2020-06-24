@@ -41,6 +41,9 @@ void StageMenuInGame::update(double dt) {
 				Stage::changeState("Menu");
 			}
 			else if (optionSelected == 3) {
+				if (((StagePlay*)Stage::getStage("Play"))->gameSceneSP->numLvl == 0) {
+					Game::instance->samplesAudio["TutorialJefe"]->UnPauseMusic(((StagePlay*)Stage::getStage("Play"))->gameSceneSP->tutorialChannel);
+				}
 				Stage::changeState("Play");
 			}
 

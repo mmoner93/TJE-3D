@@ -101,7 +101,8 @@ void Scene::pintarScene() {
 	myPlayer->render(lightScene->light,fog_color);
 	if (vozOn && numLvl == 0) {
 
-		Game::instance->samplesAudio["TutorialJefe"]->PlaySoundAmbient();
+		tutorialChannel =Game::instance->samplesAudio["TutorialJefe"]->PlaySoundAmbient();
+		
 		vozOn = false;
 	}
 

@@ -25,7 +25,10 @@ public:
 	static MyAudioBass* Get(const char* filename, bool loop);
 	static void initBass();
 	void setName(const char* filename) { sAudiosLoaded[filename] = this; }
-	void PlaySoundAmbient(); 
+	HCHANNEL PlaySoundAmbient();
+	void stopMusic();
+	void PauseMusic(HCHANNEL hSampleChannel);
+	void UnPauseMusic(HCHANNEL hSampleChannel);
 };
 
 #endif
