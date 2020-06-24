@@ -25,7 +25,7 @@ public:
 	Texture* uiTextureNoMap;
 	Texture* uiTextureAmmoNoMap;
 	Texture* damage;
-
+	Texture* uiWalkie;
 
 
 	//guardo la info de que dibujar segun type

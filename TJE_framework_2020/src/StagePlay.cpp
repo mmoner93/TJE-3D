@@ -495,6 +495,7 @@ void StagePlay::inicializarScena() {
 	uiTextureAmmo = Texture::Get("data/UI/items2.png");
 	uiTextureNoMap = Texture::Get("data/UI/itemsNoMap.png");
 	uiTextureAmmoNoMap = Texture::Get("data/UI/items2NoMap.png");
+	uiWalkie = Texture::Get("data/UI/walkie.png");
 	damage = Texture::Get("data/UI/vida.png");
 
 	mesh = Mesh::Get("data/cielo.ASE");
@@ -873,6 +874,11 @@ void StagePlay::render()
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	
+
+	if (gameSceneSP->time_walkie >0.0f) {
+		renderUI(0, uiWalkie, 1.0f);
+	}
+
 
 	if (gameSceneSP->myPlayer->mejoras.actualAmmo == T_PEGAMENTO && gameSceneSP->myPlayer->mejoras.mejora_Mapa > 0) {
 		renderUI(0, uiTexture, 0.8f);

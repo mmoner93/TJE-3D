@@ -52,6 +52,11 @@ void Scene :: updateScene(float seconds_elapsed) {
 
 	time_In_Game += seconds_elapsed;
 
+	if (time_walkie > 0.0f) {
+		time_walkie -= seconds_elapsed;
+	}
+	
+
 }
 void Scene::pintarScene() {
 	glDisable(GL_DEPTH_TEST);
@@ -100,7 +105,7 @@ void Scene::pintarScene() {
 	pintarGranades();
 	myPlayer->render(lightScene->light,fog_color);
 	if (vozOn && numLvl == 0) {
-
+		time_walkie = 124.0f;
 		tutorialChannel =Game::instance->samplesAudio["TutorialJefe"]->PlaySoundAmbient();
 		
 		vozOn = false;
@@ -586,6 +591,7 @@ void Scene::restartLvl(std::map<std::string, Entity*> enemysMapSP) {
 	time_In_Game = 0.0f;
 	if (numLvl == 0) {
 		vozOn = true;
+		
 	}
 	myPlayer->health = myPlayer->mejoras.maxHealth;
 	myPlayer->position=initPosPlayer;
