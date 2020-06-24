@@ -65,7 +65,7 @@ Vector3 EntityCajaLoot::testCollision( float seconds_elapsed) {
 			break;
 		}
 
-		
+		Game::instance->samplesAudio["cofre"]->PlaySoundAmbient();
 		in_use = false;
 	}
 

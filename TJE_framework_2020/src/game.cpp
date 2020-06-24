@@ -94,6 +94,7 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	samplesAudio["impactoPegamento"] = MyAudioBass::Get("data/sounds/impactoPegamento.wav", false);
 	samplesAudio["impactoShoot"] = MyAudioBass::Get("data/sounds/impactoShoot.wav", false);
 	samplesAudio["TutorialJefe"] = MyAudioBass::Get("data/sounds/TutorialJefe.wav", false);
+	samplesAudio["cofre"] = MyAudioBass::Get("data/sounds/cofre.wav", false);
 	samplesAudio["ambiente"]->PlaySoundAmbient();
 	//sample2->PlaySoundAmbient();
 	
