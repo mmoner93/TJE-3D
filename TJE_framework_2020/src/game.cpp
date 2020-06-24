@@ -16,7 +16,8 @@
 #include "StageSaveLoad.h"
 #include "StageEndLVL.h"
 #include <cmath>
-
+#include "extra/bass.h"
+#include "AudioBass.h"
 //some globals
 Shader* shader = NULL;
 
@@ -26,6 +27,7 @@ Matrix44 plane_model;
 Matrix44 torpedo_model;
 bool attached_torpedo = true;
 */
+MyAudioBass* sample = new MyAudioBass();
 
 Game* Game::instance = NULL;
 std::map<std::string, Stage*> Stage::s_stages;
@@ -82,6 +84,11 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	shader = Shader::Get("data/shaders/basic.vs", "data/shaders/texture.fs");
 
 	//torpedo_model.setTranslation(0, -5, 0);
+
+	MyAudioBass::initBass();
+	sample = MyAudioBass::Get("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav");
+	sample->PlaySoundAmbient();
+
 
 	//hide the cursor
 	SDL_ShowCursor(!mouse_locked); //hide or show the mouse

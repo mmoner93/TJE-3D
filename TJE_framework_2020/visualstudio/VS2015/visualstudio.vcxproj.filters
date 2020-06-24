@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\src\EntityGranade.cpp">
       <Filter>Entity</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\AudioBass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\game.h" />
@@ -284,6 +285,7 @@
     <ClInclude Include="..\..\src\EntityGranade.h">
       <Filter>Entity</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\AudioBass.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extra">
