@@ -9,12 +9,19 @@
 class Inventario
 {
 public:
-	std::map<enumTipoDisparo, int> ammoSaved;
+	//std::map<enumTipoDisparo, int> ammoSaved;
 	enumTipoDisparo actualAmmo;
-	std::map<std::string, int> weaponsSaved;
+	//std::map<std::string, int> weaponsSaved;
 	std::string actualWeapon;
-	std::map<std::string, int> granadeSaved;
+	//std::map<std::string, int> granadeSaved;
 	std::string actualGranade;
+
+
+
+	int ammoPegamento;
+	int ammoDisparo;
+	int ammoGranada;
+
 
 	int mejora_Mapa = 0;
 	int coins = 1000;

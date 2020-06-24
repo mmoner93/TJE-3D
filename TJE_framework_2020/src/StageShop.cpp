@@ -27,8 +27,8 @@ void StageShop::render() {
 	}
 
 	
-	if ((int)(tempP->mejoras.ammoSaved[T_NORMAL]) < MAX_PLAYER_BALAS_SHOP) {
-		drawText(280, 200, "Balas " + std::to_string((int)(tempP->mejoras.ammoSaved[T_NORMAL])) + " /1 gold", Vector3(1, 1, 1), 1);
+	if ((int)(tempP->mejoras.ammoDisparo) < MAX_PLAYER_BALAS_SHOP) {
+		drawText(280, 200, "Balas " + std::to_string((int)(tempP->mejoras.ammoDisparo)) + " /1 gold", Vector3(1, 1, 1), 1);
 	}
 	else {
 		drawText(280, 200, "MAX ", Vector3(1, 1, 1), 1);
@@ -48,7 +48,7 @@ void StageShop::render() {
 	}
 	
 	if (tempP->mejoras.maxPegamento < MAX_PLAYER_GRANADE_SHOP) {
-		drawText(630, 200, "Granadas " + std::to_string((int)(tempP->mejoras.granadeSaved["pegamento"])), Vector3(1, 1, 1), 1);
+		drawText(630, 200, "Granadas " + std::to_string((int)(tempP->mejoras.ammoGranada)), Vector3(1, 1, 1), 1);
 	}
 	else {
 		drawText(630, 200, "MAX " , Vector3(1, 1, 1), 1);
@@ -202,9 +202,9 @@ void StageShop::update(double dt) {
 		}
 		else if (optionSelected == 2) {
 			if (optionSelectedFila == 1) {
-				if (tempP->mejoras.coins >= 1 && tempP->mejoras.ammoSaved[T_NORMAL] < MAX_PLAYER_BALAS_SHOP) {
+				if (tempP->mejoras.coins >= 1 && tempP->mejoras.ammoDisparo < MAX_PLAYER_BALAS_SHOP) {
 					tempP->mejoras.coins--;
-					tempP->mejoras.ammoSaved[T_NORMAL] += 1;
+					tempP->mejoras.ammoDisparo += 1;
 				}
 				
 			}
@@ -236,9 +236,9 @@ void StageShop::update(double dt) {
 		else if (optionSelected == 4) {
 			if (optionSelectedFila == 1) {
 				
-				if (tempP->mejoras.coins >= 5 && tempP->mejoras.granadeSaved["pegamento"] < MAX_PLAYER_GRANADE_SHOP) {
+				if (tempP->mejoras.coins >= 5 && tempP->mejoras.ammoGranada < MAX_PLAYER_GRANADE_SHOP) {
 					tempP->mejoras.coins -= 5;
-					tempP->mejoras.granadeSaved["pegamento"] += 1;
+					tempP->mejoras.ammoGranada += 1;
 				}
 				
 			}

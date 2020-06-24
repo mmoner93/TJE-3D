@@ -111,9 +111,9 @@ void EntityPlayer::chargePegamento(float seconds_elapsed) {
 	time_next_pegamento_up -= seconds_elapsed;
 	if(time_next_pegamento_up<=0.0f){
 		
-			mejoras.ammoSaved[T_PEGAMENTO]++;
-			if (mejoras.ammoSaved[T_PEGAMENTO] >= mejoras.maxPegamento) {
-				mejoras.ammoSaved[T_PEGAMENTO] = mejoras.maxPegamento;
+			mejoras.ammoPegamento++;
+			if (mejoras.ammoPegamento >= mejoras.maxPegamento) {
+				mejoras.ammoPegamento = mejoras.maxPegamento;
 			}
 		
 		
@@ -204,9 +204,9 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 		fixShoot();
 	}
 	if (Input::wasKeyPressed(SDL_SCANCODE_Q)) {
-		if (mejoras.granadeSaved[mejoras.actualGranade] > 0) {
+		if (mejoras.ammoGranada > 0) {
 			shootGranade();
-			mejoras.granadeSaved[mejoras.actualGranade]--;
+			mejoras.ammoGranada--;
 		}
 		
 	}
@@ -223,9 +223,9 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 		time_next_shoot_weapon2 -= seconds_elapsed;
 		if (time_next_shoot_weapon2 <= 0.0f) {
 			time_next_shoot_weapon2 = time_next_shoot_weapon2MAX;
-			if (mejoras.ammoSaved[mejoras.actualAmmo] > 0) {
+			if (mejoras.ammoDisparo > 0) {
 				shoot();
-				mejoras.ammoSaved[mejoras.actualAmmo]--;
+				mejoras.ammoDisparo--;
 			}
 		}
 
@@ -238,16 +238,16 @@ void EntityPlayer::update(float seconds_elapsed, std::vector<EntityGameObject*> 
 	if (Input::isMousePressed(SDL_BUTTON_LEFT) && !shooting && weaponUsing != WEAPON2) {
 		shooting = true;
 		if (weaponUsing == PEGAMENTO) {
-			if (mejoras.ammoSaved[mejoras.actualAmmo] > 0) {
+			if (mejoras.ammoPegamento > 0) {
 				fixShoot();
-				mejoras.ammoSaved[mejoras.actualAmmo]--;
+				mejoras.ammoPegamento--;
 			}
 			
 		}
 		else {
-			if (mejoras.ammoSaved[mejoras.actualAmmo] > 0) {
+			if (mejoras.ammoDisparo > 0) {
 				shoot();
-				mejoras.ammoSaved[mejoras.actualAmmo]--;
+				mejoras.ammoDisparo--;
 			}
 			
 		}

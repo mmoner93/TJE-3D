@@ -50,10 +50,10 @@ Vector3 EntityCajaLoot::testCollision( float seconds_elapsed) {
 		switch (cual)
 		{
 		case 0://balas
-			temp->gameSceneSP->myPlayer->mejoras.ammoSaved[T_NORMAL] += 5;
+			temp->gameSceneSP->myPlayer->mejoras.ammoDisparo += 5;
 			break;
 		case 1://granada
-			temp->gameSceneSP->myPlayer->mejoras.granadeSaved["pegamento"] += 1;
+			temp->gameSceneSP->myPlayer->mejoras.ammoGranada += 1;
 			break;
 		case 2://vida
 			temp->gameSceneSP->myPlayer->health += 5.0f;

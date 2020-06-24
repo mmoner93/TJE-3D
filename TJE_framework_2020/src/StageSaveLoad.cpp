@@ -1,21 +1,21 @@
+#include "StagePlay.h"
+#include "Stage.h"
 #include "StageSaveLoad.h"
+#include "Inventario.h"
 #include <string.h>
 
 struct sGameInfo {
-	int lastlvl = 1;
-	int num_weapons;
-	float time_played;
-	// time last saved? mirar fecha modificacion arxivo ? guardar fecha en partidas guardadas!
+	Inventario p1;;
 };
 
 sGameInfo slot1;
 sGameInfo slot2;
 sGameInfo slot3;
-sGameInfo partidas[3] = { slot1 , slot2 , slot3};
+sGameInfo partidas[3] = { slot1 , slot2 , slot3 };
 
 
 void StageSaveLoad::render() {
-	
+
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	/*
@@ -37,7 +37,14 @@ void StageSaveLoad::render() {
 	//print some state of the saved files
 }
 void StageSaveLoad::update(double dt) {
-	if (Input::wasKeyPressed(SDL_SCANCODE_W)) {
+	if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
+		saveGameInfo();
+	}
+	else if (Input::wasKeyPressed(SDL_SCANCODE_L))
+	{
+		loadGameInfo();
+	}
+	/*if (Input::wasKeyPressed(SDL_SCANCODE_W)) {
 		optionSelected -= 1;
 		if (optionSelected < 1) {
 			optionSelected = 3;
@@ -72,7 +79,7 @@ void StageSaveLoad::update(double dt) {
 
 
 		//Stage::current_state->init();
-	}
+	}*/
 	/*
 	if (Input::wasKeyPressed(SDL_SCANCODE_S)) {
 		saveGameInfo();
@@ -91,9 +98,9 @@ void StageSaveLoad::update(double dt) {
 
 }
 void StageSaveLoad::init() {
-	partidas[0].lastlvl = 12;
-	partidas[1].lastlvl = 55;
-	partidas[2].lastlvl = 32;
+	//partidas[0].lastlvl = 12;
+	//partidas[1].lastlvl = 55;
+	//partidas[2].lastlvl = 32;
 	select1 = Texture::Get("data/UI/saveload/selected1.png");
 	select2 = Texture::Get("data/UI/saveload/selected2.png");
 	select3 = Texture::Get("data/UI/saveload/selected3.png");
@@ -106,6 +113,11 @@ void StageSaveLoad::saveGameInfo()
 	//fill here game_info with all game data
 	//...
 	//save to file
+	slot1.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
+	slot2.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
+	slot3.p1 = ((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras;
+
+
 	FILE* fp = fopen("savegame.bin", "wb");
 	fwrite(&slot1, sizeof(sGameInfo), 1, fp);
 	fwrite(&slot2, sizeof(sGameInfo), 1, fp);
@@ -126,9 +138,12 @@ bool StageSaveLoad::loadGameInfo()
 	fread(&slot2, sizeof(sGameInfo), 1, fp);
 	fread(&slot3, sizeof(sGameInfo), 1, fp);
 	fclose(fp);
+
+	((StagePlay*)Stage::getStage("Play"))->Lvls[0]->myPlayer->mejoras = slot1.p1;
+
+
 	//transfer data from game_info to Game
 //…
 
 	return true;
 }
-

@@ -456,11 +456,11 @@ void StagePlay::inicializarScena() {
 	//rellenar el apartado mejoras
 
 	player->mejoras.actualAmmo = T_PEGAMENTO;
-	player->mejoras.ammoSaved[T_PEGAMENTO] = 5;
-	player->mejoras.ammoSaved[T_NORMAL] = 1000;
+	player->mejoras.ammoPegamento = 5;
+	player->mejoras.ammoDisparo = 1000;
 	
 	player->mejoras.actualGranade = "pegamento";
-	player->mejoras.granadeSaved["pegamento"] = 5;
+	player->mejoras.ammoGranada = 5;
 	Texture* xs;
 	
 
@@ -911,9 +911,18 @@ void StagePlay::render()
 
 
 	//que hay
+	std::string Ammo;
+	if (gameSceneSP->myPlayer->mejoras.actualAmmo == T_NORMAL) {
+		Ammo = std::to_string(gameSceneSP->myPlayer->mejoras.ammoDisparo);
+	}
+	else {
+		Ammo = std::to_string(gameSceneSP->myPlayer->mejoras.ammoPegamento);
+	
+	}
+	
 
-	std::string Ammo =std::to_string(gameSceneSP->myPlayer->mejoras.ammoSaved[gameSceneSP->myPlayer->mejoras.actualAmmo]);
-	std::string AmmoGranade = std::to_string(gameSceneSP->myPlayer->mejoras.granadeSaved[gameSceneSP->myPlayer->mejoras.actualGranade]);
+
+	std::string AmmoGranade = std::to_string(gameSceneSP->myPlayer->mejoras.ammoGranada);
 
 	 drawText(725, 525, Ammo, Vector3(1, 1, 1), 2);
 	 drawText(725, 570, AmmoGranade, Vector3(1, 1, 1), 2);
