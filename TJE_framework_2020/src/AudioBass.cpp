@@ -18,10 +18,16 @@ void MyAudioBass::initBass() {
 	}
 }
 
-bool MyAudioBass::load(const char* filename)
+bool MyAudioBass::load(const char* filename,bool loop)
 {
 	std::string str = filename;
-	hSample = BASS_SampleLoad(false, filename, 0, 0, 3, 0);
+	if (loop) {
+		hSample = BASS_SampleLoad(false, filename, 0, 0, 3, BASS_SAMPLE_LOOP);
+	}
+	else {
+		hSample = BASS_SampleLoad(false, filename, 0, 0, 3, 0);
+	}
+	
 	
 	std::cout << " + Texture loading: " << filename << " ... ";
 
@@ -34,7 +40,7 @@ bool MyAudioBass::load(const char* filename)
 
 
 
-MyAudioBass* MyAudioBass::Get(const char* filename)
+MyAudioBass* MyAudioBass::Get(const char* filename,bool loop)
 {
 	assert(filename);
 
@@ -49,7 +55,7 @@ MyAudioBass* MyAudioBass::Get(const char* filename)
 	//load it
 	MyAudioBass* audioBass = new MyAudioBass();
 	
-	if (!audioBass->load(filename))
+	if (!audioBass->load(filename, loop))
 	{
 		delete audioBass;
 		return NULL;

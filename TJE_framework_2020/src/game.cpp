@@ -28,7 +28,7 @@ Matrix44 torpedo_model;
 bool attached_torpedo = true;
 */
 MyAudioBass* sample = new MyAudioBass();
-
+MyAudioBass* sample2 = new MyAudioBass();
 Game* Game::instance = NULL;
 std::map<std::string, Stage*> Stage::s_stages;
 Stage* Stage::current_state = NULL;
@@ -86,9 +86,12 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	//torpedo_model.setTranslation(0, -5, 0);
 
 	MyAudioBass::initBass();
-	sample = MyAudioBass::Get("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav");
+	sample = MyAudioBass::Get("data/sounds/250856__joshuaempyre__epic-orchestra-loop.wav",true);
+	
+	sample2 = MyAudioBass::Get("data/sounds/deadRobot.wav",true);
 	sample->PlaySoundAmbient();
-
+	sample2->PlaySoundAmbient();
+	
 
 	//hide the cursor
 	SDL_ShowCursor(!mouse_locked); //hide or show the mouse

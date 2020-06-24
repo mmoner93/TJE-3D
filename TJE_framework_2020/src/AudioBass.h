@@ -21,8 +21,8 @@ public:
 		//iniciado = true;
 	//};
 
-	bool load(const char* filename);
-	static MyAudioBass* Get(const char* filename);
+	bool load(const char* filename, bool loop);
+	static MyAudioBass* Get(const char* filename, bool loop);
 	static void initBass();
 	void setName(const char* filename) { sAudiosLoaded[filename] = this; }
 	void PlaySoundAmbient(); 
