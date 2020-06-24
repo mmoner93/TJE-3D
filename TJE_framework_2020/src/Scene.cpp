@@ -99,6 +99,12 @@ void Scene::pintarScene() {
 	pintarCajasLoot();
 	pintarGranades();
 	myPlayer->render(lightScene->light,fog_color);
+	if (vozOn && numLvl == 0) {
+
+		Game::instance->samplesAudio["TutorialJefe"]->PlaySoundAmbient();
+		vozOn = false;
+	}
+
 }
 
 void Scene::spawnTower() {
@@ -108,19 +114,32 @@ void Scene::spawnTower() {
 	Mesh* tempa = Mesh::Get("data/itemsUse/torre_final.obj");
 
 	srand(time(NULL));
-	for (int i = 0; i < numTowers; ) {
-		int tempWidth = rand() % mapGame->width * 9;
-		int tempHeight = rand() % mapGame->height * 9;
 
-		if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth>=10 && tempHeight>=10 && tempHeight <= ((mapGame->width * 9)-10) && tempWidth <= ((mapGame->width * 9) - 10)) {
 
-			towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa, NULL, "Game", 1.0f);
-			towerTemp->model->translateGlobal(float(tempHeight), 0, float(tempWidth));
-			TowersList.push_back(towerTemp);
-			i++;
+
+	if (numLvl != 0) {
+	
+		for (int i = 0; i < numTowers; ) {
+			int tempWidth = rand() % mapGame->width * 9;
+			int tempHeight = rand() % mapGame->height * 9;
+
+			if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= ((mapGame->width * 9) - 10) && tempWidth <= ((mapGame->width * 9) - 10)) {
+
+				towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa, NULL, "Game", 1.0f);
+				towerTemp->model->translateGlobal(float(tempHeight), 0, float(tempWidth));
+				TowersList.push_back(towerTemp);
+				i++;
+			}
+
 		}
-
 	}
+	else {
+		towerTemp = new EntityTowerArreglo(temp1, temp2, temp3, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), tempa, NULL, "Game", 1.0f);
+		towerTemp->model->translateGlobal(float(20), 0, float(100));
+		TowersList.push_back(towerTemp);
+	}
+
+
 
 
 
@@ -564,6 +583,9 @@ void Scene::restartLvl(std::map<std::string, Entity*> enemysMapSP) {
 	spawnTower();
 	spawnCajasLoot();
 	time_In_Game = 0.0f;
+	if (numLvl == 0) {
+		vozOn = true;
+	}
 	myPlayer->health = myPlayer->mejoras.maxHealth;
 	myPlayer->position=initPosPlayer;
 }
@@ -1157,23 +1179,39 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 		bool controlBucle = true;
 		EntityEnemy* temp;
-		while (controlBucle) {
 
-			int tempWidth = rand() % (mapGame->width * 9);
-			int tempHeight = rand() % (mapGame->height * 9);
+		if (numLvl != 0) {
+			while (controlBucle) {
 
-			if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= ((mapGame->width * 9) - 10) && tempWidth <= ((mapGame->width * 9) - 10)) {
-				temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(tempHeight), 0, float(tempWidth)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
-				temp->model->translate(float(tempHeight), 0, float(tempWidth));
-				if (enemy != 0) {
-					temp->loalAnim(enemy);
+				int tempWidth = rand() % (mapGame->width * 9);
+				int tempHeight = rand() % (mapGame->height * 9);
+
+				if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= ((mapGame->width * 9) - 10) && tempWidth <= ((mapGame->width * 9) - 10)) {
+					temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(tempHeight), 0, float(tempWidth)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+					temp->model->translate(float(tempHeight), 0, float(tempWidth));
+					if (enemy != 0) {
+						temp->loalAnim(enemy);
+					}
+					temp->is_node = true;
+					temp->actualState = ANDAR_TONTO;
+					temp->id_principal = cual;
+					controlBucle = false;
 				}
-				temp->is_node = true;
-				temp->actualState = ANDAR_TONTO;
-				temp->id_principal = cual;
-				controlBucle = false;
 			}
+		
+		
 		}
+		else {
+			temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(100), 0, float(100)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+			temp->model->translate(float(100), 0, float(100));
+			if (enemy != 0) {
+				temp->loalAnim(enemy);
+			}
+			temp->is_node = true;
+			temp->actualState = ANDAR_TONTO;
+			temp->id_principal = cual;
+		}
+		
 
 
 		//temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
@@ -1227,23 +1265,41 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 			bool controlBucle = true;
 			EntityEnemy* temp;
-			while (controlBucle) {
 
-				int tempWidth = rand() % (mapGame->width * 9);
-				int tempHeight = rand() % (mapGame->height * 9);
+			if (numLvl != 0) {
+			
+				while (controlBucle) {
 
-				if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= ((mapGame->width * 9) - 10) && tempWidth <= ((mapGame->width * 9) - 10)) {
-					temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(tempHeight), 0, float(tempWidth)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
-					temp->model->translate(float(tempHeight), 0, float(tempWidth));
-					if (enemy != 0) {
-						temp->loalAnim(enemy);
+					int tempWidth = rand() % (mapGame->width * 9);
+					int tempHeight = rand() % (mapGame->height * 9);
+
+					if (!generatorIA->detectCollision({ tempWidth, tempHeight }) && tempWidth >= 10 && tempHeight >= 10 && tempHeight <= ((mapGame->width * 9) - 10) && tempWidth <= ((mapGame->width * 9) - 10)) {
+						temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(tempHeight), 0, float(tempWidth)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+						temp->model->translate(float(tempHeight), 0, float(tempWidth));
+						if (enemy != 0) {
+							temp->loalAnim(enemy);
+						}
+						temp->is_node = false;
+						temp->actualState = ANDAR_TONTO;
+						temp->id_padre = nodosRobot[i];
+						controlBucle = false;
 					}
-					temp->is_node = false;
-					temp->actualState = ANDAR_TONTO;
-					temp->id_padre = nodosRobot[i];
-					controlBucle = false;
 				}
 			}
+			else
+			{
+				temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(40), 0, float(40)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);
+				temp->model->translate(float(40), 0, float(40));
+				if (enemy != 0) {
+					temp->loalAnim(enemy);
+				}
+				temp->is_node = false;
+				temp->actualState = ANDAR_TONTO;
+				temp->id_padre = nodosRobot[i];
+				
+			}
+
+			
 
 
 			//temp = new EntityEnemy(en->textura, en->shader, en->mesh, en->material, "game", Vector3(float(10), 0, float(10)), ((StagePlay*)Stage::getStage("Play"))->shaderFlatSP);

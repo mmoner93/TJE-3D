@@ -493,6 +493,8 @@ void StagePlay::inicializarScena() {
 
 	uiTexture = Texture::Get("data/UI/items.png");
 	uiTextureAmmo = Texture::Get("data/UI/items2.png");
+	uiTextureNoMap = Texture::Get("data/UI/itemsNoMap.png");
+	uiTextureAmmoNoMap = Texture::Get("data/UI/items2NoMap.png");
 	damage = Texture::Get("data/UI/vida.png");
 
 	mesh = Mesh::Get("data/cielo.ASE");
@@ -824,6 +826,8 @@ void StagePlay :: addPoint() {
 void StagePlay::render()
 {
 
+	
+
 	if (!controlInit) {
 		init();
 	}
@@ -870,11 +874,17 @@ void StagePlay::render()
 	glEnable(GL_CULL_FACE);
 	
 
-	if (gameSceneSP->myPlayer->mejoras.actualAmmo == T_PEGAMENTO) {
+	if (gameSceneSP->myPlayer->mejoras.actualAmmo == T_PEGAMENTO && gameSceneSP->myPlayer->mejoras.mejora_Mapa > 0) {
 		renderUI(0, uiTexture, 0.8f);
 	}
-	else {
+	else if(gameSceneSP->myPlayer->mejoras.actualAmmo == T_NORMAL && gameSceneSP->myPlayer->mejoras.mejora_Mapa > 0) {
 		renderUI(0, uiTextureAmmo, 0.8f);
+	}
+	else if (gameSceneSP->myPlayer->mejoras.actualAmmo == T_PEGAMENTO && gameSceneSP->myPlayer->mejoras.mejora_Mapa == 0) {
+		renderUI(0, uiTextureNoMap, 0.8f);
+	}
+	else if (gameSceneSP->myPlayer->mejoras.actualAmmo == T_NORMAL && gameSceneSP->myPlayer->mejoras.mejora_Mapa == 0) {
+		renderUI(0, uiTextureAmmoNoMap, 0.8f);
 	}
 	
 	if (gameSceneSP->myPlayer->mejoras.mejora_Mapa > 0) {

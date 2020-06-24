@@ -40,7 +40,7 @@ public:
 
 	Mesh* granadeMesh;
 	Texture* granadetTexture;
-
+	bool vozOn=true;
 
 	int contadorIdDisparo = 0;
 	int contadorIdDisparoPegamento = 0;

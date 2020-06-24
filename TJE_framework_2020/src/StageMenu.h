@@ -17,11 +17,18 @@ public:
 	Texture* select1 = NULL;
 	Texture* select2 = NULL;
 	Texture* select3 = NULL;
+	Texture* select4 = NULL;
+	Texture* select5 = NULL;
 	Texture* uiTexture = NULL;
 	Texture* introTexture = NULL;
 
+	Texture* tutorial1 = NULL;
+	Texture* tutorial2 = NULL;
+	Texture* tutorial3 = NULL;
+	Texture* controles = NULL;
+
 	int optionSelected = 1;
-	bool intro = true;
+	int cual = 0;
 
 	StageMenu() :Stage("Menu") {
 		iniciado = true;

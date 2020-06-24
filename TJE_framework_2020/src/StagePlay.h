@@ -22,7 +22,11 @@ public:
 	Material* materialSP;
 	Texture* uiTexture;
 	Texture* uiTextureAmmo;
+	Texture* uiTextureNoMap;
+	Texture* uiTextureAmmoNoMap;
 	Texture* damage;
+
+
 
 	//guardo la info de que dibujar segun type
 	//guardo la info de como dibujarlo
