@@ -963,6 +963,40 @@ bool EntityEnemy::checkTime(float seconds_elapsed) {
 
 }
 
+
+void EntityEnemy::sonidoKefe() {
+
+	int hacer = rand() % 8;
+	float time_Mio = ((StagePlay*)Stage::getStage("Play"))->gameSceneSP->time_walkie;
+
+
+	if (time_Mio <= 0.0f) {
+		switch (hacer)
+		{
+		case 0:
+			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->time_walkie = 5.0f;
+			Game::instance->samplesAudio["torresRepararJefe"]->PlaySoundAmbient();
+			break;
+		case 3:
+			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->time_walkie = 5.0f;
+			Game::instance->samplesAudio["repararJefe"]->PlaySoundAmbient();
+			break;
+		case 5:
+			((StagePlay*)Stage::getStage("Play"))->gameSceneSP->time_walkie = 6.0f;
+			Game::instance->samplesAudio["tuSalarioJefe"]->PlaySoundAmbient();
+			break;
+		default:
+			break;
+		}
+	
+	}
+	
+
+
+	
+}
+
+
 void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 
 	pointsSP.push_back(temp);
@@ -977,6 +1011,7 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 				pointsSP.clear();
 				pointsSPegamento.clear();
 				time_dead = 0.0f;
+				sonidoKefe();
 				Game::instance->samplesAudio["deadRobot"]->PlaySoundAmbient();
 			}
 		}
@@ -991,6 +1026,7 @@ void EntityEnemy::onReceveidShoot(Vector3 temp, Vector3 norm) {
 			pointsSP.clear();
 			pointsSPegamento.clear();
 			time_dead = 0.0f;
+			sonidoKefe();
 			Game::instance->samplesAudio["deadRobot"]->PlaySoundAmbient();
 		}
 	}

@@ -952,44 +952,7 @@ void StagePlay::update(double seconds_elapsed)
 	//actualizo para collisiones.
 	gameSceneSP->myPlayer->update(seconds_elapsed, gameSceneSP->mapaObjects);
 		
-	/*Avion
-	if (Input::isKeyPressed(SDL_SCANCODE_W) || Input::isKeyPressed(SDL_SCANCODE_UP)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
-	if (Input::isKeyPressed(SDL_SCANCODE_S) || Input::isKeyPressed(SDL_SCANCODE_DOWN)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(1, 0, 0));
-	if (Input::isKeyPressed(SDL_SCANCODE_A) || Input::isKeyPressed(SDL_SCANCODE_LEFT)) plane_model.rotate(-90 * seconds_elapsed * DEG2RAD, Vector3(0, 1, 0));
-	if (Input::isKeyPressed(SDL_SCANCODE_D) || Input::isKeyPressed(SDL_SCANCODE_RIGHT)) plane_model.rotate(90 * seconds_elapsed * DEG2RAD, Vector3(0, 1, 0));
-	if (Input::isKeyPressed(SDL_SCANCODE_Q)) plane_model.rotate(40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
-	if (Input::isKeyPressed(SDL_SCANCODE_E)) plane_model.rotate(-40 * seconds_elapsed * DEG2RAD, Vector3(0, 0, -1));
-	*/
 
-
-	//para disparar los puntos de colision
-	/*if (Input::isKeyPressed(SDL_SCANCODE_C)) {
-		addPoint();
-	}
-	*/
-
-	/* avion
-	if (Input::isKeyPressed(SDL_SCANCODE_F) && attached_torpedo)
-	{
-		attached_torpedo = false;
-		torpedo_model = torpedo_model * plane_model;
-		//torpedo_model.
-	}
-
-	if (!attached_torpedo) {
-		torpedo_model.translateGlobal(0, seconds_elapsed * -10, 0);
-		arbol2_model.translateGlobal(0, seconds_elapsed * -10, 0);
-	}
-
-
-	
-	if (!gameI->free_cam)
-	{
-		plane_model.translate(0, 0, seconds_elapsed * -avionSpeed);
-	}
-
-	*/
-	
 
 	//para que el cielo siga a la camara
 	gameSceneSP->cielo->model->setTranslation(cameraSP->center.x, cameraSP->center.y, cameraSP->center.z);

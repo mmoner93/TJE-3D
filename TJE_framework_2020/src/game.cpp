@@ -95,6 +95,11 @@ Game::Game(int window_width, int window_height, SDL_Window* window)
 	samplesAudio["impactoShoot"] = MyAudioBass::Get("data/sounds/impactoShoot.mp3", false);
 	samplesAudio["TutorialJefe"] = MyAudioBass::Get("data/sounds/TutorialJefe.mp3", false);
 	samplesAudio["cofre"] = MyAudioBass::Get("data/sounds/cofre.mp3", false);
+	samplesAudio["torresRepararJefe"] = MyAudioBass::Get("data/sounds/torresRepararJefe.mp3", false);
+	samplesAudio["repararJefe"] = MyAudioBass::Get("data/sounds/repararJefe.mp3", false);
+	samplesAudio["tuSalarioJefe"] = MyAudioBass::Get("data/sounds/tuSalarioJefe.mp3", false);
+	
+	
 	samplesAudio["ambiente"]->PlaySoundAmbient();
 	//sample2->PlaySoundAmbient();
 	

@@ -136,6 +136,7 @@ public:
 
 	bool estoyEnUsoIACalc();
 	void mirarSiPisoPegamento();
+	void sonidoKefe();
 
 };
 
