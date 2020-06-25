@@ -22,6 +22,7 @@ public:
 	EntityGameObject* suelo;
 	EntityGameObject* cielo;
 	std::vector<EntityGameObject*> mapaObjects;
+	std::vector<EntityGameObject*> decoracionList;
 	std::vector<EntityEnemy*> Enemys; 
 	GameMap* mapGame = NULL;
 	std::vector<Vector3> pointsSP;
@@ -202,12 +203,6 @@ public:
 		 
 		granadetTexture= Texture::Get("data/itemsUse/granade.png");
 		
-
-		//granadesMove = new EntityGranade(0,granadetTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"), granadeMesh, NULL, "game", Vector3(0, 0, 0));
-
-		//disparo = new EntityDisparo(disparoTexture, Shader::Get("data/shaders/basic.vs", "data/shaders/Game.fs"),disparoMesh,NULL,"game",Vector3(0,0,0),T_PEGAMENTO);
-		
-		//towerTemp->model->translateGlobal(15, 0, 15);
 	}
 
 	void addObject(EntityGameObject* temp);
@@ -255,7 +250,7 @@ public:
 	bool checkEndLvl();
 	void restartLvl(std::map<std::string, Entity*>);
 	int  idMasBajoMovimientoGranade();
-
+	void initListDecoracion();
 	int enemeysLeft();
 	int towersLeft();
 

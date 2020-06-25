@@ -69,15 +69,6 @@ void Scene::pintarScene() {
 	lightScene->render( lightScene->light,fog_color);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
-	/*	if (mapaObjects[i]->nameShader == "basic") {
-			mapaObjects[i]->renderTilling();
-		}
-		else if (mapaObjects[i]->nameShader == "phong") {
-			mapaObjects[i]->renderConPhong( lightScene->light);
-		}
-		else if (mapaObjects[i]->nameShader == "game") {
-			mapaObjects[i]->renderEspecial(lightScene->light);
-		}*/
 		mapaObjects[i]->render(lightScene->light,fog_color);
 
 	}
@@ -85,18 +76,9 @@ void Scene::pintarScene() {
 
 	for (int i = 0; i < Enemys.size(); i++) {
 
-		//if (Enemys[i]->aLive) {
-		//	Enemys[i]->render(lightScene->light);
-		//}
 		Enemys[i]->render(lightScene->light, fog_color);
 
 	}
-
-/*	Mesh points_mesh;
-	points_mesh.vertices = pointsSP;
-	if (pointsSP.size()) {
-		((StagePlay*)Stage::getStage("Play"))->renderPoints(Matrix44(), &points_mesh, 0);
-	}*/
 
 
 	pintarDisparos();
@@ -629,6 +611,18 @@ void Scene::emplacePegamento(Vector3 pos) {
 
 
 }
+
+
+void Scene::initListDecoracion() {
+	
+	for (int i = 0; i < MAX_DECORACION; i++) {
+	
+	}
+	
+	//decoracionList
+
+}
+
 
 void Scene::initListDisparos() {
 
