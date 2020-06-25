@@ -87,7 +87,7 @@ void StageMenu::update(double dt) {
 		if (Input::wasKeyPressed(SDL_SCANCODE_E)) {
 			if (optionSelected == 1) {
 				mapaChose = false;
-				Stage::changeState("SaveLoad");
+				Stage::changeState("SelectLVL");
 			}
 			else if (optionSelected == 2) {
 				mapaChose = false;
@@ -95,7 +95,8 @@ void StageMenu::update(double dt) {
 			}
 			else if (optionSelected == 3) {
 				mapaChose = false;
-				Stage::changeState("SelectLVL");
+				Stage::changeState("SaveLoad");
+				
 			}
 			else if (optionSelected == 5) {
 				mapaChose = false;

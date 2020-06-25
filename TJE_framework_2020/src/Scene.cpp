@@ -510,8 +510,8 @@ void Scene::activateDisparoPegamento(Vector3 origin, Vector3 dir) {
 
 	if (control) {
 		int alto = idMasBajoPegamento();
-		if (alto == -1)
-			std::cout << "Ha salido -1";
+		//if (alto == -1)
+			//std::cout << "Ha salido -1";
 		alto++;
 
 		for (int i = 0; i < disparosPegamentoMove.size(); i++) {
@@ -739,7 +739,7 @@ bool Scene::loadWalls() {
 
 	FILE* fp = fopen(name.c_str(), "rb");
 	if (fp == NULL) {
-		std::cout << "No se encuentra archivo apaIAConfig.txt "  << std::endl;
+		std::cout << "No se encuentra archivo mapaIAConfig.txt "  << std::endl;
 		return false;
 	}
 	else {
@@ -803,7 +803,7 @@ void Scene::writeWalls() {
 	}
 
 	fclose(fp);
-	std::cout << "Archivo creado apaIAConfig.txt " << std::endl;
+	std::cout << "Archivo creado mapaIAConfig.txt " << std::endl;
 	std::cout << "Size de escritura de walls : " << generatorIA->walls.size() << std::endl;
 }
 
@@ -1222,7 +1222,7 @@ void Scene::updateDecoracion(float seconds_elapsed) {
 			}
 			decoracionList[i]->model->setTranslation(y, 20, posit.z + seconds_elapsed * (10+i));
 			decoracionList[i]->model->rotate(180 * DEG2RAD, Vector3(0, 1, 0));
-			std::cout << "POS " << posit.z + seconds_elapsed * 10 << std::endl;
+			//std::cout << "POS " << posit.z + seconds_elapsed * 10 << std::endl;
 			
 		}
 		else {
@@ -1254,7 +1254,7 @@ void Scene::updateDecoracion(float seconds_elapsed) {
 			}
 			decoracionList[i]->model->setTranslation(posit.x + seconds_elapsed * (10 + i), 20, y);
 			decoracionList[i]->model->rotate(90 * DEG2RAD, Vector3(0, 1, 0));
-			std::cout << "POS " << posit.z + seconds_elapsed * 10 << std::endl;
+			//std::cout << "POS " << posit.z + seconds_elapsed * 10 << std::endl;
 		
 		}
 	}
