@@ -515,7 +515,7 @@ void StagePlay::inicializarScena() {
 	Lvls[0]->loadEnemys(enemysMapSP);
 	Lvls[0]->initListDisparos();
 	Lvls[0]->spawnTower();
-
+	Lvls[0]->initDecoracion();
 	mesh = Mesh::Get("data/cielo.ASE");
 	xs = Texture::Get("data/cielo2.png");
 	entityCielo = new EntityGameObject(xs, shaderBasicSP, mesh, materialSP, "basic", 1.0f, 1.0f);
@@ -535,7 +535,7 @@ void StagePlay::inicializarScena() {
 	Lvls[1]->loadEnemys(enemysMapSP);
 	Lvls[1]->initListDisparos();
 	Lvls[1]->spawnTower();
-
+	Lvls[1]->initDecoracion();
 	mesh = Mesh::Get("data/cielo.ASE");
 	xs = Texture::Get("data/cielo3.png");
 
@@ -556,7 +556,7 @@ void StagePlay::inicializarScena() {
 	Lvls[2]->loadEnemys(enemysMapSP);
 	Lvls[2]->initListDisparos();
 	Lvls[2]->spawnTower();
-
+	Lvls[2]->initDecoracion();
 
 	mesh = Mesh::Get("data/cielo.ASE");
 	xs = Texture::Get("data/cielo4.png");
@@ -578,7 +578,7 @@ void StagePlay::inicializarScena() {
 	Lvls[3]->loadEnemys(enemysMapSP);
 	Lvls[3]->initListDisparos();
 	Lvls[3]->spawnTower();
-
+	Lvls[3]->initDecoracion();
 	mesh = Mesh::Get("data/cielo.ASE");
 	xs = Texture::Get("data/cielo5.png");
 
@@ -599,7 +599,7 @@ void StagePlay::inicializarScena() {
 	Lvls[4]->loadEnemys(enemysMapSP);
 	Lvls[4]->initListDisparos();
 	Lvls[4]->spawnTower();
-
+	Lvls[4]->initDecoracion();
 
 	mesh = Mesh::Get("data/cielo.ASE");
 	xs = Texture::Get("data/cielo6.png");
@@ -621,7 +621,7 @@ void StagePlay::inicializarScena() {
 	Lvls[5]->loadEnemys(enemysMapSP);
 	Lvls[5]->initListDisparos();
 	Lvls[5]->spawnTower();
-
+	Lvls[5]->initDecoracion();
 
 	mesh = Mesh::Get("data/cielo.ASE");
 	xs = Texture::Get("data/cielo3.png");
@@ -643,7 +643,7 @@ void StagePlay::inicializarScena() {
 	Lvls[6]->loadEnemys(enemysMapSP);
 	Lvls[6]->initListDisparos();
 	Lvls[6]->spawnTower();
-
+	Lvls[6]->initDecoracion();
 	mesh = Mesh::Get("data/cielo.ASE");
 	xs = Texture::Get("data/cielo2.png");
 
@@ -663,7 +663,7 @@ void StagePlay::inicializarScena() {
 	Lvls[7]->loadEnemys(enemysMapSP);
 	Lvls[7]->initListDisparos();
 	Lvls[7]->spawnTower();
-
+	Lvls[7]->initDecoracion();
 	mesh = Mesh::Get("data/cielo.ASE");
 	xs = Texture::Get("data/cielo5.png");
 
@@ -682,7 +682,7 @@ void StagePlay::inicializarScena() {
 	Lvls[8]->loadEnemys(enemysMapSP);
 	Lvls[8]->initListDisparos();
 	Lvls[8]->spawnTower();
-
+	Lvls[8]->initDecoracion();
 	//gameSceneSP = Lvls[0];
 
 
@@ -867,7 +867,7 @@ void StagePlay::render()
 
 	//render the FPS, Draw Calls, etc
 	drawText(2, 2, getGPUStats(), Vector3(1, 1, 1), 2);
-	drawText(2, 18, "Enemys "+ std::to_string(gameSceneSP->enemeysLeft()) + "/"+ std::to_string(gameSceneSP->numEnemysNode), Vector3(1, 1, 1), 2);
+	drawText(2, 18, "Enemies "+ std::to_string(gameSceneSP->enemeysLeft()) + "/"+ std::to_string(gameSceneSP->numEnemysNode), Vector3(1, 1, 1), 2);
 	drawText(2, 34, "Towers " + std::to_string(gameSceneSP->towersLeft()) + "/" + std::to_string(gameSceneSP->TowersList.size()), Vector3(1, 1, 1), 2);
 	drawText(400, 295, "X", Vector3(1, 1, 1), 2);
 

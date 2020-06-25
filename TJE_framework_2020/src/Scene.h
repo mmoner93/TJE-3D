@@ -254,6 +254,11 @@ public:
 	int enemeysLeft();
 	int towersLeft();
 
+
+	void initDecoracion();
+	void PintarDecoracion();
+	void updateDecoracion(float seconds_elapsed);
+
 };
 
 

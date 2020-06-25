@@ -57,6 +57,9 @@ void Scene :: updateScene(float seconds_elapsed) {
 	}
 
 
+	updateDecoracion(seconds_elapsed);
+
+
 }
 void Scene::pintarScene() {
 	glDisable(GL_DEPTH_TEST);
@@ -85,6 +88,7 @@ void Scene::pintarScene() {
 	pintarTowerArreglo();
 	pintarCajasLoot();
 	pintarGranades();
+	PintarDecoracion();
 	myPlayer->render(lightScene->light,fog_color);
 	if (vozOn && numLvl == 0) {
 		time_walkie = 124.0f;
@@ -195,7 +199,7 @@ void Scene::pintarDisparos() {
 
 
 
-
+	
 	if (disparosMoveM.size() > 0) {
 		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
 		shader->enable();
@@ -1088,6 +1092,177 @@ void  Scene::LoadMap(std::vector<Entity*> EntityVector) {
 
 }
 
+void Scene::initDecoracion() {
+	EntityGameObject* temp;
+	int z;
+	int x;
+	for (int i = 0; i < 11; i++) {
+		temp = new EntityGameObject(Texture::Get("data/escena/nave.png"), Shader::Get("data/shaders/basic.vs", "data/shaders/texture.fs"), Mesh::Get("data/escena/nave.obj"), NULL, "game");
+		switch (i) {
+		case 0:
+			z = 0;
+			x = 0;
+			break;
+		case 1:
+			z = 40;
+			x = 0;
+			break;
+		case 2:
+			z = 110;
+			x = 0;
+			break;
+		case 3:
+			z = 190;
+			x = 0;
+			break;
+		case 4:
+			z = 240;
+			x = 0;
+			break;
+		case 5:
+			z = 350;
+			x = 0;
+			break;
+		case 6:
+			x = 40;
+			z = 0;
+			break;
+		case 7:
+			x = 190;
+			z = 0;
+			break;
+		case 8:
+			x = 110;
+			z = 0;
+			break;
+		case 9:
+			x = 0;
+			z = 0;
+			break;
+		case 10:
+			x = 240;
+			z = 0;
+			break;
+		case 11:
+			x = 350;
+			z = 0;
+			break;
+		}
+
+
+
+		temp->model->setTranslation(x, 20, z);
+		decoracionList.push_back(temp);
+	
+	}
+
+}
+
+
+void Scene::PintarDecoracion() {
+	EntityGameObject* temp;
+
+
+	disparosMoveM.clear();
+
+	for (int i = 0; i < decoracionList.size(); i++) {
+		
+			//EntitysImpactoPegamento[i]->render(lightScene->light);
+			disparosMoveM.push_back(*(decoracionList[i]->model));
+		
+	}
+
+
+	if (disparosMoveM.size() > 0) {
+		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
+		shader->enable();
+		shader->setUniform("u_viewprojection", Camera::current->viewprojection_matrix);//camera->viewprojection_matrix);
+		shader->setUniform("u_texture", decoracionList[0]->textura, 0);
+		shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+		shader->setFloat("u_tilling", 1.0);
+		decoracionList[0]->mesh->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());
+		shader->disable();
+	}
+
+	
+
+}
+
+void Scene::updateDecoracion(float seconds_elapsed) {
+
+	int y;
+
+	for (int i = 0; i < decoracionList.size(); i++) {
+		
+		if (i >= 0 && i <= 5) {
+			Vector3 posit= decoracionList[i]->model->getTranslation();
+
+			if ((posit.z + seconds_elapsed * 10) > 370.0f) {
+				posit.z = -170.0f;
+			}
+			switch (i) {
+			case 0:
+				y = 0;
+				break;
+			case 1:
+				y = 40;
+				break;
+			case 2:
+				y = 110;
+				break;
+			case 3:
+				y = 190;
+				break;
+			case 4:
+				y = 240;
+				break;
+			case 5:
+				y = 350;
+				break;
+			}
+			decoracionList[i]->model->setTranslation(y, 20, posit.z + seconds_elapsed * (10+i));
+			decoracionList[i]->model->rotate(180 * DEG2RAD, Vector3(0, 1, 0));
+			std::cout << "POS " << posit.z + seconds_elapsed * 10 << std::endl;
+			
+		}
+		else {
+		
+			Vector3 posit = decoracionList[i]->model->getTranslation();
+
+			if ((posit.x + seconds_elapsed * 10) > 370.0f) {
+				posit.x = -170.0f;
+			}
+			switch (i) {
+			case 6:
+				y = 0;
+				break;
+			case 7:
+				y = 40;
+				break;
+			case 8:
+				y = 110;
+				break;
+			case 9:
+				y = 190;
+				break;
+			case 10:
+				y = 240;
+				break;
+			case 11:
+				y = 350;
+				break;
+			}
+			decoracionList[i]->model->setTranslation(posit.x + seconds_elapsed * (10 + i), 20, y);
+			decoracionList[i]->model->rotate(90 * DEG2RAD, Vector3(0, 1, 0));
+			std::cout << "POS " << posit.z + seconds_elapsed * 10 << std::endl;
+		
+		}
+	}
+
+}
+
+
+
 bool Scene::checkEndLvl() {
 
 	int control = 0;
@@ -1334,14 +1509,39 @@ void Scene::loadEnemys(std::map<std::string, Entity*> enemysMap) {
 
 void Scene::pintarCajasLoot() {
 
-	for (int i = 0; i < cajasLoot.size(); i++) {
+	/*for (int i = 0; i < cajasLoot.size(); i++) {
 		if (cajasLoot[i]->in_use) {
 			cajasLoot[i]->render(lightScene->light,fog_color);
 		}
 
+	}*/
+
+
+	disparosMoveM.clear();
+
+	for (int i = 0; i < cajasLoot.size(); i++) {
+		if (cajasLoot[i]->in_use) {
+			cajasLoot[i]->model->setTranslation(cajasLoot[i]->position.x, cajasLoot[i]->position.y, cajasLoot[i]->position.z);
+			cajasLoot[i]->model->rotate(45 * cajasLoot[i]->time_passed * DEG2RAD, Vector3(0, 1, 0));
+			cajasLoot[i]->model->scale(0.5f, 0.5f, 0.5f);
+			disparosMoveM.push_back(*(cajasLoot[i]->model));
+		}
+		//EntitysImpactoPegamento[i]->render(lightScene->light);
+	
+
 	}
 
 
+	if (disparosMoveM.size() > 0) {
+		Shader* shader = Shader::Get("data/shaders/instanced.vs", "data/shaders/texture.fs");
+		shader->enable();
+		shader->setUniform("u_viewprojection", Camera::current->viewprojection_matrix);//camera->viewprojection_matrix);
+		shader->setUniform("u_texture", cajasLoot[0]->textura, 0);
+		shader->setUniform("u_color", Vector4(1, 1, 1, 1));
+		shader->setFloat("u_tilling", 1.0);
+		cajasLoot[0]->mesh->renderInstanced(GL_TRIANGLES, &(disparosMoveM[0]), (int)disparosMoveM.size());
+		shader->disable();
+	}
 
 }
 
