@@ -356,7 +356,7 @@ Vector3 EntityPlayer::testCollision(Vector3 target_pos, float seconds_elapsed, s
 		/*if(mesh->testRayCollision(*(en->model), character_center, Vector3(0,0, 1), coll, collnorm,15.0f,true) == false)
 			continue;*/
 		has_collision = true;
-		std::cout << "He colisionao"<<std::endl;
+		//std::cout << "He colisionao"<<std::endl;
 		Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 		target_pos = position - push_away*((vel_x+vel_y).length() * 1.5);
 		target_pos.y = 0;

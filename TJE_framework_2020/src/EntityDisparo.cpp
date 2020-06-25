@@ -158,7 +158,7 @@ Vector3 EntityDisparo::testCollision(Vector3 target_pos, float seconds_elapsed, 
 
 
 
-			std::cout << "Soy pos enemy x " << en->model->getTranslation().x << " y " << en->model->getTranslation().y << "z " << en->model->getTranslation().z << std::endl;
+			//std::cout << "Soy pos enemy x " << en->model->getTranslation().x << " y " << en->model->getTranslation().y << "z " << en->model->getTranslation().z << std::endl;
 
 
 			has_collision = true;

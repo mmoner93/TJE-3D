@@ -102,7 +102,7 @@ Vector3 EntityGranade::testCollision(Vector3 target_pos, float seconds_elapsed, 
 
 
 
-			std::cout << "Soy pos enemy x " << en->model->getTranslation().x << " y " << en->model->getTranslation().y << "z " << en->model->getTranslation().z << std::endl;
+			//std::cout << "Soy pos enemy x " << en->model->getTranslation().x << " y " << en->model->getTranslation().y << "z " << en->model->getTranslation().z << std::endl;
 
 
 			has_collision = true;
@@ -118,7 +118,7 @@ Vector3 EntityGranade::testCollision(Vector3 target_pos, float seconds_elapsed, 
 			break;
 
 
-			std::cout << "He colisionao" << std::endl;
+			//std::cout << "He colisionao" << std::endl;
 			//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 			//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
 			//target_pos.y = 0;
@@ -156,7 +156,7 @@ Vector3 EntityGranade::testCollision(Vector3 target_pos, float seconds_elapsed, 
 
 
 
-		std::cout << "Soy pos enemy x " << en->model->getTranslation().x << " y " << en->model->getTranslation().y << "z " << en->model->getTranslation().z << std::endl;
+		//std::cout << "Soy pos enemy x " << en->model->getTranslation().x << " y " << en->model->getTranslation().y << "z " << en->model->getTranslation().z << std::endl;
 
 
 		has_collision = true;
@@ -171,7 +171,7 @@ Vector3 EntityGranade::testCollision(Vector3 target_pos, float seconds_elapsed, 
 		break;
 
 
-		std::cout << "He colisionao" << std::endl;
+		//std::cout << "He colisionao" << std::endl;
 		//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 		//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
 		//target_pos.y = 0;
@@ -219,7 +219,7 @@ Vector3 EntityGranade::testCollision(Vector3 target_pos, float seconds_elapsed, 
 		in_use = false;
 		break;
 
-		std::cout << "He colisionao" << std::endl;
+		//std::cout << "He colisionao" << std::endl;
 		//Vector3 push_away = normalize(coll - character_center) * seconds_elapsed;
 		//target_pos = position - push_away * ((vel_x + vel_y).length() * 1.5);
 		//target_pos.y = 0;

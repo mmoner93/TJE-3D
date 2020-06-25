@@ -23,6 +23,8 @@ public:
 	Texture* select24 = NULL;
 	Texture* uiTexture = NULL;
 
+	int contadorTrampa = 0;
+
 	int optionSelectedFila = 1;
 	int optionSelected = 1;
 	StageShop() :Stage("Shop") {

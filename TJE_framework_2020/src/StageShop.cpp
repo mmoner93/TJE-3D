@@ -136,6 +136,15 @@ void StageShop::update(double dt) {
 	}
 
 
+	if (Input::wasKeyPressed(SDL_SCANCODE_P)) {
+		contadorTrampa++;
+
+		if (contadorTrampa == 3) {
+			tempP->mejoras.coins = tempP->mejoras.coins + 1000;
+			contadorTrampa = 0;
+		}
+	}
+
 	if (optionSelected == 1) {
 		if (optionSelectedFila == 1) {
 			uiTexture = select11;

@@ -24,7 +24,7 @@ public:
 
 
 	int mejora_Mapa = 0;
-	int coins = 1000;
+	int coins = 0;
 	bool arma2Comprada=false;
 
 	int bestPuntuacion0 = 0;

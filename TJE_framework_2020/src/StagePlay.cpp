@@ -457,10 +457,10 @@ void StagePlay::inicializarScena() {
 
 	player->mejoras.actualAmmo = T_PEGAMENTO;
 	player->mejoras.ammoPegamento = 5;
-	player->mejoras.ammoDisparo = 1000;
+	player->mejoras.ammoDisparo = 50;
 	
 	player->mejoras.actualGranade = "pegamento";
-	player->mejoras.ammoGranada = 5;
+	player->mejoras.ammoGranada = 2;
 	Texture* xs;
 	
 
