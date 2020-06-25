@@ -60,13 +60,13 @@ void Scene :: updateScene(float seconds_elapsed) {
 }
 void Scene::pintarScene() {
 	glDisable(GL_DEPTH_TEST);
-	 cielo->renderTilling();
+	cielo->renderTilling();
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	suelo->render(lightScene->light,fog_color);
+	//suelo->render(lightScene->light,fog_color);
 
-	lightScene->render( lightScene->light,fog_color);
+	//lightScene->render( lightScene->light,fog_color);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
 	/*	if (mapaObjects[i]->nameShader == "basic") {
@@ -78,7 +78,7 @@ void Scene::pintarScene() {
 		else if (mapaObjects[i]->nameShader == "game") {
 			mapaObjects[i]->renderEspecial(lightScene->light);
 		}*/
-		mapaObjects[i]->render(lightScene->light,fog_color);
+		//mapaObjects[i]->render(lightScene->light,fog_color);
 
 	}
 
@@ -88,7 +88,7 @@ void Scene::pintarScene() {
 		//if (Enemys[i]->aLive) {
 		//	Enemys[i]->render(lightScene->light);
 		//}
-		Enemys[i]->render(lightScene->light, fog_color);
+		//Enemys[i]->render(lightScene->light, fog_color);
 
 	}
 
@@ -99,11 +99,11 @@ void Scene::pintarScene() {
 	}*/
 
 
-	pintarDisparos();
-	pintarTowerArreglo();
-	pintarCajasLoot();
-	pintarGranades();
-	myPlayer->render(lightScene->light,fog_color);
+	//pintarDisparos();
+	//pintarTowerArreglo();
+	//pintarCajasLoot();
+	//pintarGranades();
+	//myPlayer->render(lightScene->light,fog_color);
 	if (vozOn && numLvl == 0) {
 		time_walkie = 124.0f;
 		tutorialChannel =Game::instance->samplesAudio["TutorialJefe"]->PlaySoundAmbient();

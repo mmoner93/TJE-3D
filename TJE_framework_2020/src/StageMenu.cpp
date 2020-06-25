@@ -1,4 +1,5 @@
 #include "StageMenu.h"
+#include "StagePlay.h"
 
 
 void StageMenu::render() {
@@ -8,6 +9,11 @@ void StageMenu::render() {
 	/*drawText(20, 20, "Press P to Select LVL", Vector3(1, 1, 1), 2);
 	drawText(20, 40, "Press S to Shop", Vector3(1, 1, 1), 2);
 	drawText(20, 60, "Press L to Load/Save", Vector3(1, 1, 1), 2);*/
+	if (((StagePlay*)Stage::getStage("Play"))->Lvls[0] != NULL) {
+		((StagePlay*)Stage::getStage("Play"))->init();
+		((StagePlay*)Stage::getStage("Play"))->Lvls[1]->pintarScene();
+	}
+		
 	if (cual==0){
 		renderUI(0, introTexture, 1);
 	}
@@ -17,6 +23,15 @@ void StageMenu::render() {
 	SDL_GL_SwapWindow(Game::instance->window);
 }
 void StageMenu::update(double dt) {
+	//
+	float r = 100;
+	float x = r * cos(Game::instance->elapsed_time);
+	float y = r * sin(Game::instance->elapsed_time);
+	//trasladar
+	//apuntar al centro
+	Camera* aux = Camera::current;
+	//aux->center = Vector3(x, 10.0f, y);
+	//Vector3
 	if (cual == 1) {
 		if (Input::wasKeyPressed(SDL_SCANCODE_W)) {
 			optionSelected -= 1;
