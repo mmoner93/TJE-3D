@@ -26,10 +26,12 @@ public:
 	Texture* tutorial2 = NULL;
 	Texture* tutorial3 = NULL;
 	Texture* controles = NULL;
-
+	Camera* cameraSP;
 	int optionSelected = 1;
 	int cual = 0;
 
+	int queMapa=1;
+	bool mapaChose = false;
 	StageMenu() :Stage("Menu") {
 		iniciado = true;
 	};
@@ -37,6 +39,7 @@ public:
 	void render();
 	void update(double dt);
 	void init();
+	void elegirMapa();
 
 
 };

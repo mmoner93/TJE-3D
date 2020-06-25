@@ -9,10 +9,10 @@ void StageMenu::render() {
 	/*drawText(20, 20, "Press P to Select LVL", Vector3(1, 1, 1), 2);
 	drawText(20, 40, "Press S to Shop", Vector3(1, 1, 1), 2);
 	drawText(20, 60, "Press L to Load/Save", Vector3(1, 1, 1), 2);*/
-	if (((StagePlay*)Stage::getStage("Play"))->Lvls[0] != NULL) {
-		((StagePlay*)Stage::getStage("Play"))->init();
-		((StagePlay*)Stage::getStage("Play"))->Lvls[1]->pintarScene();
-	}
+	cameraSP->enable();
+	
+		((StagePlay*)Stage::getStage("Play"))->Lvls[queMapa]->pintarScene();
+	
 		
 	if (cual==0){
 		renderUI(0, introTexture, 1);
@@ -22,15 +22,36 @@ void StageMenu::render() {
 	}
 	SDL_GL_SwapWindow(Game::instance->window);
 }
+
+void StageMenu::elegirMapa() {
+	int l = rand() % 6;
+
+	l = l + 1;
+
+
+	queMapa = l;
+	mapaChose = true;
+}
+
+
 void StageMenu::update(double dt) {
 	//
-	float r = 100;
-	float x = r * cos(Game::instance->elapsed_time);
-	float y = r * sin(Game::instance->elapsed_time);
+	if (!mapaChose) {
+		elegirMapa();
+	}
+	
+
+
+	float r = 200;
+	float x = r * cos(Game::instance->time/2);
+	float y = r * sin(Game::instance->time/2);
 	//trasladar
 	//apuntar al centro
 	Camera* aux = Camera::current;
 	//aux->center = Vector3(x, 10.0f, y);
+	aux->view_matrix.setIdentity();
+	aux->center = Vector3(x+50.0, -10.0f, y+50.0);
+	aux->move(Vector3(x + 50.0, -10.0f, y + 50.0));
 	//Vector3
 	if (cual == 1) {
 		if (Input::wasKeyPressed(SDL_SCANCODE_W)) {
@@ -65,19 +86,24 @@ void StageMenu::update(double dt) {
 
 		if (Input::wasKeyPressed(SDL_SCANCODE_E)) {
 			if (optionSelected == 1) {
+				mapaChose = false;
 				Stage::changeState("SaveLoad");
 			}
 			else if (optionSelected == 2) {
+				mapaChose = false;
 				Stage::changeState("Shop");
 			}
 			else if (optionSelected == 3) {
+				mapaChose = false;
 				Stage::changeState("SelectLVL");
 			}
 			else if (optionSelected == 5) {
+				mapaChose = false;
 				uiTexture = tutorial1;
 				cual = 2;
 			}
 			else if (optionSelected == 4) {
+				mapaChose = false;
 				uiTexture = controles;
 				cual = 5;
 			}
@@ -125,6 +151,11 @@ void StageMenu::update(double dt) {
 
 }
 void StageMenu::init() {
+
+	cameraSP = new Camera();
+	cameraSP->lookAt(Vector3(0.f, 10.f, 10.f), Vector3(100.f, 20.f, 100.f), Vector3(0.f, 1.f, 0.f)); //position the camera and point to 0,0,0
+	cameraSP->setPerspective(70.f, Game::instance->window_width / (float)Game::instance->window_height, 0.1f, 100000.f); //set the projection, we want to be perspective
+
 	select1 = Texture::Get("data/UI/menu/selected1.png");
 	select2 = Texture::Get("data/UI/menu/selected2.png");
 	select3 = Texture::Get("data/UI/menu/selected3.png");

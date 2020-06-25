@@ -64,46 +64,29 @@ void Scene::pintarScene() {
 	glDisable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	//suelo->render(lightScene->light,fog_color);
+	suelo->render(lightScene->light,fog_color);
 
-	//lightScene->render( lightScene->light,fog_color);
+	lightScene->render( lightScene->light,fog_color);
 	for (int i = 0; i < mapaObjects.size(); i++) {
 
-	/*	if (mapaObjects[i]->nameShader == "basic") {
-			mapaObjects[i]->renderTilling();
-		}
-		else if (mapaObjects[i]->nameShader == "phong") {
-			mapaObjects[i]->renderConPhong( lightScene->light);
-		}
-		else if (mapaObjects[i]->nameShader == "game") {
-			mapaObjects[i]->renderEspecial(lightScene->light);
-		}*/
-		//mapaObjects[i]->render(lightScene->light,fog_color);
+		mapaObjects[i]->render(lightScene->light,fog_color);
 
 	}
 
 
 	for (int i = 0; i < Enemys.size(); i++) {
 
-		//if (Enemys[i]->aLive) {
-		//	Enemys[i]->render(lightScene->light);
-		//}
-		//Enemys[i]->render(lightScene->light, fog_color);
+		
+		Enemys[i]->render(lightScene->light, fog_color);
 
 	}
 
-/*	Mesh points_mesh;
-	points_mesh.vertices = pointsSP;
-	if (pointsSP.size()) {
-		((StagePlay*)Stage::getStage("Play"))->renderPoints(Matrix44(), &points_mesh, 0);
-	}*/
 
-
-	//pintarDisparos();
-	//pintarTowerArreglo();
-	//pintarCajasLoot();
-	//pintarGranades();
-	//myPlayer->render(lightScene->light,fog_color);
+	pintarDisparos();
+	pintarTowerArreglo();
+	pintarCajasLoot();
+	pintarGranades();
+	myPlayer->render(lightScene->light,fog_color);
 	if (vozOn && numLvl == 0) {
 		time_walkie = 124.0f;
 		tutorialChannel =Game::instance->samplesAudio["TutorialJefe"]->PlaySoundAmbient();
